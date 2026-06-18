@@ -1,2 +1,2 @@
 # LUMEN
-En este repositorio se aloja el proyecto de Lumen
+en este repositorio se aloja la web de lumen

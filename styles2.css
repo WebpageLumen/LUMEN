@@ -1,0 +1,1093 @@
+/* =========================================================
+   VARIABLES DEL TEMA – MODO CLARO
+   Define todos los colores, sombras y radios del sitio.
+   Modificar aquí afecta globalmente el diseño.
+========================================================= */
+:root {
+  /* Colores principales de marca */
+  --gold:           #f7c94b;
+  --gold-dark:      #e8a800;
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+  --blue-figure:    #5ab0e8;
+  --purple-brand:   #9b7fe8;
+  --yellow-brand:   #f9c74f;
+  --green-brand:    #90be6d;
+ 
+  /* Colores de texto en modo claro */
+  --text-main:      #2d4a6e;
+  --text-soft:      #5a7da0;
+  --text-light:     #8aafc8;
+ 
+  /* Colores de fondo en modo claro */
+  --bg-body:        #f0f7fd;
+  --bg-hero:        #dff0fb;
+  --bg-card:        #ffffff;
+  --bg-card-lavel:  #ffffff;
+  --bg-sections:    #ffffff;
+  --bg-shop:        #ede7f6;
+  --bg-footer:      #b8ddf5;
+ 
+  /* Fondo de la navbar: blanco sólido en modo claro */
+  --bg-navbar:      #ffffff;
+  /* Color de los links de la navbar en modo claro */
+  --nav-link-color: #2d4a6e;
+  /* Borde inferior de la navbar */
+  --nav-border:     rgba(74,144,217,.15);
+ 
+  /* Bordes y sombras */
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+ 
+  /* Radios y transición global */
+  --radius-pill:    999px;
+  --radius-card:    22px;
+  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+}
+ 
+/* =========================================================
+   MODO OSCURO
+   Se activa cuando el <html> tiene data-theme="dark".
+   Sobreescribe las variables del modo claro con versiones oscuras.
+   Cómo funciona: JavaScript agrega data-theme="dark" al <html>
+   y estas variables reemplazan automáticamente a las del :root.
+========================================================= */
+[data-theme="dark"] {
+  /* Fondos oscuros para cada sección */
+  --bg-body:        #0f1923;
+  --bg-hero:        #111e2d;
+  --bg-card:        rgba(30,50,80,.6);
+  --bg-sections:    #12202e;
+  --bg-shop:        #1e1535;
+  --bg-footer:      #0d1b2a;
+ 
+  /* Navbar oscura: fondo semi-transparente con blur */
+  --bg-navbar:      rgba(15,25,35,.95);
+  /* Links de la navbar en modo oscuro */
+  --nav-link-color: #c8dff0;
+  /* Borde inferior más visible en modo oscuro */
+  --nav-border:     rgba(74,144,217,.2);
+ 
+  /* Textos adaptados para fondos oscuros */
+  --text-main:      #e0eaf4;
+  --text-soft:      #8aafc8;
+  --text-light:     #5a7da0;
+ 
+  /* Bordes y sombras en modo oscuro */
+  --border-card:    rgba(74,144,217,.22);
+  --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
+  --shadow-card:    0 6px 28px rgba(0,0,0,.3);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
+ 
+  /* Azules ligeramente más claros para mejor contraste */
+  --blue-brand:     #5aa3e8;
+  --blue-dark:      #7bb8f0;
+}
+ 
+/* =========================================================
+   RESET BASE
+   Elimina márgenes y paddings por defecto del navegador
+========================================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+html {
+  scroll-behavior: smooth;
+  /* Transición suave al cambiar de tema */
+  transition: background-color .3s ease, color .3s ease;
+}
+ 
+body {
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  color: var(--text-main);
+  /* Transición al cambiar tema afecta fondo y texto del body */
+  transition: background-color .3s ease, color .3s ease;
+}
+ 
+/* =========================================================
+   NAVBAR – Barra de navegación principal
+   Modificada para coincidir con el diseño de referencia:
+   - Fondo blanco en modo claro, oscuro en modo dark
+   - Borde inferior sutil
+   - Logo izquierda | Links centro | Controles derecha
+========================================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 32px;
+
+  background: var(--bg-navbar);
+  border-bottom: 1.5px solid var(--nav-border);
+
+  backdrop-filter: blur(12px);
+
+  transition: background .3s ease, border-color .3s ease;
+
+  flex-wrap: wrap;
+}
+ 
+/*Logo de la barra de navegacion
+   Posicionado a la izquierda, combina imagen + texto */
+.nav-logo {
+  display: flex;
+  align-items: left;
+  gap: 6px;
+  flex-shrink: 0; /* Evita que el logo se encoja */
+  text-decoration: none;
+}
+ 
+/* Imagen del logo */
+.logo-img {
+  width: 170px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* LINKS DE NAVEGACIÓN */
+.nav-links {
+  display: flex;
+  align-items: right;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: right;
+  flex: 1; /* Ocupa el espacio central disponible */
+}
+ 
+/* Estilo base de cada botón de navegación */
+.nav-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+/* Color del texto adaptado a la variable del tema */
+
+  color: var(--nav-link-color);
+
+ /* Fondo transparente con bordes redondeados */
+
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition: var(--transition);
+}
+
+/* Hover: fondo azul muy suave */
+.nav-btn:hover {
+  background: rgba(74,144,217,.08);
+  color: var(--blue-brand);
+}
+ 
+/* Estado activo: pill azul sólido (solo para "Inicio") */
+.nav-btn.active {
+  background: var(--blue-brand);
+  color: #ffffff;
+  padding: 7px 20px;
+}
+ 
+.nav-btn.active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+ 
+/* CONTROLES DERECHOS – botón de tema + idioma*/
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+ 
+/* BOTÓN DE CAMBIO DE TEMA (MODO OSCURO / CLARO) */
+.theme-btn {
+  /* Círculo compacto para el ícono de tema */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+ 
+  /* Borde sutil color azul marca */
+  border: 1.5px solid rgba(74,144,217,.25);
+ 
+  /* Fondo claro con efecto cristal */
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(6px);
+ 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+ 
+  transition: var(--transition);
+}
+ 
+.theme-btn:hover {
+  background: rgba(255,255,255,.95);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: var(--shadow-soft);
+}
+ 
+/* Adaptación del botón de tema en modo oscuro */
+[data-theme="dark"] .theme-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.4);
+}
+ 
+[data-theme="dark"] .theme-btn:hover {
+  background: rgba(40,65,100,.9);
+}
+ 
+/* SELECTOR DE IDIOMA
+   Muestra bandera circular + código de idioma*/
+.lang-wrapper {
+  position: relative;
+}
+ 
+/* Botón del selector de idioma */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+ 
+  border: 1.5px solid rgba(74,144,217,.2);
+  border-radius: var(--radius-pill);
+ 
+  /* Fondo semi-transparente */
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(8px);
+ 
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+ 
+.lang-btn:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-soft);
+}
+ 
+/* Adaptación del selector de idioma en modo oscuro */
+[data-theme="dark"] .lang-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.3);
+  color: var(--text-main);
+}
+ 
+/* Flecha indicadora del dropdown de idioma */
+.lang-chevron {
+  display: inline-block;
+  border-right: 2px solid var(--blue-brand);
+  border-bottom: 2px solid var(--blue-brand);
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  margin-top: -3px;
+}
+ 
+/* Rota la flecha cuando el dropdown está abierto */
+.lang-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+ 
+/* Panel del dropdown de idioma */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+ 
+  /* Estado inicial: oculto con animación */
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200;
+}
+ 
+/* Estado abierto del dropdown de idioma */
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+ 
+/* Cada opción dentro del dropdown de idioma */
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: background var(--transition);
+}
+ 
+.lang-option:hover    { background: var(--bg-sections); }
+.lang-option.selected { background: rgba(74,144,217,.12); }
+ 
+/* Bandera circular en navbar y dropdown */
+.flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+ 
+/* =========================================================
+   DROPDOWN DE NAVEGACIÓN
+   Submenú que aparece al hacer clic en botones específicos.
+   Se muestra solo cuando el .nav-item tiene clase "open",
+   la cual es añadida/removida por JavaScript.
+========================================================= */
+ 
+/* Contenedor relativo para que el dropdown se posicione correctamente */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+}
+ 
+/* Panel del dropdown de navegación – oculto por defecto */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 210px;
+ 
+  /* Fondo azul igual al de los botones activos */
+  background: var(--blue-brand);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px #649dd3;
+  border: 1.5px solid rgba(255,255,255,.18);
+ 
+  /* Estado oculto con animación de entrada */
+  opacity: 0;
+  transform: translateY(-8px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+ 
+
+/* Mostrar dropdown al pasar el cursor */
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+ 
+/* Links individuales dentro del dropdown de navegación */
+.nav-drop-link {
+  display: block;
+  padding: 10px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+ 
+  /* Texto blanco sobre fondo azul */
+  color: #ffffff;
+  text-decoration: none;
+ 
+  /* Separador entre links */
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  transition: background var(--transition), padding-left var(--transition);
+}
+ 
+.nav-drop-link:last-child {
+  border-bottom: none;
+}
+ 
+/* Hover: fondo más claro + desplazamiento del texto */
+.nav-drop-link:hover {
+  background: rgba(255,255,255,.18);
+  padding-left: 24px;
+}
+ 
+/* Adaptación del dropdown de nav en modo oscuro */
+[data-theme="dark"] .nav-dropdown {
+  background: #1a3050;
+  border-color: rgba(100,160,220,.3);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+}
+ 
+/* =========================================================
+   HERO – SECCIÓN PRINCIPAL
+   Fondo con imagen personalizable, overlay de color
+========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+ 
+  /* IMAGEN DE FONDO – cambia esta ruta para actualizarla */
+  background-image: url('Imagenes/Bg4.0.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  /* Color de fondo si la imagen no carga */
+  background-color: var(--bg-hero);
+  transition: background-color .3s ease;
+}
+ 
+/* Overlay semitransparente sobre la imagen de fondo */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(223,240,251,0.72) 0%,
+    rgba(234,246,253,0.60) 50%,
+    rgba(212,236,247,0.55) 100%
+  );
+  pointer-events: none;
+  transition: background .3s ease;
+}
+ 
+/* Overlay más oscuro en modo dark para mantener legibilidad */
+[data-theme="dark"] .hero::before {
+  background: linear-gradient(
+    160deg,
+    rgba(10,20,35,0.82) 0%,
+    rgba(15,28,48,0.75) 50%,
+    rgba(10,22,40,0.80) 100%
+  );
+}
+ 
+/* Contenido del hero: texto centrado verticalmente */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px 5vw 72px;
+}
+ 
+.hero-text { max-width: 460px; }
+ 
+/* Título principal grande */
+.hero-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+ 
+/* Palabra resaltada en azul dentro del título */
+.hero-highlight { color: var(--blue-brand); }
+ 
+/* Descripción debajo del título */
+.hero-description {
+  font-size: clamp(.88rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 380px;
+}
+ 
+/* SEGUNDA SECCIÓN – ¿QUÉ ENCUENTRAS EN LUMEN?*/
+.sections-wrapper {
+  background: var(--bg-sections);
+  padding: 56px 5vw 72px;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s ease;
+}
+ 
+/* Cabecera: título y badge en la misma fila */
+.sections-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+ 
+.sections-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  color: var(--blue-brand);
+}
+ 
+
+/* Huellas decorativas en el fondo de la sección */
+.handprints {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hp {
+    position: absolute;
+    opacity: .12;
+}
+
+[data-theme="dark"] .hp {
+    opacity: .06;
+}
+
+.hp img {
+    width: 220px;
+    height: auto;
+    display: block;
+    filter: brightness(0.14);
+}
+
+[data-theme="dark"] .hp img {
+    filter: brightness(1.2);
+}
+
+.hp1 {
+    bottom: 10%;
+    left: 2%;
+    transform: rotate(-30deg);
+}
+
+.hp2 {
+    top: 15%;
+    left: 18%;
+    transform: rotate(15deg);
+}
+
+.hp3 {
+    bottom: 5%;
+    right: 5%;
+    transform: rotate(10deg);
+}
+
+/* Grid de 4 tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);;
+  gap: 22px;
+  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+/* Base de cada tarjeta (es un enlace <a>) */
+.section-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+ 
+.section-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-hover);
+}
+ 
+/* Colores de borde por categoría */
+.card-blue:hover   { border-color: var(--blue-brand); }
+.card-yellow:hover { border-color: var(--yellow-brand); }
+.card-purple:hover { border-color: var(--purple-brand); }
+ 
+/* Área de imagen dentro de la tarjeta */
+.card-img-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s ease;
+}
+ 
+/* Fondos de color suave por categoría (modo claro) */
+.card-blue   .card-img-area { background: #d6eaf8; }
+.card-yellow .card-img-area { background: #fef9e7; }
+.card-purple .card-img-area { background: #f3effe; }
+ 
+/* Fondos más oscuros en modo dark */
+[data-theme="dark"] .card-blue   .card-img-area { background: #12253a; }
+[data-theme="dark"] .card-yellow .card-img-area { background: #2a2210; }
+[data-theme="dark"] .card-purple .card-img-area { background: #1e1535; }
+ 
+/* Blob decorativo detrás de la imagen */
+.card-img-area::before {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%;
+  z-index: 0;
+  display: none;
+}
+ 
+.card-blue   .card-img-area::before { background: rgba(74,144,217,.18); }
+.card-yellow .card-img-area::before { background: rgba(249,199,79,.22); }
+.card-purple .card-img-area::before { background: rgba(155,127,232,.2); }
+
+/* Contenedor de la imagen de la tarjeta */
+.card-img-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+ 
+.card-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+ 
+/* Texto del nombre de la tarjeta */
+.card-label {
+  padding: 16px 16px 10px;
+  text-align: center;
+  font-size: clamp(.92rem, 1.4vw, 1.08rem);
+  font-weight: 800;
+  line-height: 1.3;
+  transition: color .3s;
+}
+ 
+.card-yellow .card-label { color: #b8860b; }
+.card-purple .card-label { color: #6b46c1; }
+ 
+[data-theme="dark"] .card-yellow .card-label { color: #f9c74f; }
+[data-theme="dark"] .card-purple .card-label { color: #c4a8f8; }
+ 
+/* Flecha al pie de la tarjeta */
+.card-purple .card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--purple-brand);
+  color: var(--purple-brand);
+  margin: 0 auto 14px;
+}
+
+.card-purple {
+  background: #f3effe;
+}
+
+[data-theme="dark"] .card-purple {
+  background: #1e1535;
+}
+
+.card-yellow .card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--yellow-brand);
+  color: var(--yellow-brand);
+  margin: 0 auto 14px;
+}
+
+.card-yellow { 
+  background: #fef9e7; 
+}
+
+[data-theme="dark"] .card-yellow {
+  background: #2a2210;
+}
+
+.card-blue .card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--blue-brand);
+  color: var(--blue-brand);
+  margin: 0 auto 14px;
+}
+
+.card-blue   { 
+  background: #d6eaf8; 
+}
+[data-theme="dark"] .card-blue {
+  background: #12253a;
+}
+ 
+.card-blue   { border-color: rgba(74,144,217,.35);  }
+.card-yellow { border-color: rgba(249,199,79,.55);  }
+.card-purple { border-color: rgba(155,127,232,.45); }
+.section-card:hover { transform: translateX(4px); }
+ 
+/* =========================================================
+   TERCERA SECCIÓN – GIRAS INCLUSIVAS
+========================================================= */
+.tours-section {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 60px 5vw;
+  background: var(--bg-body);
+  transition: background .3s ease;
+  flex-wrap: wrap;
+}
+ 
+.tours-left {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.tours-title {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 800;
+  color: var(--text-main);
+}
+ 
+.tours-desc {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+ 
+/* Botón "Ver todas las giras" */
+.tours-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue-brand);
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: var(--transition);
+  width: fit-content;
+}
+ 
+.tours-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(74,144,217,.3);
+}
+ 
+.tours-cards {
+  display: flex;
+  gap: 18px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+ 
+/* Tarjeta individual de tour */
+.tour-card {
+  flex: 1;
+  min-width: 140px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+ 
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+ 
+.tour-img-wrap {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background: #c5d8e8;
+}
+ 
+.tour-img { width: 100%; height: 100%; object-fit: cover; }
+ 
+/* Texto fallback si la imagen no carga */
+.tour-img-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2d4a6e;
+  text-align: center;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #b8d8ea, #d0e8f5);
+}
+ 
+.tour-card-label {
+  padding: 10px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+ 
+.tour-card-label span:first-child {
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+ 
+/* Tags de categoría del tour */
+.tour-tag { font-size: .72rem; font-weight: 700; border-radius: var(--radius-pill); padding: 3px 10px; width: fit-content; }
+.tour-tag-edu { background: #e0f0ff; color: var(--blue-brand); }
+.tour-tag-rec { background: #fff3cd; color: #b8860b; }
+.tour-tag-exp { background: #e8f5e9; color: #388e3c; }
+ 
+/* =========================================================
+   CUARTA SECCIÓN – LUMEN SHOP
+========================================================= */
+.shop-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 56px 5vw;
+  background: var(--bg-shop);
+  transition: background .3s ease;
+  flex-wrap: wrap;
+}
+ 
+.shop-left {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.shop-icon-label { font-size: .85rem; font-weight: 700; color: var(--purple-brand); }
+ 
+.shop-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: var(--text-main);
+}
+ 
+.shop-desc { font-size: .88rem; font-weight: 600; color: var(--text-soft); line-height: 1.55; }
+ 
+/* Botón "Ir a la tienda" */
+.shop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--purple-brand);
+  border-radius: var(--radius-pill);
+  padding: 10px 22px;
+  text-decoration: none;
+  width: fit-content;
+  transition: var(--transition);
+}
+ 
+.shop-btn:hover {
+  background: #7c5cd4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(155,127,232,.35);
+}
+ 
+.shop-products { display: flex; gap: 18px; flex: 1; flex-wrap: wrap; }
+ 
+/* Tarjeta de producto */
+.product-card {
+  flex: 1;
+  min-width: 110px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.product-img-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(155,127,232,.15);
+  transition: transform var(--transition);
+}
+ 
+.product-card:hover .product-img-wrap { transform: translateY(-4px) scale(1.04); }
+ 
+.product-img { width: 80px; height: 80px; object-fit: contain; }
+ 
+.product-name {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+  line-height: 1.3;
+}
+ 
+/* =========================================================
+   FOOTER – Pie de página
+========================================================= */
+.site-footer {
+  background: var(--bg-footer);
+  padding: 40px 5vw 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+}
+ 
+.footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
+ 
+.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
+ 
+.footer-logo-img { width: 300px; height: 150px; object-fit: contain; }
+ 
+ 
+.footer-copy { font-size: .82rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
+.copy-icon { font-size: 1rem; }
+ 
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+ 
+.footer-links a {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+ 
+.footer-links a:hover { color: var(--blue-brand); }
+ 
+.footer-col-title { font-size: .88rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
+ 
+.footer-contact-info { font-size: .82rem; font-weight: 600; color: var(--text-soft); margin-top: 8px; }
+ 
+/* Mascota decorativa al fondo del footer */
+.footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
+ 
+.mascot-img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  animation: floatMascot 4s ease-in-out infinite;
+}
+ 
+/* Animación de la mascota flotando */
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+ 
+/* =========================================================
+   RESPONSIVE – TABLET (máximo 900px)
+========================================================= */
+@media (max-width: 900px) {
+  /* En tablet el hero apila texto (sin ilustración) */
+  .hero-content { padding: 36px 5vw 60px; }
+  .hero-text { max-width: 100%; }
+ 
+  /* Grid de 2 columnas en tablet */
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+ 
+  /* Giras en columna vertical */
+  .tours-section { flex-direction: column; }
+  .tours-left { flex: none; }
+ 
+  /* Shop en columna vertical */
+  .shop-section { flex-direction: column; }
+  .shop-left { flex: none; }
+}
+ 
+/* =========================================================
+   RESPONSIVE – MÓVIL (máximo 600px)
+========================================================= */
+@media (max-width: 600px) {
+  /* Navbar apila los links debajo */
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn.active { padding: 5px 14px; }
+ 
+  /* Grid de 2 columnas en móvil */
+  .cards-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sections-wrapper { padding: 40px 18px 56px; }
+ 
+  .tours-cards { justify-content: center; }
+  .tour-card { min-width: 130px; }
+ 
+  .shop-products { justify-content: center; }
+ 
+  /* Footer más compacto y sin mascota */
+  .site-footer { gap: 28px; }
+  .footer-mascot { display: none; }
+}
+.sections-wrapper {
+  border-bottom: 2px solid var(--nav-border);
+}
+
+.tours-section {
+  border-bottom: 2px solid var(--nav-border);
+}
+/* hace que el cursor cambie en las partes de explora crea y descubre*/
+.tour-card {
+  text-decoration: none;
+  cursor: pointer;
+}

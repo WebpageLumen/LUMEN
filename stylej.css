@@ -1,0 +1,803 @@
+/* ═══════════════════════════════════════════
+   juegos.css  —  LUMEN Juegos Educativos
+═══════════════════════════════════════════ */
+
+:root {
+  --gold:          #f7c94b;
+  --gold-dark:     #e8a800;
+  --blue-brand:    #4a90d9;
+  --blue-dark:     #2563ae;
+  --white:         #ffffff;
+  --text-main:     #2d4a6e;
+  --text-soft:     #5a7da0;
+  --shadow-soft:   0 8px 32px rgba(74,144,217,0.13);
+  --radius-pill:   999px;
+  --transition:    0.28s cubic-bezier(.4,0,.2,1);
+  --card-border:   rgba(74,144,217,.15);
+  --font:          'Poppins', sans-serif;
+
+  /* ── Variables del navbar y footer del index principal ── */
+  --blue-figure:    #5ab0e8;
+  --purple-brand:   #9b7fe8;
+  --yellow-brand:   #f9c74f;
+  --green-brand:    #90be6d;
+  --text-light:     #8aafc8;
+  --bg-body:        #f0f7fd;
+  --bg-hero:        #dff0fb;
+  --bg-card:        #ffffff;
+  --bg-sections:    #ffffff;
+  --bg-shop:        #ede7f6;
+  --bg-footer:      #b8ddf5;
+  --bg-navbar:      #ffffff;
+  --nav-link-color: #2d4a6e;
+  --nav-border:     rgba(74,144,217,.15);
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+  --radius-card:    22px;
+}
+
+/* =========================================================
+   MODO OSCURO
+   Se activa cuando el <html> tiene data-theme="dark".
+   Sobreescribe las variables del modo claro con versiones oscuras.
+   Cómo funciona: JavaScript agrega data-theme="dark" al <html>
+   y estas variables reemplazan automáticamente a las del :root.
+========================================================= */
+[data-theme="dark"] {
+  /* Fondos oscuros para cada sección */
+  --bg-body:        #0f1923;
+  --bg-hero:        #111e2d;
+  --bg-card:        rgba(30,50,80,.6);
+  --bg-sections:    #12202e;
+  --bg-shop:        #1e1535;
+  --bg-footer:      #0d1b2a;
+
+  /* Navbar oscura: fondo semi-transparente con blur */
+  --bg-navbar:      rgba(15,25,35,.95);
+  /* Links de la navbar en modo oscuro */
+  --nav-link-color: #c8dff0;
+  /* Borde inferior más visible en modo oscuro */
+  --nav-border:     rgba(74,144,217,.2);
+
+  /* Textos adaptados para fondos oscuros */
+  --text-main:      #e0eaf4;
+  --text-soft:      #8aafc8;
+  --text-light:     #5a7da0;
+
+  /* Bordes y sombras en modo oscuro */
+  --border-card:    rgba(74,144,217,.22);
+  --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
+  --shadow-card:    0 6px 28px rgba(0,0,0,.3);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
+
+  /* Azules ligeramente más claros para mejor contraste */
+  --blue-brand:     #5aa3e8;
+  --blue-dark:      #7bb8f0;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text-main);
+  /* Transición al cambiar tema afecta fondo y texto del body */
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* =========================================================
+   NAVBAR – Barra de navegación principal
+   Diseño del index principal:
+   - Fondo blanco en modo claro, oscuro en modo dark
+   - Borde inferior sutil
+   - Logo izquierda | Links centro | Controles derecha
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  gap: 12px;
+
+  padding: 14px 32px;
+
+  background: var(--bg-navbar);
+  border-bottom: 1.5px solid var(--nav-border);
+
+  backdrop-filter: blur(12px);
+
+  transition: background .3s ease, border-color .3s ease, transform 0.3s ease;
+
+  flex-wrap: wrap;
+}
+
+/* Logo de la barra de navegación
+   Posicionado a la izquierda, combina imagen */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+/* Imagen del logo */
+.logo-img {
+  width: 170px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* LINKS DE NAVEGACIÓN */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: right;
+  flex: 1;
+}
+
+/* Estilo base de cada botón de navegación */
+.nav-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  /* Color del texto adaptado a la variable del tema */
+  color: var(--nav-link-color);
+  /* Fondo transparente con bordes redondeados */
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+/* Hover: fondo azul muy suave */
+.nav-btn:hover {
+  background: rgba(74,144,217,.08);
+  color: var(--blue-brand);
+}
+
+/* Estado activo: pill azul sólido */
+.nav-btn.active {
+  background: var(--blue-brand);
+  color: #ffffff;
+  padding: 7px 20px;
+}
+
+.nav-btn.active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+
+/* CONTROLES DERECHOS – idioma */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* SELECTOR DE IDIOMA
+   Muestra bandera circular + código de idioma */
+.lang-wrapper {
+  position: relative;
+}
+
+/* Botón del selector de idioma */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+
+  border: 1.5px solid rgba(74,144,217,.2);
+  border-radius: var(--radius-pill);
+
+  /* Fondo semi-transparente */
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(8px);
+
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Adaptación del selector de idioma en modo oscuro */
+[data-theme="dark"] .lang-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.3);
+  color: var(--text-main);
+}
+
+/* Flecha indicadora del dropdown de idioma */
+.lang-chevron {
+  display: inline-block;
+  border-right: 2px solid var(--blue-brand);
+  border-bottom: 2px solid var(--blue-brand);
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  margin-top: -3px;
+}
+
+/* Rota la flecha cuando el dropdown está abierto */
+.lang-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+/* Panel del dropdown de idioma */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+
+  /* Estado inicial: oculto con animación */
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200;
+}
+
+/* Estado abierto del dropdown de idioma */
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Cada opción dentro del dropdown de idioma */
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: background var(--transition);
+}
+
+.lang-option:hover    { background: var(--bg-sections); }
+.lang-option.selected { background: rgba(74,144,217,.12); }
+
+/* Bandera circular en navbar y dropdown */
+.flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   DROPDOWN DE NAVEGACIÓN
+   Submenú que aparece al pasar el cursor sobre botones específicos.
+   Se muestra solo cuando el .nav-item tiene clase "open",
+   la cual es añadida/removida por JavaScript.
+========================================================= */
+
+/* Contenedor relativo para que el dropdown se posicione correctamente */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Panel del dropdown de navegación – oculto por defecto */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 210px;
+
+  /* Fondo azul igual al de los botones activos */
+  background: var(--blue-brand);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px #649dd3;
+  border: 1.5px solid rgba(255,255,255,.18);
+
+  /* Estado oculto con animación de entrada */
+  opacity: 0;
+  transform: translateY(-8px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+
+/* Mostrar dropdown al pasar el cursor */
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Links individuales dentro del dropdown de navegación */
+.nav-drop-link {
+  display: block;
+  padding: 10px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+
+  /* Texto blanco sobre fondo azul */
+  color: #ffffff;
+  text-decoration: none;
+
+  /* Separador entre links */
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  transition: background var(--transition), padding-left var(--transition);
+}
+
+.nav-drop-link:last-child {
+  border-bottom: none;
+}
+
+/* Hover: fondo más claro + desplazamiento del texto */
+.nav-drop-link:hover {
+  background: rgba(255,255,255,.18);
+  padding-left: 24px;
+}
+
+/* Adaptación del dropdown de nav en modo oscuro */
+[data-theme="dark"] .nav-dropdown {
+  background: #1a3050;
+  border-color: rgba(100,160,220,.3);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+}
+
+/* ════════════════════════════
+   FONDO DE PÁGINA
+   — se ajusta al nuevo navbar fijo con padding-top
+════════════════════════════ */
+.page-bg {
+  /* Espacio para que el contenido no quede bajo el navbar fijo */
+  padding-top: 88px;
+  min-height: 100vh;
+  background-image: url('Imagenes/J.E 1.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+body.color-off          .page-bg { background-image: url('Imagenes/J.E 2.png'); }
+body.mini-on            .page-bg { background-image: url('Imagenes/J.E r1.png'); }
+body.mini-on.color-off  .page-bg { background-image: url('Imagenes/J.E r2.png'); }
+
+/* ════════════════════════════
+   HERO CONTENT
+════════════════════════════ */
+.hero-content {
+  padding: 52px 5vw 28px;
+  max-width: 560px;
+}
+
+.hero-title {
+  font-family: var(--font);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: #1a2d45;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  animation: slideUp .5s ease .1s both;
+}
+
+.hero-tagline {
+  font-size: clamp(.85rem, 1.6vw, 1rem);
+  font-weight: 500;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-top: .8rem;
+  animation: slideUp .5s ease .25s both;
+}
+
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ════════════════════════════
+   SECTIONS WRAPPER
+════════════════════════════ */
+.sections-wrapper {
+  padding: 0 5vw 60px; /* sin padding-top, lo maneja controls-bar */
+}
+
+/* ════════════════════════════
+   BARRA DE CONTROLES
+   — pegada al borde izquierdo
+   del sections-wrapper
+════════════════════════════ */
+.controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  /* sin margin lateral — hereda el padding del wrapper */
+  margin: 0 0 1.4rem 0;
+  padding-top: 28px;
+  width: 100%;
+  /* anclar al borde izquierdo del contenedor */
+  margin-left: 0;
+}
+
+/* ── Switches ── */
+.switch-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255,255,255,0.78);
+  border: 1.5px solid rgba(74,144,217,.18);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px 6px 10px;
+  font-size: .76rem;
+  font-weight: 600;
+  font-family: var(--font);
+  color: var(--text-main);
+  transition: var(--transition);
+}
+.switch-wrap:hover { background:rgba(255,255,255,.96); box-shadow:var(--shadow-soft); }
+
+.switch-icon { font-size:.9rem; }
+.switch-label { font-size:.74rem; font-weight:600; }
+
+/* Toggle track */
+.toggle {
+  width: 36px; height: 20px;
+  border-radius: var(--radius-pill);
+  background: #c8ddf0;
+  position: relative; flex-shrink:0;
+  transition: background .28s;
+}
+.toggle.on { background: var(--blue-brand); }
+
+/* Toggle thumb */
+.toggle-thumb {
+  width: 14px; height: 14px;
+  border-radius: 50%; background: white;
+  position: absolute; top: 3px; left: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+}
+.toggle.on .toggle-thumb { transform:translateX(16px); }
+
+/* ── Selector de categoría ── */
+.cat-select-wrapper {
+  position: relative;
+  z-index: 400;   /* contexto de apilamiento alto → dropdown flota sobre el bloque */
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.cat-select-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  width: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.cat-select-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font);
+  font-size: .76rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(74,144,217,.25);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-soft);
+  min-width: 200px;
+  white-space: nowrap;
+}
+.cat-select-btn:hover { background:white; border-color:var(--blue-brand); }
+
+.cat-chevron {
+  margin-left: auto;
+  font-size: .7rem;
+  transition: transform .2s;
+}
+.cat-select-btn.open .cat-chevron { transform:rotate(180deg); }
+
+/* FIX 2: Dropdown encima del bloque de juego, z-index alto */
+.cat-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: white;
+  border-radius: 16px;
+  border: 1.5px solid var(--card-border);
+  box-shadow: 0 12px 40px rgba(74,144,217,0.28);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 500;           /* muy alto para quedar sobre el bloque de juego */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px) scale(.97);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.cat-dropdown.open {
+  opacity:1; pointer-events:all; transform:translateY(0) scale(1);
+}
+
+.cat-opt {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  font-family: var(--font);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s;
+}
+.cat-opt:hover  { background:#dff0fb; color:var(--blue-dark); }
+.cat-opt.active { background:#dff0fb; color:var(--blue-brand); font-weight:700; }
+
+/* ════════════════════════════
+   BLOQUE ÚNICO MODO MINI
+   — margen amplio para que el
+   dropdown del selector no quede
+   tapado por el bloque de juego
+════════════════════════════ */
+.mini-single-block { display:none; }
+body.mini-on .mini-single-block {
+  display: block;
+  margin-top: 56px;   /* espacio generoso: altura del dropdown abierto */
+  animation: fadeInBlock .3s ease;
+}
+
+@keyframes fadeInBlock {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ════════════════════════════
+   BLOQUES NORMALES
+════════════════════════════ */
+.category-block {
+  background: rgba(255,255,255,0.76);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  border: 1.5px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.1rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.category-block.visible { opacity:1; transform:translateY(0); }
+
+/* Ocultar los 4 bloques en modo mini */
+body.mini-on .category-block { display:none; }
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: .8rem 1.2rem .7rem;
+  border-bottom: 1.5px solid var(--card-border);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition);
+}
+.category-header:hover { background:rgba(223,240,251,0.6); }
+
+.category-icon {
+  width:34px; height:34px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; flex-shrink:0;
+  transition:transform .2s;
+}
+.category-header:hover .category-icon { transform:rotate(-6deg) scale(1.1); }
+
+.icon-atencion { background:rgba(184,212,238,0.85); }
+.icon-logica   { background:rgba(253,240,176,0.85); }
+.icon-lenguaje { background:rgba(184,232,204,0.85); }
+.icon-coord    { background:rgba(221,214,254,0.85); }
+
+.category-label {
+  font-family: var(--font);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.2px;
+}
+.category-corner { margin-left:auto; font-size:1.1rem; opacity:.4; }
+
+/* ── Filas de tarjetas ── */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  padding: 1rem 1.2rem;
+  transition: background var(--transition);
+}
+.row-atencion { background:rgba(223,240,251,0.55); }
+.row-logica   { background:rgba(254,249,224,0.55); }
+.row-lenguaje { background:rgba(224,245,234,0.55); }
+.row-coord    { background:rgba(232,224,248,0.55); }
+
+body.color-off .cards-row { background:rgba(255,255,255,0.3) !important; }
+
+/* FIX 5: game-card con slot para logo de juego */
+.game-card {
+  background: rgba(255,255,255,0.85);
+  border-radius: 14px;
+  border: 1.5px solid var(--card-border);
+  box-shadow: 0 4px 14px rgba(74,144,217,.08);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s cubic-bezier(.175,.885,.32,1.275),
+              box-shadow .25s ease, border-color .2s;
+}
+.game-card:hover {
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 14px 32px rgba(74,144,217,.22);
+  border-color:var(--blue-brand);
+}
+.game-card:active { transform:scale(.95); }
+
+/* Contenedor del logo del juego */
+.game-card-logo-slot {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Imagen del logo cuando esté disponible */
+.game-card-logo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Emoji placeholder (se oculta cuando hay imagen) */
+.game-card-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+  display: block;
+}
+
+/* =========================================================
+   FOOTER – Pie de página (diseño del index principal)
+========================================================= */
+.site-footer {
+  background: var(--bg-footer);
+  padding: 40px 5vw 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+}
+
+.footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
+
+.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
+
+.footer-logo-img { width: 300px; height: 150px; object-fit: contain; }
+
+.footer-copy { font-size: .82rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
+.copy-icon { font-size: 1rem; }
+
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+
+.footer-links a {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--blue-brand); }
+
+.footer-col-title { font-size: .88rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
+
+.footer-contact-info { font-size: .82rem; font-weight: 600; color: var(--text-soft); margin-top: 8px; }
+
+/* Mascota decorativa al fondo del footer */
+.footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
+
+.mascot-img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  /* Animación de la mascota flotando */
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+/* Animación de la mascota flotando */
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ════════════════════════════
+   RESPONSIVE
+════════════════════════════ */
+@media (max-width:820px) {
+  .cards-row { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ── Tablet (máximo 900px) ── */
+@media (max-width: 900px) {
+  .site-footer { gap: 28px; }
+}
+
+@media (max-width:600px) {
+  /* Navbar apila los links debajo */
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn.active { padding: 5px 14px; }
+
+  .hero-title { font-size:2rem; }
+
+  /* Footer más compacto y sin mascota */
+  .footer-mascot { display: none; }
+}
+
+@media (max-width:480px) {
+  .cards-row { grid-template-columns:1fr 1fr; gap:8px; }
+  .sections-wrapper { padding:20px 14px 48px; }
+  .controls-bar { gap:8px; }
+}

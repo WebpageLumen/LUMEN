@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMEN – Juegos Educativos</title>
+  <link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="stylej.css"/>
+</head>
+<body>
+
+<!-- ══ NAVBAR (reemplazado con el diseño del index principal) ══ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+
+  <!-- Logo a la izquierda -->
+  <div class="nav-logo">
+    <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+  </div>
+
+  <!-- Links centrados -->
+  <div class="nav-links">
+
+    <!-- Inicio -->
+    <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+
+    <!-- =====================================================
+         INFORMACIÓN GENERAL – con dropdown
+         Al hacer clic muestra submenú con temas de autismo
+    ===================================================== -->
+    <div class="nav-item">
+      <button class="nav-btn" data-i18n="nav_info">Información general</button>
+      <!-- Submenú de Información general -->
+      <div class="nav-dropdown">
+        <a href="pagina.html" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+        <a href="causas.html" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+        <a href="niveles.html" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+        <a href="senalas.html" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+        <a href="niñas.html" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+        <a href="condiciones.html" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+      </div>
+    </div>
+
+    <!-- Lumen Shop: enlace simple sin submenú -->
+    <a href="shop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+
+    <!-- Centros: enlace simple sin submenú -->
+    <a href="centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+
+    <!-- Giras inclusivas: enlace simple sin submenú -->
+    <a href="giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+
+    <!-- Profesionales: enlace simple sin submenú -->
+    <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+
+    <!-- =====================================================
+         SOBRE NOSOTROS – con dropdown
+         Al hacer clic muestra submenú con páginas internas
+    ===================================================== -->
+    <div class="nav-item">
+      <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+      <!-- Submenú de Sobre nosotros -->
+      <div class="nav-dropdown">
+        <a href="quienes-somos.html" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+        <a href="mision-vision.html" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+        <a href="contacto.html" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controles: idioma y tema -->
+  <div class="nav-controls">
+
+    <!-- Selector de idioma -->
+    <div class="lang-wrapper" id="langWrapper">
+      <button class="lang-btn" id="langBtn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-label="Seleccionar idioma">
+        <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+        <span id="langLabel">ES</span>
+        <span class="lang-chevron"></span>
+      </button>
+
+      <div class="lang-dropdown" id="langDropdown" role="listbox">
+        <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+          <span>ES</span>
+        </div>
+        <div class="lang-option" role="option" data-lang="en" tabindex="0">
+          <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+          <span>EN</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ══ FONDO + CONTENIDO ══ -->
+<div class="page-bg" id="pageBg">
+
+  <!-- Hero -->
+  <section class="hero-content" id="heroSection">
+    <h1 class="hero-title" data-i18n="hero.title">Juegos educativos</h1>
+    <p class="hero-tagline" data-i18n="hero.tagline">
+      Aquí encontrarás juegos que te ayudarán en diferentes áreas, organizados en
+      varias categorías para que disfrutes aprendiendo explorando a tu ritmo.
+    </p>
+  </section>
+
+  <!-- ══ SECCIÓN DE JUEGOS ══ -->
+  <section class="sections-wrapper" id="sectionsWrapper">
+
+    <!-- BARRA DE CONTROLES -->
+    <div class="controls-bar" id="controlsBar">
+
+      <label class="switch-wrap" title="Cambiar color de fondo">
+        <span class="switch-icon"></span>
+        <div class="toggle" id="colorToggle"><div class="toggle-thumb"></div></div>
+        <span class="switch-label" data-i18n="ctrl.color">Color</span>
+      </label>
+
+      <label class="switch-wrap" title="Minimizar/expandir categorías">
+        <span class="switch-icon"></span>
+        <div class="toggle" id="miniToggle"><div class="toggle-thumb"></div></div>
+        <span class="switch-label" id="miniLabel" data-i18n="ctrl.verMenos">Ver menos</span>
+      </label>
+
+      <div class="cat-select-wrapper hidden" id="catSelectWrapper">
+        <button class="cat-select-btn" id="catSelectBtn">
+          <span id="catSelectText" data-i18n="ctrl.selectCat">Seleccionar categoría…</span>
+          <span class="cat-chevron">▾</span>
+        </button>
+        <div class="cat-dropdown" id="catDropdown">
+          <button class="cat-opt" data-cat="atencion" data-i18n-cat="atencion" data-i18n="cat.atencion">Atención</button>
+          <button class="cat-opt" data-cat="logica"   data-i18n-cat="logica"   data-i18n="cat.logica">Lógica</button>
+          <button class="cat-opt" data-cat="lenguaje" data-i18n-cat="lenguaje" data-i18n="cat.lenguaje">Lenguaje</button>
+          <button class="cat-opt" data-cat="coord"    data-i18n-cat="coord"    data-i18n="cat.coord">Coordinación</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bloque único modo mini -->
+    <div class="mini-single-block" id="miniSingleBlock"></div>
+
+    <!-- Los 4 bloques normales -->
+    <div class="category-block" id="cat-atencion">
+      <div class="category-header">
+        <span class="category-label" data-i18n="cat.atencion">Atención</span>
+        <span class="category-corner"></span>
+      </div>
+      <div class="cards-row row-atencion">
+        <a class="game-card" href="juego1.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego2.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego3.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego4.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+      </div>
+    </div>
+
+    <div class="category-block" id="cat-logica">
+      <div class="category-header">
+        <span class="category-label" data-i18n="cat.logica">Lógica</span>
+        <span class="category-corner"></span>
+      </div>
+      <div class="cards-row row-logica">
+        <a class="game-card" href="juego5.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego6.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego7.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego8.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+      </div>
+    </div>
+
+    <div class="category-block" id="cat-lenguaje">
+      <div class="category-header">
+        <span class="category-label" data-i18n="cat.lenguaje">Lenguaje</span>
+        <span class="category-corner"></span>
+      </div>
+      <div class="cards-row row-lenguaje">
+        <a class="game-card" href="juego9.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego10.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego11.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego12.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+      </div>
+    </div>
+
+    <div class="category-block" id="cat-coord">
+      <div class="category-header">
+        <span class="category-label" data-i18n="cat.coord">Coordinación</span>
+        <span class="category-corner"></span>
+      </div>
+      <div class="cards-row row-coord">
+        <a class="game-card" href="juego13.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego14.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego15.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+        <a class="game-card" href="juego16.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ══ FOOTER (reemplazado con el diseño del index principal) ══ -->
+<footer class="site-footer" role="contentinfo">
+
+  <div class="footer-brand">
+    <div class="footer-logo-wrap">
+      <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+    </div>
+    <p class="footer-copy">
+      <span class="copy-icon">©</span>
+      <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+    </p>
+  </div>
+
+  <div class="footer-links">
+    <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+    <ul>
+      <li><a href="#" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="#" data-i18n="nav_info">Información general</a></li>
+      <li><a href="#" data-i18n="nav_shop">Lumen Shop</a></li>
+      <li><a href="#" data-i18n="nav_centers">Centros</a></li>
+      <li><a href="#" data-i18n="nav_tours">Giras inclusivas</a></li>
+      <li><a href="#" data-i18n="nav_pros">Profesionales</a></li>
+      <li><a href="#" data-i18n="nav_about">Sobre nosotros</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-contact">
+    <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
+    <p class="footer-contact-info">info@lumen.com</p>
+  </div>
+
+  <div class="footer-mascot" aria-hidden="true">
+    <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+  </div>
+
+</footer>
+
+<script src="scriptj.js"></script>
+</body>
+</html>
