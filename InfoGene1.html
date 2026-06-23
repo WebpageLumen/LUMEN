@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMEN</title>
+  <link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="InfoGene1.css"/>
+</head>
+ 
+<body>
+ 
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+    </div>
+
+    <div class="nav-links">
+      <a href="#heroSection" class="nav-btn nav-btn--active" data-i18n="nav_home">Inicio</a>
+
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_info">Información general</button>
+        <div class="nav-dropdown">
+          <a href="#sec-autism"      class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+          <a href="#sec-causes"      class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+          <a href="#sec-levels"      class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+          <a href="#sec-signs"       class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+          <a href="#sec-girls"       class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+          <a href="#sec-conditions"  class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        </div>
+      </div>
+
+      <a href="#" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+      <a href="#" class="nav-btn" data-i18n="nav_centers">Centros</a>
+      <a href="#" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+      <a href="#" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-btn" id="langBtn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Seleccionar idioma">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+          <span id="langLabel">ES</span>
+          <span class="lang-chevron"></span>
+        </button>
+
+        <div class="lang-dropdown" id="langDropdown" role="listbox">
+          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+            <span>ES</span>
+          </div>
+          <div class="lang-option" role="option" data-lang="en" tabindex="0">
+            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO ANCHOR -->
+  <div id="heroSection"></div>
+
+  <!-- VIDEO DE FONDO -->
+  <section class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="imagenes/Video autism.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- FONDO 1 – ¿Qué es el autismo? + Causas -->
+  <section class="seccion-1">
+    <div class="texto" id="sec-autism">
+      <h2 data-i18n="titulo_autism">¿Qué es el autismo?</h2>
+      <p data-i18n="texto_autism">El Trastorno del Espectro Autista (TEA) es una condición del neurodesarrollo que acompaña a la persona durante toda su vida. Influye en la manera en que percibe el mundo, se comunica, aprende y se relaciona con otras personas.
+        Cada persona autista es única. Algunas pueden necesitar mucho apoyo en su vida diaria, mientras que otras son más independientes. Por eso se habla de un "espectro", ya que las características y necesidades varían de una persona a otra.</p>
+    </div>
+        
+    <div class="texto" id="sec-causes">
+      <h2 data-i18n="titulo_causes">¿Cuáles son las causas del autismo?</h2>
+      <p data-i18n="texto_causes_intro">Actualmente no existe una única causa identificada. Las investigaciones indican que el autismo está relacionado principalmente con factores genéticos y diferencias en el desarrollo cerebral.<br><br>
+      Es importante saber que:</p>
+      <ul>
+        <li data-i18n="causa_1">Las vacunas no causan autismo.</li>
+        <li data-i18n="causa_2">No es resultado de la crianza ni de la educación recibida.</li>
+        <li data-i18n="causa_3">Puede presentarse en personas de cualquier origen, cultura o nivel socioeconómico.</li>
+        <li data-i18n="causa_4">Suele detectarse en la infancia, aunque algunas personas reciben el diagnóstico en la adolescencia o en la adultez.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FONDO 2 – Niveles de autismo -->
+  <section class="seccion-2">
+    <div class="texto" id="sec-levels">
+      <h2 data-i18n="titulo_levels">Niveles de autismo</h2>
+      <p data-i18n="texto_levels_intro">Actualmente los especialistas utilizan el término Trastorno del Espectro Autista (TEA) para incluir todas las formas de autismo dentro de una misma condición.<br><br>
+        En lugar de hablar de diferentes tipos, suele hablarse de niveles de apoyo:</p>
+      <p class="nivel-titulo" data-i18n="nivel1_titulo">Nivel 1</p>
+      <p data-i18n="nivel1_texto">Necesita apoyo. Puede tener dificultades sociales o de organización, pero suele desenvolverse con bastante independencia.</p>
+      <p class="nivel-titulo" data-i18n="nivel2_titulo">Nivel 2</p>
+      <p data-i18n="nivel2_texto">Necesita apoyo sustancial. Presenta mayores desafíos en la comunicación y la adaptación a cambios.</p>
+      <p class="nivel-titulo" data-i18n="nivel3_titulo">Nivel 3</p>
+      <p data-i18n="nivel3_texto">Necesita apoyo muy sustancial. Requiere ayuda significativa en diversas áreas de la vida diaria.</p>
+    </div>
+  </section>
+
+  <!-- FONDO 3 – Señales de alerta (con espacio para imagen derecha) -->
+  <section class="seccion-3">
+    <div class="seccion-con-imagen">
+      <div class="texto" id="sec-signs">
+        <h2 data-i18n="titulo_signs">Señales de alerta</h2>
+        <p data-i18n="texto_signs_intro">Las señales pueden variar según la edad y la persona, pero algunas de las más comunes son:</p>
+
+        <h3 class="sub-azul" data-i18n="sub_comunicacion">Comunicación</h3>
+        <ul>
+          <li data-i18n="com_1">Retraso en el desarrollo del lenguaje.</li>
+          <li data-i18n="com_2">Dificultad para mantener conversaciones.</li>
+          <li data-i18n="com_3">Uso repetitivo de palabras o frases.</li>
+        </ul>
+
+        <h3 class="sub-amarillo" data-i18n="sub_social">Interacción social</h3>
+        <ul>
+          <li data-i18n="soc_1">Poco contacto visual.</li>
+          <li data-i18n="soc_2">Dificultad para comprender emociones o expresiones faciales.</li>
+          <li data-i18n="soc_3">Preferencia por jugar o pasar tiempo en solitario.</li>
+        </ul>
+
+        <h3 class="sub-morado" data-i18n="sub_comportamiento">Comportamientos e intereses</h3>
+        <ul>
+          <li data-i18n="comp_1">Movimientos repetitivos como balancearse o aletear las manos.</li>
+          <li data-i18n="comp_2">Intereses muy intensos en temas específicos.</li>
+          <li data-i18n="comp_3">Necesidad de rutinas y dificultad ante cambios inesperados.</li>
+        </ul>
+
+        <h3 class="sub-azul" data-i18n="sub_sensorial">Sensibilidad sensorial</h3>
+        <ul>
+          <li data-i18n="sen_1">Molestia ante ciertos sonidos, luces, olores o texturas.</li>
+          <li data-i18n="sen_2">Búsqueda constante de estímulos sensoriales.</li>
+        </ul>
+      </div>
+
+      <!-- ESPACIO PARA IMAGEN DERECHA FONDO 3 -->
+      <div class="imagen-lateral">
+        <img src="imagenes/Imagen 1.png" alt="Señales de alerta" class="img-lateral" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- FONDO 4 – Autismo en niñas y mujeres (con espacio para imagen derecha) -->
+  <section class="seccion-4">
+    <div class="seccion-con-imagen">
+      <div class="texto" id="sec-girls">
+        <h2 class="titulo-morado" data-i18n="titulo_girls">Autismo en niñas y mujeres</h2>
+        <p data-i18n="texto_girls_intro">El autismo puede manifestarse de forma diferente en niñas y mujeres, por lo que en ocasiones pasa desapercibido durante años.<br>
+          Algunas características frecuentes son:</p>
+        <ul>
+          <li data-i18n="girls_1">Mayor capacidad para imitar comportamientos sociales.</li>
+          <li data-i18n="girls_2">Intereses intensos que pueden parecer comunes para su edad.</li>
+          <li data-i18n="girls_3">Esfuerzo constante por encajar socialmente.</li>
+          <li data-i18n="girls_4">Ansiedad o agotamiento después de interacciones sociales.</li>
+          <li data-i18n="girls_5">Diagnósticos tardíos o confusión con otras condiciones.</li>
+        </ul>
+        <p data-i18n="texto_girls_cierre">Cada vez más investigaciones destacan la importancia de reconocer estas diferencias para lograr una identificación más temprana y un mejor apoyo.</p>
+      </div>
+
+      <!-- ESPACIO PARA IMAGEN DERECHA FONDO 4 -->
+      <div class="imagen-lateral">
+        <img src="imagenes/Imagen 2.png" alt="Autismo en niñas" class="img-lateral" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- FONDO 5 – Condiciones asociadas -->
+  <section class="seccion-5">
+    <div class="texto" id="sec-conditions">
+      <h2 class="titulo-negro" data-i18n="titulo_conditions">Condiciones asociadas</h2>
+      <p class="texto-negro" data-i18n="texto_conditions">Algunas personas autistas también pueden presentar otras condiciones que requieren atención adicional:</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_tdah_titulo">TDAH</p>
+      <p class="texto-negro" data-i18n="cond_tdah">Dificultades relacionadas con la atención, la impulsividad o la hiperactividad.</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_ansiedad_titulo">Ansiedad</p>
+      <p class="texto-negro" data-i18n="cond_ansiedad">Preocupaciones intensas, nerviosismo o dificultades para manejar situaciones nuevas.</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_sueno_titulo">Trastornos del sueño</p>
+      <p class="texto-negro" data-i18n="cond_sueno">Problemas para conciliar o mantener el sueño.</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_epilepsia_titulo">Epilepsia</p>
+      <p class="texto-negro" data-i18n="cond_epilepsia">Algunas personas autistas presentan crisis epilépticas.</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_aprendizaje_titulo">Dificultades de aprendizaje</p>
+      <p class="texto-negro" data-i18n="cond_aprendizaje">Pueden afectar áreas como la lectura, escritura o matemáticas.</p>
+
+      <p class="cond-titulo texto-negro" data-i18n="cond_sensorial_titulo">Trastornos sensoriales</p>
+      <p class="texto-negro" data-i18n="cond_sensorial">Mayor sensibilidad o búsqueda de determinados estímulos sensoriales.</p>
+    </div>
+  </section>
+
+  <!-- FONDO 6 – Conclusión -->
+  <section class="seccion-6">
+    <div class="texto" id="sec-conclusion">
+      <p class="texto-azul conclusion-texto" data-i18n="texto_conclusion">En Lumen creemos que comprender el autismo es el primer paso para construir una sociedad más inclusiva. Cada persona autista tiene fortalezas, intereses y formas únicas de experimentar el mundo. Con apoyo, comprensión y oportunidades adecuadas, puede desarrollar todo su potencial.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="#heroSection"    data-i18n="nav_home">Inicio</a></li>
+        <li><a href="#sec-autism"     data-i18n="nav_info">Información general</a></li>
+        <li><a href="#"               data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="#"               data-i18n="nav_centers">Centros</a></li>
+        <li><a href="#"               data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="#"               data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="#"               data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
+      <p class="footer-contact-info">info@lumen.com</p>
+    </div>
+
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+  <script src="java2.js"></script>
+
+</body>
+</html>

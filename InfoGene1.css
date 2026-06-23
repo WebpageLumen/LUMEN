@@ -1,0 +1,709 @@
+/* =========================================================
+   VARIABLES DEL TEMA – MODO CLARO
+========================================================= */
+:root {
+  --gold:           #f7c94b;
+  --gold-dark:      #e8a800;
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+  --blue-figure:    #5ab0e8;
+  --purple-brand:   #9b7fe8;
+  --yellow-brand:   #f9c74f;
+  --green-brand:    #90be6d;
+
+  --text-main:      #2d4a6e;
+  --text-soft:      #5a7da0;
+  --text-light:     #8aafc8;
+
+  --bg-body:        #f0f7fd;
+  --bg-hero:        #dff0fb;
+  --bg-card:        #ffffff;
+  --bg-sections:    #ffffff;
+  --bg-shop:        #ede7f6;
+  --bg-footer:      #b8ddf5;
+
+  --bg-navbar:      #ffffff;
+  --nav-link-color: #2d4a6e;
+  --nav-border:     rgba(74,144,217,.15);
+
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+
+  --radius-pill:    999px;
+  --radius-card:    22px;
+  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --bg-body:        #0f1923;
+  --bg-hero:        #111e2d;
+  --bg-card:        rgba(30,50,80,.6);
+  --bg-sections:    #12202e;
+  --bg-shop:        #1e1535;
+  --bg-footer:      #0d1b2a;
+
+  --bg-navbar:      rgba(15,25,35,.95);
+  --nav-link-color: #c8dff0;
+  --nav-border:     rgba(74,144,217,.2);
+
+  --text-main:      #e0eaf4;
+  --text-soft:      #8aafc8;
+  --text-light:     #5a7da0;
+
+  --border-card:    rgba(74,144,217,.22);
+  --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
+  --shadow-card:    0 6px 28px rgba(0,0,0,.3);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
+
+  --blue-brand:     #5aa3e8;
+  --blue-dark:      #7bb8f0;
+}
+
+/* =========================================================
+   RESET BASE
+========================================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--bg-navbar);
+  border-bottom: 1.5px solid var(--nav-border);
+  backdrop-filter: blur(12px);
+  transition: background .3s ease, border-color .3s ease;
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 170px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--nav-link-color);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-btn:hover {
+  background: rgba(74,144,217,.08);
+  color: var(--blue-brand);
+}
+
+.nav-btn--active {
+  background: var(--blue-brand);
+  color: #ffffff;
+  padding: 7px 20px;
+}
+
+.nav-btn--active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   IDIOMA
+========================================================= */
+.lang-wrapper { position: relative; }
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1.5px solid rgba(74,144,217,.2);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .lang-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.3);
+  color: var(--text-main);
+}
+
+.lang-chevron {
+  display: inline-block;
+  border-right: 2px solid var(--blue-brand);
+  border-bottom: 2px solid var(--blue-brand);
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  margin-top: -3px;
+}
+
+.lang-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200;
+}
+
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: background var(--transition);
+}
+
+.lang-option:hover    { background: var(--bg-sections); }
+.lang-option.selected { background: rgba(74,144,217,.12); }
+
+.flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   NAV DROPDOWN
+========================================================= */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 210px;
+  background: var(--blue-brand);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px #649dd3;
+  border: 1.5px solid rgba(255,255,255,.18);
+  opacity: 0;
+  transform: translateY(-8px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.nav-drop-link {
+  display: block;
+  padding: 10px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  transition: background var(--transition), padding-left var(--transition);
+}
+
+.nav-drop-link:last-child { border-bottom: none; }
+
+.nav-drop-link:hover {
+  background: rgba(255,255,255,.18);
+  padding-left: 24px;
+}
+
+[data-theme="dark"] .nav-dropdown {
+  background: #1a3050;
+  border-color: rgba(100,160,220,.3);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   VIDEO DE FONDO
+========================================================= */
+.hero-video {
+  width: 100%;
+  margin-top: 88px; /* espacio debajo del navbar fijo */
+}
+
+.hero-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================
+   TIPOGRAFÍA GLOBAL PARA LAS SECCIONES
+   Tamaños aumentados de forma consistente
+========================================================= */
+.texto h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.texto h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 800;
+  margin: 22px 0 10px;
+}
+
+.texto p,
+.texto li {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.texto ul {
+  padding-left: 22px;
+  margin-top: 8px;
+}
+
+.texto li {
+  margin-bottom: 6px;
+}
+
+/* =========================================================
+   CAJA DE TEXTO BASE
+========================================================= */
+.texto {
+  display: block;
+  color: #000000;
+  padding: 28px 32px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   LAYOUT CON IMAGEN LATERAL – solo fondos 3 y 4
+========================================================= */
+.seccion-con-imagen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 4vw;
+}
+
+.seccion-con-imagen .texto {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Caja reservada para la imagen a la derecha */
+.imagen-lateral {
+  flex: 0 0 300px;
+  width: 300px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.img-lateral {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   FONDO 1 – ¿Qué es el autismo? + Causas
+   Pantalla completa, texto negro
+========================================================= */
+.seccion-1 {
+  min-height: 100vh;
+  background-image: url("imagenes/fondo1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
+}
+
+.seccion-1 .texto {
+  color: #000000;
+  width: 100%;
+  padding: 28px 0;
+}
+
+.seccion-1 .texto h2 { color: #000000; }
+.seccion-1 .texto p  { color: #000000; }
+.seccion-1 .texto li { color: #000000; }
+
+/* =========================================================
+   FONDO 2 – Niveles de autismo
+   Pantalla completa, negro con títulos de nivel en azul
+========================================================= */
+.seccion-2 {
+  min-height: 100vh;
+  background-image: url("imagenes/fondo2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
+}
+
+.seccion-2 .texto {
+  color: #000000;
+  width: 100%;
+  padding: 28px 0;
+}
+
+.seccion-2 .texto h2 { color: #000000; }
+.seccion-2 .texto p  { color: #000000; }
+
+/* Títulos Nivel 1 / 2 / 3 en azul – !important para no ser pisados por p negro */
+.nivel-titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: #4a90d9 !important;
+  margin-top: 22px;
+  margin-bottom: 4px;
+}
+
+/* =========================================================
+   FONDO 3 – Señales de alerta
+   Texto izquierda + espacio imagen derecha
+========================================================= */
+.seccion-3 {
+  min-height: 100vh;
+  background-image: url("imagenes/fondo3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 4vw 60px;
+  box-sizing: border-box;
+}
+
+.seccion-3 .texto {
+  color: #000000;
+}
+
+.seccion-3 .texto h2 { color: #000000; }
+.seccion-3 .texto p  { color: #000000; }
+.seccion-3 .texto li { color: #000000; }
+
+/* Colores de subtítulos fondo 3 */
+.sub-azul    { color: #4a90d9 !important; }
+.sub-amarillo{ color: #c9a200 !important; }
+.sub-morado  { color: #9b7fe8 !important; }
+
+/* =========================================================
+   FONDO 4 – Autismo en niñas y mujeres
+   Texto izquierda + espacio imagen derecha
+========================================================= */
+.seccion-4 {
+  min-height: 100vh;
+  background-image: url("imagenes/fondo4.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 4vw 60px;
+  box-sizing: border-box;
+}
+
+.seccion-4 .texto {
+  color: #000000;
+}
+
+.seccion-4 .texto p  { color: #000000; }
+.seccion-4 .texto li { color: #000000; }
+
+.titulo-morado { color: #9b7fe8 !important; }
+
+/* =========================================================
+   FONDO 5 – Condiciones asociadas
+   Pantalla completa, todo negro
+========================================================= */
+.seccion-5 {
+  min-height: 100vh;
+  background-image: url("imagenes/fondo5.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
+}
+
+.seccion-5 .texto {
+  width: 100%;
+  padding: 28px 0;
+}
+
+.titulo-negro  { color: #000000 !important; }
+.texto-negro   { color: #000000 !important; }
+
+.cond-titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 800;
+  margin-top: 18px;
+  margin-bottom: 2px;
+}
+
+/* =========================================================
+   FONDO 6 – Conclusión
+   Pantalla completa, todo azul centrado
+========================================================= */
+.seccion-6 {
+  min-height: 5vh;
+  background-image: url("imagenes/fondo6.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
+}
+
+.seccion-6 .texto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0;
+}
+
+.texto-azul {
+  color: #4a90d9 !important;
+}
+
+.conclusion-texto {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer {
+  background: var(--bg-footer);
+  padding: 40px 5vw 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+}
+
+.footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
+.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
+.footer-logo-img { width: 300px; height: 150px; object-fit: contain; }
+.footer-copy { font-size: .82rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
+.copy-icon { font-size: 1rem; }
+
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+.footer-links a {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--blue-brand); }
+
+.footer-col-title { font-size: .88rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
+.footer-contact-info { font-size: .82rem; font-weight: 600; color: var(--text-soft); margin-top: 8px; }
+
+.footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
+.mascot-img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .seccion-con-imagen {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .imagen-lateral {
+    flex: none;
+    width: 80%;
+    max-width: 340px;
+    min-height: 240px;
+  }
+
+  .seccion-3,
+  .seccion-4 {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 6vw 60px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – MÓVIL
+========================================================= */
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn--active { padding: 5px 14px; }
+
+  .seccion-1, .seccion-2, .seccion-5, .seccion-6 {
+    padding: 90px 6vw 50px;
+  }
+
+  .seccion-3, .seccion-4 {
+    flex-direction: column;
+    padding: 90px 6vw 50px;
+  }
+
+  .imagen-lateral {
+    width: 90%;
+    max-width: 260px;
+    min-height: 200px;
+  }
+
+  .site-footer { gap: 28px; }
+  .footer-mascot { display: none; }
+}
