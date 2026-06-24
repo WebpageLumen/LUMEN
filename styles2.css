@@ -49,13 +49,8 @@
  
 /* =========================================================
    MODO OSCURO
-   Se activa cuando el <html> tiene data-theme="dark".
-   Sobreescribe las variables del modo claro con versiones oscuras.
-   Cómo funciona: JavaScript agrega data-theme="dark" al <html>
-   y estas variables reemplazan automáticamente a las del :root.
 ========================================================= */
 [data-theme="dark"] {
-  /* Fondos oscuros para cada sección */
   --bg-body:        #0f1923;
   --bg-hero:        #111e2d;
   --bg-card:        rgba(30,50,80,.6);
@@ -63,32 +58,25 @@
   --bg-shop:        #1e1535;
   --bg-footer:      #0d1b2a;
  
-  /* Navbar oscura: fondo semi-transparente con blur */
   --bg-navbar:      rgba(15,25,35,.95);
-  /* Links de la navbar en modo oscuro */
   --nav-link-color: #c8dff0;
-  /* Borde inferior más visible en modo oscuro */
   --nav-border:     rgba(74,144,217,.2);
  
-  /* Textos adaptados para fondos oscuros */
   --text-main:      #e0eaf4;
   --text-soft:      #8aafc8;
   --text-light:     #5a7da0;
  
-  /* Bordes y sombras en modo oscuro */
   --border-card:    rgba(74,144,217,.22);
   --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
   --shadow-card:    0 6px 28px rgba(0,0,0,.3);
   --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
  
-  /* Azules ligeramente más claros para mejor contraste */
   --blue-brand:     #5aa3e8;
   --blue-dark:      #7bb8f0;
 }
  
 /* =========================================================
    RESET BASE
-   Elimina márgenes y paddings por defecto del navegador
 ========================================================= */
 *, *::before, *::after {
   margin: 0;
@@ -98,7 +86,6 @@
  
 html {
   scroll-behavior: smooth;
-  /* Transición suave al cambiar de tema */
   transition: background-color .3s ease, color .3s ease;
 }
  
@@ -108,101 +95,73 @@ body {
   overflow-x: hidden;
   background: var(--bg-body);
   color: var(--text-main);
-  /* Transición al cambiar tema afecta fondo y texto del body */
   transition: background-color .3s ease, color .3s ease;
 }
  
 /* =========================================================
-   NAVBAR – Barra de navegación principal
-   Modificada para coincidir con el diseño de referencia:
-   - Fondo blanco en modo claro, oscuro en modo dark
-   - Borde inferior sutil
-   - Logo izquierda | Links centro | Controles derecha
+   NAVBAR
 ========================================================= */
-
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
   z-index: 1000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-
   padding: 14px 32px;
-
   background: var(--bg-navbar);
   border-bottom: 1.5px solid var(--nav-border);
-
   backdrop-filter: blur(12px);
-
   transition: background .3s ease, border-color .3s ease;
-
   flex-wrap: wrap;
 }
  
-/*Logo de la barra de navegacion
-   Posicionado a la izquierda, combina imagen + texto */
 .nav-logo {
   display: flex;
   align-items: left;
   gap: 6px;
-  flex-shrink: 0; /* Evita que el logo se encoja */
+  flex-shrink: 0;
   text-decoration: none;
 }
  
-/* Imagen del logo */
 .logo-img {
   width: 170px;
   height: 60px;
   object-fit: contain;
 }
 
-/* LINKS DE NAVEGACIÓN */
 .nav-links {
   display: flex;
   align-items: right;
   gap: 4px;
   flex-wrap: wrap;
   justify-content: right;
-  flex: 1; /* Ocupa el espacio central disponible */
+  flex: 1;
 }
  
-/* Estilo base de cada botón de navegación */
 .nav-btn {
   font-family: 'Nunito', sans-serif;
   font-size: .84rem;
   font-weight: 700;
-/* Color del texto adaptado a la variable del tema */
-
   color: var(--nav-link-color);
-
- /* Fondo transparente con bordes redondeados */
-
   background: transparent;
   border: none;
   border-radius: var(--radius-pill);
-
   padding: 7px 14px;
   cursor: pointer;
   white-space: nowrap;
-
   text-decoration: none;
-
   transition: var(--transition);
 }
 
-/* Hover: fondo azul muy suave */
 .nav-btn:hover {
   background: rgba(74,144,217,.08);
   color: var(--blue-brand);
 }
  
-/* Estado activo: pill azul sólido (solo para "Inicio") */
 .nav-btn.active {
   background: var(--blue-brand);
   color: #ffffff;
@@ -214,7 +173,6 @@ body {
   color: #ffffff;
 }
  
-/* CONTROLES DERECHOS – botón de tema + idioma*/
 .nav-controls {
   display: flex;
   align-items: center;
@@ -222,26 +180,18 @@ body {
   flex-shrink: 0;
 }
  
-/* BOTÓN DE CAMBIO DE TEMA (MODO OSCURO / CLARO) */
 .theme-btn {
-  /* Círculo compacto para el ícono de tema */
   width: 36px;
   height: 36px;
   border-radius: 50%;
- 
-  /* Borde sutil color azul marca */
   border: 1.5px solid rgba(74,144,217,.25);
- 
-  /* Fondo claro con efecto cristal */
   background: rgba(255,255,255,.7);
   backdrop-filter: blur(6px);
- 
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.05rem;
- 
   transition: var(--transition);
 }
  
@@ -251,7 +201,6 @@ body {
   box-shadow: var(--shadow-soft);
 }
  
-/* Adaptación del botón de tema en modo oscuro */
 [data-theme="dark"] .theme-btn {
   background: rgba(30,50,80,.7);
   border-color: rgba(100,160,220,.4);
@@ -261,26 +210,19 @@ body {
   background: rgba(40,65,100,.9);
 }
  
-/* SELECTOR DE IDIOMA
-   Muestra bandera circular + código de idioma*/
 .lang-wrapper {
   position: relative;
 }
  
-/* Botón del selector de idioma */
 .lang-btn {
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
- 
   border: 1.5px solid rgba(74,144,217,.2);
   border-radius: var(--radius-pill);
- 
-  /* Fondo semi-transparente */
   background: rgba(255,255,255,.6);
   backdrop-filter: blur(8px);
- 
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-size: .82rem;
@@ -294,14 +236,12 @@ body {
   box-shadow: var(--shadow-soft);
 }
  
-/* Adaptación del selector de idioma en modo oscuro */
 [data-theme="dark"] .lang-btn {
   background: rgba(30,50,80,.7);
   border-color: rgba(100,160,220,.3);
   color: var(--text-main);
 }
  
-/* Flecha indicadora del dropdown de idioma */
 .lang-chevron {
   display: inline-block;
   border-right: 2px solid var(--blue-brand);
@@ -313,13 +253,11 @@ body {
   margin-top: -3px;
 }
  
-/* Rota la flecha cuando el dropdown está abierto */
 .lang-btn[aria-expanded="true"] .lang-chevron {
   transform: rotate(-135deg);
   margin-top: 2px;
 }
  
-/* Panel del dropdown de idioma */
 .lang-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -330,8 +268,6 @@ body {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
- 
-  /* Estado inicial: oculto con animación */
   opacity: 0;
   transform: translateY(-6px) scale(.96);
   pointer-events: none;
@@ -339,14 +275,12 @@ body {
   z-index: 200;
 }
  
-/* Estado abierto del dropdown de idioma */
 .lang-dropdown.open {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
  
-/* Cada opción dentro del dropdown de idioma */
 .lang-option {
   display: flex;
   align-items: center;
@@ -362,7 +296,6 @@ body {
 .lang-option:hover    { background: var(--bg-sections); }
 .lang-option.selected { background: rgba(74,144,217,.12); }
  
-/* Bandera circular en navbar y dropdown */
 .flag {
   width: 26px;
   height: 26px;
@@ -373,32 +306,22 @@ body {
  
 /* =========================================================
    DROPDOWN DE NAVEGACIÓN
-   Submenú que aparece al hacer clic en botones específicos.
-   Se muestra solo cuando el .nav-item tiene clase "open",
-   la cual es añadida/removida por JavaScript.
 ========================================================= */
- 
-/* Contenedor relativo para que el dropdown se posicione correctamente */
 .nav-item {
   position: relative;
   display: inline-flex;
 }
  
-/* Panel del dropdown de navegación – oculto por defecto */
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 2px);
   left: 0;
   min-width: 210px;
- 
-  /* Fondo azul igual al de los botones activos */
   background: var(--blue-brand);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 12px 36px #649dd3;
   border: 1.5px solid rgba(255,255,255,.18);
- 
-  /* Estado oculto con animación de entrada */
   opacity: 0;
   transform: translateY(-8px) scale(.97);
   pointer-events: none;
@@ -406,27 +329,20 @@ body {
   z-index: 300;
 }
  
-
-/* Mostrar dropdown al pasar el cursor */
 .nav-item:hover .nav-dropdown {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
  
-/* Links individuales dentro del dropdown de navegación */
 .nav-drop-link {
   display: block;
   padding: 10px 18px;
   font-family: 'Nunito', sans-serif;
   font-size: .84rem;
   font-weight: 700;
- 
-  /* Texto blanco sobre fondo azul */
   color: #ffffff;
   text-decoration: none;
- 
-  /* Separador entre links */
   border-bottom: 1px solid rgba(255,255,255,.12);
   transition: background var(--transition), padding-left var(--transition);
 }
@@ -435,13 +351,11 @@ body {
   border-bottom: none;
 }
  
-/* Hover: fondo más claro + desplazamiento del texto */
 .nav-drop-link:hover {
   background: rgba(255,255,255,.18);
   padding-left: 24px;
 }
  
-/* Adaptación del dropdown de nav en modo oscuro */
 [data-theme="dark"] .nav-dropdown {
   background: #1a3050;
   border-color: rgba(100,160,220,.3);
@@ -449,27 +363,26 @@ body {
 }
  
 /* =========================================================
-   HERO – SECCIÓN PRINCIPAL
-   Fondo con imagen personalizable, overlay de color
+   HERO – PRIMERA SECCIÓN
+   ── IMAGEN MODO CLARO ── reemplaza la ruta dentro de url()
+   para cambiar la imagen de fondo en modo claro.
 ========================================================= */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
- 
-  /* IMAGEN DE FONDO – cambia esta ruta para actualizarla */
-  background-image: url('Imagenes/Bg4.0.png');
-  background-size: cover;
+
+  /* ── IMAGEN MODO CLARO ── cambia esta ruta cuando quieras */
+  background-image: url('Imagenes/Bg6.0.png');
+  background-size: 100% 100%;   /* ambas imágenes ocupan exactamente el mismo espacio */
   background-position: center;
   background-repeat: no-repeat;
- 
-  /* Color de fondo si la imagen no carga */
+
   background-color: var(--bg-hero);
   transition: background-color .3s ease;
 }
  
-/* Overlay semitransparente sobre la imagen de fondo */
 .hero::before {
   content: '';
   position: absolute;
@@ -484,7 +397,6 @@ body {
   transition: background .3s ease;
 }
  
-/* Overlay más oscuro en modo dark para mantener legibilidad */
 [data-theme="dark"] .hero::before {
   background: linear-gradient(
     160deg,
@@ -493,8 +405,12 @@ body {
     rgba(10,22,40,0.80) 100%
   );
 }
+
+/* ── IMAGEN MODO CALMA ── */
+[data-theme="dark"] .hero {
+  background-image: url('Imagenes/BGdark.png');
+}
  
-/* Contenido del hero: texto centrado verticalmente */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -506,7 +422,6 @@ body {
  
 .hero-text { max-width: 460px; }
  
-/* Título principal grande */
 .hero-title {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
@@ -516,10 +431,8 @@ body {
   margin-bottom: 18px;
 }
  
-/* Palabra resaltada en azul dentro del título */
 .hero-highlight { color: var(--blue-brand); }
  
-/* Descripción debajo del título */
 .hero-description {
   font-size: clamp(.88rem, 1.5vw, 1rem);
   font-weight: 600;
@@ -528,16 +441,32 @@ body {
   max-width: 380px;
 }
  
-/* SEGUNDA SECCIÓN – ¿QUÉ ENCUENTRAS EN LUMEN?*/
+/* =========================================================
+   SEGUNDA SECCIÓN – ¿QUÉ ENCUENTRAS EN LUMEN?
+   ── IMAGEN DE FONDO ── coloca la ruta de tu imagen dentro
+   de url() en la propiedad background-image de abajo.
+   En modo oscuro la imagen desaparece y queda fondo blanco.
+========================================================= */
 .sections-wrapper {
-  background: var(--bg-sections);
+  /* ── IMAGEN DE FONDO ── cambia esta ruta cuando quieras */
+  background-image: url('Imagenes/ImagenesM.png');
+  background-color: var(--bg-sections);
+  background-size: cover;       /* cubre toda la sección sin deformarse */
+  background-position: center;  /* centra la imagen */
+  background-repeat: no-repeat; /* no repite si la sección es más grande */
+
   padding: 56px 5vw 72px;
   position: relative;
   overflow: hidden;
-  transition: background .3s ease;
+  transition: background-color .3s ease;
+}
+
+/* Modo oscuro: imagen oculta, fondo blanco puro */
+[data-theme="dark"] .sections-wrapper {
+  background-image: none;
+  background-color: #ffffff;
 }
  
-/* Cabecera: título y badge en la misma fila */
 .sections-header {
   display: flex;
   align-items: center;
@@ -553,55 +482,8 @@ body {
   font-weight: 800;
   color: var(--blue-brand);
 }
- 
 
-/* Huellas decorativas en el fondo de la sección */
-.handprints {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
 
-.hp {
-    position: absolute;
-    opacity: .12;
-}
-
-[data-theme="dark"] .hp {
-    opacity: .06;
-}
-
-.hp img {
-    width: 220px;
-    height: auto;
-    display: block;
-    filter: brightness(0.14);
-}
-
-[data-theme="dark"] .hp img {
-    filter: brightness(1.2);
-}
-
-.hp1 {
-    bottom: 10%;
-    left: 2%;
-    transform: rotate(-30deg);
-}
-
-.hp2 {
-    top: 15%;
-    left: 18%;
-    transform: rotate(15deg);
-}
-
-.hp3 {
-    bottom: 5%;
-    right: 5%;
-    transform: rotate(10deg);
-}
-
-/* Grid de 4 tarjetas */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);;
@@ -612,7 +494,6 @@ body {
   margin: 0 auto;
 }
 
-/* Base de cada tarjeta (es un enlace <a>) */
 .section-card {
   background: var(--bg-card);
   border-radius: var(--radius-card);
@@ -631,12 +512,10 @@ body {
   box-shadow: var(--shadow-hover);
 }
  
-/* Colores de borde por categoría */
 .card-blue:hover   { border-color: var(--blue-brand); }
 .card-yellow:hover { border-color: var(--yellow-brand); }
 .card-purple:hover { border-color: var(--purple-brand); }
  
-/* Área de imagen dentro de la tarjeta */
 .card-img-area {
   display: flex;
   align-items: center;
@@ -648,17 +527,14 @@ body {
   transition: background .3s ease;
 }
  
-/* Fondos de color suave por categoría (modo claro) */
 .card-blue   .card-img-area { background: #d6eaf8; }
 .card-yellow .card-img-area { background: #fef9e7; }
 .card-purple .card-img-area { background: #f3effe; }
  
-/* Fondos más oscuros en modo dark */
 [data-theme="dark"] .card-blue   .card-img-area { background: #12253a; }
 [data-theme="dark"] .card-yellow .card-img-area { background: #2a2210; }
 [data-theme="dark"] .card-purple .card-img-area { background: #1e1535; }
  
-/* Blob decorativo detrás de la imagen */
 .card-img-area::before {
   content: '';
   position: absolute;
@@ -673,7 +549,6 @@ body {
 .card-yellow .card-img-area::before { background: rgba(249,199,79,.22); }
 .card-purple .card-img-area::before { background: rgba(155,127,232,.2); }
 
-/* Contenedor de la imagen de la tarjeta */
 .card-img-placeholder {
   width: 130px;
   height: 130px;
@@ -688,7 +563,6 @@ body {
   object-fit: contain;
 }
  
-/* Texto del nombre de la tarjeta */
 .card-label {
   padding: 16px 16px 10px;
   text-align: center;
@@ -704,7 +578,6 @@ body {
 [data-theme="dark"] .card-yellow .card-label { color: #f9c74f; }
 [data-theme="dark"] .card-purple .card-label { color: #c4a8f8; }
  
-/* Flecha al pie de la tarjeta */
 .card-purple .card-arrow {
   display: inline-flex;
   align-items: center;
@@ -802,7 +675,6 @@ body {
   line-height: 1.5;
 }
  
-/* Botón "Ver todas las giras" */
 .tours-btn {
   display: inline-flex;
   align-items: center;
@@ -831,7 +703,6 @@ body {
   flex-wrap: wrap;
 }
  
-/* Tarjeta individual de tour */
 .tour-card {
   flex: 1;
   min-width: 140px;
@@ -856,7 +727,6 @@ body {
  
 .tour-img { width: 100%; height: 100%; object-fit: cover; }
  
-/* Texto fallback si la imagen no carga */
 .tour-img-fallback {
   position: absolute;
   inset: 0;
@@ -885,7 +755,6 @@ body {
   color: var(--text-main);
 }
  
-/* Tags de categoría del tour */
 .tour-tag { font-size: .72rem; font-weight: 700; border-radius: var(--radius-pill); padding: 3px 10px; width: fit-content; }
 .tour-tag-edu { background: #e0f0ff; color: var(--blue-brand); }
 .tour-tag-rec { background: #fff3cd; color: #b8860b; }
@@ -921,7 +790,6 @@ body {
  
 .shop-desc { font-size: .88rem; font-weight: 600; color: var(--text-soft); line-height: 1.55; }
  
-/* Botón "Ir a la tienda" */
 .shop-btn {
   display: inline-flex;
   align-items: center;
@@ -945,7 +813,6 @@ body {
  
 .shop-products { display: flex; gap: 18px; flex: 1; flex-wrap: wrap; }
  
-/* Tarjeta de producto */
 .product-card {
   flex: 1;
   min-width: 110px;
@@ -982,7 +849,7 @@ body {
 }
  
 /* =========================================================
-   FOOTER – Pie de página
+   FOOTER
 ========================================================= */
 .site-footer {
   background: var(--bg-footer);
@@ -999,7 +866,6 @@ body {
 .footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
  
 .footer-logo-img { width: 300px; height: 150px; object-fit: contain; }
- 
  
 .footer-copy { font-size: .82rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
 .copy-icon { font-size: 1rem; }
@@ -1020,7 +886,6 @@ body {
  
 .footer-contact-info { font-size: .82rem; font-weight: 600; color: var(--text-soft); margin-top: 8px; }
  
-/* Mascota decorativa al fondo del footer */
 .footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
  
 .mascot-img {
@@ -1030,55 +895,41 @@ body {
   animation: floatMascot 4s ease-in-out infinite;
 }
  
-/* Animación de la mascota flotando */
 @keyframes floatMascot {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-10px); }
 }
  
 /* =========================================================
-   RESPONSIVE – TABLET (máximo 900px)
+   RESPONSIVE – TABLET
 ========================================================= */
 @media (max-width: 900px) {
-  /* En tablet el hero apila texto (sin ilustración) */
   .hero-content { padding: 36px 5vw 60px; }
   .hero-text { max-width: 100%; }
- 
-  /* Grid de 2 columnas en tablet */
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
- 
-  /* Giras en columna vertical */
   .tours-section { flex-direction: column; }
   .tours-left { flex: none; }
- 
-  /* Shop en columna vertical */
   .shop-section { flex-direction: column; }
   .shop-left { flex: none; }
 }
  
 /* =========================================================
-   RESPONSIVE – MÓVIL (máximo 600px)
+   RESPONSIVE – MÓVIL
 ========================================================= */
 @media (max-width: 600px) {
-  /* Navbar apila los links debajo */
   .navbar { padding: 14px 16px; gap: 8px; }
   .nav-links { order: 3; width: 100%; gap: 5px; }
   .nav-btn { font-size: .72rem; padding: 5px 11px; }
   .nav-btn.active { padding: 5px 14px; }
- 
-  /* Grid de 2 columnas en móvil */
   .cards-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .sections-wrapper { padding: 40px 18px 56px; }
- 
   .tours-cards { justify-content: center; }
   .tour-card { min-width: 130px; }
- 
   .shop-products { justify-content: center; }
- 
-  /* Footer más compacto y sin mascota */
   .site-footer { gap: 28px; }
   .footer-mascot { display: none; }
 }
+
 .sections-wrapper {
   border-bottom: 2px solid var(--nav-border);
 }
@@ -1086,7 +937,7 @@ body {
 .tours-section {
   border-bottom: 2px solid var(--nav-border);
 }
-/* hace que el cursor cambie en las partes de explora crea y descubre*/
+
 .tour-card {
   text-decoration: none;
   cursor: pointer;
