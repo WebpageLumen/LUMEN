@@ -11,7 +11,7 @@ body.fade-out {
     opacity: 0;
 }
 #sec-causes {
-  scroll-margin-top: 80px; /* ajusta el valor */
+  scroll-margin-top: 200px; /* ajusta el valor */
 }
 #sec-levels {
   scroll-margin-top: 80px; /* ajusta el valor */
