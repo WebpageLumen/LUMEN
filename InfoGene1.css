@@ -479,7 +479,7 @@ body {
 ========================================================= */
 .seccion-2 {
   min-height: 100vh;
-  background-image: url("imagenes/fondo2.png");
+  background-image: url("Imagenes/fondo2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -517,7 +517,7 @@ body {
 ========================================================= */
 .seccion-3 {
   min-height: 100vh;
-  background-image: url("imagenes/fondo3.png");
+  background-image: url("Imagenes/fondo3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -548,7 +548,7 @@ body {
 ========================================================= */
 .seccion-4 {
   min-height: 100vh;
-  background-image: url("imagenes/fondo4.png");
+  background-image: url("Imagenes/fondo4.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -575,7 +575,7 @@ body {
 ========================================================= */
 .seccion-5 {
   min-height: 100vh;
-  background-image: url("imagenes/fondo5.png");
+  background-image: url("Imagenes/fondo5.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -609,7 +609,7 @@ body {
 ========================================================= */
 .seccion-6 {
   min-height: 5vh;
-  background-image: url("imagenes/fondo6.png");
+  background-image: url("Imagenes/fondo6.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
