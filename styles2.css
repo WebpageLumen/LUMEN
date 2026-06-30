@@ -400,7 +400,7 @@ body {
 }
 
 [data-theme="calm"] .hero::before {
-  background: linear-gradient(160deg, rgba(245,239,255,0.72) 0%, rgba(250,246,255,0.62) 50%, rgba(237,245,255,0.58) 100%);
+  background: none;
 }
 
 [data-theme="calm"] .hero {
