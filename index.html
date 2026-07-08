@@ -33,36 +33,36 @@
       <div class="nav-links">
  
         <!-- Inicio -->
-        <a href="#" class="nav-btn" data-i18n="nav_home">Inicio</a>
+        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
  
         <!-- =====================================================
              INFORMACIÓN GENERAL – con dropdown
              Al hacer clic muestra submenú con temas de autismo
         ===================================================== -->
         <div class="nav-item">
-          <button class="nav-btn" href="InfoGene1.html"data-i18n="nav_info">Información general</button>
-          <!-- Submenú de Información general -->
-          <div class="nav-dropdown">
-            <a href="InfoGene1.html" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
-            <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
-            <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
-            <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
-            <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
-            <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
-          </div>
-        </div>
+  <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+  <!-- Submenú de Información general -->
+  <div class="nav-dropdown">
+    <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+    <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+    <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+    <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+    <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+    <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+  </div>
+</div>
  
         <!-- Lumen Shop: enlace simple sin submenú -->
-        <a href="#" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+        <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
  
         <!-- Centros: enlace simple sin submenú -->
-        <a href="#" class="nav-btn" data-i18n="nav_centers">Centros</a>
+        <a href="Centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
  
         <!-- Giras inclusivas: enlace simple sin submenú -->
-        <a href="#" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+        <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
  
         <!-- Profesionales: enlace simple sin submenú -->
-        <a href="#" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+        <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
  
         <!-- =====================================================
              SOBRE NOSOTROS – con dropdown
@@ -72,9 +72,9 @@
           <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
           <!-- Submenú de Sobre nosotros -->
           <div class="nav-dropdown">
-            <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
-            <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
-            <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+            <a href="quienes.html" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+            <a href="mision.html" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+            <a href="contacto.html" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
           </div>
         </div>
  
@@ -296,7 +296,7 @@
         <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
             </div>
       <p class="footer-copy">
-        <span class="copy-icon">©</span>
+        <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
         <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
       </p>
     </div>
@@ -314,13 +314,30 @@
       </ul>
     </div>
  
-    <div class="footer-contact">
-      <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
-      <p class="footer-contact-info">info@lumen.com</p>
+    <div class="footer-social">
+      <p class="footer-social-line" data-i18n="footer_community" href="">¡Visita nuestra comunidad!</p>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
     </div>
  
     <div class="footer-mascot" aria-hidden="true">
-      <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
     </div>
  
   </footer>
