@@ -54,9 +54,11 @@ const TRANSLATIONS = {
     prod3:        "Pop it<br>Arcoiris",
     prod4:        "Pelota<br>Antiestres",
 
-    footer_copy:    "2026 Lumen. Todos los derechos reservados.",
-    footer_access:  "Accesos rápidos",
-    footer_contact: "Contáctanos al:",
+    footer_copy:      "2026 Lumen. Todos los derechos reservados.",
+    footer_access:    "Accesos rápidos",
+    footer_community: "¡Visita nuestra comunidad!",
+    footer_contact:   "Contáctanos",
+    footer_email_label: "Correo electrónico:",
   },
 
   en: {
@@ -108,9 +110,11 @@ const TRANSLATIONS = {
     prod3:        "Rainbow<br>Pop it",
     prod4:        "Anti-stress<br>Ball",
 
-    footer_copy:    "2026 Lumen. All rights reserved.",
-    footer_access:  "Quick access",
-    footer_contact: "Contact us:",
+    footer_copy:      "2026 Lumen. All rights reserved.",
+    footer_access:    "Quick access",
+    footer_community: "Visit our community!",
+    footer_contact:   "Contact us",
+    footer_email_label: "Email:",
   }
 };
 
@@ -257,3 +261,22 @@ themeBtn.addEventListener("click", () => {
 
 applyTheme(getInitialTheme());
 switchLanguage(currentLang);
+
+// Delay para todos los dropdowns del navbar
+document.querySelectorAll('.nav-item').forEach(item => {
+  const dropdown = item.querySelector('.nav-dropdown');
+  if (!dropdown) return;
+
+  let hideTimeout;
+
+  item.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    dropdown.classList.add('show');
+  });
+
+  item.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      dropdown.classList.remove('show');
+    }, 350); // mismo tiempo que el delay del CSS
+  });
+});
