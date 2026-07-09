@@ -210,6 +210,19 @@ let currentLang = localStorage.getItem("lumen-lang") || "es";
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  function applyImages(lang) {
+  const imgSigns = document.getElementById("imgSigns");
+  if (!imgSigns) return;
+
+  if (lang === "es") {
+    imgSigns.src = "Imagenes/Imagen 1.png";
+    imgSigns.alt = "Señales de alerta";
+  } else if (lang === "en") {
+    imgSigns.src = "Imagenes/Imagen-1.png";
+    imgSigns.alt = "Warning signs";
+  }
+}
+
 /* =========================================================
    APLICAR TRADUCCIONES
 ========================================================= */
@@ -232,13 +245,14 @@ function switchLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("lumen-lang", lang);
   document.getElementById("langLabel").textContent = LANG_META[lang].label;
-  document.getElementById("langFlag").src          = LANG_META[lang].flagSrc;
+  document.getElementById("langFlag").src = LANG_META[lang].flagSrc;
 
   document.querySelectorAll(".lang-option").forEach(opt => {
     opt.classList.toggle("selected", opt.dataset.lang === lang);
   });
 
   applyTranslations(lang);
+  applyImages(lang);
   closeLangDropdown();
 }
 
@@ -351,3 +365,22 @@ applyTranslations(currentLang);
 switchLanguage(currentLang);
 
 }); // fin DOMContentLoaded
+
+// Delay para todos los dropdowns del navbar
+document.querySelectorAll('.nav-item').forEach(item => {
+  const dropdown = item.querySelector('.nav-dropdown');
+  if (!dropdown) return;
+
+  let hideTimeout;
+
+  item.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    dropdown.classList.add('show');
+  });
+
+  item.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      dropdown.classList.remove('show');
+    }, 350); // mismo tiempo que el delay del CSS
+  });
+});
