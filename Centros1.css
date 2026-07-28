@@ -490,56 +490,179 @@ body {
 }
 
 /* =========================================================
-   FOOTER – Centros
+   FOOTER.CSS – LUMEN
+   Estilos necesarios y suficientes para que el footer
+   se vea y funcione EXACTAMENTE igual que en el proyecto.
+
+   DEPENDENCIA: la fuente 'Nunito' debe importarse en el <head>
+   del documento (Google Fonts).
 ========================================================= */
-.site-footer {
-  background: var(--centros-footer-bg);
-  padding: 40px 5vw 28px;
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
-  flex-wrap: wrap;
-  transition: background .3s ease;
+
+/* ---- Reset mínimo (si tu página no lo tiene ya) ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
-.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
-.footer-logo-img { width: 220px; height: auto; object-fit: contain; }
+/* Variable usada por las transiciones del footer */
+:root {
+  --transition: 0.28s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer {
+  position: relative;
+  background: #75a0dd;
+  padding: 44px 5vw 32px;
+  padding-right: calc(5vw + 150px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: -18px;
+}
 
 .footer-copy {
-  font-size: .82rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   display: flex;
-  align-items: center;
+  align-items: auto;
   gap: 5px;
 }
-.copy-icon { font-size: 1rem; }
 
-.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.copy-icon {
+  font-size: 1rem;
+}
+
+.footer-links {
+  min-width: 140px;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
 .footer-links a {
-  font-size: .85rem;
+  font-size: .82rem;
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
   transition: opacity var(--transition);
 }
-.footer-links a:hover { opacity: .75; }
 
-.footer-col-title { font-size: .92rem; font-weight: 800; color: #ffffff; margin-bottom: 4px; }
-.footer-contact-info { font-size: .85rem; font-weight: 600; color: #ffffff; margin-top: 8px; opacity: .9; }
-
-.footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
-.mascot-img {
-  width: 130px;
-  height: auto;
-  object-fit: contain;
-  animation: floatMascot 4s ease-in-out infinite;
+.footer-links a:hover {
+  opacity: .75;
 }
 
-@keyframes floatMascot {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+.footer-col-title {
+  font-size: .9rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 200px;
+}
+
+.footer-social-line {
+  font-size: .92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  color-scheme: dark;
+  background: transparent;
+  border-radius: contain;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.social-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.social-icon:hover {
+  opacity: .8;
+  transform: translateY(-2px);
+}
+
+.footer-mascot {
+  position: absolute;
+  right: 0;
+  top: 2.5;
+  bottom: 2.5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 210px;
+}
+
+.mascot-img {
+  height: 210px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+/* =========================================================
+   RESPONSIVE – MÓVIL (igual que el proyecto original)
+========================================================= */
+@media (max-width: 600px) {
+  .site-footer { gap: 28px; justify-content: flex-start; padding-right: 5vw; }
+  .footer-social { min-width: 160px; }
+  .footer-mascot { display: none; }
 }
 
 /* =========================================================
