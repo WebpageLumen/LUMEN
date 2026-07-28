@@ -212,3 +212,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* =========================================================
+   PERSISTENCIA DE IDIOMA ENTRE PÁGINAS
+========================================================= */
+
+// 1) Al cargar la página, lee el idioma guardado (o "es" por defecto)
+let currentLang = localStorage.getItem("lumen-lang") || "es";
+
+// 2) Aplica las traducciones a los elementos [data-i18n] de ESA página
+function applyTranslations(lang) {
+  const dict = TRANSLATIONS[lang];
+  if (!dict) return;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+
+  document.documentElement.lang = LANG_META[lang].htmlLang;
+}
+
+// 3) Cuando el usuario cambia de idioma (click en ES/EN), lo guarda
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("lumen-lang", lang); // <-- ESTA línea es la clave
+
+  applyTranslations(lang);
+}
+
+// 4) Al final del script, se aplica el idioma guardado apenas carga la página
+applyTranslations(currentLang);
