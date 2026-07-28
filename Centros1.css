@@ -1,0 +1,584 @@
+/* =========================================================
+   VARIABLES DEL TEMA – MODO CLARO
+========================================================= */
+:root {
+  --gold:           #f7c94b;
+  --gold-dark:      #e8a800;
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+  --blue-figure:    #5ab0e8;
+  --purple-brand:   #9b7fe8;
+  --yellow-brand:   #f9c74f;
+  --green-brand:    #90be6d;
+
+  --text-main:      #2d4a6e;
+  --text-soft:      #5a7da0;
+  --text-light:     #8aafc8;
+
+  --bg-body:        #f0f7fd;
+  --bg-hero:        #dff0fb;
+  --bg-card:        #ffffff;
+  --bg-sections:    #ffffff;
+  --bg-shop:        #ede7f6;
+  --bg-footer:      #b8ddf5;
+
+  --bg-navbar:      #ffffff;
+  --nav-link-color: #2d4a6e;
+  --nav-border:     rgba(74,144,217,.15);
+
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+
+  --radius-pill:    999px;
+  --radius-card:    22px;
+  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+
+  /* Colores propios de la página Centros */
+  --centros-card-bg:     #efe4f7;
+  --centros-btn-bg:      #7440a7;
+  --centros-btn-hover:   #5f3388;
+  --centros-footer-bg:   #7ca1e4;
+}
+
+[data-theme="dark"] {
+  --bg-body:        #0f1923;
+  --bg-hero:        #111e2d;
+  --bg-card:        rgba(30,50,80,.6);
+  --bg-sections:    #12202e;
+  --bg-shop:        #1e1535;
+  --bg-footer:      #0d1b2a;
+
+  --bg-navbar:      rgba(15,25,35,.95);
+  --nav-link-color: #c8dff0;
+  --nav-border:     rgba(74,144,217,.2);
+
+  --text-main:      #e0eaf4;
+  --text-soft:      #8aafc8;
+  --text-light:     #5a7da0;
+
+  --border-card:    rgba(74,144,217,.22);
+  --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
+  --shadow-card:    0 6px 28px rgba(0,0,0,.3);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
+
+  --blue-brand:     #5aa3e8;
+  --blue-dark:      #7bb8f0;
+}
+
+/* =========================================================
+   RESET BASE
+========================================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--bg-navbar);
+  border-bottom: 1.5px solid var(--nav-border);
+  backdrop-filter: blur(12px);
+  transition: background .3s ease, border-color .3s ease;
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 170px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--nav-link-color);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-btn:hover {
+  background: rgba(74,144,217,.08);
+  color: var(--blue-brand);
+}
+
+.nav-btn--active {
+  background: var(--blue-brand);
+  color: #ffffff;
+  padding: 7px 20px;
+}
+
+.nav-btn--active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   IDIOMA
+========================================================= */
+.lang-wrapper { position: relative; }
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1.5px solid rgba(74,144,217,.2);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .lang-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.3);
+  color: var(--text-main);
+}
+
+.lang-chevron {
+  display: inline-block;
+  border-right: 2px solid var(--blue-brand);
+  border-bottom: 2px solid var(--blue-brand);
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  margin-top: -3px;
+}
+
+.lang-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200;
+}
+
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: background var(--transition);
+}
+
+.lang-option:hover    { background: var(--bg-sections); }
+.lang-option.selected { background: rgba(74,144,217,.12); }
+
+.flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   NAV DROPDOWN
+========================================================= */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 210px;
+  background: var(--blue-brand);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px #649dd3;
+  border: 1.5px solid rgba(255,255,255,.18);
+  opacity: 0;
+  transform: translateY(-8px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.nav-drop-link {
+  display: block;
+  padding: 10px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  transition: background var(--transition), padding-left var(--transition);
+}
+
+.nav-drop-link:last-child { border-bottom: none; }
+
+.nav-drop-link:hover {
+  background: rgba(255,255,255,.18);
+  padding-left: 24px;
+}
+
+[data-theme="dark"] .nav-dropdown {
+  background: #1a3050;
+  border-color: rgba(100,160,220,.3);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   HERO – Centros
+========================================================= */
+.hero {
+  width: 100%;
+  aspect-ratio: 1895 / 754;
+  background-image: url("Imagenes/FondoCentros1.png");
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 150px 6vw 60px;
+  box-sizing: border-box;
+}
+
+.hero-overlay {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-text {
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  color: var(--text-main);
+}
+
+.hero-text p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.75;
+  color: var(--text-main);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    aspect-ratio: auto;
+    min-height: 38vh;
+    background-position: left center;
+    background-size: 220% auto;
+    padding: 120px 7vw 40px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   CENTROS – sección con imagen de fondo decorativa
+========================================================= */
+.centros {
+  min-height: 140vh;
+  background-image: url("Imagenes/FondoCentros2.png");
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  /* separación horizontal y vertical */
+  column-gap: 35px;
+  row-gap: 150px;
+
+  padding: 110px 8vw 300px;
+  box-sizing: border-box;
+
+}
+/* =========================================================
+   CARDS – tamaño reducido
+========================================================= */
+.card {
+  background-color: var(--centros-card-bg);
+  border-radius: var(--radius-card);
+
+  /* ← padding reducido (antes 22px 20px) */
+  padding: 16px 16px;
+
+  text-align: center;
+
+  /* ← alto mínimo reducido (antes 320px) */
+  min-height: 240px;
+
+  border: 1.5px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Título de la card */
+.card h2 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+
+  /* ← fuente reducida (antes clamp(1.15rem,1.9vw,1.4rem)) */
+  font-size: clamp(.95rem, 1.5vw, 1.15rem);
+
+  margin-bottom: 10px;
+  color: black;
+  line-height: 1.25;
+}
+
+/* Icono/imagen dentro de la card */
+.card img {
+  /* ← icono reducido (antes 80px) */
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* Texto descriptivo */
+.card p {
+  /* ← fuente reducida (antes .92rem) */
+  font-size: .82rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: black;
+  flex: 1;
+}
+
+/* Botón de la card */
+.card-btn {
+  background: var(--centros-btn-bg);
+  color: #ffffff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  transition: var(--transition);
+
+  /* Para que el <a> se vea como un botón */
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.card-btn:hover {
+  background: var(--centros-btn-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================================================
+   FOOTER – Centros
+========================================================= */
+.site-footer {
+  background: var(--centros-footer-bg);
+  padding: 40px 5vw 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+}
+
+.footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
+.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
+.footer-logo-img { width: 220px; height: auto; object-fit: contain; }
+
+.footer-copy {
+  font-size: .82rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.copy-icon { font-size: 1rem; }
+
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.footer-links a {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+.footer-links a:hover { opacity: .75; }
+
+.footer-col-title { font-size: .92rem; font-weight: 800; color: #ffffff; margin-bottom: 4px; }
+.footer-contact-info { font-size: .85rem; font-weight: 600; color: #ffffff; margin-top: 8px; opacity: .9; }
+
+.footer-mascot { margin-left: auto; display: flex; align-items: flex-end; }
+.mascot-img {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .centros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .centros::before {
+    background-size: contain;
+    background-position: right center;
+    opacity: .45;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – MÓVIL
+========================================================= */
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn--active { padding: 5px 14px; }
+
+  .hero { padding: 120px 6vw 50px; min-height: 50vh; }
+  .hero-text { max-width: 100%; }
+
+  .centros {
+    grid-template-columns: 1fr;
+    padding: 40px 6vw;
+    gap: 16px;
+  }
+
+  .centros::before {
+    display: none;
+  }
+
+  .site-footer { gap: 28px; }
+  .footer-mascot { display: none; }
+}

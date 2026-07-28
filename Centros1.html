@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centros - Lumen</title>
+  <link rel="stylesheet" href="Centros1.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+    </div>
+
+    <div class="nav-links">
+      <a href="#heroSection" class="nav-btn nav-btn--active" data-i18n="nav_home">Inicio</a>
+
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_info">Información general</button>
+        <div class="nav-dropdown">
+          <a href="#sec-autism"      class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+          <a href="#sec-causes"      class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+          <a href="#sec-levels"      class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+          <a href="#sec-signs"       class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+          <a href="#sec-girls"       class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+          <a href="#sec-conditions"  class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        </div>
+      </div>
+
+      <a href="#" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+      <a href="#" class="nav-btn" data-i18n="nav_centers">Centros</a>
+      <a href="#" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+      <a href="#" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-btn" id="langBtn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Seleccionar idioma">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+          <span id="langLabel">ES</span>
+          <span class="lang-chevron"></span>
+        </button>
+
+        <div class="lang-dropdown" id="langDropdown" role="listbox">
+          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+            <span>ES</span>
+          </div>
+          <div class="lang-option" role="option" data-lang="en" tabindex="0">
+            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="heroSection">
+  <div class="hero-overlay">
+    <div class="hero-text">
+      <h1 data-i18n="hero_title">Centros</h1>
+
+      <p data-i18n="hero_desc">
+        Explora centros y fundaciones que ofrecen apoyo y
+        servicios para personas autistas y sus familias.
+        Encuentra información sobre sus programas y ubicación
+        en un solo lugar.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- TARJETAS -->
+  <section class="centros">
+
+    <div class="card">
+      <h2 data-i18n="card1_title">Fundación Soy Capaz</h2>
+
+      <img src="imagenes/soy capaz.png" alt="Soy Capaz">
+
+      <p data-i18n="card1_desc">
+        Promueve la inclusión y el desarrollo de habilidades
+        en personas con autismo, especialmente jóvenes y adultos.
+      </p>
+
+      <a href="https://maps.google.com/?q=Fundación+Soy+Capaz+Panamá"
+   target="_blank"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+
+    <div class="card">
+      <h2 data-i18n="card2_title">Fundación Enséñame a vivir</h2>
+
+      <img src="imagenes/ensename vivir.png" alt="Enséñame a vivir">
+
+      <p data-i18n="card2_desc">
+        Brinda atención especializada, acompañamiento familiar
+        y programas de apoyo para personas con TEA.
+      </p>
+
+      <a href="https://maps.google.com/?q=Fundación+Enséñame+a+Vivir"
+   target="_blank"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+
+    <div class="card">
+      <h2 data-i18n="card3_title">Centro Ann Sullivan Panamá</h2>
+
+      <img src="imagenes/caspan.png" alt="CASPAN">
+
+      <p data-i18n="card3_desc">
+        Ofrece educación y capacitación para fomentar la autonomía
+        e inclusión de personas con discapacidad y autismo.
+      </p>
+
+      <a href="https://www.google.com/maps/place/Centro+Ann+Sullivan+Panam%C3%A1/@8.4254865,-82.4238043,17z/data=!3m1!4b1!4m6!3m5!1s0x8fa59ded86de84f3:0xad1881874473c661!8m2!3d8.4254812!4d-82.4212294!16s%2Fg%2F11rw7y3h44?entry=ttu&g_ep=EgoyMDI2MDYyMi4wIKXMDSoASAFQAw%3D%3D"
+   target="_blank"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+
+    <div class="card">
+      <h2 data-i18n="card4_title">Fundación Valórate</h2>
+
+      <img src="imagenes/valorate.png" alt="Valórate">
+
+      <p data-i18n="card4_desc">
+        Impulsa la inclusión y el acceso a servicios especializados
+        para personas con necesidades de apoyo diversas.
+      </p>
+
+      <a href="https://www.google.com/maps/place/Fundaci%C3%B3n+Val%C3%B3rate/@9.0093323,-79.5510259,15z/data=!3m1!4b1!4m6!3m5!1s0x8faca635cc4874ad:0x901e4280ceb7ede4!8m2!3d9.0093116!4d-79.5325718!16s%2Fg%2F11bwf7h7gb?entry=ttu&g_ep=EgoyMDI2MDYyMi4wIKXMDSoASAFQAw%3D%3D"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+
+    <div class="card">
+      <h2 data-i18n="card5_title">CENTIR</h2>
+
+      <img src="imagenes/Centir.png" alt="CENTIR">
+
+      <p data-i18n="card5_desc">
+        Apoya a personas con necesidades diversas a través de atención terapéutica y educativa integral.
+      </p>
+
+      <a href="https://www.google.com/maps/place/Centro+M%C3%A9dico+Integral+de+Alta+Especialidad/@8.9724483,-79.5331954,17z/data=!3m1!4b1!4m6!3m5!1s0x8faca8c1938b6f73:0x633570fbc79e6627!8m2!3d8.9724483!4d-79.5331954!16s%2Fg%2F11b5qxrshb?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
+   target="_blank"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+
+    <div class="card">
+      <h2 data-i18n="card6_title">IENDI</h2>
+
+      <img src="imagenes/Iendi.png" alt="IENDI">
+
+      <p data-i18n="card6_desc">
+        Apoya a niños con trastornos del neurodesarrollo a través de atención especializada.
+      </p>
+
+      <a href="https://www.google.com/maps/place/Instituto+Especializado+de+Neurodesarrollo+Integral+(Iendi)/@9.0503696,-79.4150659,17z/data=!3m1!4b1!4m6!3m5!1s0x8fab55982d0182c7:0x53b03809b15616f7!8m2!3d9.0503696!4d-79.4150659!16s%2Fg%2F11fb0w176d?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
+   target="_blank"
+   class="card-btn"
+   data-i18n="card_btn">
+  Ver ubicación
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="#heroSection"    data-i18n="nav_home">Inicio</a></li>
+        <li><a href="#sec-autism"     data-i18n="nav_info">Información general</a></li>
+        <li><a href="#"               data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="#"               data-i18n="nav_centers">Centros</a></li>
+        <li><a href="#"               data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="#"               data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="#"               data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
+      <p class="footer-contact-info">info@lumen.com</p>
+    </div>
+
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+  <script src="Centros1.js"></script>
+</body>
+</html>
