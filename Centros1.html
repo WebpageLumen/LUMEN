@@ -5,69 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Centros - Lumen</title>
   <link rel="stylesheet" href="Centros1.css">
+
+  <link rel="icon" href="Imagenes/Lg.png" type="image/png">
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar" role="navigation" aria-label="Navegación principal">
-    <div class="nav-logo">
-      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
-    </div>
 
-    <div class="nav-links">
-      <a href="#heroSection" class="nav-btn nav-btn--active" data-i18n="nav_home">Inicio</a>
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
 
-      <div class="nav-item">
-        <button class="nav-btn" data-i18n="nav_info">Información general</button>
-        <div class="nav-dropdown">
-          <a href="#sec-autism"      class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
-          <a href="#sec-causes"      class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
-          <a href="#sec-levels"      class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
-          <a href="#sec-signs"       class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
-          <a href="#sec-girls"       class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
-          <a href="#sec-conditions"  class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
-        </div>
-      </div>
+  <!-- Logo a la izquierda -->
+  <div class="nav-logo">
+    <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+  </div>
 
-      <a href="#" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
-      <a href="#" class="nav-btn" data-i18n="nav_centers">Centros</a>
-      <a href="#" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
-      <a href="#" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+  <!-- Links centrados -->
+  <div class="nav-links">
 
-      <div class="nav-item">
-        <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
-          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
-          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
-        </div>
+    <!-- Inicio -->
+    <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+
+    <!-- =====================================================
+         INFORMACIÓN GENERAL – con dropdown
+    ===================================================== -->
+    <div class="nav-item">
+      <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+      <div class="nav-dropdown">
+        <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+        <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+        <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+        <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+        <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+        <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
       </div>
     </div>
 
-    <div class="nav-controls">
-      <div class="lang-wrapper" id="langWrapper">
-        <button class="lang-btn" id="langBtn"
-                aria-haspopup="listbox"
-                aria-expanded="false"
-                aria-label="Seleccionar idioma">
-          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
-          <span id="langLabel">ES</span>
-          <span class="lang-chevron"></span>
-        </button>
+    <!-- Lumen Shop -->
+    <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
 
-        <div class="lang-dropdown" id="langDropdown" role="listbox">
-          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
-            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
-            <span>ES</span>
-          </div>
-          <div class="lang-option" role="option" data-lang="en" tabindex="0">
-            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
-            <span>EN</span>
-          </div>
+    <!-- Centros -->
+    <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+
+    <!-- Giras inclusivas -->
+    <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+
+    <!-- Profesionales -->
+    <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+
+    <!-- =====================================================
+         SOBRE NOSOTROS – con dropdown
+    ===================================================== -->
+    <div class="nav-item">
+      <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controles: selector de idioma -->
+  <div class="nav-controls">
+
+    <div class="lang-wrapper" id="langWrapper">
+      <button class="lang-btn" id="langBtn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-label="Seleccionar idioma">
+        <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+        <span id="langLabel">ES</span>
+        <span class="lang-chevron"></span>
+      </button>
+
+      <div class="lang-dropdown" id="langDropdown" role="listbox">
+        <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+          <span>ES</span>
+        </div>
+        <div class="lang-option" role="option" data-lang="en" tabindex="0">
+          <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+          <span>EN</span>
         </div>
       </div>
     </div>
-  </nav>
+
+  </div>
+</nav>
 
   <!-- HERO -->
   <section class="hero" id="heroSection">
@@ -207,39 +232,69 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-brand">
-      <div class="footer-logo-wrap">
-        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
-      </div>
-      <p class="footer-copy">
-        <span class="copy-icon">©</span>
-        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
-      </p>
-    </div>
+ <!-- =========================================================
+     FOOTER REUTILIZABLE – LUMEN
+     Requiere en el <head> del documento:
+       <link rel="stylesheet" href="footer.css"/>
+     Los textos con data-i18n se traducen automáticamente
+     SI la página también carga navbar.js (o al menos el
+     sistema de traducciones: TRANSLATIONS/applyTranslations/
+     switchLanguage). Si no lo cargas, el footer se ve bien
+     igual, solo que siempre en español (el texto fijo del HTML).
+========================================================= -->
 
-    <div class="footer-links">
-      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
-      <ul>
-        <li><a href="#heroSection"    data-i18n="nav_home">Inicio</a></li>
-        <li><a href="#sec-autism"     data-i18n="nav_info">Información general</a></li>
-        <li><a href="#"               data-i18n="nav_shop">Lumen Shop</a></li>
-        <li><a href="#"               data-i18n="nav_centers">Centros</a></li>
-        <li><a href="#"               data-i18n="nav_tours">Giras inclusivas</a></li>
-        <li><a href="#"               data-i18n="nav_pros">Profesionales</a></li>
-        <li><a href="#"               data-i18n="nav_about">Sobre nosotros</a></li>
-      </ul>
-    </div>
+<footer class="site-footer" role="contentinfo">
 
-    <div class="footer-contact">
-      <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
-      <p class="footer-contact-info">info@lumen.com</p>
+  <div class="footer-brand">
+    <div class="footer-logo-wrap">
+      <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
     </div>
+    <p class="footer-copy">
+      <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
+      <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+    </p>
+  </div>
 
-    <div class="footer-mascot" aria-hidden="true">
-      <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+  <div class="footer-links">
+    <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+      <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+      <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+      <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+      <li><a href="pros.html" data-i18n="nav_pros">Profesionales</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-social">
+    <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+    <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+    <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+
+    <div class="social-icons">
+      <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
-  </footer>
+  </div>
+
+  <div class="footer-mascot" aria-hidden="true">
+    <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+  </div>
+
+</footer>
 
   <script src="Centros1.js"></script>
 </body>
