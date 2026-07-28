@@ -11,7 +11,6 @@
 <body>
 
   <!-- NAVBAR -->
-
 <nav class="navbar" role="navigation" aria-label="Navegación principal">
 
   <!-- Logo a la izquierda -->
@@ -44,7 +43,7 @@
     <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
 
     <!-- Centros -->
-    <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+    <a href="Centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
 
     <!-- Giras inclusivas -->
     <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
@@ -232,6 +231,17 @@
   </section>
 
   <!-- FOOTER -->
+ <!-- =========================================================
+     FOOTER REUTILIZABLE – LUMEN
+     Requiere en el <head> del documento:
+       <link rel="stylesheet" href="footer.css"/>
+     Los textos con data-i18n se traducen automáticamente
+     SI la página también carga navbar.js (o al menos el
+     sistema de traducciones: TRANSLATIONS/applyTranslations/
+     switchLanguage). Si no lo cargas, el footer se ve bien
+     igual, solo que siempre en español (el texto fijo del HTML).
+========================================================= -->
+
 <footer class="site-footer" role="contentinfo">
 
   <div class="footer-brand">
