@@ -1,8 +1,12 @@
 /* =========================================================
-   DICCIONARIO DE TRADUCCIONES
+   DICCIONARIO DE TRADUCCIONES – Centros.html
+   Incluye: navbar (nav_*, drop_*), contenido propio de la
+   página (hero_*, card1-6, card_btn, alert_location) y
+   footer (footer_*).
 ========================================================= */
 const translations = {
   es: {
+    // --- Navbar ---
     nav_home: "Inicio",
     nav_info: "Información general",
     nav_shop: "Lumen Shop",
@@ -22,6 +26,7 @@ const translations = {
     drop_mission: "Misión y visión",
     drop_contact: "Contacto",
 
+    // --- Contenido propio de Centros ---
     hero_title: "Centros",
     hero_desc: "Explora centros y fundaciones que ofrecen apoyo y servicios para personas autistas y sus familias. Encuentra información sobre sus programas y ubicación en un solo lugar.",
 
@@ -44,15 +49,18 @@ const translations = {
     card6_desc: "Apoya a niños con trastornos del neurodesarrollo a través de atención especializada.",
 
     card_btn: "Ver ubicación",
+    alert_location: "Aquí puedes agregar la ubicación de este centro.",
 
+    // --- Footer ---
     footer_copy: "2026 Lumen. Todos los derechos reservados.",
     footer_access: "Accesos rápidos",
+    footer_community: "¡Visita nuestra comunidad!",
     footer_contact: "Contáctanos al:",
-
-    alert_location: "Aquí puedes agregar la ubicación de este centro."
+    footer_email_label: "Correo electrónico:",
   },
 
   en: {
+    // --- Navbar ---
     nav_home: "Home",
     nav_info: "General information",
     nav_shop: "Lumen Shop",
@@ -72,6 +80,7 @@ const translations = {
     drop_mission: "Mission and vision",
     drop_contact: "Contact",
 
+    // --- Contenido propio de Centros ---
     hero_title: "Centers",
     hero_desc: "Explore centers and foundations that offer support and services for autistic people and their families. Find information about their programs and location all in one place.",
 
@@ -94,24 +103,21 @@ const translations = {
     card6_desc: "Supports children with neurodevelopmental disorders through specialized care.",
 
     card_btn: "View location",
+    alert_location: "You can add this center's location here.",
 
+    // --- Footer ---
     footer_copy: "2026 Lumen. All rights reserved.",
     footer_access: "Quick links",
+    footer_community: "Visit our community!",
     footer_contact: "Contact us at:",
-
-    alert_location: "You can add this center's location here."
+    footer_email_label: "Email:",
   }
 };
 
 /* =========================================================
    ESTADO E IDIOMA GUARDADO
-
-   OJO: la llave de localStorage se cambió de "lumen_lang" a
-   "lumen-lang" (con guion) para que coincida EXACTAMENTE con
-   la que usan navbar.js / index.html. Si las llaves no
-   coinciden entre páginas, el idioma NO persiste al navegar
-   de una página a otra (cada script lee/escribe una llave
-   distinta y "no se ven" entre sí).
+   Llave unificada "lumen-lang" (con guion) para que el idioma
+   persista igual en todas las páginas del sitio.
 ========================================================= */
 let currentLang = localStorage.getItem("lumen-lang") || "es";
 
@@ -215,6 +221,61 @@ document.addEventListener("DOMContentLoaded", () => {
     boton.addEventListener("click", () => {
       const dict = translations[currentLang] || translations.es;
       alert(dict.alert_location);
+    });
+  });
+
+  /* =========================================================
+     DROPDOWN DE NAVEGACIÓN (Información general / Sobre nosotros)
+     Tomado de navbar.js. Se conservan los DOS mecanismos
+     (clase "open" sobre .nav-item y clase "show" sobre
+     .nav-dropdown) para que el comportamiento visual sea
+     idéntico al resto del sitio.
+  ========================================================= */
+  document.querySelectorAll(".nav-item").forEach(item => {
+    const dropdown = item.querySelector(".nav-dropdown");
+    if (!dropdown) return;
+
+    let closeTimeout;
+
+    function abrir() {
+      clearTimeout(closeTimeout);
+      item.classList.add("open");
+    }
+
+    function cerrar() {
+      closeTimeout = setTimeout(() => {
+        item.classList.remove("open");
+      }, 500);
+    }
+
+    item.addEventListener("mouseenter", abrir);
+    item.addEventListener("mouseleave", cerrar);
+
+    dropdown.addEventListener("mouseenter", abrir);
+    dropdown.addEventListener("mouseleave", cerrar);
+  });
+
+  /* Cerrar dropdowns de navegación al hacer clic fuera */
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".nav-item.open").forEach(i => i.classList.remove("open"));
+  });
+
+  // Delay para todos los dropdowns del navbar (clase "show")
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const dropdown = item.querySelector('.nav-dropdown');
+    if (!dropdown) return;
+
+    let hideTimeout;
+
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      dropdown.classList.add('show');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.classList.remove('show');
+      }, 350); // mismo tiempo que el delay del CSS
     });
   });
 
