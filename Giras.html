@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen | Giras Inclusivas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Giras.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <div class="nav-logo">
+    <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+  </div>
+
+  <div class="nav-links">
+    <a href="Giras2.css" class="nav-btn" data-i18n="nav_home">Inicio</a>
+
+    <div class="nav-item">
+      <button class="nav-btn" data-i18n="nav_info">Información general</button>
+      <div class="nav-dropdown">
+        <a href="#sec-autism"      class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+        <a href="#sec-causes"      class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+        <a href="#sec-levels"      class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+        <a href="#sec-signs"       class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+        <a href="#sec-girls"       class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+        <a href="#sec-conditions"  class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+      </div>
+    </div>
+
+    <a href="#" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+    <a href="#" class="nav-btn" data-i18n="nav_centers">Centros</a>
+    <a href="#" class="nav-btn active" data-i18n="nav_tours">Giras inclusivas</a>
+    <a href="#" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+
+    <div class="nav-item">
+      <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-controls">
+    <div class="lang-wrapper" id="langWrapper">
+      <button class="lang-btn" id="langBtn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-label="Seleccionar idioma">
+        <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+        <span id="langLabel">ES</span>
+        <span class="lang-chevron"></span>
+      </button>
+
+      <div class="lang-dropdown" id="langDropdown" role="listbox">
+        <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+          <span>ES</span>
+        </div>
+        <div class="lang-option" role="option" data-lang="en" tabindex="0">
+          <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+          <span>EN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-imagen-espacio">
+    <img src="Imagenes/fondogiras.png" alt="Familias en el parque" class="hero-img">
+  </div>
+  <h1 class="hero-titulo" data-i18n="hero_title">Giras Inclusivas</h1>
+</section>
+
+<!-- ===== INTRO: descubre nuevas experiencias ===== -->
+<section class="seccion">
+  <div class="contenedor intro-stack">
+    <div class="texto">
+      <h2 data-i18n="intro_heading">Descubre nuevas experiencias en un entorno seguro y acompañado.</h2>
+      <p data-i18n="intro_text">
+        Cada salida busca brindar oportunidades para conocer nuevos espacios, fortalecer habilidades
+        sociales, practicar la autonomía y disfrutar de actividades recreativas en ambientes preparados,
+        con acompañamiento adecuado y atención a aspectos importantes como la comodidad sensorial,
+        la estructura de la actividad y el bienestar emocional de cada participante.
+      </p>
+
+      <br><br><br><br>
+
+    <div class="intro-imagen">
+      <img src="Imagenes/p1.png">
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAQUETES / CARRUSEL ===== -->
+<section class="seccion seccion-gris-wrap">
+  <div class="contenedor paquetes-intro">
+    <p data-i18n="paquetes_text">
+      Para adaptarnos a diferentes intereses y necesidades, contamos con distintos paquetes y
+      opciones de excursión, con actividades variadas y diferentes rangos de precios, permitiendo que
+      cada familia pueda elegir la experiencia que mejor se ajuste a sus preferencias. Entre las
+      opciones podrás encontrar salidas recreativas, visitas educativas, actividades al aire libre y
+      experiencias grupales guiadas.
+    </p>
+
+<br><br><br>
+
+    <div class="carrusel-marco">
+      <div class="carrusel" id="carrusel">
+
+        <!-- ===== Set 1: tarjetas visibles siempre ===== -->
+        <article class="tarjeta-gira t-azul" data-destino="Giras2.html#sec-educativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/biomuseo.png">
+          </div>
+          <h3 data-i18n="card1_title">Biomuseo</h3>
+          <p class="categoria" data-i18n="card1_cat">Educativa</p>
+        </article>
+
+        <article class="tarjeta-gira t-amarillo" data-destino="Giras2.html#sec-recreativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/Btesoro.png">
+          </div>
+          <h3 data-i18n="card2_title">Búsqueda del tesoro</h3>
+          <p class="categoria" data-i18n="card2_cat">Recreativa</p>
+        </article>
+
+        <article class="tarjeta-gira t-morado" data-destino="Giras2.html#sec-exploratorias">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/SBoquete.png">
+          </div>
+          <h3 data-i18n="card3_title">Sendero en Boquete</h3>
+          <p class="categoria" data-i18n="card3_cat">Explorativa</p>
+        </article>
+
+        <!-- ===== Set 2: tarjetas extra (ocultas hasta pulsar la flecha) ===== -->
+        <article class="tarjeta-gira tarjeta-extra t-azul" data-destino="Giras2.html#sec-educativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/Biomuseo2.png" alt="Explora Centro de Ciencias y Arte">
+          </div>
+          <h3 data-i18n="card4_title">Explora Centro de Ciencias y Arte</h3>
+          <p class="categoria" data-i18n="card4_cat">Educativa</p>
+        </article>
+
+        <article class="tarjeta-gira tarjeta-extra t-amarillo" data-destino="Giras2.html#sec-recreativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/Btesoro2.png" alt="Arte al Aire Libre">
+          </div>
+          <h3 data-i18n="card5_title">Arte al Aire Libre</h3>
+          <p class="categoria" data-i18n="card5_cat">Recreativa</p>
+        </article>
+
+        <article class="tarjeta-gira tarjeta-extra t-morado" data-destino="Giras2.html#sec-exploratorias">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/SBoquete2.png" alt="Exploración en el Parque Municipal Summit">
+          </div>
+          <h3 data-i18n="card6_title">Parque Municipal Summit</h3>
+          <p class="categoria" data-i18n="card6_cat">Explorativa</p>
+        </article>
+
+        <!-- ===== Set 3: tarjetas extra (ocultas hasta pulsar la flecha) ===== -->
+        <article class="tarjeta-gira tarjeta-extra t-azul" data-destino="Giras2.html#sec-educativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/Biomuseo3.png" alt="Museo del Canal de Panamá">
+          </div>
+          <h3 data-i18n="card7_title">Museo del Canal de Panamá</h3>
+          <p class="categoria" data-i18n="card7_cat">Educativa</p>
+        </article>
+
+        <article class="tarjeta-gira tarjeta-extra t-amarillo" data-destino="Giras2.html#sec-recreativas">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/Btesoro3.png" alt="Circuito de Juegos y Desafíos">
+          </div>
+          <h3 data-i18n="card8_title">Circuito de Juegos y Desafíos</h3>
+          <p class="categoria" data-i18n="card8_cat">Recreativa</p>
+        </article>
+
+        <article class="tarjeta-gira tarjeta-extra t-morado" data-destino="Giras2.html#sec-exploratorias">
+          <div class="tarjeta-imagen">
+            <img src="Imagenes/SBoquete3.png" alt="Recorrido por un Jardín Botánico">
+          </div>
+          <h3 data-i18n="card9_title">Jardín Botánico</h3>
+          <p class="categoria" data-i18n="card9_cat">Explorativa</p>
+        </article>
+
+      </div>
+
+      <button type="button" class="carrusel-flecha" id="flechaVerMas" aria-label="Ver más giras" aria-expanded="false">›</button>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<!-- ===== DETALLES DE CADA PAQUETE / CUPO ===== -->
+<section class="seccion">
+  <div class="contenedor detalles-stack">
+    <div class="texto">
+      <p data-i18n="detalles_text1">
+        Cada paquete incluye información detallada sobre el destino, duración, nivel de apoyo
+        disponible, cantidad de acompañantes, recomendaciones previas y características del entorno,
+        para que puedas planificar con tranquilidad y elegir la experiencia más adecuada.
+      </p>
+      <p data-i18n="detalles_text2">
+        Con el objetivo de mantener un ambiente organizado, seguro y cómodo para todos, cada gira
+        contará con un cupo máximo de 9 niños, y cada participante deberá asistir acompañado por un
+        adulto responsable (mamá, papá, tutor o cuidador). Además, cada salida estará acompañada
+        por el equipo de Lumen, encargado de coordinar la experiencia, brindar apoyo durante toda la
+        actividad y atender cualquier necesidad que pueda surgir, asegurando una atención más
+        cercana y personalizada para cada familia.
+      </p>
+      <p data-i18n="detalles_text3">
+        Nuestro objetivo es que cada salida sea mucho más que una excursión: una oportunidad para
+        explorar, aprender, compartir y crear recuerdos positivos en un ambiente inclusivo, comprensivo
+        y pensado para el bienestar de cada participante.
+      </p>
+    </div>
+
+    <br><br><br>
+
+    <div class="intro-imagen">
+      <img src="Imagenes/p2.png">
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO PERSONALIZADO ===== -->
+<section class="seccion contacto-bloque">
+  <div class="contenedor">
+    <h2 data-i18n="contacto_heading">¿Tienes en mente una salida a un lugar específico?</h2>
+    <p data-i18n="contacto_text">
+      Si deseas organizar una gira o excursión personalizada, puedes ponerte en contacto con
+      nosotros. Cuéntanos qué lugar te gustaría visitar, tus necesidades o preferencias, y trabajaremos
+      para ayudarte a crear una experiencia adecuada y segura. Te responderemos lo más pronto
+      posible para brindarte toda la información y acompañarte en la planificación.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-brand">
+    <div class="footer-logo-wrap">
+      <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+    </div>
+    <p class="footer-copy">
+      <span class="copy-icon">©</span>
+      <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+    </p>
+  </div>
+  
+
+  <div class="footer-links">
+    <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+    <ul>
+      <li><a href="index.html"      data-i18n="nav_home">Inicio</a></li>
+      <li><a href="#sec-autism"     data-i18n="nav_info">Información general</a></li>
+      <li><a href="#"               data-i18n="nav_shop">Lumen Shop</a></li>
+      <li><a href="#"               data-i18n="nav_centers">Centros</a></li>
+      <li><a href="#"               data-i18n="nav_tours">Giras inclusivas</a></li>
+      <li><a href="#"               data-i18n="nav_pros">Profesionales</a></li>
+      <li><a href="#"               data-i18n="nav_about">Sobre nosotros</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-contact">
+    <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
+    <p class="footer-contact-info">info@lumen.com</p>
+  </div>
+
+  <div class="footer-mascot" aria-hidden="true">
+    <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+  </div>
+</footer>
+
+<script src="Giras.js"></script>
+</body>
+</html>
