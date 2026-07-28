@@ -105,8 +105,15 @@ const translations = {
 
 /* =========================================================
    ESTADO E IDIOMA GUARDADO
+
+   OJO: la llave de localStorage se cambió de "lumen_lang" a
+   "lumen-lang" (con guion) para que coincida EXACTAMENTE con
+   la que usan navbar.js / index.html. Si las llaves no
+   coinciden entre páginas, el idioma NO persiste al navegar
+   de una página a otra (cada script lee/escribe una llave
+   distinta y "no se ven" entre sí).
 ========================================================= */
-let currentLang = localStorage.getItem("lumen_lang") || "es";
+let currentLang = localStorage.getItem("lumen-lang") || "es";
 
 const flags = {
   es: "https://flagcdn.com/w80/es.png",
@@ -150,7 +157,7 @@ function updateLangButton(lang) {
 function setLanguage(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
-  localStorage.setItem("lumen_lang", lang);
+  localStorage.setItem("lumen-lang", lang);
   applyTranslations(lang);
   updateLangButton(lang);
 }
@@ -212,33 +219,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-/* =========================================================
-   PERSISTENCIA DE IDIOMA ENTRE PÁGINAS
-========================================================= */
-
-// 1) Al cargar la página, lee el idioma guardado (o "es" por defecto)
-let currentLang = localStorage.getItem("lumen-lang") || "es";
-
-// 2) Aplica las traducciones a los elementos [data-i18n] de ESA página
-function applyTranslations(lang) {
-  const dict = TRANSLATIONS[lang];
-  if (!dict) return;
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (dict[key] !== undefined) el.innerHTML = dict[key];
-  });
-
-  document.documentElement.lang = LANG_META[lang].htmlLang;
-}
-
-// 3) Cuando el usuario cambia de idioma (click en ES/EN), lo guarda
-function switchLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem("lumen-lang", lang); // <-- ESTA línea es la clave
-
-  applyTranslations(lang);
-}
-
-// 4) Al final del script, se aplica el idioma guardado apenas carga la página
-applyTranslations(currentLang);
