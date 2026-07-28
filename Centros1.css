@@ -93,6 +93,69 @@ body {
 /* =========================================================
    NAVBAR
 ========================================================= */
+/* =========================================================
+   NAVBAR.CSS – LUMEN
+   Estilos necesarios y suficientes para que el navbar
+   se vea y funcione EXACTAMENTE igual que en el proyecto.
+
+   DEPENDENCIA: la fuente 'Nunito' debe importarse en el <head>
+   del documento (Google Fonts). Ver navbar.html para el link.
+========================================================= */
+
+/* ---- Reset mínimo (recomendado en toda página nueva) ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* =========================================================
+   VARIABLES usadas por el navbar
+   (subconjunto de :root del proyecto original — cópialas
+   tal cual si vas a integrar el navbar en otra página)
+========================================================= */
+:root {
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+
+  --text-main:      #2d4a6e;
+
+  --bg-card:        #ffffff;
+  --bg-sections:    #ffffff;
+
+  /* Fondo de la navbar en modo claro */
+  --bg-navbar:      #ffffff;
+  /* Color de los links de la navbar */
+  --nav-link-color: #2d4a6e;
+  /* Borde inferior de la navbar */
+  --nav-border:     rgba(74,144,217,.15);
+
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+
+  --radius-pill:    999px;
+  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+}
+
+/* Variante "modo calma" (si tu proyecto usa data-theme="calm") */
+[data-theme="calm"] {
+  --bg-navbar:      #ffffff;
+  --nav-link-color: #2d4a6e;
+  --nav-border:     rgba(74,144,217,.15);
+  --text-main:      #2d4a6e;
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -109,11 +172,12 @@ body {
   backdrop-filter: blur(12px);
   transition: background .3s ease, border-color .3s ease;
   flex-wrap: wrap;
+  font-family: 'Nunito', sans-serif;
 }
 
 .nav-logo {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 6px;
   flex-shrink: 0;
   text-decoration: none;
@@ -127,10 +191,10 @@ body {
 
 .nav-links {
   display: flex;
-  align-items: center;
+  align-items: right;
   gap: 4px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: right;
   flex: 1;
 }
 
@@ -154,13 +218,13 @@ body {
   color: var(--blue-brand);
 }
 
-.nav-btn--active {
+.nav-btn.active {
   background: var(--blue-brand);
   color: #ffffff;
   padding: 7px 20px;
 }
 
-.nav-btn--active:hover {
+.nav-btn.active:hover {
   background: var(--blue-dark);
   color: #ffffff;
 }
@@ -172,10 +236,10 @@ body {
   flex-shrink: 0;
 }
 
-/* =========================================================
-   IDIOMA
-========================================================= */
-.lang-wrapper { position: relative; }
+/* ---- Selector de idioma ---- */
+.lang-wrapper {
+  position: relative;
+}
 
 .lang-btn {
   display: flex;
@@ -199,9 +263,9 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-[data-theme="dark"] .lang-btn {
-  background: rgba(30,50,80,.7);
-  border-color: rgba(100,160,220,.3);
+[data-theme="calm"] .lang-btn {
+  background: rgba(255,255,255,.6);
+  border: 1.5px solid rgba(74,144,217,.2);
   color: var(--text-main);
 }
 
@@ -256,8 +320,13 @@ body {
   transition: background var(--transition);
 }
 
-.lang-option:hover    { background: var(--bg-sections); }
-.lang-option.selected { background: rgba(74,144,217,.12); }
+.lang-option:hover {
+  background: var(--bg-sections);
+}
+
+.lang-option.selected {
+  background: rgba(74,144,217,.12);
+}
 
 .flag {
   width: 26px;
@@ -268,7 +337,7 @@ body {
 }
 
 /* =========================================================
-   NAV DROPDOWN
+   DROPDOWN DE NAVEGACIÓN (Información general / Sobre nosotros)
 ========================================================= */
 .nav-item {
   position: relative;
@@ -292,7 +361,11 @@ body {
   z-index: 300;
 }
 
-.nav-item:hover .nav-dropdown {
+/* El JS alterna entre .open (usado en nav-item) y .show
+   (usado también sobre .nav-dropdown); se mantienen ambas
+   clases porque script2.js original las usa de forma
+   redundante — ver navbar.js */
+.nav-dropdown.show {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
@@ -310,78 +383,30 @@ body {
   transition: background var(--transition), padding-left var(--transition);
 }
 
-.nav-drop-link:last-child { border-bottom: none; }
+.nav-drop-link:last-child {
+  border-bottom: none;
+}
 
 .nav-drop-link:hover {
   background: rgba(255,255,255,.18);
   padding-left: 24px;
 }
 
-[data-theme="dark"] .nav-dropdown {
-  background: #1a3050;
-  border-color: rgba(100,160,220,.3);
-  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+[data-theme="calm"] .nav-dropdown {
+  background: var(--blue-brand);
+  border: 1.5px solid rgba(255,255,255,.18);
+  box-shadow: 0 12px 36px #649dd3;
 }
 
 /* =========================================================
-   HERO – Centros
+   RESPONSIVE – MÓVIL (igual que el proyecto original)
 ========================================================= */
-.hero {
-  width: 100%;
-  aspect-ratio: 1895 / 754;
-  background-image: url("Imagenes/FondoCentros1.png");
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 150px 6vw 60px;
-  box-sizing: border-box;
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn.active { padding: 5px 14px; }
 }
-
-.hero-overlay {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.hero-text {
-  width: 100%;
-  max-width: 480px;
-  text-align: left;
-}
-
-.hero-text h1 {
-  font-family: 'Nunito', sans-serif;
-  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
-  font-weight: 800;
-  margin-bottom: 18px;
-  line-height: 1.15;
-  color: var(--text-main);
-}
-
-.hero-text p {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  font-weight: 600;
-  line-height: 1.75;
-  color: var(--text-main);
-}
-
-@media (max-width: 760px) {
-  .hero {
-    aspect-ratio: auto;
-    min-height: 38vh;
-    background-position: left center;
-    background-size: 220% auto;
-    padding: 120px 7vw 40px;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-}
-
 /* =========================================================
    CENTROS – sección con imagen de fondo decorativa
 ========================================================= */
