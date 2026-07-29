@@ -407,6 +407,56 @@ html {
   .nav-btn { font-size: .72rem; padding: 5px 11px; }
   .nav-btn.active { padding: 5px 14px; }
 }
+
+/* =========================================================
+   HERO – imagen de fondo principal de Centros
+   NOTA: esta regla no existía en el CSS original; el .hero
+   solo aparecía mencionado dentro de los @media (para el
+   padding en móvil) pero nunca se definía en escritorio, por
+   eso la imagen de fondo no se mostraba nunca.
+
+   Asumo que el archivo de imagen se llama
+   "Imagenes/FondoCentros1.png" (siguiendo la numeración de
+   "FondoCentros2.png" que ya usa .centros). Si tu imagen real
+   tiene otro nombre, solo cambia la ruta de background-image.
+========================================================= */
+.hero {
+  position: relative;
+  min-height: 640px;
+  padding: 150px 8vw 60px; /* el top despeja el navbar fijo */
+  box-sizing: border-box;
+
+  background-image: url("Imagenes/FondoCentros1.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  max-width: 620px;
+}
+
+.hero-text h1 {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #16233a;
+  margin-bottom: 22px;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
 /* =========================================================
    CENTROS – sección con imagen de fondo decorativa
 ========================================================= */
