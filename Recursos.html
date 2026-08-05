@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recursos extras - LUMEN</title>
+  <link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="Recursos.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+      <div class="nav-item">
+        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+        <div class="nav-dropdown">
+          <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+          <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+          <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+          <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+          <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+          <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        </div>
+      </div>
+      <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+      <a href="Centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+      <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+      <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-controls">
+
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Seleccionar idioma">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+          <span id="langLabel">ES</span>
+          <span class="lang-chevron"></span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="listbox">
+          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+            <span>ES</span>
+          </div>
+          <div class="lang-option" role="option" data-lang="en" tabindex="0">
+            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="recursos-hero">
+    <div class="recursos-hero-container">
+      <h1 class="recursos-title" data-i18n="recursos_title">Recursos extras</h1>
+    </div>
+  </section>
+
+  <section class="recursos-content">
+
+    <!-- BLOQUE 1: MATERIALES IMPRIMIBLES -->
+    <div class="recurso-band band-materiales">
+      <div class="recurso-collage">
+
+        <img class="decor decor-sacapuntas" src="Imagenes/sacapuntas.png" alt=""/>
+
+        <a href="materiales.html" class="recurso-link">
+          <div class="recurso-card card-materiales">
+            <svg class="card-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 6h24l12 12v40a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2.6"/>
+              <path d="M40 6v12h12" stroke="currentColor" stroke-width="2.6"/>
+              <line x1="20" y1="32" x2="44" y2="32" stroke="currentColor" stroke-width="2.6"/>
+              <line x1="20" y1="40" x2="44" y2="40" stroke="currentColor" stroke-width="2.6"/>
+              <line x1="20" y1="48" x2="36" y2="48" stroke="currentColor" stroke-width="2.6"/>
+            </svg>
+            <h3 data-i18n="recursos_mat_title">Materiales<br>imprimibles</h3>
+          </div>
+        </a>
+
+        <img class="decor decor-libro" src="Imagenes/libro-abierto.png" alt=""/>
+        <p class="recurso-bubble bubble-materiales" data-i18n="recursos_mat_desc">
+          Encuentra actividades y recursos para descargar e imprimir.
+        </p>
+
+        <img class="decor decor-lapiz" src="Imagenes/lapiz-doodle.png" alt=""/>
+        <img class="decor decor-clips" src="Imagenes/clips.png" alt=""/>
+        <img class="decor decor-colores" src="Imagenes/lapices-colores.png" alt=""/>
+      </div>
+
+      <div class="wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,70 C380,150 1060,-10 1440,60 L1440,120 L0,120 Z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- BLOQUE 2: MÚSICA -->
+    <div class="recurso-band band-musica">
+      <div class="recurso-collage collage-musica">
+
+        <span class="decor decor-nota-1" aria-hidden="true"></span>
+
+        <a href="musica.html" class="recurso-link">
+          <div class="recurso-card card-musica">
+            <img src="Imagenes/estrella-musica.png" alt="Estrella con audífonos" class="card-img"/>
+            <h3 class="recursos_mus_title" data-i18n="recursos_mus_title">Música</h3>
+          </div>
+        </a>
+
+        <p class="recurso-bubble bubble-musica" data-i18n="recursos_mus_desc">
+          Música relajante, sonidos suaves y recursos auditivos para diferentes momentos del día.
+        </p>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="centers.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="tours.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="pros.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+  <!-- Enlace al JS externo -->
+  <script src="Recursos.js"></script>
+
+</body>
+</html>
