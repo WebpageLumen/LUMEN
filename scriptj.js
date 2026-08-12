@@ -1,413 +1,427 @@
-/* ═══════════════════════════════════════════
-   scriptj.js  —  LUMEN Juegos Educativos
-═══════════════════════════════════════════ */
+/* =========================================================
+   NAVBAR.JS – LUMEN
+   Contiene: sistema de traducciones (ES/EN) y el
+   comportamiento de los dropdowns del navbar.
 
-/* ════════════════════════════
-   TRADUCCIONES
-   — claves del index principal
-   integradas para navbar y footer
-════════════════════════════ */
+   NOTA IMPORTANTE:
+   El objeto TRANSLATIONS de aquí abajo está recortado para
+   incluir SOLO las claves que usa el navbar (nav_*, drop_*)
+   más las claves del footer (footer_*), ya que footer.html
+   también usa data-i18n y depende de este mismo sistema
+   (applyTranslations/switchLanguage). Si vas a usar el
+   navbar SIN el footer, puedes borrar las claves footer_*.
+   Si tu página tiene más textos con data-i18n (hero, cards,
+   etc.), agrégalos aquí o ese texto no se traducirá.
+========================================================= */
 const TRANSLATIONS = {
   es: {
-    /* Navbar (claves del index principal) */
-    'nav_home':    'Inicio',
-    'nav_info':    'Información general',
-    'nav_shop':    'Lumen Shop',
-    'nav_centers': 'Centros',
-    'nav_tours':   'Giras inclusivas',
-    'nav_pros':    'Profesionales',
-    'nav_about':   'Sobre nosotros',
+    nav_home:    "Inicio",
+    nav_info:    "Información general",
+    nav_shop:    "Lumen Shop",
+    nav_centers: "Centros",
+    nav_tours:   "Giras inclusivas",
+    nav_pros:    "Profesionales",
+    nav_about:   "Sobre nosotros",
 
-    /* Submenú: Información general (claves del index principal) */
-    'drop_autism':     '¿Qué es el autismo?',
-    'drop_causes':     'Causas del autismo',
-    'drop_levels':     'Niveles de autismo',
-    'drop_signs':      'Señales de alerta',
-    'drop_girls':      'Autismo en niñas y...',
-    'drop_conditions': 'Condiciones asociadas...',
+    drop_autism:      "¿Qué es el autismo?",
+    drop_causes:      "Causas del autismo",
+    drop_levels:      "Niveles de autismo",
+    drop_signs:       "Señales de alerta",
+    drop_girls:       "Autismo en niñas y...",
+    drop_conditions:  "Condiciones asociadas...",
 
-    /* Submenú: Sobre nosotros (claves del index principal) */
-    'drop_who':     '¿Quiénes somos?',
-    'drop_mission': 'Misión y visión',
-    'drop_contact': 'Contacto',
+    drop_who:         "¿Quiénes somos?",
+    drop_mission:     "Misión y visión",
+    drop_contact:     "Contacto",
 
-    /* Footer (claves del index principal) */
-    'footer_copy':    '2026 Lumen. Todos los derechos reservados.',
-    'footer_access':  'Accesos rápidos',
-    'footer_contact': 'Contáctanos al:',
+    footer_copy:      "2026 Lumen. Todos los derechos reservados.",
+    footer_access:    "Accesos rápidos",
+    footer_community: "¡Visita nuestra comunidad!",
+    footer_contact:   "Contáctanos",
+    footer_email_label: "Correo electrónico:",
 
-    /* Hero */
-    'hero.title':   'Juegos educativos',
-    'hero.tagline': 'Aquí encontrarás juegos que te ayudarán en diferentes áreas, organizados en varias categorías para que disfrutes aprendiendo explorando a tu ritmo.',
+    games_hero_title:   "Juegos educativos",
+    games_hero_tagline: "Aquí encontrarás juegos que te ayudarán en diferentes áreas, organizados en varias categorías para que disfrutes aprendiendo y explorando a tu ritmo.",
 
-    /* Controles */
-    'ctrl.color':     'Color',
-    'ctrl.verMenos':  'Ver menos',
-    'ctrl.verMas':    'Ver más',
-    'ctrl.selectCat': 'Seleccionar categoría…',
+    games_calm_label: "Modo calma",
+    games_ver_menos:  "Ver menos",
+    games_ver_todo:   "Ver todo",
 
-    /* Categorías */
-    'cat.atencion': 'Atención',
-    'cat.logica':   'Lógica',
-    'cat.lenguaje': 'Lenguaje',
-    'cat.coord':    'Coordinación',
+    games_cat_atencion:     "Atención",
+    games_cat_logica:       "Lógica",
+    games_cat_lenguaje:     "Lenguaje",
+    games_cat_coordinacion: "Coordinación",
+
+    games_card_dif_title:    "Encuentra las diferencias",
+    games_card_dif_desc:     "¿Qué cambió?",
+    games_card_memo_title:   "Memorama",
+    games_card_memo_desc:    "Encuentra los pares",
+    games_card_recall_title: "Recuerda",
+    games_card_recall_desc:  "Memoriza y repite",
+    games_card_point_title:  "Señala",
+    games_card_point_desc:   "Toca lo que se pide",
+
+    games_card_patterns_title: "Patrones",
+    games_card_patterns_desc:  "¿Qué sigue?",
+    games_card_fit_title:      "Encajar",
+    games_card_fit_desc:       "Completa el puzzle",
+    games_card_sort_title:     "Ordenar",
+    games_card_sort_desc:      "De menor a mayor",
+    games_card_discover_title: "Descubre",
+    games_card_discover_desc:  "Resuelve el misterio",
+
+    games_card_match_title:    "Pareo",
+    games_card_match_desc:     "Une lo que va junto",
+    games_card_describe_title: "Describir",
+    games_card_describe_desc:  "¿Qué ves?",
+    games_card_organize_title: "Organizar",
+    games_card_organize_desc:  "Pon en orden la historia",
+    games_card_letters_title:  "Letras",
+    games_card_letters_desc:   "Forma palabras",
+
+    games_card_drag_title:   "Arrastra y suelta",
+    games_card_drag_desc:    "Mueve al lugar correcto",
+    games_card_trace_title:  "Traza el camino",
+    games_card_trace_desc:   "Sigue la ruta",
+    games_card_choose_title: "Elige lo correcto",
+    games_card_choose_desc:  "Selecciona la respuesta",
+    games_card_tap_title:    "Pulsa",
+    games_card_tap_desc:     "Toca en el momento justo",
   },
 
   en: {
-    /* Navbar (claves del index principal) */
-    'nav_home':    'Home',
-    'nav_info':    'General information',
-    'nav_shop':    'Lumen Shop',
-    'nav_centers': 'Centers',
-    'nav_tours':   'Inclusive tours',
-    'nav_pros':    'Professionals',
-    'nav_about':   'About us',
+    nav_home:    "Home",
+    nav_info:    "General information",
+    nav_shop:    "Lumen Shop",
+    nav_centers: "Centers",
+    nav_tours:   "Inclusive tours",
+    nav_pros:    "Professionals",
+    nav_about:   "About us",
 
-    /* Submenú: General information (claves del index principal) */
-    'drop_autism':     'What is autism?',
-    'drop_causes':     'Causes of autism',
-    'drop_levels':     'Levels of autism',
-    'drop_signs':      'Warning signs',
-    'drop_girls':      'Autism in girls...',
-    'drop_conditions': 'Associated conditions...',
+    drop_autism:      "What is autism?",
+    drop_causes:      "Causes of autism",
+    drop_levels:      "Levels of autism",
+    drop_signs:       "Warning signs",
+    drop_girls:       "Autism in girls...",
+    drop_conditions:  "Associated conditions...",
 
-    /* Submenú: About us (claves del index principal) */
-    'drop_who':     'Who are we?',
-    'drop_mission': 'Mission and vision',
-    'drop_contact': 'Contact',
+    drop_who:         "Who are we?",
+    drop_mission:     "Mission and vision",
+    drop_contact:     "Contact",
 
-    /* Footer (claves del index principal) */
-    'footer_copy':    '2026 Lumen. All rights reserved.',
-    'footer_access':  'Quick access',
-    'footer_contact': 'Contact us:',
+    footer_copy:      "2026 Lumen. All rights reserved.",
+    footer_access:    "Quick access",
+    footer_community: "Visit our community!",
+    footer_contact:   "Contact us",
+    footer_email_label: "Email:",
 
-    /* Hero */
-    'hero.title':   'Educational games',
-    'hero.tagline': 'Here you will find games that will help you in different areas, organized into several categories so you can enjoy learning at your own pace.',
+    games_hero_title:   "Educational games",
+    games_hero_tagline: "Here you'll find games that will help you in different areas, organized into several categories so you can enjoy learning and exploring at your own pace.",
 
-    /* Controls */
-    'ctrl.color':     'Color',
-    'ctrl.verMenos':  'Show less',
-    'ctrl.verMas':    'Show more',
-    'ctrl.selectCat': 'Select category…',
+    games_calm_label: "Calm mode",
+    games_ver_menos:  "See less",
+    games_ver_todo:   "See all",
 
-    /* Categories */
-    'cat.atencion': 'Attention',
-    'cat.logica':   'Logic',
-    'cat.lenguaje': 'Language',
-    'cat.coord':    'Coordination',
+    games_cat_atencion:     "Attention",
+    games_cat_logica:       "Logic",
+    games_cat_lenguaje:     "Language",
+    games_cat_coordinacion: "Coordination",
+
+    games_card_dif_title:    "Find the differences",
+    games_card_dif_desc:     "What changed?",
+    games_card_memo_title:   "Memory",
+    games_card_memo_desc:    "Find the pairs",
+    games_card_recall_title: "Remember",
+    games_card_recall_desc:  "Memorize and repeat",
+    games_card_point_title:  "Point",
+    games_card_point_desc:   "Touch what's asked",
+
+    games_card_patterns_title: "Patterns",
+    games_card_patterns_desc:  "What comes next?",
+    games_card_fit_title:      "Fit together",
+    games_card_fit_desc:       "Complete the puzzle",
+    games_card_sort_title:     "Sort",
+    games_card_sort_desc:      "From smallest to largest",
+    games_card_discover_title: "Discover",
+    games_card_discover_desc:  "Solve the mystery",
+
+    games_card_match_title:    "Matching",
+    games_card_match_desc:     "Join what goes together",
+    games_card_describe_title: "Describe",
+    games_card_describe_desc:  "What do you see?",
+    games_card_organize_title: "Organize",
+    games_card_organize_desc:  "Put the story in order",
+    games_card_letters_title:  "Letters",
+    games_card_letters_desc:   "Form words",
+
+    games_card_drag_title:   "Drag and drop",
+    games_card_drag_desc:    "Move to the right place",
+    games_card_trace_title:  "Trace the path",
+    games_card_trace_desc:   "Follow the route",
+    games_card_choose_title: "Choose the right one",
+    games_card_choose_desc:  "Select the answer",
+    games_card_tap_title:    "Tap",
+    games_card_tap_desc:     "Touch at the right moment",
   }
 };
 
-/* Categorías con soporte bilingüe */
-const CATS = {
-  atencion: { es: 'Atención',     en: 'Attention',    icon: '', corner: '', row: 'row-atencion', cards: ['','','',''] },
-  logica:   { es: 'Lógica',       en: 'Logic',        icon: '', corner: '', row: 'row-logica',   cards: ['','','',''] },
-  lenguaje: { es: 'Lenguaje',     en: 'Language',     icon: '', corner: '', row: 'row-lenguaje', cards: ['','','',''] },
-  coord:    { es: 'Coordinación', en: 'Coordination', icon: '', corner: '', row: 'row-coord',    cards: ['','','',''] }
-};
-
-/* ── Metadatos de idioma para bandera y etiqueta ── */
+/* =========================================================
+   METADATOS DE IDIOMA
+========================================================= */
 const LANG_META = {
-  es: { label: 'ES', flagSrc: 'https://flagcdn.com/w80/es.png', htmlLang: 'es' },
-  en: { label: 'EN', flagSrc: 'https://flagcdn.com/w80/gb.png', htmlLang: 'en' },
+  es: { label: "ES", flagSrc: "https://flagcdn.com/w80/es.png", htmlLang: "es" },
+  en: { label: "EN", flagSrc: "https://flagcdn.com/w80/gb.png", htmlLang: "en" },
 };
 
-/* Recupera el idioma guardado, si no hay usa español */
-let currentLang = localStorage.getItem('lumen-lang') || 'es';
+let currentLang = localStorage.getItem("lumen-lang") || "es";
 
-/* ════════════════════════════
+/* =========================================================
    APLICAR TRADUCCIONES
-   — un único loop cubre toda
-   la página gracias a data-i18n
-════════════════════════════ */
+   Recorre TODO el documento buscando [data-i18n], por eso
+   funciona igual para navbar y footer si ambos están
+   presentes en la misma página.
+========================================================= */
 function applyTranslations(lang) {
-  currentLang = lang;
-  const t = TRANSLATIONS[lang];
+  const dict = TRANSLATIONS[lang];
+  if (!dict) return;
 
-  /* Loop genérico: cubre navbar, dropdown, hero, controles,
-     categorías, footer links, títulos y copyright */
-  document.querySelectorAll('[data-i18n]').forEach(el => {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
-    if (t[key] !== undefined) el.textContent = t[key];
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
 
-  /* Opciones del selector de categoría (texto dinámico con icono) */
-  document.querySelectorAll('.cat-opt').forEach(opt => {
-    const key = opt.dataset.cat;
-    if (CATS[key]) opt.textContent = `${CATS[key].icon} ${CATS[key][lang]}`;
-  });
-
-  /* Botón selector si ya hay categoría activa */
-  if (activeCat) {
-    catSelectText.textContent = `${CATS[activeCat].icon} ${CATS[activeCat][lang]}`;
-    renderMiniBlock(activeCat);
-  } else {
-    catSelectText.textContent = t['ctrl.selectCat'];
-  }
-
-  /* Label del toggle mini según estado */
-  miniLabel.textContent = miniOn ? t['ctrl.verMas'] : t['ctrl.verMenos'];
-
-  /* Actualiza la imagen de la bandera y el texto del código */
-  document.getElementById('langLabel').textContent = LANG_META[lang].label;
-  document.getElementById('langFlag').src          = LANG_META[lang].flagSrc;
-
-  /* Resalta la opción activa en el dropdown de idioma */
-  document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.classList.toggle('selected', opt.dataset.lang === lang);
-  });
-
-  /* Actualiza el atributo lang del HTML para accesibilidad y SEO */
   document.documentElement.lang = LANG_META[lang].htmlLang;
-
-  /* Guarda el idioma elegido para recordarlo al recargar */
-  localStorage.setItem('lumen-lang', lang);
 }
 
-/* ── DOM ── */
-const navbar           = document.getElementById('navbar');
-const langBtn          = document.getElementById('langBtn');
-const langDropdown     = document.getElementById('langDropdown');
-const langWrapper      = document.getElementById('langWrapper');
-const colorToggle      = document.getElementById('colorToggle');
-const miniToggle       = document.getElementById('miniToggle');
-const miniLabel        = document.getElementById('miniLabel');
-const catSelectWrapper = document.getElementById('catSelectWrapper');
-const catSelectBtn     = document.getElementById('catSelectBtn');
-const catSelectText    = document.getElementById('catSelectText');
-const catDropdown      = document.getElementById('catDropdown');
-const miniSingleBlock  = document.getElementById('miniSingleBlock');
+/* =========================================================
+   TEXTO DEL BOTÓN "VER MENOS" / "VER TODO"
+   Se define acá (y consulta el DOM directamente en vez de
+   depender de las const declaradas más abajo) porque
+   switchLanguage() se ejecuta durante la inicialización,
+   antes de que existan esas const.
+========================================================= */
+function updateVerMenosText() {
+  const dict = TRANSLATIONS[currentLang];
+  const btn = document.getElementById("verMenosBtn");
+  if (!btn) return;
+  const textSpan = btn.querySelector(".ver-menos-text");
+  if (!textSpan) return;
+  const gamesPageEl = document.getElementById("gamesPage");
+  const compacta = gamesPageEl && gamesPageEl.classList.contains("vista-compacta");
+  textSpan.textContent = compacta ? dict.games_ver_todo : dict.games_ver_menos;
+}
 
-let colorOn  = false;
-let miniOn   = false;
-let activeCat = null;
+/* =========================================================
+   CAMBIO DE IDIOMA
+========================================================= */
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("lumen-lang", lang);
+  document.getElementById("langLabel").textContent = LANG_META[lang].label;
+  document.getElementById("langFlag").src = LANG_META[lang].flagSrc;
 
-/* ════════════════════════════
-   1. NAVBAR scroll hide/show
-   — compatible con navbar fijo del index principal
-════════════════════════════ */
-let lastY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  navbar.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
-  lastY = y;
-}, { passive: true });
+  document.querySelectorAll(".lang-option").forEach(opt => {
+    opt.classList.toggle("selected", opt.dataset.lang === lang);
+  });
 
-/* ════════════════════════════
-   2. DROPDOWN DE IDIOMA
-   — abrir / cerrar (lógica del index principal)
-════════════════════════════ */
+  applyTranslations(lang);
+  updateVerMenosText();
+  closeLangDropdown();
+}
+
+/* =========================================================
+   DROPDOWN DE IDIOMA
+========================================================= */
+const langBtn = document.getElementById("langBtn");
+const langDropdown = document.getElementById("langDropdown");
+
 function openLangDropdown() {
-  langDropdown.classList.add('open');
-  langBtn.setAttribute('aria-expanded', 'true');
+  langDropdown.classList.add("open");
+  langBtn.setAttribute("aria-expanded", "true");
 }
 
 function closeLangDropdown() {
-  langDropdown.classList.remove('open');
-  langBtn.setAttribute('aria-expanded', 'false');
+  langDropdown.classList.remove("open");
+  langBtn.setAttribute("aria-expanded", "false");
 }
 
 function toggleLangDropdown() {
-  langDropdown.classList.contains('open') ? closeLangDropdown() : openLangDropdown();
+  langDropdown.classList.contains("open") ? closeLangDropdown() : openLangDropdown();
 }
 
-/* Abre o cierra al hacer clic en el botón de idioma */
-langBtn.addEventListener('click', e => {
-  e.stopPropagation(); /* Evita que el clic llegue al document y lo cierre inmediatamente */
+langBtn.addEventListener("click", e => {
+  e.stopPropagation();
   toggleLangDropdown();
 });
 
-/* Cambia el idioma al seleccionar una opción */
-document.querySelectorAll('.lang-option').forEach(opt => {
-  opt.addEventListener('click', () => applyTranslations(opt.dataset.lang));
-  /* Soporte de teclado: Enter o Espacio activan la opción */
-  opt.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
+document.querySelectorAll(".lang-option").forEach(opt => {
+  opt.addEventListener("click", () => switchLanguage(opt.dataset.lang));
+  opt.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      applyTranslations(opt.dataset.lang);
+      switchLanguage(opt.dataset.lang);
     }
   });
 });
 
-/* ════════════════════════════
-   3. DROPDOWN DE NAVEGACIÓN
-   — lógica hover con delay del index principal
-════════════════════════════ */
-document.querySelectorAll('.nav-item').forEach(item => {
-  const dropdown = item.querySelector('.nav-dropdown');
+/* =========================================================
+   CERRAR DROPDOWNS AL HACER CLIC FUERA
+========================================================= */
+document.addEventListener("click", () => {
+  closeLangDropdown();
+  document.querySelectorAll(".nav-item.open").forEach(i => i.classList.remove("open"));
+});
 
+/* =========================================================
+   DROPDOWN DE NAVEGACIÓN (Información general / Sobre nosotros)
+   NOTA: en script2.js original hay DOS bloques que hacen algo
+   parecido: uno agrega/quita la clase "open" al .nav-item, y
+   otro agrega/quita la clase "show" al .nav-dropdown. Ambos
+   quedaron en el archivo original (parece código duplicado/
+   remanente de una iteración anterior). Se conservan tal cual
+   para que el comportamiento visual sea IDÉNTICO al original.
+========================================================= */
+document.querySelectorAll(".nav-item").forEach(item => {
+  const dropdown = item.querySelector(".nav-dropdown");
   let closeTimeout;
 
   function abrir() {
     clearTimeout(closeTimeout);
-    item.classList.add('open');
+    item.classList.add("open");
   }
 
   function cerrar() {
     closeTimeout = setTimeout(() => {
-      item.classList.remove('open');
+      item.classList.remove("open");
     }, 500);
   }
 
-  item.addEventListener('mouseenter', abrir);
-  item.addEventListener('mouseleave', cerrar);
+  item.addEventListener("mouseenter", abrir);
+  item.addEventListener("mouseleave", cerrar);
 
-  dropdown.addEventListener('mouseenter', abrir);
-  dropdown.addEventListener('mouseleave', cerrar);
+  dropdown.addEventListener("mouseenter", abrir);
+  dropdown.addEventListener("mouseleave", cerrar);
 });
 
-/* ════════════════════════════
-   4. CERRAR DROPDOWNS AL HACER CLIC FUERA
-   Cierra tanto el dropdown de idioma como los de navegación
-   cuando el usuario hace clic en cualquier parte de la página.
-════════════════════════════ */
-document.addEventListener('click', e => {
-  /* Cierra dropdown de idioma */
-  if (!langWrapper.contains(e.target)) {
-    closeLangDropdown();
-  }
-  /* Cierra dropdowns de navegación */
-  document.querySelectorAll('.nav-item.open').forEach(i => i.classList.remove('open'));
-  /* Cierra dropdown del selector de categoría */
-  if (!catSelectBtn.contains(e.target) && !catDropdown.contains(e.target)) {
-    catDropdown.classList.remove('open');
-    catSelectBtn.classList.remove('open');
-  }
-});
+// Delay para todos los dropdowns del navbar (clase "show")
+document.querySelectorAll('.nav-item').forEach(item => {
+  const dropdown = item.querySelector('.nav-dropdown');
+  if (!dropdown) return;
 
-/* ════════════════════════════
-   5. SWITCH COLOR
-════════════════════════════ */
-colorToggle.closest('.switch-wrap').addEventListener('click', () => {
-  colorOn = !colorOn;
-  colorToggle.classList.toggle('on', colorOn);
-  document.body.classList.toggle('color-off', colorOn);
-});
+  let hideTimeout;
 
-/* ════════════════════════════
-   6. SWITCH MINIMIZAR
-════════════════════════════ */
-miniToggle.closest('.switch-wrap').addEventListener('click', () => {
-  miniOn = !miniOn;
-  miniToggle.classList.toggle('on', miniOn);
-  document.body.classList.toggle('mini-on', miniOn);
+  item.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    dropdown.classList.add('show');
+  });
 
-  const t = TRANSLATIONS[currentLang];
-
-  if (miniOn) {
-    miniLabel.textContent = t['ctrl.verMas'];
-    catSelectWrapper.classList.remove('hidden');
-  } else {
-    miniLabel.textContent = t['ctrl.verMenos'];
-    catSelectWrapper.classList.add('hidden');
-    catSelectText.textContent = t['ctrl.selectCat'];
-    catSelectBtn.classList.remove('open');
-    catDropdown.classList.remove('open');
-    miniSingleBlock.innerHTML = '';
-    activeCat = null;
-    document.querySelectorAll('.cat-opt').forEach(o => o.classList.remove('active'));
-
-    document.querySelectorAll('.category-block').forEach(b => {
-      b.classList.remove('visible');
-      requestAnimationFrame(() => requestAnimationFrame(() => b.classList.add('visible')));
-    });
-  }
-});
-
-/* ════════════════════════════
-   7. SELECTOR DE CATEGORÍA
-════════════════════════════ */
-catSelectBtn.addEventListener('click', e => {
-  e.stopPropagation();
-  const open = catDropdown.classList.toggle('open');
-  catSelectBtn.classList.toggle('open', open);
-});
-
-document.querySelectorAll('.cat-opt').forEach(opt => {
-  opt.addEventListener('click', () => {
-    const key = opt.dataset.cat;
-    activeCat = key;
-
-    catSelectText.textContent = `${CATS[key].icon} ${CATS[key][currentLang]}`;
-    document.querySelectorAll('.cat-opt').forEach(o => o.classList.remove('active'));
-    opt.classList.add('active');
-    catDropdown.classList.remove('open');
-    catSelectBtn.classList.remove('open');
-
-    renderMiniBlock(key);
+  item.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      dropdown.classList.remove('show');
+    }, 350); // mismo tiempo que el delay del CSS
   });
 });
 
-function renderMiniBlock(key) {
-  const cat = CATS[key];
-  const label = cat[currentLang];
-  miniSingleBlock.innerHTML = `
-    <div class="category-block visible" style="display:block">
-      <div class="category-header">
-        <div class="category-icon ${cat.cls}">${cat.icon}</div>
-        <span class="category-label">${label}</span>
-        <span class="category-corner">${cat.corner}</span>
-      </div>
-      <div class="cards-row ${cat.row}">
-        ${cat.cards.map(c => `
-          <a class="game-card" href="#">
-            <div class="game-card-logo-slot">
-              <span class="game-card-emoji">${c}</span>
-            </div>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  `;
-  miniSingleBlock.querySelectorAll('.game-card').forEach(addRipple);
+/* =========================================================
+   ALTO REAL DE LA NAVBAR (fixed) → separación con el Hero
+   La navbar es position:fixed, por eso el contenido de abajo
+   necesita un padding-top igual a su alto real; si no, el Hero
+   queda tapado. Esto se recalcula en resize porque en pantallas
+   angostas los links de la navbar pueden pasar a una segunda
+   línea y cambiar su altura.
+========================================================= */
+function setNavbarHeightVar() {
+  const nav = document.querySelector(".navbar");
+  if (!nav) return;
+  document.documentElement.style.setProperty("--navbar-h", nav.offsetHeight + "px");
 }
 
-/* ════════════════════════════
-   8. SCROLL REVEAL
-════════════════════════════ */
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      revealObs.unobserve(entry.target);
+setNavbarHeightVar();
+window.addEventListener("resize", setNavbarHeightVar);
+window.addEventListener("load", setNavbarHeightVar);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(setNavbarHeightVar);
+}
+
+/* =========================================================
+   INICIALIZACIÓN
+========================================================= */
+switchLanguage(currentLang);
+
+/* ══════════════════════════════════════════════════════════════
+   LUMEN · JUEGOS EDUCATIVOS — LÓGICA
+═══════════════════════════════════════════════════════════════ */
+
+const calmSwitch    = document.getElementById("calmSwitch");
+const verMenosBtn   = document.getElementById("verMenosBtn");
+const gamesPage      = document.getElementById("gamesPage");
+const categoriaTabs  = document.querySelectorAll(".categoria-tab");
+const categorias     = document.querySelectorAll(".categoria");
+
+/* ---------------------------------------------------------------
+   Modo calma: solo agrega/quita la clase "modo-calma" en <body>.
+   Es puramente visual (colores/saturación): no toca estructura,
+   tamaños, espaciado ni la navegación. Todo el comportamiento
+   visual vive en styles.css.
+--------------------------------------------------------------- */
+calmSwitch.addEventListener("change", () => {
+  document.body.classList.toggle("modo-calma", calmSwitch.checked);
+});
+
+/* ---------------------------------------------------------------
+   Activa una categoría: muestra su sección y resalta su pestaña.
+   Se usa tanto al entrar en vista compacta como al cambiar de
+   pestaña dentro de ella.
+--------------------------------------------------------------- */
+function activarCategoria(cat) {
+  categorias.forEach((sec) => {
+    sec.classList.toggle("activa", sec.dataset.cat === cat);
+  });
+  categoriaTabs.forEach((tab) => {
+    tab.classList.toggle("activa", tab.dataset.cat === cat);
+  });
+}
+
+categoriaTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    activarCategoria(tab.dataset.cat);
+
+    // En modo normal todas las categorías están visibles, así que
+    // el clic navega (scroll) hasta la categoría elegida. En vista
+    // compacta esto no hace falta: el filtrado por CSS ya deja esa
+    // categoría a la vista.
+    if (!gamesPage.classList.contains("vista-compacta")) {
+      const destino = document.querySelector(`.categoria[data-cat="${tab.dataset.cat}"]`);
+      if (destino) destino.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
-}, { threshold: 0.08 });
+});
 
-document.querySelectorAll('.category-block').forEach(b => revealObs.observe(b));
+/* ---------------------------------------------------------------
+   CONEXIÓN: NAVEGACIÓN EXISTENTE ("Ver menos")
+   Esta función controla el cambio a la vista compacta: agrega/quita
+   "vista-compacta" en #gamesPage, lo que hace que styles.css muestre
+   las pestañas de categoría y oculte todas las categorías salvo la
+   activa. Cuando integres tu navegación real, podés reemplazar el
+   manejo de pestañas de arriba (activarCategoria / listeners de
+   categoriaTabs) por tu propio sistema, sin tocar el resto de la
+   estructura de la página.
+--------------------------------------------------------------- */
+function toggleSectionNavigation() {
+  const activando = !gamesPage.classList.contains("vista-compacta");
+  gamesPage.classList.toggle("vista-compacta", activando);
 
-/* ════════════════════════════
-   9. RIPPLE
-════════════════════════════ */
-const rippleSt = document.createElement('style');
-rippleSt.textContent = `@keyframes rippleAnim { to { transform:scale(3); opacity:0; } }`;
-document.head.appendChild(rippleSt);
+  if (activando) {
+    // Si ninguna categoría está activa todavía, activa la primera
+    const yaActiva = document.querySelector(".categoria.activa");
+    if (!yaActiva && categorias.length) {
+      activarCategoria(categorias[0].dataset.cat);
+    }
+  }
 
-function addRipple(card) {
-  card.addEventListener('click', function(e) {
-    e.preventDefault();
-    const size = Math.max(this.offsetWidth, this.offsetHeight);
-    const r = document.createElement('span');
-    r.style.cssText = `
-      position:absolute;border-radius:50%;
-      width:${size}px;height:${size}px;
-      background:rgba(74,144,217,0.22);
-      transform:scale(0);
-      animation:rippleAnim .5s ease-out forwards;
-      left:50%;top:50%;
-      margin-left:-${size/2}px;margin-top:-${size/2}px;
-      pointer-events:none;
-    `;
-    this.appendChild(r);
-    setTimeout(() => r.remove(), 550);
-  });
+  updateVerMenosText();
 }
-document.querySelectorAll('.game-card').forEach(addRipple);
 
-/* ════════════════════════════
-   INICIALIZACIÓN GENERAL
-   Se ejecuta al cargar la página:
-   1. Aplica las traducciones del idioma guardado o español por defecto
-════════════════════════════ */
-applyTranslations(currentLang);
+verMenosBtn.addEventListener("click", () => {
+  toggleSectionNavigation();
+});
