@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LUMEN – Juegos Educativos</title>
-  <link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="stylej.css"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LUMEN – Juegos educativos</title>
+
+<!-- Si tu proyecto ya carga estas fuentes desde el <head> global, podés borrar este link -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="stylej.css"/>
 </head>
 <body>
 
-<!-- ══ NAVBAR (reemplazado con el diseño del index principal) ══ -->
-<nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+<!--NAVBAR-->
+
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
 
   <!-- Logo a la izquierda -->
   <div class="nav-logo">
@@ -28,53 +31,48 @@
 
     <!-- =====================================================
          INFORMACIÓN GENERAL – con dropdown
-         Al hacer clic muestra submenú con temas de autismo
     ===================================================== -->
     <div class="nav-item">
-        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
-      <!-- Submenú de Información general -->
+      <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
       <div class="nav-dropdown">
-        <a href="pagina.html" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
-        <a href="causas.html" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
-        <a href="niveles.html" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
-        <a href="senalas.html" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
-        <a href="niñas.html" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
-        <a href="condiciones.html" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+        <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+        <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+        <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+        <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+        <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
       </div>
     </div>
 
-    <!-- Lumen Shop: enlace simple sin submenú -->
-    <a href="shop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+    <!-- Lumen Shop -->
+    <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
 
-    <!-- Centros: enlace simple sin submenú -->
-    <a href="centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+    <!-- Centros -->
+    <a href="Centros.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
 
-    <!-- Giras inclusivas: enlace simple sin submenú -->
-    <a href="giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+    <!-- Giras inclusivas -->
+    <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
 
-    <!-- Profesionales: enlace simple sin submenú -->
-    <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+    <!-- Profesionales -->
+    <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
 
     <!-- =====================================================
          SOBRE NOSOTROS – con dropdown
-         Al hacer clic muestra submenú con páginas internas
     ===================================================== -->
     <div class="nav-item">
-      <a href="sobre.html" class="nav-btn nav-link" data-i18n="nav_info">Sobre nosotros</a>
-      <!-- Submenú de Sobre nosotros -->
+      <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
       <div class="nav-dropdown">
-        <a href="quienes-somos.html" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
-        <a href="mision-vision.html" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
-        <a href="contacto.html" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+        <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
       </div>
     </div>
 
   </div>
 
-  <!-- Controles: idioma y tema -->
+  <!-- Controles: selector de idioma -->
   <div class="nav-controls">
 
-    <!-- Selector de idioma -->
     <div class="lang-wrapper" id="langWrapper">
       <button class="lang-btn" id="langBtn"
               aria-haspopup="listbox"
@@ -100,112 +98,263 @@
   </div>
 </nav>
 
-<!-- ══ FONDO + CONTENIDO ══ -->
-<div class="page-bg" id="pageBg">
+<main class="games-page" id="gamesPage">
 
-  <!-- Hero -->
-  <section class="hero-content" id="heroSection">
-    <h1 class="hero-title" data-i18n="hero.title">Juegos educativos</h1>
-    <p class="hero-tagline" data-i18n="hero.tagline">
-      Aquí encontrarás juegos que te ayudarán en diferentes áreas, organizados en
-      varias categorías para que disfrutes aprendiendo explorando a tu ritmo.
-    </p>
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-text">
+        <h1 class="hero-title" data-i18n="games_hero_title">Juegos educativos</h1>
+        <p class="hero-tagline" data-i18n="games_hero_tagline">
+          Aquí encontrarás juegos que te ayudarán en diferentes áreas, organizados en
+          varias categorías para que disfrutes aprendiendo y explorando a tu ritmo.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- ══ SECCIÓN DE JUEGOS ══ -->
-  <section class="sections-wrapper" id="sectionsWrapper">
+  <!-- ══ BARRA DE CONTROLES: modo calma + ver menos ══ -->
+  <div class="controls-bar">
 
-    <!-- BARRA DE CONTROLES -->
-    <div class="controls-bar" id="controlsBar">
+    <label class="calm-switch-wrap" for="calmSwitch">
+      <span class="calm-switch-icon" aria-hidden="true">☀️</span>
+      <span class="calm-switch">
+        <input type="checkbox" id="calmSwitch"/>
+        <span class="calm-switch-track">
+          <span class="calm-switch-thumb"></span>
+        </span>
+      </span>
+      <span class="calm-switch-label" data-i18n="games_calm_label">Modo calma</span>
+    </label>
 
-      <label class="switch-wrap" title="Cambiar color de fondo">
-        <span class="switch-icon"></span>
-        <div class="toggle" id="colorToggle"><div class="toggle-thumb"></div></div>
-        <span class="switch-label" data-i18n="ctrl.color">Color</span>
-      </label>
+    <!-- Botón "Ver menos": SOLO dispara el placeholder toggleSectionNavigation().
+         No contiene ninguna lógica de navegación propia. -->
+    <button type="button" class="ver-menos-btn" id="verMenosBtn">
+      <span class="ver-menos-icon" aria-hidden="true">👁️</span>
+      <span class="ver-menos-text" data-i18n="games_ver_menos">Ver menos</span>
+    </button>
 
-      <label class="switch-wrap" title="Minimizar/expandir categorías">
-        <span class="switch-icon"></span>
-        <div class="toggle" id="miniToggle"><div class="toggle-thumb"></div></div>
-        <span class="switch-label" id="miniLabel" data-i18n="ctrl.verMenos">Ver menos</span>
-      </label>
+  </div>
 
-      <div class="cat-select-wrapper hidden" id="catSelectWrapper">
-        <button class="cat-select-btn" id="catSelectBtn">
-          <span id="catSelectText" data-i18n="ctrl.selectCat">Seleccionar categoría…</span>
-          <span class="cat-chevron">▾</span>
-        </button>
-        <div class="cat-dropdown" id="catDropdown">
-          <button class="cat-opt" data-cat="atencion" data-i18n-cat="atencion" data-i18n="cat.atencion">Atención</button>
-          <button class="cat-opt" data-cat="logica"   data-i18n-cat="logica"   data-i18n="cat.logica">Lógica</button>
-          <button class="cat-opt" data-cat="lenguaje" data-i18n-cat="lenguaje" data-i18n="cat.lenguaje">Lenguaje</button>
-          <button class="cat-opt" data-cat="coord"    data-i18n-cat="coord"    data-i18n="cat.coord">Coordinación</button>
+  <!-- ══ NAVEGACIÓN POR CATEGORÍA ══
+       Siempre visible, en modo normal y en "Ver menos". No la toca
+       el toggle de "Ver menos": ni se oculta ni cambia de posición.
+       En modo normal lleva la vista hasta la categoría elegida; en
+       "Ver menos" además filtra mostrando solo esa categoría. -->
+  <nav class="categoria-tabs" aria-label="Navegación por categoría de juegos">
+    <button type="button" class="categoria-tab" data-cat="atencion" data-i18n="games_cat_atencion">Atención</button>
+    <button type="button" class="categoria-tab" data-cat="logica" data-i18n="games_cat_logica">Lógica</button>
+    <button type="button" class="categoria-tab" data-cat="lenguaje" data-i18n="games_cat_lenguaje">Lenguaje</button>
+    <button type="button" class="categoria-tab" data-cat="coordinacion" data-i18n="games_cat_coordinacion">Coordinación</button>
+  </nav>
+
+  <!-- ══ SECCIÓN DE JUEGOS ══
+       Todas las categorías se muestran siempre juntas (sin tabs).
+       Cada categoría es un contenedor independiente con su propia
+       clase, lista para recibir fondo personalizado más adelante. -->
+  <div class="games-section" id="gamesSection">
+
+    <!-- ── ATENCIÓN ── -->
+    <section class="categoria atencion" data-cat="atencion">
+      <div class="categoria-inner">
+
+        <!-- ══════════════════════════════════════════════════════
+             📌 COLOCAR ACÁ LA IMAGEN DECORATIVA DE "ATENCIÓN" (IZQUIERDA)
+             Ej.: signos de exclamación. Reemplazá este div vacío por
+             tu <img src="Imagenes/..."> adentro. El espacio y la
+             posición ya están reservados (.attention-decoration-left
+             en styles.css), no se monta sobre las tarjetas.
+        ═══════════════════════════════════════════════════════ -->
+        <div class="attention-decoration-left" aria-hidden="true"></div>
+
+        <h2 class="categoria-title" data-i18n="games_cat_atencion">Atención</h2>
+        <div class="cards-grid">
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/E.L.D.png" alt="Encuentra las diferencias"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_dif_title">Encuentra las diferencias</h3>
+            <p class="game-card-desc" data-i18n="games_card_dif_desc">¿Qué cambió?</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/MEMO.png" alt="MEMORAMA"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_memo_title">Memorama</h3>
+            <p class="game-card-desc" data-i18n="games_card_memo_desc">Encuentra los pares</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+               <img src="Imagenes/RECUERDA.png" alt="RECUERDA"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_recall_title">Recuerda</h3>
+            <p class="game-card-desc" data-i18n="games_card_recall_desc">Memoriza y repite</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/SEÑALA.png" alt="SEÑALA">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_point_title">Señala</h3>
+            <p class="game-card-desc" data-i18n="games_card_point_desc">Toca lo que se pide</p>
+          </a>
+
         </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ── LÓGICA ── -->
+    <section class="categoria logica" data-cat="logica">
+      <div class="categoria-inner">
+        
+        <h2 class="categoria-title" data-i18n="games_cat_logica">Lógica</h2>
+        <div class="cards-grid">
 
-    <!-- Bloque único modo mini -->
-    <div class="mini-single-block" id="miniSingleBlock"></div>
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                  <img src="Imagenes/PATRONES.png" alt="Patrones">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_patterns_title">Patrones</h3>
+            <p class="game-card-desc" data-i18n="games_card_patterns_desc">¿Qué sigue?</p>
+          </a>
 
-    <!-- Los 4 bloques normales -->
-    <div class="category-block" id="cat-atencion">
-      <div class="category-header">
-        <span class="category-label" data-i18n="cat.atencion">Atención</span>
-        <span class="category-corner"></span>
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/ENCAJAR.png" alt="Encajar">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_fit_title">Encajar</h3>
+            <p class="game-card-desc" data-i18n="games_card_fit_desc">Completa el puzzle</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/ORDENAR.png" alt="Ordenar">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_sort_title">Ordenar</h3>
+            <p class="game-card-desc" data-i18n="games_card_sort_desc">De menor a mayor</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/DESCUBRE.png" alt="Descubre">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_discover_title">Descubre</h3>
+            <p class="game-card-desc" data-i18n="games_card_discover_desc">Resuelve el misterio</p>
+          </a>
+
+        </div>
       </div>
-      <div class="cards-row row-atencion">
-        <a class="game-card" href="juego1.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego2.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego3.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego4.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-      </div>
-    </div>
+    </section>
 
-    <div class="category-block" id="cat-logica">
-      <div class="category-header">
-        <span class="category-label" data-i18n="cat.logica">Lógica</span>
-        <span class="category-corner"></span>
-      </div>
-      <div class="cards-row row-logica">
-        <a class="game-card" href="juego5.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego6.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego7.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego8.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-      </div>
-    </div>
+    <!-- ── LENGUAJE ── -->
+    <section class="categoria lenguaje" data-cat="lenguaje">
 
-    <div class="category-block" id="cat-lenguaje">
-      <div class="category-header">
-        <span class="category-label" data-i18n="cat.lenguaje">Lenguaje</span>
-        <span class="category-corner"></span>
-      </div>
-      <div class="cards-row row-lenguaje">
-        <a class="game-card" href="juego9.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego10.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego11.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego12.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-      </div>
-    </div>
+        <h2 class="categoria-title" data-i18n="games_cat_lenguaje">Lenguaje</h2>
+        <div class="cards-grid">
 
-    <div class="category-block" id="cat-coord">
-      <div class="category-header">
-        <span class="category-label" data-i18n="cat.coord">Coordinación</span>
-        <span class="category-corner"></span>
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/PAREO.png" alt="Pareo"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_match_title">Pareo</h3>
+            <p class="game-card-desc" data-i18n="games_card_match_desc">Une lo que va junto</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/DESCRIBIR.png" alt="Describir">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_describe_title">Describir</h3>
+            <p class="game-card-desc" data-i18n="games_card_describe_desc">¿Qué ves?</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/ORGANIZAR.png" alt="Organizar"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_organize_title">Organizar</h3>
+            <p class="game-card-desc" data-i18n="games_card_organize_desc">Pon en orden la historia</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/LETRAS.png" alt="Letras"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_letters_title">Letras</h3>
+            <p class="game-card-desc" data-i18n="games_card_letters_desc">Forma palabras</p>
+          </a>
+
+        </div>
       </div>
-      <div class="cards-row row-coord">
-        <a class="game-card" href="juego13.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego14.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego15.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
-        <a class="game-card" href="juego16.html"><div class="game-card-logo-slot"><span class="game-card-emoji"></span></div></a>
+    </section>
+
+    <!-- ── COORDINACIÓN ── -->
+    <section class="categoria coordinacion" data-cat="coordinacion">
+      <div class="categoria-inner">
+
+        <h2 class="categoria-title" data-i18n="games_cat_coordinacion">Coordinación</h2>
+        <div class="cards-grid">
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/A.Y.S.png" alt="Arrastra y suelta">
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_drag_title">Arrastra y suelta</h3>
+            <p class="game-card-desc" data-i18n="games_card_drag_desc">Mueve al lugar correcto</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/TRAZA.png" alt="Traza el camino"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_trace_title">Traza el camino</h3>
+            <p class="game-card-desc" data-i18n="games_card_trace_desc">Sigue la ruta</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/E.L.C.png" alt="Elige lo correcto"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_choose_title">Elige lo correcto</h3>
+            <p class="game-card-desc" data-i18n="games_card_choose_desc">Selecciona la respuesta</p>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card-icon" aria-hidden="true">
+                   <img src="Imagenes/PULSA.png" alt="Pulsa"> 
+            </div>
+            <h3 class="game-card-title" data-i18n="games_card_tap_title">Pulsa</h3>
+            <p class="game-card-desc" data-i18n="games_card_tap_desc">Toca en el momento justo</p>
+          </a>
+
+        </div>
       </div>
-    </div>
+    </section>
 
-  </section>
+  </div>
 
-</div>
+</main>
 
-<!-- ══ FOOTER (reemplazado con el diseño del index principal) ══ -->
+<!-- ══════════════════════════════════════════════════════════════
+     CONEXIÓN: FOOTER
+     Acá va tu footer existente. Este archivo NO crea ni modifica
+     ningún footer.
+═══════════════════════════════════════════════════════════════ -->
+<!-- =========================================================
+     FOOTER REUTILIZABLE – LUMEN
+     Requiere en el <head> del documento:
+       <link rel="stylesheet" href="footer.css"/>
+     Los textos con data-i18n se traducen automáticamente
+     SI la página también carga navbar.js (o al menos el
+     sistema de traducciones: TRANSLATIONS/applyTranslations/
+     switchLanguage). Si no lo cargas, el footer se ve bien
+     igual, solo que siempre en español (el texto fijo del HTML).
+========================================================= -->
+
 <footer class="site-footer" role="contentinfo">
 
   <div class="footer-brand">
@@ -213,7 +362,7 @@
       <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
     </div>
     <p class="footer-copy">
-      <span class="copy-icon">©</span>
+      <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
       <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
     </p>
   </div>
@@ -221,23 +370,40 @@
   <div class="footer-links">
     <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
     <ul>
-      <li><a href="#" data-i18n="nav_home">Inicio</a></li>
-      <li><a href="#" data-i18n="nav_info">Información general</a></li>
-      <li><a href="#" data-i18n="nav_shop">Lumen Shop</a></li>
-      <li><a href="#" data-i18n="nav_centers">Centros</a></li>
-      <li><a href="#" data-i18n="nav_tours">Giras inclusivas</a></li>
-      <li><a href="#" data-i18n="nav_pros">Profesionales</a></li>
-      <li><a href="#" data-i18n="nav_about">Sobre nosotros</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+      <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+      <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+      <li><a href="centers.html" data-i18n="nav_centers">Centros</a></li>
+      <li><a href="tours.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+      <li><a href="pros.html" data-i18n="nav_pros">Profesionales</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
     </ul>
   </div>
 
-  <div class="footer-contact">
-    <p class="footer-col-title" data-i18n="footer_contact">Contáctanos al:</p>
-    <p class="footer-contact-info">info@lumen.com</p>
+  <div class="footer-social">
+    <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+    <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+    <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+
+    <div class="social-icons">
+      <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
   </div>
 
   <div class="footer-mascot" aria-hidden="true">
-    <img src="Imagenes/Nu.png" alt="Mascota Lumen" class="mascot-img"/>
+    <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
   </div>
 
 </footer>
