@@ -880,87 +880,198 @@ body {
 .mensaje-final { display: none; }
 
 /* =========================================================
-   RESPONSIVE – TABLET
+   RESPONSIVE – TABLET Y PAISAJE MÓVIL (PERFECCIONADO)
 ========================================================= */
 @media (max-width: 1024px) {
   .cards-grid-actividades {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .actividades-header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .actividades-hero-image {
-    justify-content: center;
-    width: 100%;
+    gap: 20px;
   }
   
-  .beneficios-section {
+  .actividades-header-container {
+    min-height: 450px;
+    padding: 100px 5vw 50px;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    justify-content: center;
   }
-  .beneficios-content {
+  
+  .actividades-text {
+    width: 100%;
     max-width: 600px;
   }
-  .beneficios-list li {
-    text-align: left;
+
+  .beneficios-section {
+    padding: 60px 5vw;
   }
-  .beneficios-visual-wrapper {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
+
+  .beneficios-bottom-row {
+    gap: 30px;
   }
+
   .mensaje-final-star {
-    right: -10px;
-    bottom: -20px;
     width: 160px;
     height: 160px;
+    top: 50%;
+    left: 75%;
+  }
+
+  .mensaje-final-text {
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    max-width: 220px;
+  }
+
+  .footer-logo-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
   }
 }
 
 /* =========================================================
-   RESPONSIVE – MÓVIL
+   RESPONSIVE – MÓVIL (PERFECCIONADO)
 ========================================================= */
 @media (max-width: 600px) {
-  .navbar { padding: 14px 16px; gap: 8px; }
-  .nav-links { order: 3; width: 100%; gap: 5px; }
-  .nav-btn { font-size: .72rem; padding: 5px 11px; }
-  .nav-btn.active { padding: 5px 14px; }
-
-  .actividades-sociales {
-    padding: 110px 4vw 36px;
+  /* NAVBAR */
+  .navbar {
+    padding: 12px 16px;
+    gap: 8px;
+    justify-content: center;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    gap: 6px 4px;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .nav-btn {
+    font-size: .72rem;
+    padding: 6px 10px;
+  }
+  .nav-btn.active {
+    padding: 6px 12px;
   }
 
-  .title-row {
-    gap: 10px;
-  }
-
+  /* TEMA BOTÓN */
   .theme-btn {
-    width: 36px;
-    height: 36px;
+    top: 15px;
+    right: 15px;
+    width: 34px;
+    height: 34px;
     font-size: 1rem;
   }
 
+  /* HEADER */
+  .actividades-sociales,
+  .actividades-header-container {
+    padding: 90px 4vw 40px;
+    min-height: auto;
+    background-position: right center;
+  }
+
+  /* CARDS */
   .cards-grid-actividades {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
 
   .card-image-placeholder {
-    height: 120px;
+    min-height: 140px;
+    padding: 20px;
   }
 
+  /* BENEFICIOS */
   .beneficios-section {
     padding: 40px 4vw 48px;
-    gap: 32px;
+    align-items: center;
+  }
+  
+  .beneficios-section h2 {
+    text-align: center;
   }
 
+  .beneficios-list {
+    padding-left: 10px;
+  }
+  
+  .beneficios-list li {
+    text-align: left;
+  }
+
+  .beneficios-bottom-row {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .beneficios-visual-wrapper {
+    bottom: 0;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .beneficios-image-placeholder {
+    height: 220px;
+  }
+
+  /* MENSAJE FINAL */
+  .mensaje-final-wrapper {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .mensaje-final-star {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: rotate(10deg);
+    margin: 0 auto 10px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .mensaje-final-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* FOOTER */
   .site-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 28px;
-    justify-content: flex-start;
+    padding: 40px 5vw 32px;
     padding-right: 5vw;
   }
-  .footer-social { min-width: 160px; }
-  .footer-mascot { display: none; }
+  
+  .footer-brand {
+    align-items: center;
+  }
+  
+  .footer-links ul {
+    align-items: center;
+  }
+  
+  .footer-social {
+    align-items: center;
+    min-width: 100%;
+  }
+  
+  .footer-logo-img {
+    max-width: 220px;
+    margin-bottom: -10px;
+  }
+  
+  .footer-mascot {
+    display: none;
+  }
 }

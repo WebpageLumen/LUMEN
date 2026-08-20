@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMEN - Historias Sociales</title>
+  <link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <!-- CSS Externo -->
+  <link rel="stylesheet" href="historias.css"/>
+</head>
+<body>
+  <!-- ==========================================
+       NAVBAR (NO TOCAR)
+  ========================================== -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+      <div class="nav-item">
+        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+        <div class="nav-dropdown">
+          <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+          <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+          <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+          <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+          <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+          <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        </div>
+      </div>
+      <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+      <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+      <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+      <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+      <div class="nav-item">
+        <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-controls">
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-btn" id="langBtn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Seleccionar idioma">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+          <span id="langLabel">ES</span>
+          <span class="lang-chevron"></span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="listbox">
+          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+            <span>ES</span>
+          </div>
+          <div class="lang-option" role="option" data-lang="en" tabindex="0">
+            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HISTORIAS SOCIALES – CONTENIDO
+  ========================================== -->
+  <div class="hist-page">
+    <button class="theme-btn section-theme-btn" id="themeBtn" aria-label="Cambiar tema">
+      <span class="theme-icon" id="themeIcon">🌙</span>
+    </button>
+    <div class="hist-page-inner">
+
+    <!-- HERO -->
+    <div class="hist-hero-wrap">
+      <!-- Badge GREAT! (Estilo css, reemplazable por imagen si lo deseas) -->
+      <div class="great-badge" aria-hidden="true">
+        <span class="trophy">🏆</span>
+        <span class="great-text">GREAT!</span>
+        <span class="star">⭐</span>
+      </div>
+
+      <div class="hist-hero-card">
+        <div class="hist-hero-text">
+          <h1 class="hist-hero-title" data-i18n="hist_title">Historias<br>sociales</h1>
+          <p class="hist-hero-subtitle" data-i18n="hist_subtitle">Historias sociales para aprender, comprender y practicar situaciones cotidianas de una manera sencilla y visual.</p>
+        </div>
+        <div class="hist-hero-illustration">
+          <!-- AQUÍ PONES TU IMAGEN DE ILUSTRACIÓN (LIBRO, etc.) -->
+          <img src="Imagenes/libro.png" alt="Ilustración de libro" class="hero-img" />
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID DE HISTORIAS -->
+    <div class="stories-section">
+      <div class="stories-sidebar">
+        <button type="button" class="sidebar-label" data-i18n="all_stories" aria-expanded="false">Todas las historias</button>
+        <button type="button" class="sidebar-arrow" aria-label="Mostrar categorías" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="story-category-menu" id="storyCategoryMenu" aria-hidden="true">
+        <div class="story-category-list">
+          <button type="button" class="story-category-item" data-i18n="cat_figurative">Lenguaje Figurado</button>
+          <button type="button" class="story-category-item" data-i18n="cat_home">Hogar</button>
+          <button type="button" class="story-category-item" data-i18n="cat_school">Escuela</button>
+          <button type="button" class="story-category-item" data-i18n="cat_places">Lugares</button>
+          <button type="button" class="story-category-item" data-i18n="cat_hygiene">Higiene</button>
+          <button type="button" class="story-category-item" data-i18n="cat_transitions">Cambios y Transiciones</button>
+        </div>
+      </div>
+
+      <div class="stories-grid">
+        <!-- 1. Saludar a alguien -->
+        <a class="story-card" href="#">
+          <div class="story-img-area">
+            <div class="story-img-placeholder">
+              <!-- AQUÍ PONES TU IMAGEN -->
+              <img src="Imagenes/saludar a alguien.png" alt="Saludar a alguien" />
+            </div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title" data-i18n="story1_title">Saludar a alguien</h3>
+            <p class="story-desc" data-i18n="story1_desc">Aprendo diferentes formas de saludar y ser amables.</p>
+            <div class="story-meta">
+              <span class="diff-badge diff-easy" data-i18n="story1_diff">Fácil</span>
+              <span class="duration">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span data-i18n="story1_time">3-4 min</span>
+              </span>
+              <button type="button" class="story-heart" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.5 4.5 7.5C19 16.5 12 21 12 21z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </button>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. Pedir ayuda -->
+        <a class="story-card" href="#">
+          <div class="story-img-area">
+            <div class="story-img-placeholder">
+              <!-- AQUÍ PONES TU IMAGEN -->
+              <img src="Imagenes/pedir ayuda.png" alt="Pedir ayuda" />
+            </div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title" data-i18n="story2_title">Pedir ayuda</h3>
+            <p class="story-desc" data-i18n="story2_desc">Aprendo a pedir ayuda cuando la necesito.</p>
+            <div class="story-meta">
+              <span class="diff-badge diff-medium" data-i18n="story2_diff">Medio</span>
+              <span class="duration">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span data-i18n="story2_time">3-4 min</span>
+              </span>
+              <button type="button" class="story-heart" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.5 4.5 7.5C19 16.5 12 21 12 21z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </button>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. En la tienda -->
+        <a class="story-card" href="#">
+          <div class="story-img-area">
+            <div class="story-img-placeholder">
+              <!-- AQUÍ PONES TU IMAGEN -->
+              <img src="Imagenes/en la tienda.png" alt="En la tienda" />
+            </div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title" data-i18n="story3_title">En la tienda</h3>
+            <p class="story-desc" data-i18n="story3_desc">Aprendo cómo comportarme en la tienda.</p>
+            <div class="story-meta">
+              <span class="diff-badge diff-medium" data-i18n="story3_diff">Medio</span>
+              <span class="duration">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span data-i18n="story3_time">3-4 min</span>
+              </span>
+              <button type="button" class="story-heart" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.5 4.5 7.5C19 16.5 12 21 12 21z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </button>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4. Probar alimentos nuevos -->
+        <a class="story-card" href="#">
+          <div class="story-img-area">
+            <div class="story-img-placeholder">
+              <!-- AQUÍ PONES TU IMAGEN -->
+              <img src="Imagenes/probar alimentos nuevos.png" alt="Probar alimentos nuevos" />
+            </div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title" data-i18n="story4_title">Probar alimentos nuevos</h3>
+            <p class="story-desc" data-i18n="story4_desc">Aprendo a probar alimentos nuevos paso a paso.</p>
+            <div class="story-meta">
+              <span class="diff-badge diff-medium" data-i18n="story4_diff">Medio</span>
+              <span class="duration">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span data-i18n="story4_time">3-4 min</span>
+              </span>
+              <button type="button" class="story-heart" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.5 4.5 7.5C19 16.5 12 21 12 21z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </button>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FOOTER (NO TOCAR)
+  ========================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="centers.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="tours.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="pros.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+  <!-- JS Externo -->
+  <script src="historias.js"></script>
+</body>
+</html>
