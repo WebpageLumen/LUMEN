@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profesionales | Lumen</title>
+
+    <link rel="stylesheet" href="profesionales23.css">
+
+    <link rel="icon" type="image/png" href="Imagenes/Lg.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!--           NAVBAR              -->
+    <!-- ============================= -->
+
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+ 
+      <!-- Logo a la izquierda -->
+      <div class="nav-logo">
+        <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+      </div>
+ 
+      <!-- Links centrados -->
+      <div class="nav-links">
+ 
+        <!-- Inicio -->
+        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+ 
+        <!-- =====================================================
+             INFORMACIÓN GENERAL – con dropdown
+             Al hacer clic muestra submenú con temas de autismo
+        ===================================================== -->
+        <div class="nav-item">
+  <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+  <!-- Submenú de Información general -->
+  <div class="nav-dropdown">
+    <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+    <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+    <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+    <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+    <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+    <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+  </div>
+</div>
+ 
+        <!-- Lumen Shop: enlace simple sin submenú -->
+        <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+ 
+        <!-- Centros: enlace simple sin submenú -->
+        <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+ 
+        <!-- Giras inclusivas: enlace simple sin submenú -->
+        <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+ 
+        <!-- Profesionales: enlace simple sin submenú -->
+        <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+ 
+        <!-- =====================================================
+             SOBRE NOSOTROS – con dropdown
+             Al hacer clic muestra submenú con páginas internas
+        ===================================================== -->
+        <div class="nav-item">
+        <a href="about.html" class="nav-btn nav-link" data-i18n="nav_about">Sobre nosotros</a>
+          <!-- Submenú de Sobre nosotros -->
+         <div class="nav-dropdown">
+                    <a href="about.html#about-who" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+                    <a href="about.html#about-mission" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+                    <a href="about.html#about-contact" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+                </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Controles: solo idioma (el tema está en sections-header) -->
+      <div class="nav-controls">
+ 
+        <!-- Selector de idioma -->
+        <div class="lang-wrapper" id="langWrapper">
+          <button class="lang-btn" id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Seleccionar idioma">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+            <span id="langLabel">ES</span>
+            <span class="lang-chevron"></span>
+          </button>
+ 
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+              <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+              <span>ES</span>
+            </div>
+            <div class="lang-option" role="option" data-lang="en" tabindex="0">
+              <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+              <span>EN</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </nav>
+
+    <!-- ============================= -->
+    <!--         HERO SECTION          -->
+    <!-- ============================= -->
+
+    <section class="hero-profesionales">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <h1 data-i18n="hero_title">Profesionales</h1>
+
+                <p data-i18n="hero_desc">
+                    En esta sección podrás encontrar profesionales especializados
+                    que brindan orientación, apoyo y recomendaciones a familias.
+                    Explora distintos perfiles, conoce sus áreas de experiencia y
+                    contacta a quienes mejor se adapten a tus necesidades.
+                    Todo desde un lugar, de forma accesible y segura.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--       PROFESIONALES           -->
+    <!-- ============================= -->
+
+    <section class="profesionales">
+
+        <div class="container">
+
+            <div class="titulo-seccion">
+
+                <h2 data-i18n="section_title">Nuestros Especialistas</h2>
+
+                <p data-i18n="section_desc">
+                    Encuentra profesionales preparados para brindar apoyo
+                    a niños, adolescentes y familias.
+                </p>
+
+            </div>
+
+            <!-- TARJETA 1 -->
+            <div class="card-profesional">
+
+                <div class="foto-profesional">
+                    <img src="Imagenes/maria.jpg" alt="María González">
+                </div>
+
+                <div class="info-profesional">
+
+                    <h2 data-i18n="pro1_name">Dra. María González</h2>
+                    <h3 data-i18n="pro1_title">Psicóloga Infantil</h3>
+
+                    <p data-i18n="pro1_desc">
+                        Especialista en desarrollo infantil,
+                        habilidades sociales y acompañamiento
+                        familiar.
+                        Cuenta con más de 8 años de experiencia
+                        trabajando con niños y adolescentes.
+                    </p>
+
+                    <div class="datos">
+
+                        <p>
+                            <strong data-i18n="pro1_specialties_label">Especialidades:</strong>
+                            <span data-i18n="pro1_specialties">Regulación emocional, habilidades sociales y orientación familiar.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro1_mode_label">Modalidad:</strong>
+                            <span data-i18n="pro1_mode">Videollamada y chat.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro1_languages_label">Idiomas:</strong>
+                            <span data-i18n="pro1_languages">Español e Inglés.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro1_availability_label">Disponibilidad:</strong>
+                            <span data-i18n="pro1_availability">Lunes a viernes.</span>
+                        </p>
+
+                    </div>
+
+                    <a href="#" class="btn-contacto" data-i18n="contact_btn">
+                        Contactar
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- TARJETA 2 -->
+            <div class="card-profesional">
+
+                <div class="foto-profesional">
+                    <img src="Imagenes/carlos.jpg" alt="Carlos Mendoza">
+                </div>
+
+                <div class="info-profesional">
+
+                    <h2 data-i18n="pro2_name">Lic. Carlos Mendoza</h2>
+                    <h3 data-i18n="pro2_title">Terapeuta Ocupacional</h3>
+
+                    <p data-i18n="pro2_desc">
+                        Especialista en integración sensorial,
+                        autonomía personal y estimulación
+                        temprana.
+                    </p>
+
+                    <div class="datos">
+
+                        <p>
+                            <strong data-i18n="pro2_specialties_label">Especialidades:</strong>
+                            <span data-i18n="pro2_specialties">Integración sensorial, habilidades motoras, autonomía.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro2_mode_label">Modalidad:</strong>
+                            <span data-i18n="pro2_mode">Presencial y virtual.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro2_languages_label">Idiomas:</strong>
+                            <span data-i18n="pro2_languages">Español.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro2_availability_label">Disponibilidad:</strong>
+                            <span data-i18n="pro2_availability">Lunes a sábado.</span>
+                        </p>
+
+                    </div>
+
+                    <a href="#" class="btn-contacto" data-i18n="contact_btn">
+                        Contactar
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- TARJETA 3 -->
+            <div class="card-profesional">
+
+                <div class="foto-profesional">
+                    <img src="Imagenes/ana.jpg" alt="Ana Rodríguez">
+                </div>
+
+                <div class="info-profesional">
+
+                    <h2 data-i18n="pro3_name">Dra. Ana Rodríguez</h2>
+                    <h3 data-i18n="pro3_title">Fonoaudióloga</h3>
+
+                    <p data-i18n="pro3_desc">
+                        Especialista en lenguaje,
+                        comunicación y desarrollo
+                        del habla.
+                    </p>
+
+                    <div class="datos">
+
+                        <p>
+                            <strong data-i18n="pro3_specialties_label">Especialidades:</strong>
+                            <span data-i18n="pro3_specialties">Lenguaje expresivo, comunicación alternativa, terapia del habla.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro3_mode_label">Modalidad:</strong>
+                            <span data-i18n="pro3_mode">Presencial y videollamada.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro3_languages_label">Idiomas:</strong>
+                            <span data-i18n="pro3_languages">Español.</span>
+                        </p>
+
+                        <p>
+                            <strong data-i18n="pro3_availability_label">Disponibilidad:</strong>
+                            <span data-i18n="pro3_availability">Martes a viernes.</span>
+                        </p>
+
+                    </div>
+
+                    <a href="#" class="btn-contacto" data-i18n="contact_btn">
+                        Contactar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--            FOOTER             -->
+    <!-- ============================= -->
+ <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="Lumenshop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+
+    <script src="profesionales23.js"></script>
+
+</body>
+
+</html>

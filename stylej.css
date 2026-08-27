@@ -1,0 +1,1005 @@
+/* ══════════════════════════════════════════════════════════════
+   LUMEN · JUEGOS EDUCATIVOS
+   Sin navbar/footer (viven en tu plantilla). Sin fondos, imágenes
+   ni ilustraciones generadas automáticamente: solo los contenedores
+   y clases necesarias para que agregues tus propios fondos después.
+═══════════════════════════════════════════════════════════════ */
+
+:root{
+  --lm-font-display: 'Baloo 2', 'Nunito', sans-serif;
+  --lm-font-body:    'Nunito', sans-serif;
+
+  --lm-ink:      #223655;
+  --lm-ink-soft: #5a7da0;
+
+  --lm-radius-pill: 999px;
+  --lm-radius-card: 20px;
+  --lm-shadow-soft:  0 8px 28px rgba(74,144,217,.14);
+  --lm-shadow-hover: 0 16px 38px rgba(74,144,217,.22);
+  --lm-transition:   .28s cubic-bezier(.4,0,.2,1);
+
+  --lm-hero-bg: #ffffff;
+
+  /* Alto real de la navbar fija, actualizado por JS (scriptj.js)
+     para que el Hero nunca quede tapado ni deje un hueco de más.
+     Este valor es solo un fallback antes de que el JS lo calcule. */
+  --navbar-h: 84px;
+
+  /* Atención · azul pastel */
+  --lm-atencion-accent: #5D9BD3;
+  --lm-atencion-bg:     #EAF4FC;
+  --lm-atencion-card:   #D7E9F8;
+  --lm-atencion-text:   #3E76A8;
+  --lm-atencion-soft:   #8CB4D9;
+
+  /* Lógica · dorado suave */
+  --lm-logica-accent: #D8B24C;
+  --lm-logica-bg:     #FBF3DE;
+  --lm-logica-card:   #F5E4B8;
+  --lm-logica-text:   #A9822A;
+  --lm-logica-soft:   #C9A75E;
+
+  /* Lenguaje · morado pastel */
+  --lm-lenguaje-accent: #B57AD8;
+  --lm-lenguaje-bg:     #F5EBFB;
+  --lm-lenguaje-card:   #E7D2F5;
+  --lm-lenguaje-text:   #8C4FB0;
+  --lm-lenguaje-soft:   #C79EDE;
+
+  /* Coordinación · celeste */
+  --lm-coord-accent: #6FAFD9;
+  --lm-coord-bg:     #E9F4FB;
+  --lm-coord-card:   #D3E8F5;
+  --lm-coord-text:   #3E7CA8;
+  --lm-coord-soft:   #92BEDD;
+}
+/* =========================================================
+   NAVBAR.CSS – LUMEN
+   Estilos necesarios y suficientes para que el navbar
+   se vea y funcione EXACTAMENTE igual que en el proyecto.
+
+   DEPENDENCIA: la fuente 'Nunito' debe importarse en el <head>
+   del documento (Google Fonts). Ver navbar.html para el link.
+========================================================= */
+
+/* ---- Reset mínimo (recomendado en toda página nueva) ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* =========================================================
+   VARIABLES usadas por el navbar
+   (subconjunto de :root del proyecto original — cópialas
+   tal cual si vas a integrar el navbar en otra página)
+========================================================= */
+:root {
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+
+  --text-main:      #2d4a6e;
+
+  --bg-card:        #ffffff;
+  --bg-sections:    #ffffff;
+
+  /* Fondo de la navbar en modo claro */
+  --bg-navbar:      #ffffff;
+  /* Color de los links de la navbar */
+  --nav-link-color: #2d4a6e;
+  /* Borde inferior de la navbar */
+  --nav-border:     rgba(74,144,217,.15);
+
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+
+  --radius-pill:    999px;
+  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+}
+
+/* Variante "modo calma" (si tu proyecto usa data-theme="calm") */
+[data-theme="calm"] {
+  --bg-navbar:      #ffffff;
+  --nav-link-color: #2d4a6e;
+  --nav-border:     rgba(74,144,217,.15);
+  --text-main:      #2d4a6e;
+  --border-card:    rgba(74,144,217,.14);
+  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --blue-brand:     #4a90d9;
+  --blue-dark:      #2563ae;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--bg-navbar);
+  border-bottom: 1.5px solid var(--nav-border);
+  backdrop-filter: blur(12px);
+  transition: background .3s ease, border-color .3s ease;
+  flex-wrap: wrap;
+  font-family: 'Nunito', sans-serif;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: left;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 170px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: right;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: right;
+  flex: 1;
+}
+
+.nav-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--nav-link-color);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-btn:hover {
+  background: rgba(74,144,217,.08);
+  color: var(--blue-brand);
+}
+
+.nav-btn.active {
+  background: var(--blue-brand);
+  color: #ffffff;
+  padding: 7px 20px;
+}
+
+.nav-btn.active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ---- Selector de idioma ---- */
+.lang-wrapper {
+  position: relative;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1.5px solid rgba(74,144,217,.2);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="calm"] .lang-btn {
+  background: rgba(255,255,255,.6);
+  border: 1.5px solid rgba(74,144,217,.2);
+  color: var(--text-main);
+}
+
+.lang-chevron {
+  display: inline-block;
+  border-right: 2px solid var(--blue-brand);
+  border-bottom: 2px solid var(--blue-brand);
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+  margin-top: -3px;
+}
+
+.lang-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200;
+}
+
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: background var(--transition);
+}
+
+.lang-option:hover {
+  background: var(--bg-sections);
+}
+
+.lang-option.selected {
+  background: rgba(74,144,217,.12);
+}
+
+.flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   DROPDOWN DE NAVEGACIÓN (Información general / Sobre nosotros)
+========================================================= */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 210px;
+  background: var(--blue-brand);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px #649dd3;
+  border: 1.5px solid rgba(255,255,255,.18);
+  opacity: 0;
+  transform: translateY(-8px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+
+/* El JS alterna entre .open (usado en nav-item) y .show
+   (usado también sobre .nav-dropdown); se mantienen ambas
+   clases porque script2.js original las usa de forma
+   redundante — ver navbar.js */
+.nav-dropdown.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.nav-drop-link {
+  display: block;
+  padding: 10px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  transition: background var(--transition), padding-left var(--transition);
+}
+
+.nav-drop-link:last-child {
+  border-bottom: none;
+}
+
+.nav-drop-link:hover {
+  background: rgba(255,255,255,.18);
+  padding-left: 24px;
+}
+
+[data-theme="calm"] .nav-dropdown {
+  background: var(--blue-brand);
+  border: 1.5px solid rgba(255,255,255,.18);
+  box-shadow: 0 12px 36px #649dd3;
+}
+
+/* =========================================================
+   RESPONSIVE – MÓVIL (igual que el proyecto original)
+========================================================= */
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn.active { padding: 5px 14px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════════════ */
+.games-page{
+  font-family: var(--lm-font-body);
+  color: var(--lm-ink);
+  overflow-x: hidden;
+}
+.games-page *{ box-sizing: border-box; }
+.games-page :focus-visible{
+  outline: 3px solid #FFB703;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .games-page *, .games-page *::before, .games-page *::after{
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════════ */
+.games-page{
+  /* La navbar es position:fixed (fuera del flujo normal), así que
+     sin este espaciador el Hero queda tapado detrás de ella.
+     --navbar-h se recalcula en scriptj.js con el alto real del
+     navbar (incluye el wrap de los links en pantallas chicas). */
+  padding-top: var(--navbar-h);
+}
+
+.hero{
+  padding: 56px 6vw 48px;
+  background: url(Imagenes/J.E\ r1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-inner{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  min-height: 440px;
+}
+
+.hero-text{
+  max-width: 560px;
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title{
+  font-family: var(--lm-font-display);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 18px;
+  color: var(--lm-ink);
+}
+
+.hero-tagline{
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--lm-ink-soft);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* CONEXIÓN: fondo/ilustración del hero.
+   Colocá tu PNG local (misma composición que J_E2_0) en la ruta
+   indicada en el <img> de juegos2.html. El contenedor crece para
+   ocupar TODA la columna derecha (ancho y alto disponibles);
+   object-fit:contain hace que la imagen llene ese espacio sin
+   estirarse ni recortarse, conservando sus proporciones reales. */
+.hero-image{
+  flex: 1 1 420px;
+  min-width: 300px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Las imágenes de fondo de cada categoría se definen más abajo,
+   directamente en las reglas .atencion / .logica / .lenguaje /
+   .coordinacion (ver sección "SECCIÓN DE JUEGOS"). */
+
+/* ══════════════════════════════════════════════════════════════
+   BARRA DE CONTROLES: modo calma + ver menos
+═══════════════════════════════════════════════════════════════ */
+.controls-bar{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 6vw 24px;
+}
+
+.calm-switch-wrap{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(74,144,217,.12);
+  padding: 9px 16px;
+  border-radius: var(--lm-radius-pill);
+  box-shadow: var(--lm-shadow-soft);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: .92rem;
+  user-select: none;
+}
+.calm-switch-icon{ font-size: 1rem; }
+
+/* Input real oculto (accesible), track/thumb visuales encima */
+.calm-switch{ position: relative; display: inline-flex; }
+.calm-switch input{
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+.calm-switch-track{
+  width: 42px; height: 24px;
+  background: #DDE3ED;
+  border-radius: var(--lm-radius-pill);
+  position: relative;
+  display: inline-block;
+  transition: background var(--lm-transition);
+}
+.calm-switch-thumb{
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18);
+  transition: transform var(--lm-transition);
+}
+.calm-switch input:checked ~ .calm-switch-track{ background: var(--lm-atencion-accent); }
+.calm-switch input:checked ~ .calm-switch-track .calm-switch-thumb{ transform: translateX(18px); }
+.calm-switch input:focus-visible ~ .calm-switch-track{ outline: 3px solid #FFB703; outline-offset: 3px; }
+
+.ver-menos-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var(--lm-atencion-accent);
+  color: #fff;
+  font-family: var(--lm-font-body);
+  font-weight: 800;
+  font-size: .92rem;
+  padding: 11px 22px;
+  border-radius: var(--lm-radius-pill);
+  cursor: pointer;
+  box-shadow: var(--lm-shadow-soft);
+  transition: background var(--lm-transition), transform var(--lm-transition), box-shadow var(--lm-transition);
+}
+.ver-menos-btn:hover{
+  background: #3f7ec2;
+  transform: translateY(-2px);
+  box-shadow: var(--lm-shadow-hover);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PESTAÑAS DE CATEGORÍA — SOLO VISIBLES EN "VER MENOS"
+   En "Ver todo" (estado por defecto) permanecen completamente
+   ocultas, ya que todas las categorías y sus juegos ya se muestran
+   directamente. Solo aparecen al activar la vista compacta
+   (games-page.vista-compacta), donde además filtran qué categoría
+   se muestra (ver bloque VISTA COMPACTA más abajo).
+═══════════════════════════════════════════════════════════════ */
+.categoria-tabs{
+  display: none;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 6vw 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.games-page.vista-compacta .categoria-tabs{
+  display: flex;
+}
+
+.categoria-tab{
+  border: none;
+  background: #EAF4FC;
+  color: var(--lm-ink-soft);
+  font-family: var(--lm-font-body);
+  font-weight: 800;
+  font-size: .95rem;
+  padding: 11px 24px;
+  border-radius: var(--lm-radius-pill);
+  cursor: pointer;
+  transition: background var(--lm-transition), color var(--lm-transition), transform var(--lm-transition);
+}
+.categoria-tab:hover{ transform: translateY(-2px); }
+
+.categoria-tab.activa{
+  background: var(--lm-atencion-accent);
+  color: #fff;
+  box-shadow: var(--lm-shadow-soft);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   VISTA COMPACTA ("Ver menos")
+   Se activa con games-page.vista-compacta (via JS, ver scriptj.js).
+   Las pestañas de categoría YA están visibles siempre (ver bloque
+   de arriba), así que acá solo se oculta el resto de categorías y
+   se deja visible la activa, logrando una vista más corta.
+═══════════════════════════════════════════════════════════════ */
+.games-page.vista-compacta .categoria{
+  display: none;
+}
+
+.games-page.vista-compacta .categoria.activa{
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BLINDAJE: EL GRID DE TARJETAS NO CAMBIA DE TAMAÑO EN "VER MENOS"
+   Se fuerzan explícitamente los mismos valores que en modo normal
+   (mismas columnas, mismo gap, mismo padding de tarjeta) para que
+   activar "Ver menos" nunca agrande ni reacomode las tarjetas.
+═══════════════════════════════════════════════════════════════ */
+.games-page.vista-compacta .cards-grid{
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.games-page.vista-compacta .game-card{
+  padding: 26px 20px 28px;
+}
+
+@media (max-width: 1024px){
+  .games-page.vista-compacta .cards-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px){
+  .games-page.vista-compacta .cards-grid{ grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIÓN DE JUEGOS — ESTADO NORMAL
+   Cada categoría es una franja de ancho completo. Sin fondos,
+   imágenes ni ilustraciones: solo color plano y las clases listas
+   para que agregues tu propio fondo más adelante.
+   CONEXIÓN FONDOS (normal): .games-section, .atencion, .logica,
+   .lenguaje, .coordinacion
+═══════════════════════════════════════════════════════════════ */
+.games-section{ /* CONEXIÓN: fondo general de la sección de juegos */ }
+
+.categoria{
+  padding: 48px 6vw 64px;
+}
+
+/*Grids SECTION*/
+.atencion{
+  background-color: var(--lm-atencion-bg);
+  background-image: url("Imagenes/games1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+  background-position: center;
+}
+.logica{
+  background-color: var(--lm-logica-bg);
+  background-image: url("Imagenes/games2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.lenguaje{
+  background-color: var(--lm-lenguaje-bg);
+  background-image: url("Imagenes/games3.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.coordinacion{
+  background-color: var(--lm-coord-bg);
+  background-image: url("Imagenes/games4.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.categoria-inner{
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.categoria-title{
+  font-family: var(--lm-font-display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin: 0 0 30px;
+}
+.atencion     .categoria-title{ color: var(--lm-atencion-text); }
+.logica       .categoria-title{ color: var(--lm-logica-text); }
+.lenguaje     .categoria-title{ color: var(--lm-lenguaje-text); }
+.coordinacion .categoria-title{ color: var(--lm-coord-text); }
+
+/* ══════════════════════════════════════════════════════════════
+   TARJETAS — Grid Layout, 4 → 2 → 1 columnas
+═══════════════════════════════════════════════════════════════ */
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.game-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  background: #ffffff;
+  border-radius: var(--lm-radius-card);
+  padding: 26px 20px 28px;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  transition: transform var(--lm-transition), box-shadow var(--lm-transition);
+}
+.game-card:hover,
+.game-card:focus-visible{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--lm-shadow-hover);
+}
+
+/* Espacio/placeholder para la imagen de cada juego. Mismo tamaño y
+   proporción que antes tenía el emoji: 64x64, esquinas redondeadas.
+   Queda listo para recibir un <img> adentro (ver .game-card-icon img). */
+.game-card-icon{
+  width: 128px; height: 128px;
+  padding: 13px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+/* Cuando se agregue <img src="..."> dentro de .game-card-icon, la
+   imagen se centra y se ajusta proporcionalmente dentro del espacio
+   reservado (con el padding de arriba a modo de "respiro"), sin
+   deformarse ni desbordar la tarjeta. */
+.game-card-icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.game-card-title{
+  font-family: var(--lm-font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin: 0;
+}
+.game-card-desc{
+  font-weight: 600;
+  font-size: .9rem;
+  margin: 0;
+}
+.atencion     .game-card-desc{ color: var(--lm-atencion-soft); }
+.logica       .game-card-desc{ color: var(--lm-logica-soft); }
+.lenguaje     .game-card-desc{ color: var(--lm-lenguaje-soft); }
+.coordinacion .game-card-desc{ color: var(--lm-coord-soft); }
+
+/* ══════════════════════════════════════════════════════════════
+   MODO CALMA — paleta pastel apagada (referencia J.E 3.0)
+   Es un estado GLOBAL e INDEPENDIENTE de "Ver todo" / "Ver menos":
+   solo agrega/quita body.modo-calma (ver scriptj.js) y no depende
+   de games-page.vista-compacta en ningún selector de acá abajo, así
+   que funciona igual combinado con cualquiera de los dos modos de
+   vista. No toca estructura, tamaños ni espaciado: solo colores y
+   elimina las imágenes de fondo ilustrativas.
+═══════════════════════════════════════════════════════════════ */
+
+/* Fondos celeste para las 4 secciones de juegos en Modo calma
+   (referencia J.E 3.0). Único cambio que aplica Calm mode: todo lo
+   demás (Hero, tarjetas, botones, pestañas, iconos, textos) se
+   mantiene igual que en modo normal. */
+body.modo-calma{
+  --lm-calm-section-cyan:       #C9E7FA;
+  --lm-calm-section-cyan-light: #E4F4FC;
+}
+
+/* Fondos de cada categoría en Modo calma: SOLO color celeste sólido,
+   sin imagen de fondo, sin filtros ni desaturación. Se alternan dos
+   tonos (celeste / celeste claro) entre las 4 secciones. */
+body.modo-calma .atencion{
+  background-color: var(--lm-calm-section-cyan);
+  background-image: none;
+}
+body.modo-calma .logica{
+  background-color: var(--lm-calm-section-cyan-light);
+  background-image: none;
+}
+body.modo-calma .lenguaje{
+  background-color: var(--lm-calm-section-cyan);
+  background-image: none;
+}
+body.modo-calma .coordinacion{
+  background-color: var(--lm-calm-section-cyan-light);
+  background-image: none;
+}
+
+/* Decoraciones ilustrativas (cuando se agreguen imágenes a los
+   slots .attention-decoration-left, .logic-decoration-left/right,
+   .language-decoration-left/right, .coordination-decoration-right)
+   deben desaparecer por completo en modo calma */
+body.modo-calma [class$="-decoration-left"],
+body.modo-calma [class$="-decoration-right"]{
+  display: none;
+}
+
+/* =========================================================
+   FOOTER.CSS – LUMEN
+   Estilos necesarios y suficientes para que el footer
+   se vea y funcione EXACTAMENTE igual que en el proyecto.
+
+   DEPENDENCIA: la fuente 'Nunito' debe importarse en el <head>
+   del documento (Google Fonts).
+========================================================= */
+
+/* ---- Reset mínimo (si tu página no lo tiene ya) ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variable usada por las transiciones del footer */
+:root {
+  --transition: 0.28s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer {
+  position: relative;
+  background: #75a0dd;
+  padding: 44px 5vw 32px;
+  padding-right: calc(5vw + 150px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: -18px;
+}
+
+.footer-copy {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: auto;
+  gap: 5px;
+}
+
+.copy-icon {
+  font-size: 1rem;
+}
+
+.footer-links {
+  min-width: 140px;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  font-size: .82rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.footer-links a:hover {
+  opacity: .75;
+}
+
+.footer-col-title {
+  font-size: .9rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 200px;
+}
+
+.footer-social-line {
+  font-size: .92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  color-scheme: dark;
+  background: transparent;
+  border-radius: contain;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.social-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.social-icon:hover {
+  opacity: .8;
+  transform: translateY(-2px);
+}
+
+.footer-mascot {
+  position: absolute;
+  right: 0;
+  top: 2.5;
+  bottom: 2.5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 210px;
+}
+
+.mascot-img {
+  height: 210px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom right;
+}
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px){
+  .cards-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px){
+  .hero-inner{ flex-direction: column; align-items: center; min-height: 0; }
+  .hero-text{ max-width: 100%; text-align: left; flex: none; }
+  .hero-image{
+    flex: none;
+    align-self: center;
+    width: min(420px, 80vw);
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .controls-bar{ justify-content: center; }
+  .categoria-tabs{ justify-content: center; }
+}
+
+@media (max-width: 640px){
+  .hero{ padding: 44px 6vw 32px; }
+  .categoria{ padding: 36px 6vw 44px; }
+  .cards-grid{ grid-template-columns: 1fr; gap: 18px; }
+}

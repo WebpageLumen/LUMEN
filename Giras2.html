@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen — Giras Inclusivas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Giras2.css">
+<link rel="icon" type="image/png" href="Imagenes/Lg.png">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+ 
+      <!-- Logo a la izquierda -->
+      <div class="nav-logo">
+        <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+      </div>
+ 
+      <!-- Links centrados -->
+      <div class="nav-links">
+ 
+        <!-- Inicio -->
+        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+ 
+        <!-- =====================================================
+             INFORMACIÓN GENERAL – con dropdown
+             Al hacer clic muestra submenú con temas de autismo
+        ===================================================== -->
+        <div class="nav-item">
+  <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+  <!-- Submenú de Información general -->
+  <div class="nav-dropdown">
+    <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+    <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+    <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+    <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+    <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+    <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+  </div>
+</div>
+ 
+        <!-- Lumen Shop: enlace simple sin submenú -->
+        <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+ 
+        <!-- Centros: enlace simple sin submenú -->
+        <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+ 
+        <!-- Giras inclusivas: enlace simple sin submenú -->
+        <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+ 
+        <!-- Profesionales: enlace simple sin submenú -->
+        <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+ 
+        <!-- =====================================================
+             SOBRE NOSOTROS – con dropdown
+             Al hacer clic muestra submenú con páginas internas
+        ===================================================== -->
+        <div class="nav-item">
+        <a href="about.html" class="nav-btn nav-link" data-i18n="nav_about">Sobre nosotros</a>
+          <!-- Submenú de Sobre nosotros -->
+         <div class="nav-dropdown">
+                    <a href="about.html#about-who" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+                    <a href="about.html#about-mission" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+                    <a href="about.html#about-contact" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+                </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Controles: solo idioma (el tema está en sections-header) -->
+      <div class="nav-controls">
+ 
+        <!-- Selector de idioma -->
+        <div class="lang-wrapper" id="langWrapper">
+          <button class="lang-btn" id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Seleccionar idioma">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+            <span id="langLabel">ES</span>
+            <span class="lang-chevron"></span>
+          </button>
+ 
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+              <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+              <span>ES</span>
+            </div>
+            <div class="lang-option" role="option" data-lang="en" tabindex="0">
+              <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+              <span>EN</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </nav>
+
+<!-- ===== HERO ===== -->
+<!--
+  IMPORTANTE: la imagen del hero cambia por completo según el idioma
+  (data-i18n-img="hero"). El JS busca las rutas en el objeto IMG_SRC.
+  Debes crear la versión en inglés de "EncabezadoG2.png" con el mismo
+  diseño pero el texto en inglés, y guardarla como:
+  Imagenes/EncabezadoG2-EN.png  (mismas dimensiones que la original)
+-->
+<section class="hero">
+  <img src="Imagenes/EncabezadoG2.png"
+src="Imagenes/EncabezadoG2EN.png"
+       class="ImagenCabeza"
+       id="heroImg"
+       data-i18n-img="hero"
+       data-i18n-alt="hero_alt"
+       alt="Conoce más sobre nuestras giras inclusivas">
+  <a href="Giras.html" class="hero-back-btn" data-i18n-aria="hero_back_aria" aria-label="Volver a giras Inclusivas"></a>
+</section>
+
+<section class="info-section">
+  <h2 data-i18n="info_title">Información importante</h2>
+  <div class="info-grid">
+    <div class="info-block">
+      <h3 data-i18n="info_before_title">Antes de la actividad</h3>
+      <div class="info-card" data-i18n="info_before_text">
+        Las familias recibirán un documento con toda la información necesaria para participar en la gira, incluyendo el itinerario, los horarios, el punto de encuentro y recomendaciones para que la experiencia sea segura y organizada.
+      </div>
+    </div>
+    <div class="info-block">
+      <h3 data-i18n="info_after_title">Después de confirmar la participación</h3>
+      <div class="info-card" data-i18n="info_after_text">
+        Una vez confirmada la participación, las familias podrán seleccionar el refrigerio entre varias opciones disponibles. Esto nos permite adaptarnos a las preferencias y necesidades de cada participante, considerando posibles sensibilidades relacionadas con alimentos, texturas o sabores.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tours-section educativas" id="sec-educativas">
+  <h2 data-i18n="sec_educativas_title">Giras Educativas</h2>
+  <p class="tours-note" data-i18n-html="sec_educativas_note">Las actividades educativas <b>NO</b> incluyen transporte, por lo que los participantes deberán trasladarse por sus propios medios al lugar indicado.</p>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Biomuseo.png" data-i18n-alt="biomuseo_alt" alt="Biomuseo, Panamá"></div>
+    <div class="tour-body">
+      <h3 data-i18n="biomuseo_title">Biomuseo</h3>
+      <p data-i18n="biomuseo_desc">Explora de forma divertida cómo Panamá se convirtió en un puente para la vida en el planeta. Los participantes recorrerán exhibiciones interactivas sobre biodiversidad, animales y naturaleza, fomentando la curiosidad y el aprendizaje en un entorno educativo y seguro.</p>
+      <p class="tour-price" data-i18n="biomuseo_price">Precio: B/. 25 por persona (incluye la participación del niño, un acompañante responsable y un refrigerio pequeño)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 3h</span>
+        <span class="pill" data-i18n="biomuseo_age">👤 +7 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Biomuseo2.png" data-i18n-alt="biomuseo2_alt" alt="Explora Centro de Ciencias y Arte"></div>
+    <div class="tour-body">
+      <h3 data-i18n="biomuseo2_title">Explora Centro de Ciencias y Arte</h3>
+      <p data-i18n="biomuseo2_desc">Descubre la ciencia de forma divertida mediante exhibiciones interactivas, experimentos y actividades que despiertan la curiosidad, la creatividad y el aprendizaje a través del juego.</p>
+      <p class="tour-price" data-i18n="biomuseo2_price">Precio: B/. 15 por participante (incluye la participación del niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 3h</span>
+        <span class="pill" data-i18n="biomuseo2_age">👤 6-18 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Biomuseo3.png" data-i18n-alt="biomuseo3_alt" alt="Museo del Canal de Panamá"></div>
+    <div class="tour-body">
+      <h3 data-i18n="biomuseo3_title">Museo del Canal de Panamá</h3>
+      <p data-i18n="biomuseo3_desc">Conoce la fascinante historia de la construcción del Canal de Panamá a través de exhibiciones interactivas, objetos históricos y experiencias educativas que permiten descubrir uno de los mayores logros de la ingeniería mundial.</p>
+      <p class="tour-price" data-i18n="biomuseo3_price">Precio: B/. 25 por participante (incluye la participación del niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 3h</span>
+        <span class="pill" data-i18n="biomuseo3_age">👤 8-18 años</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tours-section recreativas" id="sec-recreativas">
+  <h2 data-i18n="sec_recreativas_title">Giras Recreativas</h2>
+  <p class="tours-note" data-i18n-html="sec_recreativas_note">Las actividades recreativas <b>NO</b> incluyen transporte, por lo que los participantes deberán trasladarse por sus propios medios al lugar indicado.</p>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Btesoro.png" data-i18n-alt="btesoro_alt" alt="Búsqueda del tesoro en el parque"></div>
+    <div class="tour-body">
+      <h3 data-i18n="btesoro_title">Búsqueda del Tesoro</h3>
+      <p data-i18n="btesoro_desc">Los participantes deberán seguir pistas, resolver pequeños desafíos y encontrar diferentes elementos escondidos dentro del parque. La actividad fomenta la observación, la atención, el trabajo en equipo y la resolución de problemas de una forma divertida y dinámica.</p>
+      <p class="tour-price" data-i18n="btesoro_price">B/.10 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 2h</span>
+        <span class="pill" data-i18n="btesoro_age">👤 8-12 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Btesoro2.png" data-i18n-alt="btesoro2_alt" alt="Niños haciendo arte al aire libre"></div>
+    <div class="tour-body">
+      <h3 data-i18n="btesoro2_title">Arte al Aire Libre</h3>
+      <p data-i18n="btesoro2_desc">Una experiencia creativa en la que cada participante elaborará una obra utilizando diferentes materiales artísticos. Al finalizar, cada niño tendrá la oportunidad de presentar su creación con el apoyo de su acompañante, fortaleciendo la expresión personal y la comunicación.</p>
+      <p class="tour-price" data-i18n="btesoro2_price">B/.15 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 2h 30m</span>
+        <span class="pill" data-i18n="btesoro2_age">👤 6-15 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/Btesoro3.png" data-i18n-alt="btesoro3_alt" alt="Circuito de juegos y desafíos"></div>
+    <div class="tour-body">
+      <h3 data-i18n="btesoro3_title">Circuito de Juegos y Desafíos</h3>
+      <p data-i18n="btesoro3_desc">Los participantes recorrerán distintas estaciones con actividades recreativas y cooperativas adaptadas a diferentes niveles. Cada desafío promoverá la participación, el movimiento y la colaboración en un ambiente seguro y divertido.</p>
+      <p class="tour-price" data-i18n="btesoro3_price">B/.10 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 2h</span>
+        <span class="pill" data-i18n="btesoro3_age">👤 6-14 años</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tours-section exploratorias" id="sec-exploratorias">
+  <h2 data-i18n="sec_exploratorias_title">Giras Exploratorias</h2>
+  <p class="tours-note" data-i18n-html="sec_exploratorias_note">Las actividades exploratorias <b>incluyen</b> transporte de ida y regreso. Los detalles relacionados con los horarios de salida, puntos de encuentro y regreso serán especificados en el itinerario enviado previamente.</p>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/SBoquete.png" data-i18n-alt="sboquete_alt" alt="Sendero en Boquete"></div>
+    <div class="tour-body">
+      <h3 data-i18n="sboquete_title">Sendero en Boquete</h3>
+      <p data-i18n="sboquete_desc">Los participantes recorrerán distintas estaciones con actividades recreativas y cooperativas adaptadas a diferentes niveles. Cada desafío promoverá la participación, el movimiento y la colaboración en un ambiente seguro y divertido.</p>
+      <p class="tour-price" data-i18n="sboquete_price">B/.50 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 5h</span>
+        <span class="pill" data-i18n="sboquete_age">👤 7-15 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/SBoquete2.png" data-i18n-alt="sboquete2_alt" alt="Parque Municipal Summit"></div>
+    <div class="tour-body">
+      <h3 data-i18n="sboquete2_title">Exploración en el Parque Municipal Summit</h3>
+      <p data-i18n="sboquete2_desc">Una jornada para recorrer el parque, observar diferentes animales y disfrutar de espacios naturales en compañía de otros participantes y sus familias. Una oportunidad para descubrir nuevas especies y pasar tiempo en un entorno diferente.</p>
+      <p class="tour-price" data-i18n="sboquete2_price">B/.45 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 4h</span>
+        <span class="pill" data-i18n="sboquete2_age">👤 7-15 años</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <div class="tour-thumb"><img src="Imagenes/SBoquete3.png" data-i18n-alt="sboquete3_alt" alt="Jardín Botánico"></div>
+    <div class="tour-body">
+      <h3 data-i18n="sboquete3_title">Recorrido por un Jardín Botánico</h3>
+      <p data-i18n="sboquete3_desc">Un paseo entre jardines y senderos donde los participantes podrán observar una gran variedad de flores, árboles y plantas mientras disfrutan de un ambiente tranquilo y lleno de colores, aromas y formas diferentes.</p>
+      <p class="tour-price" data-i18n="sboquete3_price">B/.35 por participante (incluye al niño y un acompañante responsable)</p>
+      <div class="tour-meta">
+        <span class="pill">🎟 9</span>
+        <span class="pill">🕐 4h</span>
+        <span class="pill" data-i18n="sboquete3_age">👤 7-15 años</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="closing-line">
+    <span class="l1" data-i18n="closing_l1">Nuestro objetivo es brindar experiencias educativas,</span><br>
+    <span class="l2" data-i18n="closing_l2">recreativas y exploratorias</span> <span data-i18n="closing_mid">en un</span><br>
+    <span class="l3" data-i18n="closing_l3">entorno cómodo, seguro y agradable para todos</span>
+  </p>
+</section>
+
+  <!-- ===== FOOTER ===== -->
+ <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="Lumenshop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+
+<script src="Giras2.js"></script>
+</body>
+</html>

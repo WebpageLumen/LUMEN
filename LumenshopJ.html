@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen Shop - Juguetes</title>
+<link rel="icon" type="image/png" href="Imagenes/Lg.png"/>
+<link rel="stylesheet" href="LumenshopJ.css">
+</head>
+<body>
+
+<div class="overlay-bg" id="overlayBg"></div>
+
+<aside class="side-menu" id="sideMenu">
+  <div class="side-menu-head">
+    <span data-i18n="menu_title">Categorías</span>
+    <button class="close-btn" id="closeMenuBtn" aria-label="Cerrar menú">✕</button>
+  </div>
+  <div class="side-menu-body">
+    <div class="menu-group">
+      <h5 data-i18n="nav_toys">Juguetes</h5>
+      <a href="LumenshopJ.html?categoria=sensoriales" data-i18n="menu_toys_sensory">Sensoriales</a>
+      <a href="LumenshopJ.html?categoria=causaefecto" data-i18n="menu_toys_emotional">Causa y efecto</a>
+      <a href="LumenshopJ.html?categoria=construccion" data-i18n="menu_toys_construccion">Construcción</a>
+      <a href="LumenshopJ.html?categoria=juegosmesa" data-i18n="menu_toys_boardgames">Juegos de mesa</a>
+    </div>
+    <div class="menu-divider"></div>
+    <div class="menu-group">
+      <h5 data-i18n="nav_learning">Aprendizaje</h5>
+      <a href="LumenshopA.html?categoria=matematica" data-i18n="menu_learning_numbers">Matemática</a>
+      <a href="LumenshopA.html?categoria=lenguaje" data-i18n="menu_learning_language">Lenguaje</a>
+      <a href="LumenshopA.html?categoria=autonomia" data-i18n="menu_learning_creativity">Autonomía</a>
+      <a href="LumenshopA.html?categoria=cuentos" data-i18n="menu_learning_stories">Cuentos</a>
+    </div>
+    <div class="menu-divider"></div>
+    <div class="menu-group">
+      <h5 data-i18n="nav_art">Arte</h5>
+      <a href="LumenshopAr.html?categoria=plastilina" data-i18n="menu_art_playdough">Plastilina</a>
+      <a href="LumenshopAr.html?categoria=libretas" data-i18n="menu_art_notebooks">Libretas</a>
+      <a href="LumenshopAr.html?categoria=marcadores" data-i18n="menu_art_markers">Marcadores</a>
+      <a href="LumenshopAr.html?categoria=lapices" data-i18n="menu_art_pencils">Lápices de colores</a>
+    </div>
+  </div>
+</aside>
+
+<header class="top">
+  <div class="logo">
+    <img src="Imagenes/Logoshop.png" alt="Lumen Shop" class="logo-texto">
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Buscar">
+      <button class="search-btn" id="searchBtn" aria-label="Buscar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f6fb0" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="lang-wrapper">
+      <button class="lang-btn" id="langToggle" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar idioma">
+        <img class="flag" id="langFlag" src="https://flagcdn.com/w40/es.png" alt="">
+        <span id="langLabel">ES</span>
+        <span class="lang-chevron"></span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown" role="menu">
+        <div class="lang-option selected" data-lang="es" role="menuitem">
+          <img class="flag" src="https://flagcdn.com/w40/es.png" alt="">
+          <span>ES</span>
+        </div>
+        <div class="lang-option" data-lang="en" role="menuitem">
+          <img class="flag" src="https://flagcdn.com/w40/gb.png" alt="">
+          <span>EN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart" id="cartToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+
+      <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-dropdown-head" data-i18n="cart_title">Tu carrito</div>
+        <div class="cart-list" id="cartList">
+          <div class="cart-empty" id="cartEmpty" data-i18n="cart_empty">Tu carrito está vacío</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<nav class="mainnav">
+  <button class="hamburger" id="openMenuBtn" aria-label="Abrir menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span data-i18n="nav_all">Todo</span>
+  </button>
+  <a class="navlink" href="Lumenshop.html"><span class="home-icon">⌂</span></a>
+  <a class="navlink" href="LumenshopJ.html" data-i18n="nav_toys">Juguetes</a>
+  <a class="navlink" href="LumenshopA.html" data-i18n="nav_learning">Aprendizaje</a>
+  <a class="navlink" href="LumenshopAr.html" data-i18n="nav_art">Arte</a>
+</nav>
+
+<section class="hero">
+  <div class="carousel-wrap">
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="grid" id="productGrid">
+
+    <!-- p27 - Pelotas sensoriales -->
+    <div class="product-card" data-categoria="sensoriales" data-product-id="p27">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/pelotassensoriales (2).png" alt="Pelota Antiestrés">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p27_title">Pelotas sensoriales</h4>
+        <p data-i18n="p27_desc">Pelotas con diferentes texturas que estimulan el tacto y la motricidad fina.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$13.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p28 - Tubos sensoriales -->
+    <div class="product-card" data-categoria="sensoriales" data-product-id="p28">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/tubossensoriales.png" alt="tubos sensoriales">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p28_title">Tubos sensoriales</h4>
+        <p data-i18n="p28_desc">Tubos transparentes con elementos visuales para fomentar la atención</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$17.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p29 - Fidgets -->
+    <div class="product-card" data-categoria="sensoriales" data-product-id="p29">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Fidgets.png" alt="fidgets">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p29_title">Fidgets</h4>
+        <p data-i18n="p29_desc">Juguetes manipulativos para mejorar la concentración.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$12.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p30 - Pop It -->
+    <div class="product-card" data-categoria="sensoriales" data-product-id="p30">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/popit.png" alt="Pop It">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p30_title">Pop It</h4>
+        <p data-i18n="p30_desc">Juguete de silicona con burbujas reutilizables para estimulación táctil.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$9.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p31 - Arena cinética -->
+    <div class="product-card" data-categoria="sensoriales" data-product-id="p31">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Arenacinética.png" alt="Arena cinética">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p31_title">Arena cinética</h4>
+        <p data-i18n="p31_desc">Arena moldeable que desarrolla creatividad y percepción táctil.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$23.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p32 - Juguetes con botones -->
+    <div class="product-card" data-categoria="causaefecto" data-product-id="p32">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/juguetesconbotones.png" alt="juguetes con botones">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p32_title">Juguetes con botones</h4>
+        <p data-i18n="p32_desc">Al presionar un botón generan una respuesta como luz o sonido.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$19.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p33 - Torres de bolas -->
+    <div class="product-card" data-categoria="causaefecto" data-product-id="p33">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/torresdebolas.png" alt="Torres de bolas">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p33_title">Torres de bolas</h4>
+        <p data-i18n="p33_desc">Las bolas descienden por rampas enseñando secuencias.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$27.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p34 - Juguetes pop-up -->
+    <div class="product-card" data-categoria="causaefecto" data-product-id="p34">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Juguetespop-up.png" alt="juguetes pop-up">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p34_title">Juguetes pop-up</h4>
+        <p data-i18n="p34_desc">Al activar un mecanismo aparecen figuras.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$21.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p35 - Bloques de madera -->
+    <div class="product-card" data-categoria="construccion" data-product-id="p35">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Bloques de madera.png" alt="Bloques de madera">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p35_title">Bloques de madera</h4>
+        <p data-i18n="p35_desc">Piezas para construir fortaleciendo lógica y creatividad.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$32.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p36 - Bloques magnéticos -->
+    <div class="product-card" data-categoria="construccion" data-product-id="p36">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/bloquesmagneticos.png" alt="bloques magnéticos">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p36_title">Bloques magnéticos</h4>
+        <p data-i18n="p36_desc">Piezas imantadas para crear estructuras.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$34.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p37 - Engranajes -->
+    <div class="product-card" data-categoria="construccion" data-product-id="p37">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Engranajes.png" alt="Engranajes">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p37_title">Engranajes</h4>
+        <p data-i18n="p37_desc">Piezas que enseñan movimiento mecánico básico.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$24.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p38 - Memoria -->
+    <div class="product-card" data-categoria="juegosmesa" data-product-id="p38">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Memoria.png" alt="Memoria">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p38_title">Memoria</h4>
+        <p data-i18n="p38_desc">Desarrolla atención y memoria visual.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$19.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p39 - Dominó -->
+    <div class="product-card" data-categoria="juegosmesa" data-product-id="p39">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Dominó.png" alt="Dominó">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p39_title">Dominó</h4>
+        <p data-i18n="p39_desc">Favorece lógica y reconocimiento de patrones.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$22.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- p40 - Bingo educativo -->
+    <div class="product-card" data-categoria="juegosmesa" data-product-id="p40">
+      <div class="product-img">
+        <img class="ph-img" src="Imagenes/Bingo educativo.png" alt="Bingo educativo">
+      </div>
+      <div class="product-info">
+        <h4 data-i18n="p40_title">Bingo educativo</h4>
+        <p data-i18n="p40_desc">Refuerza vocabulario, números o imágenes.</p>
+        <div class="price-label"><span data-i18n="price_label">Precio</span>: <span class="price-value">$26.99</span></div>
+        <button class="add-btn" data-i18n="add_btn">Agregar al carrito</button>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="no-results-msg" id="noResults" style="display:none;"></p>
+
+</section>
+
+<!-- PRODUCT MODAL -->
+<div class="product-modal-bg" id="productModalBg">
+  <div class="product-modal" id="productModal" role="dialog" aria-modal="true">
+    <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar">✕</button>
+    <div class="modal-img-wrap">
+      <img class="modal-img" id="modalImg" src="" alt="">
+    </div>
+    <div class="modal-info">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="price-label"><span data-i18n="price_label">Precio</span>: <span id="modalPrice">$0.00</span></div>
+      <button class="add-btn modal-add-btn" id="modalAddBtn" data-i18n="add_btn">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+ <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="Lumenshop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+<!-- SCRIPTS -->
+<script src="i18n-central.js"></script>
+<script src="carrito.js"></script>
+<script src="buscador-flotante-integrado.js"></script>
+<script src="productos.js"></script>
+<script src="LumenshopJ.js"></script>
+
+</body>
+</html>

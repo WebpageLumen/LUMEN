@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Álbum de fotos | Lumen</title>
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/png" href="Imagenes/Lg.png">
+
+    <link rel="stylesheet" href="album23.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!--           NAVBAR              -->
+    <!-- ============================= -->
+
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+ 
+      <!-- Logo a la izquierda -->
+      <div class="nav-logo">
+        <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+      </div>
+ 
+      <!-- Links centrados -->
+      <div class="nav-links">
+ 
+        <!-- Inicio -->
+        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+ 
+        <!-- =====================================================
+             INFORMACIÓN GENERAL – con dropdown
+             Al hacer clic muestra submenú con temas de autismo
+        ===================================================== -->
+        <div class="nav-item">
+  <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+  <!-- Submenú de Información general -->
+  <div class="nav-dropdown">
+    <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+    <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+    <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+    <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+    <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+    <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+  </div>
+</div>
+ 
+        <!-- Lumen Shop: enlace simple sin submenú -->
+        <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+ 
+        <!-- Centros: enlace simple sin submenú -->
+        <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+ 
+        <!-- Giras inclusivas: enlace simple sin submenú -->
+        <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+ 
+        <!-- Profesionales: enlace simple sin submenú -->
+        <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+ 
+        <!-- =====================================================
+             SOBRE NOSOTROS – con dropdown
+             Al hacer clic muestra submenú con páginas internas
+        ===================================================== -->
+        <div class="nav-item">
+        <a href="about.html" class="nav-btn nav-link" data-i18n="nav_about">Sobre nosotros</a>
+          <!-- Submenú de Sobre nosotros -->
+         <div class="nav-dropdown">
+                    <a href="about.html#about-who" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+                    <a href="about.html#about-mission" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+                    <a href="about.html#about-contact" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+                </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Controles: solo idioma (el tema está en sections-header) -->
+      <div class="nav-controls">
+ 
+        <!-- Selector de idioma -->
+        <div class="lang-wrapper" id="langWrapper">
+          <button class="lang-btn" id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Seleccionar idioma">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+            <span id="langLabel">ES</span>
+            <span class="lang-chevron"></span>
+          </button>
+ 
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+              <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+              <span>ES</span>
+            </div>
+            <div class="lang-option" role="option" data-lang="en" tabindex="0">
+              <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+              <span>EN</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </nav>
+
+    <!-- ============================= -->
+    <!--         HERO SECTION          -->
+    <!-- ============================= -->
+
+    <section class="hero-album">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <h1 data-i18n="hero_title">Álbum de fotos</h1>
+
+                <p data-i18n="hero_desc">
+                    Revive los momentos más especiales de nuestra comunidad. 
+                    Aquí encontrarás fotos de eventos, giras inclusivas, 
+                    talleres y actividades que hemos compartido juntos. 
+                    Cada imagen refleja nuestro compromiso con la inclusión 
+                    y el bienestar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--      SECCIÓN ÁLBUM           -->
+    <!-- ============================= -->
+
+    <section class="album-section">
+
+        <div class="container">
+
+            <div class="titulo-seccion">
+
+                <h2 data-i18n="section_title">Nuestros recuerdos</h2>
+
+                <p data-i18n="section_desc">
+                    Explora nuestra galería de momentos inolvidables compartidos 
+                    con la comunidad Lumen.
+                </p>
+
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todos" data-i18n="filter_all">Todos</button>
+                <button class="filtro-btn" data-filtro="eventos" data-i18n="filter_events">Eventos</button>
+                <button class="filtro-btn" data-filtro="giras" data-i18n="filter_tours">Giras</button>
+                <button class="filtro-btn" data-filtro="talleres" data-i18n="filter_workshops">Talleres</button>
+                <button class="filtro-btn" data-filtro="comunidad" data-i18n="filter_community">Comunidad</button>
+            </div>
+
+            <!-- Grid de fotos -->
+            <div class="album-grid">
+
+                <!-- Foto 1 - Evento -->
+                <div class="foto-item" data-categoria="eventos">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/evento1.jpg" alt="Evento Lumen 1">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_event">Evento</span>
+                            <h3 data-i18n="event_title_1">Celebración del Día de la Inclusión</h3>
+                            <p data-i18n="event_desc_1">Un día lleno de alegría y aprendizaje compartido.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 2 - Gira -->
+                <div class="foto-item" data-categoria="giras">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/gira1.jpg" alt="Gira inclusiva 1">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_tour">Gira</span>
+                            <h3 data-i18n="tour_title_1">Gira al Museo Interactivo</h3>
+                            <p data-i18n="tour_desc_1">Explorando el mundo a través de experiencias sensoriales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 3 - Taller -->
+                <div class="foto-item" data-categoria="talleres">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/taller1.jpg" alt="Taller 1">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_workshop">Taller</span>
+                            <h3 data-i18n="workshop_title_1">Taller de Arte y Expresión</h3>
+                            <p data-i18n="workshop_desc_1">Creatividad sin límites para todas las edades.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 4 - Comunidad -->
+                <div class="foto-item" data-categoria="comunidad">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/comunidad1.jpg" alt="Comunidad 1">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_community">Comunidad</span>
+                            <h3 data-i18n="community_title_1">Encuentro de Familias</h3>
+                            <p data-i18n="community_desc_1">Compartiendo experiencias y fortaleciendo lazos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 5 - Evento -->
+                <div class="foto-item" data-categoria="eventos">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/evento2.jpg" alt="Evento Lumen 2">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_event">Evento</span>
+                            <h3 data-i18n="event_title_2">Feria de la Inclusión</h3>
+                            <p data-i18n="event_desc_2">Un espacio para visibilizar y celebrar la diversidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 6 - Gira -->
+                <div class="foto-item" data-categoria="giras">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/gira2.jpg" alt="Gira inclusiva 2">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_tour">Gira</span>
+                            <h3 data-i18n="tour_title_2">Visita al Parque Natural</h3>
+                            <p data-i18n="tour_desc_2">Conectando con la naturaleza y la comunidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 7 - Taller -->
+                <div class="foto-item" data-categoria="talleres">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/taller2.jpg" alt="Taller 2">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_workshop">Taller</span>
+                            <h3 data-i18n="workshop_title_2">Taller de Música y Movimiento</h3>
+                            <p data-i18n="workshop_desc_2">Explorando la expresión a través del ritmo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 8 - Comunidad -->
+                <div class="foto-item" data-categoria="comunidad">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/comunidad2.jpg" alt="Comunidad 2">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_community">Comunidad</span>
+                            <h3 data-i18n="community_title_2">Día de Convivencia</h3>
+                            <p data-i18n="community_desc_2">Fortaleciendo vínculos entre todos los miembros.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 9 - Evento -->
+                <div class="foto-item" data-categoria="eventos">
+                    <div class="foto-card">
+                        <img src="Imagenes/album/evento3.jpg" alt="Evento Lumen 3">
+                        <div class="foto-overlay">
+                            <span class="foto-categoria" data-i18n="category_event">Evento</span>
+                            <h3 data-i18n="event_title_3">Celebración de Fin de Año</h3>
+                            <p data-i18n="event_desc_3">Cerrando el año con gratitud y esperanza.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón cargar más -->
+            <div class="cargar-mas">
+                <button class="btn-cargar" data-i18n="load_more_btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Cargar más fotos
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--   SECCIÓN COMPARTE TUS FOTOS  -->
+    <!-- ============================= -->
+
+    <section class="compartir-section">
+
+        <div class="container compartir-container">
+
+            <div class="compartir-icon">
+                <i class="fas fa-camera-retro"></i>
+            </div>
+
+            <div class="compartir-texto">
+                <h2 data-i18n="share_title">¿Tienes fotos para compartir?</h2>
+                <p data-i18n="share_desc">
+                    Queremos ver tus momentos especiales. Comparte tus fotos de eventos, 
+                    giras o actividades inclusivas con nuestra comunidad.
+                </p>
+            </div>
+
+            <a href="#" class="btn-compartir" data-i18n="share_btn">
+                <i class="fas fa-upload"></i>
+                Subir foto
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--            FOOTER             -->
+    <!-- ============================= -->
+
+    <footer class="site-footer" role="contentinfo">
+
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+            </div>
+            <p class="footer-copy">
+                <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
+                <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+                <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+                <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+                <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+                <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+            <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+            <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+                        <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+                        <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-mascot" aria-hidden="true">
+            <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+        </div>
+
+    </footer>
+
+    <script src="album23.js"></script>
+
+</body>
+
+</html>

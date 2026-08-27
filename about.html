@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre nosotros | Lumen</title>
+
+    <link rel="stylesheet" href="about23.css">
+
+    <link rel="icon" type="image/png" href="Imagenes/Lg.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+
+<body>
+<!-- NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+ 
+      <!-- Logo a la izquierda -->
+      <div class="nav-logo">
+        <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+      </div>
+ 
+      <!-- Links centrados -->
+      <div class="nav-links">
+ 
+        <!-- Inicio -->
+        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+ 
+        <!-- =====================================================
+             INFORMACIÓN GENERAL – con dropdown
+             Al hacer clic muestra submenú con temas de autismo
+        ===================================================== -->
+        <div class="nav-item">
+  <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+  <!-- Submenú de Información general -->
+  <div class="nav-dropdown">
+    <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+    <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+    <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+    <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+    <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+    <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+  </div>
+</div>
+ 
+        <!-- Lumen Shop: enlace simple sin submenú -->
+        <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+ 
+        <!-- Centros: enlace simple sin submenú -->
+        <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+ 
+        <!-- Giras inclusivas: enlace simple sin submenú -->
+        <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+ 
+        <!-- Profesionales: enlace simple sin submenú -->
+        <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+ 
+        <!-- =====================================================
+             SOBRE NOSOTROS – con dropdown
+             Al hacer clic muestra submenú con páginas internas
+        ===================================================== -->
+        <div class="nav-item">
+        <a href="about.html" class="nav-btn nav-link" data-i18n="nav_about">Sobre nosotros</a>
+          <!-- Submenú de Sobre nosotros -->
+         <div class="nav-dropdown">
+                    <a href="about.html#about-who" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+                    <a href="about.html#about-mission" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+                    <a href="about.html#about-contact" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+                </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Controles: solo idioma (el tema está en sections-header) -->
+      <div class="nav-controls">
+ 
+        <!-- Selector de idioma -->
+        <div class="lang-wrapper" id="langWrapper">
+          <button class="lang-btn" id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Seleccionar idioma">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+            <span id="langLabel">ES</span>
+            <span class="lang-chevron"></span>
+          </button>
+ 
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+              <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+              <span>ES</span>
+            </div>
+            <div class="lang-option" role="option" data-lang="en" tabindex="0">
+              <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+              <span>EN</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </nav>
+    <!-- ============================= -->
+    <!--         HERO SECTION          -->
+    <!-- ============================= -->
+
+    <section class="hero-profesionales">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <h1 data-i18n="hero_title">Sobre nosotros</h1>
+
+                <p data-i18n="hero_desc">
+                    Conoce la historia de Lumen, nuestra misión, visión y el 
+                    compromiso con el desarrollo de soluciones 
+                    tecnológicas que promueven la inclusión y el bienestar 
+                    de las personas dentro del espectro autista y otras 
+                    condiciones.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         SECCIÓN ¿QUIÉNES SOMOS?
+    ========================================================= -->
+
+    <section class="about-section" id="about-who">
+
+        <div class="about-container">
+
+            <div class="about-top">
+
+                <h2 data-i18n="about_who">¿Quiénes somos?</h2>
+
+                <p data-i18n="about_who_desc">
+                    En Lumen, somos una empresa comprometida con el desarrollo de una plataforma tecnológica
+                    inclusiva diseñada para mejorar la calidad de vida de las personas dentro del espectro autista.
+                    Creemos que la tecnología puede ser una herramienta transformadora para promover el
+                    aprendizaje, la comunicación, la autonomía y la inclusión, brindando soluciones accesibles
+                    tanto para personas autistas como para sus familias, cuidadores y profesionales.
+                </p>
+
+            </div>
+
+            <div class="about-bottom">
+
+                <div class="about-card">
+
+                    <h3 data-i18n="about_purpose">Nuestro propósito</h3>
+
+                    <p data-i18n="about_purpose_desc">
+                        Aprovechar el potencial de la tecnología para reducir barreras, promover la autonomía
+                        y brindar herramientas que faciliten el aprendizaje, la comunicación, la interacción
+                        social y el acceso a experiencias adaptadas a las necesidades de cada usuario.
+                    </p>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="about-card">
+
+                    <h3 data-i18n="about_platform">Una plataforma hecha<br>para cada persona</h3>
+
+                    <p data-i18n="about_platform_desc">
+                        Creamos una plataforma educativa, social y de regulación emocional en un entorno
+                        accesible, dinámico y adaptado a las necesidades de cada usuario, junto con el apoyo
+                        a familias, educadores y profesionales.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         SECCIÓN CREEMOS EN:
+    ========================================================= -->
+
+    <section class="valores-section">
+        <div class="valores">
+            <h2 data-i18n="values_title">Creemos en:</h2>
+
+            <div class="cards-container">
+
+                <div class="line"></div>
+
+                <div class="card">
+                    <div class="icon purple">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 data-i18n="value_inclusion">Inclusión</h3>
+                    <p data-i18n="value_inclusion_desc">
+                        Promovemos la participación equitativa de todas
+                        las personas en la sociedad.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon purple">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <h3 data-i18n="value_empathy">Empatía</h3>
+                    <p data-i18n="value_empathy_desc">
+                        Escuchamos, comprendemos y acompañamos con respeto
+                        y sensibilidad.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon purple">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </div>
+                    <h3 data-i18n="value_innovation">Innovación</h3>
+                    <p data-i18n="value_innovation_desc">
+                        Desarrollamos soluciones creativas que generan un
+                        impacto real.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon purple">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 data-i18n="value_equality">Igualdad</h3>
+                    <p data-i18n="value_equality_desc">
+                        Creemos en un mundo con las mismas oportunidades
+                        para todos.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <div class="info-row">
+
+                    <div class="circle blue">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+
+                    <div class="content">
+                        <h3 class="blue-text" data-i18n="impact_title">Impacto positivo en la sociedad</h3>
+
+                        <p data-i18n="impact_desc">
+                            En Lumen, entendemos que la verdadera innovación no solo
+                            consiste en desarrollar tecnología avanzada, sino también
+                            en generar un impacto positivo en la sociedad. Por ello,
+                            promovemos una cultura de respeto, aceptación y equidad,
+                            contribuyendo a la construcción de comunidades más inclusivas.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="info-divider"></div>
+
+                <div class="info-row">
+
+                    <div class="circle yellow">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+
+                    <div class="content">
+                        <h3 class="yellow-text" data-i18n="commitment_title">Nuestro compromiso</h3>
+
+                        <p data-i18n="commitment_desc">
+                            Seguir fortaleciendo una plataforma que conecte la tecnología
+                            con el bienestar humano, creando oportunidades que favorezcan
+                            la independencia, el desarrollo personal y la inclusión social.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECCIÓN MISIÓN Y VISIÓN:
+    ========================================================= -->
+
+    <section class="mision-vision" id="about-mission">
+
+        <div class="encabezado-mv">
+
+            <img src="Imagenes/lg.png" alt="Logo Lumen">
+
+            <img src="Imagenes/Designer.png" alt="Mascotas Lumen">
+
+        </div>
+
+        <div class="contenedor-mv">
+
+            <div class="bloque-mv mision">
+
+                <div class="icono-mv">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+
+                <div class="texto-mv">
+
+                    <h2 data-i18n="mission_title">Misión</h2>
+
+                    <p data-i18n="mission_desc">
+                        Brindar una plataforma digital inclusiva que apoye el aprendizaje,
+                        desarrollo y bienestar de niños y jóvenes con autismo y otras
+                        necesidades de aprendizaje y desarrollo.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="bloque-mv vision">
+
+                <div class="icono-mv">
+                    <i class="fa-regular fa-eye"></i>
+                </div>
+
+                <div class="texto-mv">
+
+                    <h2 data-i18n="vision_title">Visión</h2>
+
+                    <p data-i18n="vision_desc">
+                        Ser una plataforma de referencia en inclusión y apoyo al desarrollo
+                        infantil y juvenil.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         SECCIÓN COMUNIDAD Y DONACIÓN:
+    ========================================================= -->
+
+    <section class="acciones" id="about-contact">
+
+        <!-- TARJETA SUPERIOR -->
+        <div class="comunidad-card">
+
+            <div class="community-icon">
+                <i class="fa-solid fa-people-group"></i>
+            </div>
+
+            <div class="community-text">
+                <p data-i18n="community_desc">
+                    Encuentra experiencias de otras personas, recomendaciones útiles,
+                    consejos prácticos y un espacio seguro para compartir, aprender y
+                    conectar con personas que viven experiencias similares.
+                </p>
+            </div>
+
+            <div class="community-btn-container">
+                <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" class="btn-comunidad" data-i18n="community_btn">
+                    Ir a la comunidad
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- TARJETAS INFERIORES -->
+        <div class="cards-grid">
+
+            <!-- DONACIÓN -->
+            <div class="card donacion">
+
+                <div class="card-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+
+                <p data-i18n="donation_desc">
+                    Apoya nuestra misión. Cada aporte nos permite seguir desarrollando
+                    recursos para una comunidad más inclusiva.
+                </p>
+
+                <a href="donaciones.html" class="btn-donacion" data-i18n="donation_btn">
+                    Hacer una donación
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+            <!-- ÁLBUM -->
+            <div class="card album">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+
+                <p data-i18n="album_desc">
+                    Revive nuestras actividades a través de un álbum con fotos de
+                    eventos, giras y momentos especiales compartidos con la comunidad.
+                </p>
+
+                <a href="album.html" class="btn-album" data-i18n="album_btn">
+                    Ver álbum
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!--            FOOTER             -->
+    <!-- ============================= -->
+
+    <footer class="site-footer" role="contentinfo">
+
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+            </div>
+
+            <p class="footer-copy">
+                <span class="copy-icon">©</span>
+                <span data-i18n="footer_copy">
+                    2026 Lumen. Todos los derechos reservados.
+                </span>
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <p class="footer-col-title" data-i18n="footer_access">
+                Accesos rápidos
+            </p>
+
+            <ul>
+                <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+                <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+                <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
+                <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+                <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
+                <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+
+            <a class="footer-social-line"
+               data-i18n="footer_community"
+               href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ"
+               target="_blank">
+               ¡Visita nuestra comunidad!
+            </a>
+
+            <p class="footer-social-line" data-i18n="footer_contact">
+                Contáctanos
+            </p>
+
+            <p class="footer-social-line" data-i18n="footer_email_label">
+                Correo electrónico:
+            </p>
+
+            <div class="social-icons">
+
+                <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="5" width="20" height="14" rx="4"
+                              stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z"
+                              fill="currentColor"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"
+                              stroke="currentColor" stroke-width="1.8"/>
+                        <circle cx="12" cy="12" r="4.4"
+                                stroke="currentColor" stroke-width="1.8"/>
+                        <circle cx="17.3" cy="6.7" r="1.15"
+                                fill="currentColor"/>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="footer-mascot" aria-hidden="true">
+            <img src="Imagenes/numa2.0.png"
+                 alt="Mascota Lumen"
+                 class="mascot-img"/>
+        </div>
+
+    </footer>
+
+    <script src="about23.js"></script>
+
+</body>
+
+</html>
