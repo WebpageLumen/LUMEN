@@ -16,28 +16,28 @@
       <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
     </div>
     <div class="nav-links">
-      <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+      <a href="index.html" class="nav-btn" data-i18n="nav_home" target="_blank">Inicio</a>
       <div class="nav-item">
-        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info" target="_blank">Información general</a>
         <div class="nav-dropdown">
-          <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
-          <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
-          <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
-          <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
-          <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
-          <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+          <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism" target="_blank">¿Qué es el autismo?</a>
+          <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes" target="_blank">Causas del autismo</a>
+          <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels" target="_blank">Niveles de autismo</a>
+          <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs" target="_blank">Señales de alerta</a>
+          <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls" target="_blank">Autismo en niñas y...</a>
+          <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions" target="_blank">Condiciones asociadas...</a>
         </div>
       </div>
-      <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
-      <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
-      <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
-      <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+      <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop" target="_blank">Lumen Shop</a>
+      <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers" target="_blank">Centros</a>
+      <a href="Giras.html" class="nav-btn" data-i18n="nav_tours" target="_blank">Giras inclusivas</a>
+      <a href="Profesionales.html" class="nav-btn" data-i18n="nav_pros" target="_blank">Profesionales</a>
       <div class="nav-item">
         <button class="nav-btn" data-i18n="nav_about">Sobre nosotros</button>
         <div class="nav-dropdown">
-          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
-          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
-          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+          <a href="about.html" class="nav-drop-link" data-i18n="drop_who" target="_blank">¿Quiénes somos?</a>
+          <a href="Misionyvision.html" class="nav-drop-link" data-i18n="drop_mission" target="_blank">Misión y visión</a>
+          <a href="contacto.html" class="nav-drop-link" data-i18n="drop_contact" target="_blank">Contacto</a>
         </div>
       </div>
     </div>
@@ -63,12 +63,11 @@
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <!-- HEADER CON ILUSTRACIÓN DE FONDO -->
   <section class="actividades-sociales">
     <div class="actividades-header-container">
       <div class="actividades-text">
-        <h1 class="actividades-title">Actividades sociales</h1>
-        <p class="actividades-desc">
+        <h1 class="actividades-title" data-i18n="act_title">Actividades sociales</h1>
+        <p class="actividades-desc" data-i18n="act_desc">
           En esta pantalla encontrarás actividades diseñadas para fortalecer tus habilidades sociales y mejorar la forma en que te comunicas y conectas con otras personas.
         </p>
       </div>
@@ -78,82 +77,86 @@
   <!-- TARJETAS DE ACTIVIDADES -->
   <section class="actividades-tarjetas">
     
-    <!-- BOTÓN MODO CALMA -->
     <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">
       <span class="theme-icon" id="themeIcon">🌙</span>
     </button>
 
     <div class="cards-grid-actividades">
-      <div class="actividad-card card-blue">
+      
+      <button type="button" class="actividad-card card-blue" aria-label="Ir a actividad de Historias sociales" data-activity="historias-sociales">
         <img src="Imagenes/niñoos.png" alt="Historias sociales">
         <div class="card-body">
-          <h3>Historias sociales</h3>
+          <h3 data-i18n="act_card1">Historias sociales</h3>
           <div class="card-arrow">→</div>
         </div>
-      </div>
-      <div class="actividad-card card-yellow">
+      </button>
+
+      <button type="button" class="actividad-card card-yellow" aria-label="Ir a actividad de Reconocer expresiones faciales" data-activity="expresiones-faciales">
         <img src="Imagenes/palabras.png" alt="Reconocer expresiones faciales">
         <div class="card-body">
-          <h3>Reconocer expresiones faciales</h3>
+          <h3 data-i18n="act_card2">Reconocer expresiones faciales</h3>
           <div class="card-arrow">→</div>
         </div>
-      </div>
-      <div class="actividad-card card-purple">
+      </button>
+
+      <button type="button" class="actividad-card card-purple" aria-label="Ir a actividad de Más allá de las palabras" data-activity="mas-alla-palabras">
         <img src="Imagenes/estirate.png" alt="Más allá de las palabras">
         <div class="card-body">
-          <h3>Más allá de las palabras</h3>
+          <h3 data-i18n="act_card3">Más allá de las palabras</h3>
           <div class="card-arrow">→</div>
         </div>
-      </div>
-      <div class="actividad-card card-green">
+      </button>
+
+      <button type="button" class="actividad-card card-green" aria-label="Ir a actividad de Juego de turnos" data-activity="juego-turnos">
         <img src="Imagenes/turnos.png" alt="Juego de turnos">
         <div class="card-body">
-          <h3>Juego de turnos</h3>
+          <h3 data-i18n="act_card4">Juego de turnos</h3>
           <div class="card-arrow">→</div>
         </div>
-      </div>
+      </button>
+
     </div>
   </section>
   
   <!-- BENEFICIOS -->
   <section class="beneficios-section">
     <div class="beneficios-content">
-      <h2>¿Qué beneficios tiene practicar habilidades sociales?</h2>
+      <h2 data-i18n="act_ben_title">¿Qué beneficios tiene practicar habilidades sociales?</h2>
       <ul class="beneficios-list">
         <li>
           <span class="bullet"></span>
-          <span>Mejora la comunicación: ayuda a expresar ideas y sentimientos de forma clara y a entender mejor a los demás.</span>
+          <span data-i18n="act_ben1">Mejora la comunicación: ayuda a expresar ideas y sentimientos de forma clara y a entender mejor a los demás.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span>Fortalece las relaciones: facilita hacer y mantener amistades y vínculos más sanos.</span>
+          <span data-i18n="act_ben2">Fortalece las relaciones: facilita hacer y mantener amistades y vínculos más sanos.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span>Aumenta la confianza: mejora la seguridad personal al interactuar con otras personas.</span>
+          <span data-i18n="act_ben3">Aumenta la confianza: mejora la seguridad personal al interactuar con otras personas.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span>Reduce conflictos: enseña a resolver problemas y desacuerdos de manera pacífica.</span>
+          <span data-i18n="act_ben4">Reduce conflictos: enseña a resolver problemas y desacuerdos de manera pacífica.</span>
         </li>
       </ul>
     </div>
   </section>
-    <section class="beneficios-bottom-row">
-      <div class="beneficios-visual-wrapper">
-        <div class="beneficios-image-container">
-          <div class="beneficios-image-placeholder">
-            <img src="Imagenes/confetti.png" alt="Confetti">
-          </div>
+  
+  <section class="beneficios-bottom-row">
+    <div class="beneficios-visual-wrapper">
+      <div class="beneficios-image-container">
+        <div class="beneficios-image-placeholder">
+          <img src="Imagenes/confetti.png" alt="Confetti">
         </div>
       </div>
+    </div>
 
-      <div class="mensaje-final-wrapper">
-        <div class="mensaje-final-star">
-          <img src="Imagenes/estrella.png" width="300px" height="300px" alt="Estrella">
-        </div>
-        <p class="mensaje-final-text">Lumen te apoya y te<br>acompaña en cada paso.</p>
+    <div class="mensaje-final-wrapper">
+      <div class="mensaje-final-star">
+        <img src="Imagenes/estrella.png" width="300px" height="300px" alt="Estrella">
       </div>
+      <p class="mensaje-final-text" data-i18n="act_msg_final">Lumen te apoya y te<br>acompaña en cada paso.</p>
     </div>
   </section>
 
@@ -171,13 +174,13 @@
     <div class="footer-links">
       <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
       <ul>
-        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
-        <li><a href="InfoGene1.html" data-i18n="nav_info">Información general</a></li>
-        <li><a href="Lumenshop.html" data-i18n="nav_shop">Lumen Shop</a></li>
-        <li><a href="Centros1.html" data-i18n="nav_centers">Centros</a></li>
-        <li><a href="Giras.html" data-i18n="nav_tours">Giras inclusivas</a></li>
-        <li><a href="profesionales.html" data-i18n="nav_pros">Profesionales</a></li>
-        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+        <li><a href="index.html" data-i18n="nav_home" target="_blank">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info" target="_blank">Información general</a></li>
+        <li><a href="shop.html" data-i18n="nav_shop" target="_blank">Lumen Shop</a></li>
+        <li><a href="centers.html" data-i18n="nav_centers" target="_blank">Centros</a></li>
+        <li><a href="tours.html" data-i18n="nav_tours" target="_blank">Giras inclusivas</a></li>
+        <li><a href="pros.html" data-i18n="nav_pros" target="_blank">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about" target="_blank">Sobre nosotros</a></li>
       </ul>
     </div>
     <div class="footer-social">
@@ -185,13 +188,13 @@
       <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
       <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
       <div class="social-icons">
-        <a href="https://www.youtube.com/@Lumen2027" class="social-icon" aria-label="YouTube">
+        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
             <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
           </svg>
         </a>
-        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram">
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
             <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>

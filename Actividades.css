@@ -118,7 +118,7 @@ body {
 
 .nav-logo {
   display: flex;
-  align-items: flex-start; /* CORREGIDO */
+  align-items: flex-start;
   gap: 6px;
   flex-shrink: 0;
   text-decoration: none;
@@ -132,10 +132,10 @@ body {
 
 .nav-links {
   display: flex;
-  align-items: flex-end; /* CORREGIDO */
+  align-items: flex-end;
   gap: 4px;
   flex-wrap: wrap;
-  justify-content: flex-end; /* CORREGIDO */
+  justify-content: flex-end;
   flex: 1;
 }
 
@@ -395,153 +395,8 @@ body {
 }
 
 /* =========================================================
-   FOOTER
-========================================================= */
-.site-footer {
-  position: relative;
-  background: #75a0dd;
-  padding: 44px 5vw 32px;
-  padding-right: calc(5vw + 150px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-  transition: background .3s ease;
-  overflow: hidden;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 180px;
-}
-
-.footer-logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-logo-img {
-  width: 400px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: -18px;
-}
-
-.footer-copy {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  display: flex;
-  align-items: center; /* CORREGIDO */
-  gap: 5px;
-}
-
-.copy-icon { font-size: 1rem; }
-
-.footer-links { min-width: 140px; }
-
-.footer-links ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 10px;
-}
-
-.footer-links a {
-  font-size: .82rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-decoration: none;
-  transition: opacity var(--transition);
-}
-
-.footer-links a:hover { opacity: .75; }
-
-.footer-col-title {
-  font-size: .9rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-width: 200px;
-}
-
-.footer-social-line {
-  font-size: .92rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0;
-}
-
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 2px;
-}
-
-.social-icon {
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  color-scheme: dark;
-  background: transparent;
-  border-radius: 50%; /* CORREGIDO DE contain A 50% */
-  cursor: pointer;
-  transition: opacity var(--transition), transform var(--transition);
-}
-
-.social-icon svg {
-  width: 50px;
-  height: 50px;
-}
-
-.social-icon:hover {
-  opacity: .8;
-  transform: translateY(-2px);
-}
-
-.footer-mascot {
-  position: absolute;
-  right: 0;
-  top: 2.5rem;
-  bottom: 2.5rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height: 210px;
-}
-
-.mascot-img {
-  height: 210px;
-  width: auto;
-  max-width: none;
-  object-fit: contain;
-  object-position: bottom right;
-}
-
-@keyframes floatMascot {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-
-/* =========================================================
    ESTILOS PARA ACTIVIDADES SOCIALES
 ========================================================= */
-
 .actividades-header-container {
   position: relative;
   min-height: 550px; 
@@ -621,7 +476,14 @@ body {
   margin: 0 auto;
 }
 
+/* =========================================================
+   ⭐ CARDS BOTÓN - Reset y estilos base para <button>
+========================================================= */
 .actividad-card {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
   background: var(--bg-card);
   border-radius: var(--radius-card);
   border: 2px solid transparent;
@@ -631,8 +493,26 @@ body {
   flex-direction: column;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  width: 100%;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
+
+.actividad-card:focus {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+
+.card-blue:focus { outline-color: var(--blue-brand); }
+.card-yellow:focus { outline-color: var(--gold); }
+.card-purple:focus { outline-color: var(--purple-brand); }
+.card-green:focus { outline-color: var(--green-brand); }
 
 .actividad-card img {
   width: 100%;
@@ -645,6 +525,12 @@ body {
 .actividad-card:hover {
   transform: translateY(-7px);
   box-shadow: var(--shadow-hover);
+}
+
+.actividad-card:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 4px 16px rgba(74,144,217,.15);
+  transition-duration: 0.1s;
 }
 
 .card-blue   { border-color: white; }
@@ -720,7 +606,6 @@ body {
 .card-green h3 {color: var(--text-main); }
 .card-green .card-arrow  { border-color: var(--green-brand); color: var(--green-brand); }
 
-
 /* --- SECCIÓN BENEFICIOS --- */
 .beneficios-section {
   background: var(--bg-sections);
@@ -728,7 +613,7 @@ body {
   padding: 80px 5vw 72px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* CORREGIDO DE 0px */
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -775,9 +660,9 @@ body {
 
 .beneficios-list li .bullet {
   flex-shrink: 0;
-  width: 6px;                     /* 👈 más chiquito como en la imagen */
+  width: 6px;
   height: 6px;
-  background: var(--text-main);   /* 👈 negro en vez de dorado */
+  background: var(--text-main);
   border-radius: 50%;
   margin-top: 9px;
 }
@@ -817,7 +702,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem; /* CORREGIDO DE center */
+  gap: 1rem;
   color: var(--purple-brand);
   font-weight: 700;
   overflow: hidden;         
@@ -880,7 +765,151 @@ body {
 .mensaje-final { display: none; }
 
 /* =========================================================
-   RESPONSIVE – TABLET Y PAISAJE MÓVIL (PERFECCIONADO)
+   FOOTER
+========================================================= */
+.site-footer {
+  position: relative;
+  background: #75a0dd;
+  padding: 44px 5vw 32px;
+  padding-right: calc(5vw + 150px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+  overflow: hidden;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: -18px;
+}
+
+.footer-copy {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copy-icon { font-size: 1rem; }
+
+.footer-links { min-width: 140px; }
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  font-size: .82rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.footer-links a:hover { opacity: .75; }
+
+.footer-col-title {
+  font-size: .9rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 200px;
+}
+
+.footer-social-line {
+  font-size: .92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  color-scheme: dark;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.social-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.social-icon:hover {
+  opacity: .8;
+  transform: translateY(-2px);
+}
+
+.footer-mascot {
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  bottom: 2.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 210px;
+}
+
+.mascot-img {
+  height: 210px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET Y PAISAJE MÓVIL
 ========================================================= */
 @media (max-width: 1024px) {
   .cards-grid-actividades {
@@ -931,10 +960,9 @@ body {
 }
 
 /* =========================================================
-   RESPONSIVE – MÓVIL (PERFECCIONADO)
+   RESPONSIVE – MÓVIL
 ========================================================= */
 @media (max-width: 600px) {
-  /* NAVBAR */
   .navbar {
     padding: 12px 16px;
     gap: 8px;
@@ -955,7 +983,6 @@ body {
     padding: 6px 12px;
   }
 
-  /* TEMA BOTÓN */
   .theme-btn {
     top: 15px;
     right: 15px;
@@ -964,7 +991,6 @@ body {
     font-size: 1rem;
   }
 
-  /* HEADER */
   .actividades-sociales,
   .actividades-header-container {
     padding: 90px 4vw 40px;
@@ -972,7 +998,6 @@ body {
     background-position: right center;
   }
 
-  /* CARDS */
   .cards-grid-actividades {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -983,7 +1008,6 @@ body {
     padding: 20px;
   }
 
-  /* BENEFICIOS */
   .beneficios-section {
     padding: 40px 4vw 48px;
     align-items: center;
@@ -1016,7 +1040,6 @@ body {
     height: 220px;
   }
 
-  /* MENSAJE FINAL */
   .mensaje-final-wrapper {
     padding: 20px;
     justify-content: center;
@@ -1043,7 +1066,6 @@ body {
     max-width: 100%;
   }
 
-  /* FOOTER */
   .site-footer {
     flex-direction: column;
     align-items: center;
