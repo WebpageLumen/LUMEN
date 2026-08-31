@@ -119,31 +119,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Elige la situación que podría estar provocando esta emoción.",
 
             image:
-                "Imagenes/30 (2).png",
+                "Proyecto web lumen/Imagenes/30 (2).png",
 
             options: [
 
                 {
                     text: "Feliz",
-                    image: "Imagenes/31 (2).png",
+                    image: "Proyecto web lumen/Imagenes/31 (2).png",
                     correct: false
                 },
 
                 {
                     text: "Triste",
-                    image: "imagenes/32 (2).png",
+                    image: "Proyecto web lumen/Imagenes/32 (2).png",
                     correct: true
                 },
 
                 {
                     text: "Enojado",
-                    image: "imagenes/33 (2).png",
+                    image: "Proyecto web lumen/Imagenes/33 (2).png",
                     correct: false
                 },
 
                 {
                     text: "Sorprendido",
-                    image: "imagenes/34 (2).png",
+                    image: "Proyecto web lumen/Imagenes/34 (2).png",
                     correct: false
                 }
 
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Elige la situación que podría estar provocando esta emoción.",
 
             image:
-                "Imagenes/30 (2).png",
+                "Proyecto web lumen/Imagenes/30 (2).png",
 
             options: [
 
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Se le rompió su juguete.",
 
                     image:
-                        "Imagenes/41.png",
+                        "Proyecto web lumen/Imagenes/41.png",
 
                     correct: true
                 },
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Recibió un regalo.",
 
                     image:
-                        "Imagenes/42.png",
+                        "Proyecto web lumen/Imagenes/42.png",
 
                     correct: false
                 },
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Ganó un premio.",
 
                     image:
-                        "Imagenes/43.png",
+                        "Proyecto web lumen/Imagenes/43.png",
 
                     correct: false
                 },
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Va de vacaciones.",
 
                     image:
-                        "Imagenes/44.png",
+                        "Proyecto web lumen/Imagenes/44.png",
 
                     correct: false
                 }
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Tu amigo está triste porque perdió su cartuchera. ¿Qué podrías hacer?",
 
             image:
-                "imagenes/q.png",
+                "Proyecto web lumen/Imagenes/q.png",
 
             options: [
 
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Ignorarlo.",
 
                     image:
-                        "imagenes/64.png",
+                        "Proyecto web lumen/Imagenes/64.png",
 
                     correct: false
                 },
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Reírte de él.",
 
                     image:
-                        "imagenes/65.png",
+                        "Proyecto web lumen/Imagenes/65.png",
 
                     correct: false
                 },
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Ayudarlo a buscar su cartuchera.",
 
                     image:
-                        "imagenes/66.png",
+                        "Proyecto web lumen/Imagenes/66.png",
 
                     correct: true
                 }
@@ -473,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="feedback-image-slot">
 
                 <img
-                    src="imagenes/35 (2).png"
+                    src="Proyecto web lumen/Imagenes/35 (2).png"
                     alt="Ayuda">
 
             </div>
@@ -764,7 +764,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="feedback-image-slot">
 
                 <img
-                    src="imagenes/52.png"
+                    src="Proyecto web lumen/Imagenes/52.png"
                     alt="Ayuda">
 
             </div>
@@ -889,10 +889,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "💡 A veces, un pequeño gesto de apoyo puede hacer una gran diferencia.";
 
         helpImageTop.src =
-            "imagenes/69.png";
+            "Proyecto web lumen/Imagenes/69.png";
 
         helpImageBottom.src =
-            "imagenes/67.png";
+            "Proyecto web lumen/Imagenes/67.png";
 
         continueBtn.classList.add("hidden");
     }
@@ -911,10 +911,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "✨ ¡Buena elección!";
 
         helpImageTop.src =
-            "imagenes/69.png";
+            "Proyecto web lumen/Imagenes/69.png";
 
         helpImageBottom.src =
-            "imagenes/68.png";
+            "Proyecto web lumen/Imagenes/68.png";
 
         continueBtn.classList.remove("hidden");
     }
@@ -939,7 +939,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <img
                 class="uca"
-                src="imagenes/Las personas pueden sentirse diferentes según lo que les sucede..png"
+                src="Proyecto web lumen/Imagenes/Las personas pueden sentirse diferentes según lo que les sucede..png"
                 alt="Personaje celebrando">
 
         `;
@@ -1030,12 +1030,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImageTop5"
             ).src =
-                "Imagenes/yy.png";
+                "Proyecto web lumen/Imagenes/yy.png";
 
             document.getElementById(
                 "helpImageBottom5"
             ).src =
-                "Imagenes/114.png";
+                "Proyecto web lumen/Imagenes/114.png";
 
             document.getElementById(
                 "helpBottomSlot5"
@@ -1064,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImageTop5"
             ).src =
-                "Imagenes/aa.png";
+                "Proyecto web lumen/Imagenes/aa.png";
 
             document.getElementById(
                 "helpBottomSlot5"
@@ -1169,12 +1169,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImageTop6"
             ).src =
-                "Imagenes/yy.png";
+                "Proyecto web lumen/Imagenes/yy.png";
 
             document.getElementById(
                 "helpImageBottom6"
             ).src =
-                "Imagenes/67.png";
+                "Proyecto web lumen/Imagenes/67.png";
 
             document.getElementById(
                 "helpBottomSlot6"
@@ -1203,7 +1203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImageTop6"
             ).src =
-                "Imagenes/84.png";
+                "Proyecto web lumen/Imagenes/84.png";
 
             document.getElementById(
                 "helpBottomSlot6"
@@ -1314,7 +1314,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImage7"
             ).src =
-                "Imagenes/tt.png";
+                "Proyecto web lumen/Imagenes/tt.png";
 
             document.getElementById(
                 "helpBottom7"
@@ -1340,12 +1340,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "helpImage7"
             ).src =
-                "Imagenes/yy.png";
+                "Proyecto web lumen/Imagenes/yy.png";
 
             document.getElementById(
                 "helpBottomImage7"
             ).src =
-                "Imagenes/Las personas pueden sentirse diferentes según lo que les sucede..png";
+                "Proyecto web lumen/Imagenes/Las personas pueden sentirse diferentes según lo que les sucede..png";
 
             document.getElementById(
                 "helpBottom7"
