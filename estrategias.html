@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Estrategias</title>
+
+    <link
+        rel="stylesheet"
+        href="estrategias.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         SELECTOR DE IDIOMA
+    ========================================== -->
+
+    <div class="language-dropdown" id="languageDropdown">
+
+        <button
+            class="language-button"
+            id="languageButton"
+            type="button"
+            aria-label="Seleccionar idioma"
+        >
+
+            <img
+                class="language-flag"
+                id="banderaIdioma"
+                src="Imagenes/español.webp"
+                alt="Español"
+            >
+
+            <span id="codigoIdioma">ES</span>
+
+            <span class="arrow">⌄</span>
+
+        </button>
+
+
+        <!-- OPCIONES DE IDIOMA -->
+
+        <div
+            class="language-options"
+            id="languageOptions"
+        >
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="es"
+            >
+                <img
+                    src="Imagenes/español.webp"
+                    alt="Español"
+                >
+                Español
+            </button>
+
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
+            >
+                <img
+                    src="Imagenes/ingles.png"
+                    alt="English"
+                >
+                English
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         PÁGINA
+    ========================================== -->
+
+    <div class="pagina">
+
+
+        <!-- BOTÓN REGRESAR -->
+
+        <a
+            href="regulacionemocional-dellvasquez1929.html"
+            class="btn-volver"
+            aria-label="Volver"
+        >
+            ←
+        </a>
+
+
+        <!-- =====================================
+             ENCABEZADO
+        ====================================== -->
+
+        <section class="encabezado">
+
+            <div class="titulo-contenido">
+
+                <h1 id="tituloEstrategias">
+                    Estrategias
+                </h1>
+
+                <p id="descripcionEstrategias">
+                    A veces, saber lo que sientes es el primer paso.
+                    Esta sección te muestra diferentes formas de afrontar
+                    esos momentos y recursos que pueden ayudarte a sentirte
+                    más tranquilo, cómodo y en control de la situación.
+                </p>
+
+            </div>
+
+
+            <div class="imagen-encabezado">
+
+                <img
+                    src="Imagenes/estrategias/estrategias.png"
+                    alt="Estrategias"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             TARJETAS
+        ====================================== -->
+
+        <section class="tarjetas">
+
+
+            <!-- GROUNDING -->
+
+            <a
+                href="seleccion-estrategia.html?estrategia=grounding"
+                class="tarjeta grounding"
+                data-estrategia="grounding"
+            >
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/estrategias/niño.png"
+                        alt="Grounding"
+                    >
+
+                </div>
+
+                <h2 id="groundingTexto">
+                    Grounding
+                </h2>
+
+            </a>
+
+
+            <!-- OBJETOS -->
+
+            <a
+                href="seleccion-estrategia.html?estrategia=objetos"
+                class="tarjeta objetos"
+                data-estrategia="objetos"
+            >
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/estrategias/objetos.png"
+                        alt="Objetos de regulación"
+                    >
+
+                </div>
+
+                <h2 id="objetosTexto">
+                    Objetos de regulación
+                </h2>
+
+            </a>
+
+
+            <!-- EXPRESA -->
+
+            <a
+                href="seleccion-estrategia.html?estrategia=expresa"
+                class="tarjeta expresa"
+                data-estrategia="expresa"
+            >
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/estrategias/expresar.png"
+                        alt="Expresa tu emoción"
+                    >
+
+                </div>
+
+                <h2 id="expresaTexto">
+                    Expresa tu emoción
+                </h2>
+
+            </a>
+
+
+            <!-- AMBIENTE -->
+
+            <a
+                href="seleccion-estrategia.html?estrategia=ambiente"
+                class="tarjeta ambiente"
+                data-estrategia="ambiente"
+            >
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/estrategias/ambiente.png"
+                        alt="Cambia el ambiente"
+                    >
+
+                </div>
+
+                <h2 id="ambienteTexto">
+                    Cambia el ambiente
+                </h2>
+
+            </a>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="estrategias.js"></script>
+
+</body>
+
+</html>

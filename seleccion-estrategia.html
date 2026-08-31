@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Estrategia</title>
+
+    <link
+        rel="stylesheet"
+        href="seleccion-estrategias.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BOTÓN VOLVER
+    ========================================== -->
+
+    <a
+        href="Estrategias.html"
+        class="btn-volver"
+        aria-label="Volver a estrategias"
+    >
+        ←
+    </a>
+
+
+    <!-- =========================================
+         SELECTOR DE IDIOMA
+    ========================================== -->
+
+    <div
+        class="language-dropdown"
+        id="languageDropdown"
+    >
+
+        <button
+            class="language-button"
+            id="languageButton"
+            type="button"
+        >
+
+            <img
+                id="banderaActual"
+                class="language-flag"
+                src="Imagenes/español.webp"
+                alt="Español"
+            >
+
+            <span id="codigoIdioma">
+                ES
+            </span>
+
+            <span class="arrow">
+                ⌄
+            </span>
+
+        </button>
+
+
+        <div
+            class="language-menu"
+            id="languageMenu"
+        >
+
+            <button
+                class="language-option active"
+                id="opcionES"
+                type="button"
+            >
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/español.webp"
+                    alt="Español"
+                >
+
+                <span>
+                    ES
+                </span>
+
+            </button>
+
+
+            <button
+                class="language-option"
+                id="opcionEN"
+                type="button"
+            >
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/ingles.png"
+                    alt="English"
+                >
+
+                <span>
+                    EN
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         CONTENEDOR PRINCIPAL
+    ========================================== -->
+
+    <main class="estrategia-pagina">
+
+
+        <!-- =====================================
+             ENCABEZADO
+        ====================================== -->
+
+        <header class="encabezado-estrategia">
+
+            <div
+                class="numero-estrategia"
+                id="numeroEstrategia"
+            >
+            </div>
+
+
+            <h1 id="tituloEstrategia">
+                Estrategia
+            </h1>
+
+        </header>
+
+
+        <!-- =====================================
+             CONTENIDO
+        ====================================== -->
+
+        <section
+            class="contenido-estrategia"
+            id="contenidoEstrategia"
+        >
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="seleccion-estrategias.js"></script>
+
+</body>
+
+</html>

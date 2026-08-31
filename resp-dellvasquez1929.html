@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Respiración Guiada</title>
+
+    <link rel="stylesheet" href="respiracion-dellvasquez1929.css">
+
+</head>
+
+<body>
+
+
+    <!-- =========================================
+         SELECTOR DE IDIOMA
+    ========================================== -->
+
+    <div class="language-dropdown" id="languageDropdown">
+
+        <button
+            class="language-button"
+            id="languageButton"
+            type="button"
+            aria-label="Seleccionar idioma"
+        >
+
+            <img
+                class="language-flag"
+                id="banderaActual"
+                src="Imagenes/español.webp"
+                alt="Español"
+            >
+
+            <span id="codigoIdioma">ES</span>
+
+            <span class="arrow">⌄</span>
+
+        </button>
+
+
+        <!-- OPCIONES DE IDIOMA -->
+
+        <div
+            class="language-options"
+            id="languageOptions"
+        >
+
+            <button
+                type="button"
+                class="language-option"
+                id="opcionES"
+            >
+
+                <img
+                    src="Imagenes/español.webp"
+                    alt="Español"
+                >
+
+                ES
+
+            </button>
+
+
+            <button
+                type="button"
+                class="language-option"
+                id="opcionEN"
+            >
+
+                <img
+                    src="Imagenes/ingles.png"
+                    alt="English"
+                >
+
+                EN
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="notificacionRespiracion" class="notificacion-respiracion">
+
+        <strong id="tituloNotificacion"></strong>
+
+        <p id="textoNotificacion"></p>
+
+    </div>
+
+
+    <a
+        href="regulacionemocional-dellvasquez1929.html"
+        class="btn-volver"
+    >
+        ←
+    </a>
+
+
+    <!-- =======================
+         SECCIÓN 1
+    ======================== -->
+
+    <section class="seleccion-respiracion">
+
+
+        <div class="contenedor-tarjetas">
+
+
+            <button
+                class="tarjeta-respiracion activa"
+                data-respiracion="normal"
+            >
+
+                <img
+                    src="Imagenes/respiracion/resp-normal.png"
+                    alt="Respiración normal"
+                >
+
+                <h3 id="respNormal">
+                    Respiración<br>Normal
+                </h3>
+
+            </button>
+
+
+            <button
+                class="tarjeta-respiracion"
+                data-respiracion="lenta"
+            >
+
+                <img
+                    src="Imagenes/respiracion/resp-lenta.png"
+                    alt="Respiración lenta"
+                >
+
+                <h3 id="respLenta">
+                    Respiración<br>Lenta
+                </h3>
+
+            </button>
+
+
+            <button
+                class="tarjeta-respiracion"
+                data-respiracion="profunda"
+            >
+
+                <img
+                    src="Imagenes/respiracion/resp-profunda.png"
+                    alt="Respiración profunda"
+                >
+
+                <h3 id="respProfunda">
+                    Respiración<br>Profunda
+                </h3>
+
+            </button>
+
+
+            <button
+                class="tarjeta-respiracion"
+                data-respiracion="cuadrada"
+            >
+
+                <img
+                    src="Imagenes/respiracion/resp-cuadrada.png"
+                    alt="Respiración uniforme"
+                >
+
+                <h3 id="respCuadrada">
+                    Respiración<br>uniforme
+                </h3>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================
+         SECCIÓN 2
+    ======================== -->
+
+    <section class="ejercicio-respiracion">
+
+
+        <div class="fila-superior">
+
+
+            <div class="mensaje-numa">
+
+
+                <img
+                    src="Imagenes/respiracion/pequeña.png"
+                    class="numa-guia"
+                    alt="Numa"
+                >
+
+
+                <div class="burbuja">
+
+                    <h2 id="tituloGuia">
+                        Sigue el círculo
+                    </h2>
+
+                    <p id="textoGuia">
+                        Él te mostrará cuándo inhalar,
+                        mantener el aire y soltarlo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="modoCalma"
+                class="btn-calma"
+            >
+                 ☀️ <span id="textoModoCalma">Modo calma</span>
+            </button>
+
+
+        </div>
+
+
+        <div class="animacion">
+
+
+            <div class="contenedor-circulo">
+
+
+                <div
+                    class="circulo"
+                    id="circulo"
+                >
+
+                </div>
+
+
+                <img
+                    src="Imagenes/respiracion/numa-centro.png"
+                    class="numa-centro"
+                    alt="Numa"
+                >
+
+
+            </div>
+
+
+            <h1
+                class="titulo"
+                id="tituloRespira"
+            >
+                Respira conmigo
+            </h1>
+
+
+            <div class="panel">
+
+
+                <div class="paso activo">
+
+                    <img
+                        src="Imagenes/respiracion/inhalar.png"
+                        alt="Inhalar"
+                    >
+
+                    <h3 id="textoInhalar">
+                        Inhala
+                    </h3>
+
+                    <p id="tiempoInhalar">
+                        4 segundos
+                    </p>
+
+                </div>
+
+
+                <div class="puntos">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="paso">
+
+                    <img
+                        src="Imagenes/respiracion/mantener.png"
+                        alt="Mantener"
+                    >
+
+                    <h3 id="textoMantener">
+                        Mantén
+                    </h3>
+
+                    <p id="tiempoMantener">
+                        2 segundos
+                    </p>
+
+                </div>
+
+
+                <div class="puntos">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="paso">
+
+                    <img
+                        src="Imagenes/respiracion/exhalar.png"
+                        alt="Soltar"
+                    >
+
+                    <h3 id="textoSoltar">
+                        Suelta
+                    </h3>
+
+                    <p id="tiempoSoltar">
+                        4 segundos
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="btn-empezar"
+                id="botonEmpezar"
+            >
+
+                ▶ <span id="textoEmpezar">Empezar</span>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+    <script src="respiracion-dellvasquez1929.js"></script>
+
+</body>
+
+</html>

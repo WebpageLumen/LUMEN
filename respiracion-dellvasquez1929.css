@@ -1,0 +1,1309 @@
+/*==========================
+    CONFIGURACIÓN GENERAL
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    width:100%;
+    min-width:0;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#ffffff;
+
+    overflow-x:hidden;
+}
+
+
+
+/* =========================================
+   SELECTOR DE IDIOMA
+========================================= */
+
+.language-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+
+.language-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    background: white;
+
+    padding: 8px 12px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.language-flag {
+    width: 25px;
+    height: 18px;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+}
+
+
+.arrow {
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+
+.language-options {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+    right: 0;
+
+    min-width: 150px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 6px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+.language-options.active {
+    display: block;
+}
+
+
+.language-option {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    text-align: left;
+}
+
+
+.language-option:hover {
+    background: #f0ebfa;
+}
+
+
+.language-option img {
+    width: 25px;
+    height: 18px;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .language-dropdown {
+        top: 12px;
+        right: 12px;
+    }
+
+
+    .language-button {
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+
+
+    .language-options {
+        right: 0;
+        min-width: 140px;
+    }
+
+}
+
+
+
+/* ==========================
+   BOTÓN VOLVER
+========================== */
+
+.btn-volver{
+
+    position:fixed;
+
+    top:20px;
+    left:30px;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#76a7e4;
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding-bottom:8px;
+
+    text-decoration:none;
+
+    font-size:45px;
+    font-weight:normal;
+
+    line-height:1;
+
+    z-index:1000;
+
+    transition:.25s;
+}
+
+.btn-volver:hover{
+    transform:scale(1.08);
+}
+
+
+/* ==========================
+   NOTIFICACIÓN RESPIRACIÓN
+========================== */
+
+.notificacion-respiracion{
+
+    position:fixed;
+
+    top:60px;
+    right:25px;
+
+    width:260px;
+    max-width:calc(100vw - 40px);
+
+    padding:15px 20px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+
+    z-index:2000;
+
+    opacity:0;
+
+    transform:translateX(30px);
+
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+.notificacion-respiracion.mostrar{
+
+    opacity:1;
+
+    transform:translateX(0);
+}
+
+.notificacion-respiracion strong{
+
+    display:block;
+
+    color:#6f60ec;
+
+    font-size:16px;
+
+    margin-bottom:5px;
+}
+
+.notificacion-respiracion p{
+
+    margin:0;
+
+    color:#555;
+
+    font-size:14px;
+
+    line-height:1.4;
+}
+
+
+/*==========================
+    SECCIÓN 1
+==========================*/
+
+.seleccion-respiracion{
+
+    width:100%;
+    max-width:100%;
+
+    min-height:420px;
+
+    background-image:url("Imagenes/respiracion/fondo-arriba.png");
+
+    background-size:cover;
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    padding:40px 8%;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+body.modo-calma .seleccion-respiracion{
+
+    background-image:
+        url("Imagenes/respiracion/fondo-arriba-calma.png");
+}
+
+
+/* ==========================
+   BOTÓN CALMA
+========================== */
+
+.btn-calma{
+
+    border:none;
+
+    background:white;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    max-width:100%;
+}
+
+.btn-calma:hover{
+    transform:scale(1.05);
+}
+
+
+/*==========================
+      TARJETAS
+==========================*/
+
+.contenedor-tarjetas{
+
+    width:100%;
+    max-width:1200px;
+
+    margin:70px auto 0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:flex-start;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+
+.tarjeta-respiracion{
+
+    width:200px;
+    max-width:100%;
+
+    background:
+        linear-gradient(
+            #8dc8ff,
+            #ecf8ff,
+            #8dc8ff
+        );
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.15);
+
+    flex-shrink:0;
+}
+
+.tarjeta-respiracion:hover{
+    transform:translateY(-10px);
+}
+
+.tarjeta-respiracion img{
+
+    width:100%;
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+}
+
+.tarjeta-respiracion h3{
+
+    margin-top:15px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:#404040;
+}
+
+.tarjeta-respiracion.activa{
+
+    background:
+        linear-gradient(
+            #e3bbed,
+            #ffffff,
+            #e3bbed
+        );
+}
+
+
+/*==========================
+      SECCIÓN 2
+==========================*/
+
+.ejercicio-respiracion{
+
+    width:100%;
+    max-width:100%;
+
+    min-height:900px;
+
+    background-image:url("Imagenes/respiracion/fondo-abajo.png");
+
+    background-size:cover;
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    padding:60px 8%;
+
+    overflow:hidden;
+}
+
+body.modo-calma .ejercicio-respiracion{
+
+    background-image:
+        url("Imagenes/respiracion/fondo-abajo-calma.png");
+}
+
+
+/*==========================
+     FILA SUPERIOR
+==========================*/
+
+.fila-superior{
+
+    width:100%;
+    max-width:1100px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/*==========================
+     MENSAJE NUMA
+==========================*/
+
+.mensaje-numa{
+
+    max-width:100%;
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    position:relative;
+}
+
+.numa-guia{
+
+    width:95px;
+    max-width:25vw;
+
+    position:absolute;
+
+    left:-35px;
+
+    bottom:45px;
+
+    z-index:2;
+}
+
+.burbuja{
+
+    max-width:100%;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:20px 28px;
+
+    margin-left:25px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.12);
+}
+
+.burbuja h2{
+
+    color:#6b59c8;
+
+    margin-bottom:8px;
+
+    font-size:clamp(20px,2.5vw,28px);
+}
+
+.burbuja p{
+
+    color:#555;
+
+    line-height:1.5;
+
+    font-size:clamp(14px,1.5vw,18px);
+}
+
+
+/*==========================
+      ANIMACIÓN
+==========================*/
+
+.animacion{
+
+    width:100%;
+
+    margin-top:20px;
+}
+
+
+/*==========================
+      CÍRCULO
+==========================*/
+
+.contenedor-circulo{
+
+    position:relative;
+
+    width:min(350px, 70vw);
+    height:min(350px, 70vw);
+
+    margin:45px auto;
+}
+
+.circulo{
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    background:#93c7f6;
+
+    transition:transform linear;
+}
+
+.numa-centro{
+
+    width:min(300px, 60vw);
+
+    max-width:85%;
+
+    position:absolute;
+
+    left:48%;
+    bottom:24px;
+
+    transform:translateX(-50%);
+
+    z-index:2;
+}
+
+
+/*==========================
+      TÍTULO
+==========================*/
+
+.titulo{
+
+    margin-top:35px;
+    margin-bottom:5px;
+
+    text-align:center;
+
+    font-size:40px;
+
+    color:#4d79c8;
+}
+
+
+/*==========================
+      PANEL
+==========================*/
+
+.panel{
+
+    width:fit-content;
+    max-width:100%;
+
+    margin:18px auto 45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:30px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:25px 40px;
+
+    box-shadow:
+        12px 12px 0 #e0c8ff;
+}
+
+.paso{
+
+    width:100px;
+
+    min-width:0;
+
+    text-align:center;
+
+    transition:all .3s ease;
+}
+
+.paso img{
+
+    width:70px;
+    max-width:100%;
+
+    height:auto;
+}
+
+.paso h3{
+
+    margin-top:10px;
+
+    color:#d39d1c;
+
+    font-size:18px;
+}
+
+.paso p{
+
+    margin-top:5px;
+
+    color:#555;
+
+    font-size:15px;
+}
+
+.paso.activo{
+
+    transform:scale(1.08);
+}
+
+.paso.activo h3{
+
+    color:#6f60ec;
+}
+
+
+/*==========================
+      PUNTOS
+==========================*/
+
+.puntos{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-shrink:0;
+}
+
+.puntos span{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#d7d7d7;
+}
+
+
+/*==========================
+      BOTÓN
+==========================*/
+
+.btn-empezar{
+
+    display:block;
+
+    margin:0 auto;
+
+    border:none;
+
+    border-radius:35px;
+
+    padding:18px 50px;
+
+    max-width:90%;
+
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6d62f5,
+            #9872ff
+        );
+
+    transition:.3s;
+}
+
+.btn-empezar:hover{
+    transform:scale(1.05);
+}
+
+
+/*====================================================
+   TABLET
+====================================================*/
+
+@media(max-width:1000px){
+
+    .seleccion-respiracion{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .ejercicio-respiracion{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .contenedor-tarjetas{
+
+        gap:20px;
+
+        margin-top:55px;
+    }
+
+    .tarjeta-respiracion{
+        width:180px;
+    }
+
+    .fila-superior{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        gap:20px;
+    }
+
+    .mensaje-numa{
+
+        width:100%;
+
+        justify-content:center;
+    }
+
+    .burbuja{
+        margin-left:45px;
+    }
+
+    .panel{
+
+        gap:20px;
+
+        padding:22px 30px;
+    }
+
+    .paso{
+        width:85px;
+    }
+}
+
+
+/*====================================================
+   CELULARES
+====================================================*/
+
+@media(max-width:700px){
+
+    .btn-volver{
+
+        top:12px;
+        left:12px;
+
+        width:52px;
+        height:52px;
+
+        font-size:34px;
+
+        padding-bottom:6px;
+    }
+
+
+    /* ==========================
+       SECCIÓN 1
+    ========================== */
+
+    .seleccion-respiracion{
+
+        min-height:auto;
+
+        padding:
+            70px
+            15px
+            55px;
+
+        background-size:auto 100%;
+
+        background-position:center top;
+    }
+
+
+    .btn-calma{
+
+        display:block;
+
+        margin:0 auto;
+
+        padding:10px 18px;
+
+        font-size:14px;
+    }
+
+
+    .contenedor-tarjetas{
+
+        width:100%;
+
+        margin-top:40px;
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:18px;
+
+        justify-items:center;
+    }
+
+
+    .tarjeta-respiracion{
+
+        width:100%;
+
+        max-width:175px;
+
+        padding:12px;
+
+        border-radius:25px;
+    }
+
+
+    .tarjeta-respiracion h3{
+
+        margin-top:10px;
+
+        font-size:18px;
+    }
+
+
+    /* ==========================
+       SECCIÓN 2
+    ========================== */
+
+    .ejercicio-respiracion{
+
+        min-height:auto;
+
+        padding:
+            50px
+            15px
+            70px;
+
+        background-size:auto 100%;
+
+        background-position:center top;
+    }
+
+
+    /* ==========================
+       NUMA
+    ========================== */
+
+    .fila-superior{
+
+        width:100%;
+
+        display:block;
+
+        margin-bottom:10px;
+    }
+
+
+    .mensaje-numa{
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        padding-left:20px;
+    }
+
+
+    .numa-guia{
+
+        width:75px;
+
+        max-width:none;
+
+        left:0;
+
+        bottom:30px;
+    }
+
+
+    .burbuja{
+
+        width:calc(100% - 25px);
+
+        margin-left:25px;
+
+        padding:
+            18px
+            20px;
+
+        border-radius:22px;
+    }
+
+
+    .burbuja h2{
+
+        font-size:21px;
+
+        margin-bottom:6px;
+    }
+
+
+    .burbuja p{
+
+        font-size:14px;
+
+        line-height:1.45;
+    }
+
+
+    /* ==========================
+       CÍRCULO
+    ========================== */
+
+    .animacion{
+
+        width:100%;
+
+        margin-top:10px;
+    }
+
+
+    .contenedor-circulo{
+
+        width:min(280px, 75vw);
+
+        height:min(280px, 75vw);
+
+        margin:35px auto;
+    }
+
+
+    .numa-centro{
+
+        width:min(230px, 62vw);
+
+        bottom:18px;
+    }
+
+
+    /* ==========================
+       TÍTULO
+    ========================== */
+
+    .titulo{
+
+        margin-top:20px;
+
+        font-size:
+            clamp(
+                26px,
+                8vw,
+                34px
+            );
+
+        line-height:1.2;
+    }
+
+
+    /* ==========================
+       PANEL
+    ========================== */
+
+    .panel{
+
+        width:100%;
+
+        max-width:420px;
+
+        margin:
+            20px auto
+            35px;
+
+        padding:
+            20px 15px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:18px;
+
+        border-radius:25px;
+
+        box-shadow:
+            8px 8px 0 #e0c8ff;
+    }
+
+
+    .paso{
+
+        width:100%;
+
+        max-width:180px;
+    }
+
+
+    .paso img{
+
+        width:60px;
+    }
+
+
+    .paso h3{
+
+        font-size:17px;
+    }
+
+
+    .paso p{
+
+        font-size:14px;
+    }
+
+
+    .puntos{
+
+        gap:8px;
+    }
+
+
+    .puntos span{
+
+        width:10px;
+        height:10px;
+    }
+
+
+    /* ==========================
+       BOTÓN
+    ========================== */
+
+    .btn-empezar{
+
+        padding:
+            14px
+            35px;
+
+        font-size:18px;
+    }
+
+
+    /* ==========================
+       NOTIFICACIÓN
+    ========================== */
+
+    .notificacion-respiracion{
+
+        top:30px;
+        right:15px;
+
+        width:250px;
+
+        max-width:
+            calc(100vw - 30px);
+    }
+}
+
+
+/*====================================================
+   CELULARES PEQUEÑOS
+====================================================*/
+
+@media(max-width:400px){
+
+    .seleccion-respiracion{
+
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+
+    .ejercicio-respiracion{
+
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+
+    .contenedor-tarjetas{
+
+        gap:12px;
+    }
+
+
+    .tarjeta-respiracion{
+
+        max-width:155px;
+
+        padding:10px;
+
+        border-radius:22px;
+    }
+
+
+    .tarjeta-respiracion h3{
+
+        font-size:16px;
+    }
+
+
+    .burbuja{
+
+        width:calc(100% - 15px);
+
+        margin-left:15px;
+
+        padding:
+            15px
+            16px;
+    }
+
+
+    .numa-guia{
+
+        width:65px;
+
+        left:-2px;
+
+        bottom:25px;
+    }
+
+
+    .burbuja h2{
+
+        font-size:19px;
+    }
+
+
+    .burbuja p{
+
+        font-size:13px;
+    }
+
+
+    .contenedor-circulo{
+
+        width:70vw;
+        height:70vw;
+    }
+
+
+    .numa-centro{
+
+        width:58vw;
+
+        bottom:15px;
+    }
+
+
+    .titulo{
+
+        font-size:25px;
+    }
+
+
+    .panel{
+
+        padding:
+            18px
+            12px;
+    }
+
+
+    .btn-empezar{
+
+        padding:
+            13px
+            28px;
+
+        font-size:16px;
+    }
+}
+
+
+/*====================================================
+   CELULARES MUY PEQUEÑOS
+====================================================*/
+
+@media(max-width:350px){
+
+    .contenedor-tarjetas{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+
+    .tarjeta-respiracion{
+
+        width:170px;
+    }
+
+
+    .mensaje-numa{
+
+        padding-left:10px;
+    }
+
+
+    .numa-guia{
+
+        width:58px;
+    }
+
+
+    .burbuja{
+
+        width:calc(100% - 5px);
+
+        margin-left:10px;
+    }
+
+
+    .contenedor-circulo{
+
+        width:65vw;
+        height:65vw;
+    }
+
+
+    .numa-centro{
+
+        width:55vw;
+    }
+}

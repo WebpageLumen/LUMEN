@@ -1,0 +1,1316 @@
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   BOTÓN VOLVER
+========================== */
+
+.btn-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 30px;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #76a7e4;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 8px;
+
+    text-decoration: none;
+
+    font-size: 45px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    z-index: 1000;
+
+    transition: transform .25s;
+}
+
+.btn-volver:hover {
+    transform: scale(1.08);
+}
+
+
+/* =================================
+   SELECTOR DE IDIOMA
+================================= */
+
+.language-dropdown {
+    position: absolute;
+
+    top: 18px;
+    right: 25px;
+
+    z-index: 2000;
+}
+
+.language-button {
+    height: 43px;
+    min-width: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    background: white;
+
+    border: 2px solid transparent;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #294b75;
+
+    transition: border-color .2s ease;
+}
+
+.language-button:hover {
+    border-color: #222;
+}
+
+.language-flag {
+    width: 25px;
+    height: 25px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+#codigoIdioma {
+    min-width: 17px;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 18px;
+
+    color: #2878c8;
+
+    line-height: 1;
+
+    margin-left: 1px;
+
+    transition: transform .25s ease;
+}
+
+.language-dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+
+    top: calc(100% + 7px);
+    right: 0;
+
+    width: 88px;
+
+    padding: 0;
+
+    background: white;
+
+    border-radius: 0 0 15px 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+}
+
+.language-dropdown.active .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: none;
+
+    background: white;
+
+    color: #294b75;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.language-option.active,
+.language-option:hover {
+    background: #e9f4fc;
+}
+
+
+/* ==========================
+   HERO
+========================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow: hidden;
+}
+
+.hero-img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+
+    top: 35%;
+    left: 8%;
+
+    width: min(35%, 500px);
+
+    font-size: clamp(16px, 1.5vw, 24px);
+}
+
+.hero-text h1 {
+    margin-bottom: 20px;
+}
+
+
+/* ==========================
+   SECCIÓN DOS
+========================== */
+
+.seccion-dos {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    background-image: url("Imagenes/Fondo.png");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+
+    min-height: 100vh;
+
+    padding:
+        70px
+        5%
+        140px;
+
+    overflow: hidden;
+}
+
+body.modo-calma .seccion-dos {
+    background-image: url("Imagenes/fondo-calma.png");
+}
+
+
+/* ==========================
+   EMOCIÓN DEL DÍA
+========================== */
+
+.seccion-emociones {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(18px, 1.8vw, 22px);
+
+    color: #2169ac;
+
+    text-align: center;
+}
+
+.encabezado-emociones {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.btn-calma {
+    position: absolute;
+
+    right: 0;
+
+    background: #abd0ff;
+    color: white;
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.contenedor-emociones {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: clamp(0px, 1vw, 10px);
+
+    flex-wrap: wrap;
+}
+
+.tarjeta-emocion {
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.tarjeta-emocion img {
+    display: block;
+
+    width: clamp(75px, 8vw, 105px);
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+.tarjeta-emocion:hover {
+    transform: scale(1.08);
+}
+
+.tarjeta-emocion:active {
+    transform: scale(.95);
+}
+
+
+/* ==========================
+   RECURSOS
+========================== */
+
+.recursos {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 70px auto 0;
+
+    padding: 0;
+}
+
+
+/* ==========================
+   FILAS
+========================== */
+
+.fila {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.fila-abajo {
+    justify-content: center;
+}
+
+
+/* ==========================
+   TARJETAS GENERALES
+========================== */
+
+.tarjeta {
+    position: relative;
+
+    border-radius: 28px;
+
+    padding: 20px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    overflow: hidden;
+
+    transition: transform .3s;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    max-width: 100%;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+}
+
+
+/* ==========================
+   CO-REGULACIÓN
+========================== */
+
+.coregulacion {
+    flex: 1.7;
+
+    min-width: 0;
+
+    height: 220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe996,
+            #fffcdd,
+            #ffe996
+        );
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-core {
+    min-width: 0;
+
+    max-width: 55%;
+
+    font-size: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    transform: translateY(-8px);
+}
+
+.texto-core h3 {
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.img-core {
+    display: block;
+
+    width: clamp(150px, 18vw, 230px);
+
+    max-width: 42%;
+
+    height: auto;
+
+    transform: translateY(-5px);
+}
+
+body.modo-calma .coregulacion {
+    background:
+        linear-gradient(
+            135deg,
+            #ffeeae,
+            #fffdea,
+            #ffeeae
+        );
+}
+
+
+/* ==========================
+   RESPIRACIÓN
+========================== */
+
+.respiracion {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6cb8ff,
+            #b4e4ff,
+            #6cb8ff
+        );
+
+    font-size: 22px;
+}
+
+.respiracion h3 {
+    margin-top: 18px;
+}
+
+.img-personaje {
+    position: absolute;
+
+    right: 12px;
+    bottom: 0;
+
+    width: clamp(100px, 12vw, 150px);
+
+    max-width: 55%;
+
+    height: auto;
+
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.respiracion .img-personaje {
+    width: clamp(90px, 10vw, 135px);
+}
+
+body.modo-calma .respiracion {
+    background:
+        linear-gradient(
+            135deg,
+            #92caff,
+            #d5f0ff,
+            #92caff
+        );
+}
+
+
+/* ==========================
+   ESTIRAMIENTOS
+========================== */
+
+.estiramientos {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6cb8ff,
+            #b4e4ff,
+            #6cb8ff
+        );
+
+    font-size: 22px;
+}
+
+.estiramientos h3 {
+    margin-top: 18px;
+}
+
+.estiramientos .img-personaje {
+    position: absolute;
+
+    right: clamp(8px, 2vw, 18px);
+    bottom: 0;
+
+    width: clamp(100px, 9vw, 125px);
+
+    max-width: 50%;
+
+    margin: 0;
+}
+
+body.modo-calma .estiramientos {
+    background:
+        linear-gradient(
+            135deg,
+            #92caff,
+            #d5f0ff,
+            #92caff
+        );
+}
+
+
+/* ==========================
+   AUTOCONCIENCIA
+========================== */
+
+.autoconciencia {
+    width: min(290px, 30%);
+
+    min-height: 210px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8dc8ff,
+            #ecf8ff,
+            #8dc8ff
+        );
+
+    text-align: center;
+
+    font-size: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+}
+
+.autoconciencia h3 {
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   ESTRATEGIAS
+========================== */
+
+.estrategias {
+    width: min(290px, 30%);
+
+    min-height: 210px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8dc8ff,
+            #ecf8ff,
+            #8dc8ff
+        );
+
+    text-align: center;
+
+    font-size: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+}
+
+.estrategias h3 {
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   ICONOS
+========================== */
+
+.icono-arriba {
+    width: clamp(100px, 13vw, 130px);
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+/* ==========================
+   BOTÓN EMPEZAR
+========================== */
+
+.btn-empezar {
+    margin-top: 18px;
+
+    background: #feffc4;
+
+    color: black;
+
+    border: none;
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    max-width: 100%;
+}
+
+
+/* ==========================
+   MODAL DE NUMA
+========================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, .35);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.mensaje-numa {
+    position: relative;
+
+    width: min(600px, 100%);
+
+    max-width: 600px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+#imagenNuma {
+    width: 120px;
+
+    max-width: 25%;
+
+    margin-right: -18px;
+
+    z-index: 2;
+}
+
+.burbuja {
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 30px 35px;
+
+    width: 100%;
+
+    min-height: 170px;
+
+    display: flex;
+
+    align-items: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+}
+
+#textoNuma {
+    font-size: 20px;
+
+    color: #444;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+.cerrar {
+    position: absolute;
+
+    top: -12px;
+    right: -12px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #7E57C2;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .seccion-dos {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .fila {
+        flex-wrap: wrap;
+    }
+
+    .coregulacion {
+        flex: 1 1 100%;
+    }
+
+    .respiracion,
+    .estiramientos {
+        flex: 1 1 45%;
+    }
+
+    .autoconciencia,
+    .estrategias {
+        width: 45%;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* Evita cualquier ancho que provoque desplazamiento */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* --------------------------
+       BOTONES SUPERIORES
+    -------------------------- */
+
+    .btn-volver {
+        top: 12px;
+        left: 12px;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 32px;
+
+        padding-bottom: 6px;
+    }
+
+    .language-dropdown {
+        top: 10px;
+        right: 12px;
+    }
+
+
+    /* --------------------------
+       HERO
+    -------------------------- */
+
+    .hero {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+    }
+
+    .hero-text {
+        top: 25%;
+        left: 6%;
+
+        width: 55%;
+        max-width: 55%;
+
+        font-size: 13px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(20px, 6vw, 28px);
+
+        margin-bottom: 8px;
+    }
+
+
+    /* --------------------------
+       SECCIÓN DOS
+    -------------------------- */
+
+    .seccion-dos {
+        width: 100%;
+        max-width: 100%;
+
+        padding:
+            45px
+            5%
+            80px;
+
+        background-size: auto 100%;
+        background-position: center top;
+    }
+
+
+    /* --------------------------
+       EMOCIONES
+    -------------------------- */
+
+    .encabezado-emociones {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        margin-bottom: 25px;
+    }
+
+    .seccion-emociones {
+        width: 100%;
+    }
+
+    .btn-calma {
+        position: static;
+
+        margin: 0 auto;
+
+        padding: 9px 18px;
+
+        font-size: 14px;
+    }
+
+    .contenedor-emociones {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+
+        justify-items: center;
+    }
+
+    .tarjeta-emocion {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    .tarjeta-emocion img {
+        width: min(22vw, 85px);
+
+        max-width: 85px;
+    }
+
+
+    /* --------------------------
+       RECURSOS
+    -------------------------- */
+
+    .recursos {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 50px;
+
+        padding: 0;
+    }
+
+
+    /* --------------------------
+       FILAS
+    -------------------------- */
+
+    .fila {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* --------------------------
+       TODAS LAS TARJETAS
+    -------------------------- */
+
+    .coregulacion,
+    .respiracion,
+    .estiramientos,
+    .autoconciencia,
+    .estrategias {
+
+        width: 100%;
+        max-width: 100%;
+
+        min-width: 0;
+
+        flex: none;
+
+        margin: 0;
+
+    }
+
+
+    /* --------------------------
+       CO-REGULACIÓN
+    -------------------------- */
+
+    .coregulacion {
+        min-height: 190px;
+        height: 190px;
+
+        padding: 18px;
+    }
+
+    .texto-core {
+        width: 55%;
+        max-width: 55%;
+
+        font-size: 14px;
+
+        transform: none;
+    }
+
+    .texto-core h3 {
+        font-size: 19px;
+
+        margin-bottom: 6px;
+    }
+
+    .img-core {
+        width: 40%;
+
+        max-width: 40%;
+
+        transform: none;
+    }
+
+
+    /* --------------------------
+       RESPIRACIÓN
+    -------------------------- */
+
+    .respiracion,
+    .estiramientos {
+        height: 190px;
+
+        padding: 18px;
+
+        font-size: 19px;
+    }
+
+    .respiracion h3,
+    .estiramientos h3 {
+        margin-top: 5px;
+    }
+
+    .respiracion .img-personaje,
+    .estiramientos .img-personaje {
+
+        width: 105px;
+
+        max-width: 42%;
+
+        right: 10px;
+
+        bottom: 5px;
+
+        margin: 0;
+    }
+
+
+    /* --------------------------
+       AUTOCONCIENCIA
+       ESTRATEGIAS
+    -------------------------- */
+
+    .autoconciencia,
+    .estrategias {
+
+        min-height: 190px;
+
+        padding: 15px;
+
+        font-size: 19px;
+    }
+
+    .autoconciencia h3,
+    .estrategias h3 {
+        margin-top: 5px;
+    }
+
+    .icono-arriba {
+        width: 105px;
+
+        max-width: 45%;
+    }
+
+
+    /* --------------------------
+       BOTÓN EMPEZAR
+    -------------------------- */
+
+    .btn-empezar {
+        padding: 10px 22px;
+
+        font-size: 14px;
+    }
+
+
+    /* --------------------------
+       MODAL
+    -------------------------- */
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+
+        padding: 15px;
+    }
+
+    .mensaje-numa {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #imagenNuma {
+        width: 75px;
+
+        max-width: 22%;
+    }
+
+    .burbuja {
+        padding: 20px;
+
+        min-height: 130px;
+
+        border-radius: 25px;
+    }
+
+    #textoNuma {
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .cerrar {
+        top: -8px;
+        right: -5px;
+
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .seccion-dos {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .btn-volver {
+        width: 46px;
+        height: 46px;
+
+        font-size: 29px;
+    }
+
+    .language-button {
+        min-width: 78px;
+
+        padding: 4px 7px;
+
+        font-size: 13px;
+    }
+
+    .language-flag {
+        width: 21px;
+        height: 21px;
+    }
+
+    .language-menu {
+        width: 78px;
+    }
+
+    .language-option {
+        height: 44px;
+
+        padding: 6px 9px;
+
+        font-size: 13px;
+    }
+
+    .contenedor-emociones {
+        gap: 4px;
+    }
+
+    .tarjeta-emocion img {
+        width: 21vw;
+        max-width: 75px;
+    }
+
+    .coregulacion {
+        height: 175px;
+        min-height: 175px;
+
+        padding: 14px;
+    }
+
+    .texto-core {
+        font-size: 13px;
+    }
+
+    .texto-core h3 {
+        font-size: 17px;
+    }
+
+    .img-core {
+        width: 38%;
+        max-width: 38%;
+    }
+
+    .respiracion,
+    .estiramientos {
+        height: 175px;
+
+        font-size: 17px;
+
+        padding: 14px;
+    }
+
+    .respiracion .img-personaje,
+    .estiramientos .img-personaje {
+        width: 90px;
+    }
+
+    .autoconciencia,
+    .estrategias {
+        min-height: 175px;
+
+        font-size: 17px;
+    }
+
+    .icono-arriba {
+        width: 90px;
+    }
+
+    .mensaje-numa {
+        max-width: 350px;
+    }
+
+    #imagenNuma {
+        width: 65px;
+    }
+
+    .burbuja {
+        padding: 17px;
+    }
+
+    #textoNuma {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,1433 @@
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+
+    width: 100%;
+
+    overflow-x: hidden;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #a9d4f7;
+
+    overflow-x: hidden;
+}
+
+
+
+/* =====================================================
+   PÁGINA PRINCIPAL
+===================================================== */
+
+.estrategia-pagina {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        clamp(70px, 8vw, 100px)
+        5%
+        clamp(60px, 8vw, 100px);
+
+    background-image:
+        url("Imagenes/Estrategias/fondo.png");
+
+    background-position:
+        center top;
+
+    background-size:
+        100% auto;
+
+    background-repeat:
+        no-repeat;
+
+    overflow-x: hidden;
+}
+
+
+
+/* =====================================================
+   BOTÓN VOLVER
+===================================================== */
+
+.btn-volver {
+
+    position: fixed;
+
+    top:
+        clamp(12px, 2vw, 25px);
+
+    left:
+        clamp(12px, 2.5vw, 35px);
+
+    width:
+        clamp(45px, 5vw, 65px);
+
+    height:
+        clamp(45px, 5vw, 65px);
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #5b88c7;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(28px, 3.5vw, 42px);
+
+    line-height: 1;
+
+    z-index: 1000;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.btn-volver:hover {
+
+    transform: scale(1.08);
+}
+
+
+
+/* =====================================================
+   SELECTOR DE IDIOMA
+===================================================== */
+
+.language-dropdown {
+
+    position: fixed;
+
+    top:
+        clamp(12px, 2vw, 25px);
+
+    right:
+        clamp(12px, 2.5vw, 35px);
+
+    z-index: 1000;
+}
+
+
+
+/* =====================================================
+   BOTÓN PRINCIPAL DEL IDIOMA
+===================================================== */
+
+.language-button {
+
+    height: 43px;
+
+    min-width: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    background: white;
+
+    border: 2px solid transparent;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #294b75;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.language-button:hover {
+
+    border-color: #222;
+}
+
+
+
+/* =====================================================
+   BANDERAS
+===================================================== */
+
+.language-flag {
+
+    width: 25px;
+
+    height: 25px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+
+/* =====================================================
+   CÓDIGO DEL IDIOMA
+===================================================== */
+
+#codigoIdioma {
+
+    min-width: 17px;
+
+    text-align: left;
+}
+
+
+
+/* =====================================================
+   FLECHA
+===================================================== */
+
+.arrow {
+
+    font-size: 18px;
+
+    color: #2878c8;
+
+    line-height: 1;
+
+    margin-left: 1px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.language-dropdown.active .arrow {
+
+    transform:
+        rotate(180deg);
+}
+
+
+
+/* =====================================================
+   MENÚ DESPLEGABLE
+===================================================== */
+
+.language-menu {
+
+    position: absolute;
+
+    top:
+        calc(100% + 7px);
+
+    right: 0;
+
+    width: 88px;
+
+    padding: 0;
+
+    background: white;
+
+    border-radius:
+        0 0 15px 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+
+
+/* =====================================================
+   MENÚ ABIERTO
+===================================================== */
+
+.language-dropdown.active .language-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+
+/* =====================================================
+   OPCIONES DEL IDIOMA
+===================================================== */
+
+.language-option {
+
+    width: 100%;
+
+    height: 49px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: none;
+
+    background: white;
+
+    color: #294b75;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+
+/* =====================================================
+   OPCIÓN SELECCIONADA
+===================================================== */
+
+.language-option.active {
+
+    background:
+        #e9f4fc;
+}
+
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.language-option:hover {
+
+    background:
+        #e9f4fc;
+}
+
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.encabezado-estrategia {
+
+    width:
+        min(900px, 90%);
+
+    margin:
+        0 auto
+        clamp(25px, 4vw, 45px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap:
+        clamp(10px, 2vw, 20px);
+
+    text-align: center;
+
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.numero-estrategia {
+
+    width:
+        clamp(42px, 5vw, 65px);
+
+    height:
+        clamp(42px, 5vw, 65px);
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e8a7ee;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size:
+        clamp(22px, 3vw, 34px);
+
+    font-weight: 900;
+}
+
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.encabezado-estrategia h1 {
+
+    margin: 0;
+
+    color: #000;
+
+    font-size:
+        clamp(30px, 5vw, 58px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-align: center;
+
+    max-width: 100%;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   CONTENEDOR DE CONTENIDO
+===================================================== */
+
+.contenido-estrategia {
+
+    width:
+        min(1000px, 92%);
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   IMAGEN PRINCIPAL
+===================================================== */
+
+.imagen-principal {
+
+    width:
+        min(650px, 90%);
+
+    max-width: 100%;
+
+    margin:
+        0 auto 25px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+
+/* =====================================================
+   INTRODUCCIÓN
+===================================================== */
+
+.descripcion-estrategia {
+
+    width:
+        min(700px, 95%);
+
+    max-width: 100%;
+
+    margin:
+        0 auto
+        clamp(20px, 3vw, 35px);
+
+    padding:
+        clamp(12px, 2vw, 20px);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, .72);
+
+    color: #243b61;
+
+    font-size:
+        clamp(13px, 1.6vw, 19px);
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   GRID GENERAL
+===================================================== */
+
+.tarjetas-informativas,
+.objetos-grid,
+.expresa-grid,
+.ambiente-grid {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        clamp(18px, 3vw, 35px);
+
+    align-items: start;
+
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   TARJETA INFORMATIVA
+===================================================== */
+
+.tarjeta-informativa {
+
+    width: 100%;
+
+    min-width: 0;
+
+    min-height:
+        clamp(230px, 28vw, 330px);
+
+    padding:
+        clamp(18px, 2.5vw, 30px);
+
+    border-radius:
+        clamp(20px, 3vw, 30px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    text-align: center;
+
+    cursor: default;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, .06);
+
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+.tarjeta-rosa {
+
+    background: #edc1e8;
+}
+
+
+.tarjeta-azul {
+
+    background: #a8d4f5;
+}
+
+
+.tarjeta-amarilla {
+
+    background: #f8e9a8;
+}
+
+
+
+/* =====================================================
+   TÍTULO DE TARJETA
+===================================================== */
+
+.tarjeta-informativa h2 {
+
+    margin:
+        0 0
+        clamp(8px, 1.5vw, 15px);
+
+    color: #111;
+
+    font-size:
+        clamp(20px, 2.5vw, 31px);
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+    max-width: 100%;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   TEXTO DE TARJETA
+===================================================== */
+
+.tarjeta-informativa p {
+
+    margin: 0;
+
+    color: #26344e;
+
+    font-size:
+        clamp(12px, 1.4vw, 17px);
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    max-width: 420px;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   IMAGEN DE TARJETA
+===================================================== */
+
+.tarjeta-informativa img {
+
+    width:
+        clamp(110px, 14vw, 180px);
+
+    height:
+        clamp(100px, 13vw, 160px);
+
+    max-width: 100%;
+
+    margin-top: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+
+/* =====================================================
+   GROUNDING
+===================================================== */
+
+.grounding-layout {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap:
+        clamp(20px, 4vw, 60px);
+
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   CONTENEDOR DE LOS PASOS
+===================================================== */
+
+.grounding-contenedor {
+
+    flex: 1;
+
+    min-width: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap:
+        clamp(12px, 2vw, 20px);
+}
+
+
+
+/* =====================================================
+   FILAS DE GROUNDING
+===================================================== */
+
+.grounding-fila {
+
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(12px, 2vw, 20px);
+
+    padding:
+        clamp(10px, 1.5vw, 16px)
+        clamp(15px, 2vw, 22px);
+
+    border-radius: 35px;
+
+    background:
+        rgba(255, 255, 255, .88);
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, .08);
+}
+
+
+
+/* =====================================================
+   NÚMEROS
+===================================================== */
+
+.grounding-numero {
+
+    width:
+        clamp(40px, 5vw, 60px);
+
+    height:
+        clamp(40px, 5vw, 60px);
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size:
+        clamp(20px, 2.5vw, 30px);
+
+    font-weight: 900;
+}
+
+
+.grounding-5 .grounding-numero {
+
+    background: #8d7cc7;
+}
+
+
+.grounding-4 .grounding-numero {
+
+    background: #e5bd73;
+}
+
+
+.grounding-3 .grounding-numero {
+
+    background: #82b99a;
+}
+
+
+.grounding-2 .grounding-numero {
+
+    background: #e9a7a7;
+}
+
+
+.grounding-1 .grounding-numero {
+
+    background: #df8585;
+}
+
+
+
+/* =====================================================
+   TEXTO GROUNDING
+===================================================== */
+
+.grounding-texto {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.grounding-texto h2 {
+
+    margin: 0;
+
+    color: #111;
+
+    font-size:
+        clamp(17px, 2.2vw, 27px);
+
+    font-weight: 900;
+
+    overflow-wrap: break-word;
+}
+
+
+.grounding-texto p {
+
+    margin:
+        3px 0 0;
+
+    color: #4a4a4a;
+
+    font-size:
+        clamp(10px, 1.3vw, 15px);
+
+    font-weight: 600;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   PERSONAJE DE GROUNDING
+===================================================== */
+
+.grounding-personaje {
+
+    width:
+        clamp(150px, 22vw, 280px);
+
+    max-width: 100%;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.grounding-personaje img {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+
+/* =====================================================
+   MENSAJE GROUNDING
+===================================================== */
+
+.mensaje-grounding {
+
+    width:
+        min(420px, 90%);
+
+    max-width: 100%;
+
+    margin:
+        clamp(20px, 3vw, 35px)
+        auto 0;
+
+    padding:
+        clamp(15px, 2vw, 22px);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, .75);
+
+    color: #26344e;
+
+    text-align: center;
+
+    font-size:
+        clamp(13px, 1.5vw, 17px);
+
+    font-weight: 700;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   IMÁGENES DE OBJETOS / EXPRESA / AMBIENTE
+===================================================== */
+
+.objetos-grid .tarjeta-informativa img,
+.expresa-grid .tarjeta-informativa img,
+.ambiente-grid .tarjeta-informativa img {
+
+    width:
+        clamp(120px, 16vw, 200px);
+
+    height:
+        clamp(110px, 15vw, 175px);
+
+    max-width: 100%;
+}
+
+
+
+/* =====================================================
+   MENSAJE FINAL
+===================================================== */
+
+.mensaje-final {
+
+    width:
+        min(700px, 95%);
+
+    max-width: 100%;
+
+    margin:
+        clamp(25px, 4vw, 45px)
+        auto 0;
+
+    padding:
+        clamp(15px, 2vw, 22px);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, .72);
+
+    color: #26344e;
+
+    font-size:
+        clamp(13px, 1.5vw, 18px);
+
+    font-weight: 700;
+
+    text-align: center;
+
+    line-height: 1.3;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-estrategia {
+
+    width:
+        min(600px, 90%);
+
+    max-width: 100%;
+
+    margin:
+        50px auto;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #3654b5;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    overflow-wrap: break-word;
+}
+
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .estrategia-pagina {
+
+        padding-left: 4%;
+
+        padding-right: 4%;
+
+        background-size:
+            auto 100%;
+
+        background-position:
+            center top;
+    }
+
+
+    .encabezado-estrategia {
+
+        width: 95%;
+
+        max-width: 95%;
+    }
+
+
+    .contenido-estrategia {
+
+        width: 95%;
+
+        max-width: 95%;
+    }
+
+
+    .tarjetas-informativas,
+    .objetos-grid,
+    .expresa-grid,
+    .ambiente-grid {
+
+        gap: 15px;
+    }
+
+
+    .tarjeta-informativa {
+
+        min-height: 240px;
+
+        padding: 18px;
+    }
+
+
+    /* GROUNDING */
+
+    .grounding-layout {
+
+        gap: 15px;
+
+        max-width: 100%;
+    }
+
+
+    .grounding-personaje {
+
+        width:
+            clamp(100px, 18vw, 160px);
+    }
+
+}
+
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .language-dropdown {
+
+        top: 10px;
+
+        right: 12px;
+    }
+
+
+    .language-button {
+
+        height: 40px;
+
+        min-width: 82px;
+
+        padding: 5px 8px;
+
+        font-size: 14px;
+    }
+
+
+    .language-flag {
+
+        width: 23px;
+
+        height: 23px;
+    }
+
+
+    .arrow {
+
+        font-size: 17px;
+    }
+
+
+    .language-menu {
+
+        width: 82px;
+    }
+
+
+    .language-option {
+
+        height: 46px;
+
+        font-size: 14px;
+
+        padding: 7px 11px;
+    }
+
+
+
+    .estrategia-pagina {
+
+        min-height: 100vh;
+
+        width: 100%;
+
+        padding:
+            70px
+            12px
+            45px;
+
+        background-position:
+            center top;
+
+        background-size:
+            auto 100%;
+
+        background-repeat:
+            no-repeat;
+    }
+
+
+
+    /* ENCABEZADO */
+
+    .encabezado-estrategia {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .encabezado-estrategia h1 {
+
+        font-size:
+            clamp(25px, 8vw, 38px);
+
+        min-width: 0;
+    }
+
+
+    .numero-estrategia {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 21px;
+    }
+
+
+
+    .contenido-estrategia {
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+
+
+    /* GROUNDING */
+
+    .grounding-layout {
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        gap: 15px;
+    }
+
+
+    .grounding-layout .grounding-contenedor {
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+
+    .grounding-personaje {
+
+        width:
+            min(180px, 45%);
+
+        max-width: 180px;
+
+        order: 2;
+
+        margin-top: 5px;
+    }
+
+
+    .grounding-fila {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        border-radius: 25px;
+
+        padding:
+            10px 12px;
+
+        gap: 10px;
+    }
+
+
+    .grounding-numero {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 18px;
+    }
+
+
+    .grounding-texto {
+
+        min-width: 0;
+    }
+
+
+    .grounding-texto h2 {
+
+        font-size: 16px;
+    }
+
+
+    .grounding-texto p {
+
+        font-size: 9px;
+    }
+
+
+
+    /* TARJETAS */
+
+    .tarjetas-informativas,
+    .objetos-grid,
+    .expresa-grid,
+    .ambiente-grid {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .tarjeta-informativa {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        min-height: 220px;
+
+        padding: 18px;
+    }
+
+
+    .tarjeta-informativa h2 {
+
+        font-size: 21px;
+    }
+
+
+    .tarjeta-informativa p {
+
+        font-size: 12px;
+    }
+
+
+    .tarjeta-informativa img {
+
+        width: 130px;
+
+        height: 115px;
+
+        margin-top: 12px;
+    }
+
+}
+
+
+
+/* =====================================================
+   CELULAR PEQUEÑO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .estrategia-pagina {
+
+        padding:
+            65px
+            8px
+            35px;
+    }
+
+
+    .encabezado-estrategia h1 {
+
+        font-size: 25px;
+    }
+
+
+    .grounding-texto h2 {
+
+        font-size: 14px;
+    }
+
+
+    .grounding-texto p {
+
+        font-size: 8px;
+    }
+
+
+    .tarjeta-informativa {
+
+        min-height: 200px;
+    }
+
+
+    .language-button {
+
+        min-width: 78px;
+    }
+
+
+    .language-menu {
+
+        width: 78px;
+    }
+
+}

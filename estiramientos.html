@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Estiramientos</title>
+
+    <link rel="stylesheet"
+        href="estiramientos.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         BOTÓN VOLVER
+    ========================== -->
+
+    <a href="regulacionemocional-dellvasquez1929.html"
+        class="btn-volver">
+
+        ←
+
+    </a>
+
+
+    <!-- =========================
+         SELECTOR DE IDIOMA
+    ========================== -->
+
+    <div class="language-dropdown"
+        id="languageDropdown">
+
+        <!-- BOTÓN PRINCIPAL -->
+
+        <button class="language-button"
+            id="languageButton">
+
+            <img
+                id="banderaActual"
+                class="language-flag"
+                src="Imagenes/español.webp"
+                alt="Español">
+
+            <span id="codigoIdioma">
+                ES
+            </span>
+
+            <span class="arrow">
+                ⌄
+            </span>
+
+        </button>
+
+
+        <!-- MENÚ -->
+
+        <div class="language-menu"
+            id="languageMenu">
+
+            <!-- ESPAÑOL -->
+
+            <button
+                class="language-option active"
+                id="opcionES"
+                data-language="es">
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/español.webp"
+                    alt="Español">
+
+                <span>
+                    ES
+                </span>
+
+            </button>
+
+
+            <!-- INGLÉS -->
+
+            <button
+                class="language-option"
+                id="opcionEN"
+                data-language="en">
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/ingles.png"
+                    alt="English">
+
+                <span>
+                    EN
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SECCIÓN PRINCIPAL
+    ========================== -->
+
+    <section class="seccion-estiramientos">
+
+
+        <!-- =====================
+             ENCABEZADO
+        ====================== -->
+
+        <div class="encabezado">
+
+            <div class="texto-encabezado">
+
+                <h1 id="tituloEstiramientos">
+                    ESTIRAMIENTOS
+                </h1>
+
+                <p id="descripcionEstiramientos">
+                    Muévete a tu ritmo y<br>
+                    siente tu cuerpo mejor.
+                </p>
+
+            </div>
+
+
+            <img
+                src="Imagenes/estiramientos/numa-principal.png"
+                class="numa-estirando"
+                alt="Numa estirándose"
+                id="imagenNumaPrincipal">
+
+        </div>
+
+
+        <!-- =====================
+             MODO CALMA
+        ====================== -->
+
+        <button id="modoCalma"
+            class="btn-calma">
+
+             ☀️
+
+        </button>
+
+
+        <!-- =====================
+             TÍTULO DE TARJETAS
+        ====================== -->
+
+        <h2
+            class="titulo-seleccion"
+            id="tituloSeleccion">
+
+            Elige un estiramiento
+
+        </h2>
+
+
+        <!-- =====================
+             TARJETAS
+        ====================== -->
+
+        <div class="contenedor-estiramientos">
+
+
+            <!-- CUELLO -->
+
+            <button
+                class="tarjeta-estiramiento"
+                data-estiramiento="cuello">
+
+                <img
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-cuello/cuello.png"
+                    alt="Estiramiento de cuello">
+
+                <h3 id="nombreCuello">
+                    CUELLO
+                </h3>
+
+                <span
+                    class="tiempo tiempo-cuello"
+                    id="tiempoCuello">
+
+                    20 Segundos
+
+                </span>
+
+            </button>
+
+
+            <!-- BRAZOS -->
+
+            <button
+                class="tarjeta-estiramiento"
+                data-estiramiento="brazos">
+
+                <img
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/brazos.png"
+                    alt="Estiramiento de brazos">
+
+                <h3 id="nombreBrazos">
+                    BRAZOS
+                </h3>
+
+                <span
+                    class="tiempo tiempo-brazos"
+                    id="tiempoBrazos">
+
+                    20 Segundos
+
+                </span>
+
+            </button>
+
+
+            <!-- ESPALDA -->
+
+            <button
+                class="tarjeta-estiramiento"
+                data-estiramiento="espalda">
+
+                <img
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-espalda/espalda.png"
+                    alt="Estiramiento de espalda">
+
+                <h3 id="nombreEspalda">
+                    ESPALDA
+                </h3>
+
+                <span
+                    class="tiempo tiempo-espalda"
+                    id="tiempoEspalda">
+
+                    20 Segundos
+
+                </span>
+
+            </button>
+
+
+            <!-- PIERNAS -->
+
+            <button
+                class="tarjeta-estiramiento"
+                data-estiramiento="piernas">
+
+                <img
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-piernas/piernas.png"
+                    alt="Estiramiento de piernas">
+
+                <h3 id="nombrePiernas">
+                    PIERNAS
+                </h3>
+
+                <span
+                    class="tiempo tiempo-piernas"
+                    id="tiempoPiernas">
+
+                    20 Segundos
+
+                </span>
+
+            </button>
+
+
+            <!-- CUERPO COMPLETO -->
+
+            <button
+                class="tarjeta-estiramiento"
+                data-estiramiento="cuerpo-completo">
+
+                <img
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-cuerpocompleto/cuerpo-completo.png"
+                    alt="Estiramiento de cuerpo completo">
+
+                <h3 id="nombreCuerpo">
+                    CUERPO COMPLETO
+                </h3>
+
+                <span
+                    class="tiempo tiempo-cuerpo"
+                    id="tiempoCuerpo">
+
+                    20 Segundos
+
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- =====================
+             TIP
+        ====================== -->
+
+        <div class="tip">
+
+            <img
+                src="Imagenes/estiramientos/numa-tip.png"
+                class="numa-tip"
+                alt="Numa">
+
+
+            <div class="contenido-tip">
+
+                <span class="estrella">
+                    ★
+                </span>
+
+                <p id="textoTip">
+                    Tip: Estirarte cada día te ayuda a sentirte
+                    más relajado y con más energía.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <script src="estiramientos.js"></script>
+
+</body>
+
+</html>

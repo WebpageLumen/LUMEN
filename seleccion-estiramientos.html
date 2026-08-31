@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Ejercicio de estiramiento</title>
+
+    <link rel="stylesheet"
+        href="seleccion-estiramientos.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         BOTÓN VOLVER
+    ========================== -->
+
+    <a href="estiramientos.html"
+        class="btn-volver">
+
+        ←
+
+    </a>
+
+
+    <!-- =========================
+         SELECTOR DE IDIOMA
+    ========================== -->
+
+    <div class="language-dropdown"
+        id="languageDropdown">
+
+        <button class="language-button"
+            id="languageButton"
+            type="button">
+
+            <img
+                id="banderaActual"
+                class="language-flag"
+                src="Imagenes/español.webp"
+                alt="Español">
+
+            <span id="codigoIdioma">
+                ES
+            </span>
+
+            <span class="arrow">
+                ⌄
+            </span>
+
+        </button>
+
+
+        <div class="language-menu"
+            id="languageMenu">
+
+            <button
+                class="language-option active"
+                id="opcionES"
+                type="button">
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/español.webp"
+                    alt="Español">
+
+                <span>ES</span>
+
+            </button>
+
+
+            <button
+                class="language-option"
+                id="opcionEN"
+                type="button">
+
+                <img
+                    class="language-flag"
+                    src="Imagenes/ingles.png"
+                    alt="English">
+
+                <span>EN</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODO CALMA
+    ========================== -->
+
+    <button id="modoCalma"
+        class="btn-calma"
+        type="button">
+
+        ☀️
+
+    </button>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main class="ejercicio">
+
+
+        <!-- =====================
+             INFORMACIÓN
+        ====================== -->
+
+        <section class="informacion">
+
+            <h1 id="tituloEjercicio">
+                BRAZOS
+            </h1>
+
+
+            <p id="descripcionEjercicio">
+                Este estiramiento ayuda a relajar
+                tus brazos y hombros.
+            </p>
+
+
+            <!-- DURACIÓN -->
+
+            <div class="duracion">
+
+                <span class="icono-reloj">
+                    ◷
+                </span>
+
+                <div>
+
+                    <strong id="textoDuracion">
+                        Duración
+                    </strong>
+
+                    <p id="tiempoEjercicio">
+                        20 segundos
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES DEL EJERCICIO -->
+
+            <div class="contenedor-controles">
+
+                <button id="btnEmpezar"
+                    class="btn-empezar"
+                    type="button">
+
+                    ▶ Empezar
+
+                </button>
+
+
+                <div class="controles-ejercicio">
+
+                    <button id="btnReiniciar"
+                        class="btn-control"
+                        title="Reiniciar"
+                        type="button">
+
+                        ↻
+
+                    </button>
+
+
+                    <button id="btnPausa"
+                        class="btn-control"
+                        title="Pausar"
+                        type="button">
+
+                        ⏸
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             PERSONAJE
+        ====================== -->
+
+        <section class="personaje">
+
+            <img id="imagenEjercicio"
+                src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/central.png"
+                alt="Numa haciendo estiramiento">
+
+        </section>
+
+
+        <!-- =====================
+             PASOS
+        ====================== -->
+
+        <section class="pasos">
+
+
+            <!-- PASO 1 -->
+
+            <div class="paso"
+                id="paso1">
+
+                <span class="numero">
+                    1
+                </span>
+
+                <img id="imagenPaso1"
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/paso1.png"
+                    alt="Paso 1">
+
+                <div class="texto-paso">
+
+                    <h3 id="tituloPaso1">
+                        Extiende un brazo
+                        hacia el frente.
+                    </h3>
+
+                    <p id="descripcionPaso1">
+                        Llévalo recto frente
+                        a tu pecho.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PASO 2 -->
+
+            <div class="paso"
+                id="paso2">
+
+                <span class="numero">
+                    2
+                </span>
+
+                <img id="imagenPaso2"
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/paso2.png"
+                    alt="Paso 2">
+
+                <div class="texto-paso">
+
+                    <h3 id="tituloPaso2">
+                        Sostén el brazo
+                        por el codo.
+                    </h3>
+
+                    <p id="descripcionPaso2">
+                        Siente suavemente
+                        el estiramiento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PASO 3 -->
+
+            <div class="paso"
+                id="paso3">
+
+                <span class="numero">
+                    3
+                </span>
+
+                <img id="imagenPaso3"
+                    src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/paso3.png"
+                    alt="Paso 3">
+
+                <div class="texto-paso">
+
+                    <h3 id="tituloPaso3">
+                        Mantén la posición
+                        y respira.
+                    </h3>
+
+                    <p id="descripcionPaso3">
+                        Relájate y suelta
+                        lentamente.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         TIP DE NUMA
+    ========================== -->
+
+    <section class="tip">
+
+        <img
+            src="Imagenes/estiramientos/seleccion-estiramiento/est-brazos/cuello.png"
+            alt="Numa"
+            class="numa-tip">
+
+
+        <div class="contenido-tip">
+
+            <span class="estrella">
+                ★
+            </span>
+
+
+            <p id="tipEjercicio">
+                Tip de Numa: Mantén una respiración lenta y tranquila mientras estiras. Eso ayuda a relajar tu cuerpo.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script src="seleccion-estiramientos.js"></script>
+
+</body>
+
+</html>

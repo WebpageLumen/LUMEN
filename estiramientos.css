@@ -1,0 +1,1157 @@
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   SELECTOR DE IDIOMA
+========================== */
+
+.language-dropdown {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    z-index: 2000;
+}
+
+
+/* ==========================
+   BOTÓN PRINCIPAL
+========================== */
+
+.language-button {
+    height: 43px;
+    min-width: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    background: white;
+
+    border: 2px solid transparent;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #294b75;
+
+    transition: border-color 0.2s ease;
+}
+
+.language-button:hover {
+    border-color: #222;
+}
+
+
+/* ==========================
+   BANDERAS
+========================== */
+
+.language-flag {
+    width: 25px;
+    height: 25px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================
+   ES / EN
+========================== */
+
+#codigoIdioma {
+    min-width: 17px;
+    text-align: left;
+}
+
+
+/* ==========================
+   FLECHA
+========================== */
+
+.arrow {
+    font-size: 18px;
+    color: #2878c8;
+    line-height: 1;
+    margin-left: 1px;
+
+    transition: transform 0.25s ease;
+}
+
+.language-dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+
+/* ==========================
+   MENÚ
+========================== */
+
+.language-menu {
+    position: absolute;
+
+    top: calc(100% + 7px);
+    right: 0;
+
+    width: 88px;
+
+    padding: 0;
+
+    background: white;
+
+    border-radius: 0 0 15px 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.language-dropdown.active .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* ==========================
+   OPCIONES
+========================== */
+
+.language-option {
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: none;
+
+    background: white;
+
+    color: #294b75;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.language-option.active {
+    background: #e9f4fc;
+}
+
+.language-option:hover {
+    background: #e9f4fc;
+}
+
+
+/* ==========================
+   SELECTOR RESPONSIVE
+========================== */
+
+@media (max-width: 700px) {
+
+    .language-dropdown {
+        top: 12px;
+        right: 15px;
+    }
+
+    .language-button {
+        height: 40px;
+        min-width: 82px;
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .language-flag {
+        width: 23px;
+        height: 23px;
+    }
+
+    .arrow {
+        font-size: 17px;
+    }
+
+    .language-menu {
+        width: 82px;
+    }
+
+    .language-option {
+        height: 46px;
+        font-size: 14px;
+        padding: 7px 11px;
+    }
+}
+
+
+/* ==========================
+   BOTÓN VOLVER
+========================== */
+
+.btn-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 30px;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #74a1de;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 8px;
+
+    text-decoration: none;
+
+    font-size: 45px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    z-index: 1000;
+
+    transition: 0.25s;
+}
+
+.btn-volver:hover {
+    transform: scale(1.08);
+}
+
+
+/* ==========================
+   SECCIÓN PRINCIPAL
+========================== */
+
+.seccion-estiramientos {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+        clamp(70px, 7vw, 100px)
+        clamp(20px, 7vw, 100px)
+        70px;
+
+    background-image: url("Imagenes/estiramientos/fondo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.modo-calma .seccion-estiramientos {
+    background-image: url("Imagenes/estiramientos/fondo-calma.png");
+}
+
+
+/* ==========================
+   ENCABEZADO
+========================== */
+
+.encabezado {
+    width: min(100%, 1000px);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* ==========================
+   TEXTO ENCABEZADO
+========================== */
+
+.texto-encabezado {
+    flex: 1;
+}
+
+.texto-encabezado h1 {
+    font-size: clamp(42px, 5vw, 70px);
+
+    color: #35488e;
+
+    letter-spacing: 2px;
+
+    line-height: 1.05;
+}
+
+.texto-encabezado p {
+    margin-top: 20px;
+
+    max-width: 650px;
+
+    font-size: clamp(18px, 2vw, 28px);
+
+    line-height: 1.3;
+
+    color: #35488e;
+}
+
+
+/* ==========================
+   NUMA
+========================== */
+
+.numa-estirando {
+    width: clamp(180px, 25vw, 300px);
+
+    max-width: 35%;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+}
+
+
+/* ==========================
+   MODO CALMA
+========================== */
+
+.btn-calma {
+    position: absolute;
+
+    top: 55px;
+    right: 7%;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 12px 20px;
+
+    background: white;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-calma:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================
+   TÍTULO
+========================== */
+
+.titulo-seleccion {
+    margin-top: clamp(50px, 6vw, 80px);
+
+    text-align: center;
+
+    font-size: clamp(28px, 3vw, 38px);
+
+    line-height: 1.2;
+
+    color: #35488e;
+}
+
+
+/* ==========================
+   CONTENEDOR
+========================== */
+
+.contenedor-estiramientos {
+    width: min(100%, 1100px);
+
+    margin: clamp(35px, 5vw, 50px) auto 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.tarjeta-estiramiento {
+    width: 200px;
+
+    min-height: 370px;
+
+    padding: 18px 12px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+}
+
+.tarjeta-estiramiento:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-estiramiento:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================
+   IMAGEN TARJETA
+========================== */
+
+.tarjeta-estiramiento img {
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================
+   TÍTULO TARJETA
+========================== */
+
+.tarjeta-estiramiento h3 {
+    width: 100%;
+
+    margin-top: 10px;
+
+    font-size: clamp(18px, 2vw, 22px);
+
+    color: #35488e;
+
+    text-align: center;
+
+    line-height: 1.2;
+}
+
+
+/* ==========================
+   TIEMPOS
+========================== */
+
+.tarjeta-estiramiento .tiempo {
+    margin-top: 12px;
+
+    width: 100%;
+
+    padding: 10px 5px;
+
+    border-radius: 25px;
+
+    font-size: clamp(14px, 1.5vw, 17px);
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* CUELLO */
+
+.tiempo-cuello {
+    background: #e6d4f7;
+    color: #654c9b;
+}
+
+
+/* BRAZOS */
+
+.tiempo-brazos {
+    background: #c8e2f5;
+    color: #3f78a8;
+}
+
+
+/* ESPALDA */
+
+.tiempo-espalda {
+    background: #f8e7a9;
+    color: #a47a16;
+}
+
+
+/* PIERNAS */
+
+.tiempo-piernas {
+    background: #d4e9b6;
+    color: #638b3e;
+}
+
+
+/* CUERPO COMPLETO */
+
+.tiempo-cuerpo {
+    background: #f3c1d0;
+    color: #a64f6d;
+}
+
+
+/* ==========================
+   TIP
+========================== */
+
+.tip {
+    position: relative;
+
+    width: min(100%, 650px);
+
+    margin: 110px auto 0;
+}
+
+.numa-tip {
+    position: absolute;
+
+    width: clamp(75px, 10vw, 100px);
+
+    left: 50%;
+    top: -68px;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+}
+
+.contenido-tip {
+    min-height: 90px;
+
+    padding:
+        20px
+        clamp(20px, 4vw, 35px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    border-radius: 50px;
+}
+
+.estrella {
+    font-size: clamp(40px, 5vw, 55px);
+
+    color: #f1c232;
+
+    padding-bottom: 20px;
+
+    flex-shrink: 0;
+}
+
+.contenido-tip p {
+    font-size: clamp(15px, 2vw, 20px);
+
+    color: #35488e;
+
+    font-weight: bold;
+
+    line-height: 1.3;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1000px) {
+
+    .seccion-estiramientos {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .encabezado {
+        width: 100%;
+        max-width: 850px;
+    }
+
+    .texto-encabezado h1 {
+        font-size: clamp(48px, 7vw, 65px);
+    }
+
+    .texto-encabezado p {
+        font-size: clamp(20px, 3vw, 26px);
+    }
+
+    .numa-estirando {
+        width: clamp(220px, 28vw, 280px);
+        max-width: 32%;
+    }
+
+    .contenedor-estiramientos {
+        width: 100%;
+        max-width: 900px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+    }
+
+    .tarjeta-estiramiento {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .tip {
+        width: 90%;
+        max-width: 650px;
+    }
+}
+
+
+/* ==========================
+   CELULAR
+========================== */
+
+@media (max-width: 700px) {
+
+    /* Evita completamente el desplazamiento horizontal */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* ==========================
+       SECCIÓN PRINCIPAL
+    ========================== */
+
+    .seccion-estiramientos {
+
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 100vh;
+
+        padding:
+            70px
+            15px
+            60px;
+
+        background-size: cover;
+        background-position: center top;
+    }
+
+
+    /* ==========================
+       BOTÓN VOLVER
+    ========================== */
+
+    .btn-volver {
+
+        top: 12px;
+        left: 12px;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 32px;
+
+        padding-bottom: 5px;
+    }
+
+
+    /* ==========================
+       SELECTOR DE IDIOMA
+    ========================== */
+
+    .language-dropdown {
+
+        top: 12px;
+        right: 12px;
+    }
+
+
+    .language-button {
+
+        height: 38px;
+        min-width: 78px;
+
+        padding: 4px 7px;
+
+        font-size: 13px;
+    }
+
+
+    .language-flag {
+
+        width: 21px;
+        height: 21px;
+    }
+
+
+    .language-menu {
+
+        width: 78px;
+    }
+
+
+    .language-option {
+
+        height: 44px;
+
+        padding: 6px 9px;
+
+        font-size: 13px;
+    }
+
+
+    /* ==========================
+       ENCABEZADO
+    ========================== */
+
+    .encabezado {
+
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 10px;
+    }
+
+
+    .texto-encabezado {
+
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .texto-encabezado h1 {
+
+        width: 100%;
+
+        font-size: clamp(38px, 11vw, 52px);
+
+        line-height: 1.05;
+
+        letter-spacing: 1px;
+
+        word-break: normal;
+    }
+
+
+    .texto-encabezado p {
+
+        width: 100%;
+
+        margin-top: 12px;
+
+        font-size: clamp(17px, 5vw, 22px);
+
+        line-height: 1.35;
+    }
+
+
+    /* ==========================
+       NUMA
+    ========================== */
+
+    .numa-estirando {
+
+        width: min(220px, 65vw);
+
+        max-width: 100%;
+
+        margin-top: 15px;
+    }
+
+
+    /* ==========================
+       BOTÓN MODO CALMA
+    ========================== */
+
+    .btn-calma {
+
+        position: static;
+
+        width: auto;
+        max-width: 90%;
+
+        display: block;
+
+        margin: 20px auto 0;
+
+        padding: 10px 18px;
+
+        font-size: 14px;
+    }
+
+
+    /* ==========================
+       TÍTULO
+    ========================== */
+
+    .titulo-seleccion {
+
+        width: 100%;
+
+        margin-top: 45px;
+
+        font-size: clamp(25px, 7vw, 32px);
+
+        line-height: 1.2;
+
+        text-align: center;
+    }
+
+
+    /* ==========================
+       CONTENEDOR DE TARJETAS
+    ========================== */
+
+    .contenedor-estiramientos {
+
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 30px;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        justify-items: center;
+    }
+
+
+    /* ==========================
+       TARJETAS
+    ========================== */
+
+    .tarjeta-estiramiento {
+
+        width: min(100%, 320px);
+
+        min-width: 0;
+
+        min-height: 0;
+
+        height: auto;
+
+        padding: 15px 12px;
+
+        border-radius: 25px;
+    }
+
+
+    .tarjeta-estiramiento img {
+
+        width: 100%;
+
+        height: 220px;
+
+        max-width: 100%;
+
+        object-fit: contain;
+    }
+
+
+    .tarjeta-estiramiento h3 {
+
+        margin-top: 8px;
+
+        font-size: 20px;
+
+        text-align: center;
+    }
+
+
+    .tarjeta-estiramiento .tiempo {
+
+        margin-top: 10px;
+
+        width: 100%;
+
+        font-size: 15px;
+
+        padding: 9px 5px;
+    }
+
+
+    /* ==========================
+       TIP
+    ========================== */
+
+    .tip {
+
+        position: relative;
+
+        width: 100%;
+        max-width: 340px;
+
+        margin: 90px auto 0;
+    }
+
+
+    .numa-tip {
+
+        width: 80px;
+
+        left: 50%;
+
+        top: -55px;
+
+        transform: translateX(-50%);
+    }
+
+
+    .contenido-tip {
+
+        width: 100%;
+
+        min-height: 100px;
+
+        padding: 25px 18px 18px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 5px;
+
+        border-radius: 25px;
+
+        text-align: center;
+    }
+
+
+    .estrella {
+
+        font-size: 40px;
+
+        padding-bottom: 0;
+    }
+
+
+    .contenido-tip p {
+
+        width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.4;
+
+        text-align: center;
+    }
+
+}
+
+
+/* ==========================
+   CELULARES PEQUEÑOS
+========================== */
+
+@media (max-width: 380px) {
+
+    .seccion-estiramientos {
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .btn-volver {
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 29px;
+    }
+
+
+    .language-dropdown {
+
+        right: 10px;
+    }
+
+
+    .language-button {
+
+        min-width: 74px;
+
+        font-size: 12px;
+    }
+
+
+    .language-flag {
+
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .language-menu {
+
+        width: 74px;
+    }
+
+
+    .texto-encabezado h1 {
+
+        font-size: 36px;
+    }
+
+
+    .texto-encabezado p {
+
+        font-size: 16px;
+    }
+
+
+    .numa-estirando {
+
+        width: 190px;
+    }
+
+
+    .titulo-seleccion {
+
+        font-size: 24px;
+    }
+
+
+    .tarjeta-estiramiento {
+
+        width: 100%;
+
+        max-width: 300px;
+    }
+
+
+    .tarjeta-estiramiento img {
+
+        height: 200px;
+    }
+
+
+    .tarjeta-estiramiento h3 {
+
+        font-size: 18px;
+    }
+
+
+    .tip {
+
+        max-width: 300px;
+    }
+
+
+    .contenido-tip {
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .contenido-tip p {
+
+        font-size: 14px;
+    }
+
+}

@@ -1,0 +1,1331 @@
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+
+    background-image: url("Imagenes/estiramientos/seleccion-estiramiento/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ==========================
+   BOTÓN VOLVER
+========================== */
+
+.btn-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 30px;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #76a7e4;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 8px;
+
+    text-decoration: none;
+
+    font-size: 45px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    z-index: 1000;
+
+    transition: .25s;
+}
+
+.btn-volver:hover {
+    transform: scale(1.06);
+}
+
+
+/* ==========================
+   BOTÓN MODO CALMA
+========================== */
+
+.btn-calma {
+    position: absolute;
+
+    top: 55px;
+    right: 7%;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 12px 20px;
+
+    background: white;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+
+/* =================================
+   SELECTOR DE IDIOMA
+================================= */
+
+.language-dropdown {
+    position: absolute;
+
+    top: 18px;
+    right: 25px;
+
+    z-index: 1000;
+}
+
+
+/* =================================
+   BOTÓN PRINCIPAL
+================================= */
+
+.language-button {
+    height: 43px;
+    min-width: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    background: white;
+
+    border: 2px solid transparent;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #294b75;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.language-button:hover {
+    border-color: #222;
+}
+
+
+/* =================================
+   BANDERAS
+================================= */
+
+.language-flag {
+    width: 25px;
+    height: 25px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+/* =================================
+   CÓDIGO ES / EN
+================================= */
+
+#codigoIdioma {
+    min-width: 17px;
+
+    text-align: left;
+}
+
+
+/* =================================
+   FLECHA
+================================= */
+
+.arrow {
+    font-size: 18px;
+
+    color: #2878c8;
+
+    line-height: 1;
+
+    margin-left: 1px;
+
+    transition: transform 0.25s ease;
+}
+
+.language-dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =================================
+   MENÚ DESPLEGABLE
+================================= */
+
+.language-menu {
+    position: absolute;
+
+    top: calc(100% + 7px);
+    right: 0;
+
+    width: 88px;
+
+    padding: 0;
+
+    background: white;
+
+    border-radius: 0 0 15px 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+
+/* =================================
+   MENÚ ABIERTO
+================================= */
+
+.language-dropdown.active .language-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* =================================
+   OPCIONES
+================================= */
+
+.language-option {
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: none;
+
+    background: white;
+
+    color: #294b75;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.language-option.active {
+    background: #e9f4fc;
+}
+
+.language-option:hover {
+    background: #e9f4fc;
+}
+
+
+/* ==========================
+   MODO CALMA
+========================== */
+
+body.modo-calma {
+    background-image: url("Imagenes/estiramientos/seleccion-estiramiento/fondo-calma.png");
+}
+
+body.modo-calma .duracion {
+    background: #fdedae;
+}
+
+body.modo-calma .paso {
+    background: #eacfff;
+}
+
+body.modo-calma .btn-empezar {
+    background: #d6a928;
+}
+
+body.modo-calma .contenido-tip {
+    background: #e3bfff;
+}
+
+body.modo-calma .btn-volver {
+    background: #704195;
+    color: white;
+}
+
+body.modo-calma .paso.activo {
+    box-shadow:
+        0 0 0 5px #704195,
+        0 8px 20px rgba(0,0,0,.15);
+}
+
+body.modo-calma .btn-control {
+    background: #d6a928;
+    color: white;
+}
+
+
+/* ==========================
+   CONTENEDOR PRINCIPAL
+========================== */
+
+.ejercicio {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 1050px;
+
+    padding: 90px 8% 0;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   INFORMACIÓN IZQUIERDA
+========================== */
+
+.informacion {
+    position: absolute;
+
+    top: 95px;
+    left: 8%;
+
+    width: min(440px, 38vw);
+
+    max-width: 100%;
+}
+
+.informacion h1 {
+    font-size: clamp(48px, 5vw, 78px);
+
+    line-height: 1;
+
+    color: #35488e;
+
+    margin-bottom: 25px;
+}
+
+.informacion > p {
+    font-family: Georgia, serif;
+
+    font-size: clamp(20px, 2vw, 27px);
+
+    line-height: 1.35;
+
+    color: #35488e;
+}
+
+
+/* ==========================
+   DURACIÓN
+========================== */
+
+.duracion {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 275px;
+    height: 95px;
+
+    margin-top: 65px;
+
+    padding: 12px 20px;
+
+    border-radius: 50px;
+
+    background: #76a7e4;
+    color: #203e75;
+}
+
+.icono-reloj {
+    font-size: 58px;
+    line-height: 1;
+}
+
+.duracion strong {
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+}
+
+.duracion p {
+    margin-top: 3px;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+}
+
+
+/* ==========================
+   BOTÓN EMPEZAR
+========================== */
+
+.contenedor-controles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.btn-empezar {
+    margin-top: 0;
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 14px 32px;
+
+    background: #6f60ec;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.controles-ejercicio {
+    display: none;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.controles-ejercicio.mostrar {
+    display: flex;
+}
+
+.btn-control {
+    width: 45px;
+    height: 40px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #76a7e4;
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    padding-bottom: 3px;
+
+    transition: .25s;
+}
+
+.btn-control:hover {
+    transform: scale(1.05);
+}
+
+
+/* ==========================
+   NUMA CENTRAL
+========================== */
+
+.personaje {
+    position: absolute;
+
+    top: 320px;
+    left: 28%;
+
+    width: min(550px, 38vw);
+
+    max-width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.personaje img {
+    width: min(550px, 100%);
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   AJUSTE ESPECÍFICO DE IMÁGENES CENTRALES
+   PIERNAS Y CUERPO COMPLETO
+===================================================== */
+
+/* ESTIRAMIENTO DE PIERNAS */
+body.estiramiento-piernas #imagenEjercicio {
+    max-width: 85%;
+    max-height: 85%;
+}
+
+
+/* ESTIRAMIENTO DE CUERPO COMPLETO */
+body.estiramiento-cuerpo-completo #imagenEjercicio {
+    max-width: 55%;
+    max-height: 55%;
+}
+
+
+/* ==========================
+   TARJETAS DE PASOS
+========================== */
+
+.pasos {
+    position: absolute;
+
+    top: 185px;
+    right: 4%;
+
+    width: clamp(300px, 30vw, 400px);
+
+    max-width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: clamp(15px, 2vw, 25px);
+}
+
+
+/* ==========================
+   TARJETA
+========================== */
+
+.paso {
+    width: 100%;
+    max-width: 100%;
+
+    height: clamp(165px, 18vw, 220px);
+
+    padding: clamp(8px, 1vw, 15px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: clamp(10px, 1.3vw, 18px);
+
+    border-radius: 40px;
+
+    background: #abd0ff;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+
+    transition: .3s;
+}
+
+.paso.activo {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 0 5px #7A6EF6,
+        0 8px 20px rgba(0,0,0,.15);
+}
+
+
+/* ==========================
+   NÚMERO
+========================== */
+
+.numero {
+    align-self: flex-start;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(20px, 2vw, 28px);
+
+    color: #263d7a;
+
+    margin-left: 10px;
+    margin-top: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================
+   IMAGEN DEL PASO
+========================== */
+
+.paso img {
+    width: clamp(90px, 9vw, 135px);
+
+    height: clamp(115px, 12vw, 175px);
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================
+   TEXTO DEL PASO
+========================== */
+
+.texto-paso {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.texto-paso h3 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(17px, 1.7vw, 23px);
+
+    line-height: 1.15;
+
+    color: #35488e;
+}
+
+.texto-paso p {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(14px, 1.35vw, 18px);
+
+    line-height: 1.2;
+
+    color: #52719f;
+}
+
+
+/* ==========================
+   TIP DE NUMA
+========================== */
+
+.tip {
+    position: relative;
+
+    width: min(680px, 80%);
+    max-width: 100%;
+
+    height: 120px;
+
+    margin: -125px auto 45px;
+}
+
+.contenido-tip {
+    position: absolute;
+
+    left: 13%;
+    bottom: 0;
+
+    width: 87%;
+    max-width: 87%;
+
+    min-height: 100px;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: white;
+
+    border-radius: 20px;
+}
+
+.numa-tip {
+    position: absolute;
+
+    left: 2%;
+    bottom: -2px;
+
+    width: 90px;
+    max-width: 90px;
+
+    height: auto;
+
+    z-index: 2;
+}
+
+.estrella {
+    display: none;
+}
+
+.contenido-tip p {
+    font-family: Georgia, serif;
+
+    font-size: clamp(15px, 1.5vw, 18px);
+
+    line-height: 1.3;
+
+    color: #35488e;
+
+    font-weight: bold;
+}
+
+
+/* ==========================
+   TABLET / PANTALLAS MEDIANAS
+========================== */
+
+@media (max-width: 1200px) {
+
+    .informacion {
+        left: 5%;
+        width: 34vw;
+    }
+
+    .personaje {
+        left: 28%;
+        width: 35vw;
+    }
+
+    .pasos {
+        right: 3%;
+        width: 32vw;
+    }
+
+}
+
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 950px) {
+
+    .ejercicio {
+        min-height: auto;
+
+        padding: 120px 7% 60px;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .informacion {
+        position: static;
+
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 auto 35px;
+
+        text-align: center;
+    }
+
+    .informacion h1 {
+        font-size: clamp(42px, 8vw, 60px);
+
+        margin-bottom: 18px;
+    }
+
+    .informacion > p {
+        max-width: 650px;
+
+        margin: 0 auto;
+
+        font-size: clamp(19px, 3vw, 23px);
+    }
+
+
+    /* DURACIÓN */
+
+    .duracion {
+        width: 275px;
+        height: 90px;
+
+        margin: 35px auto 0;
+    }
+
+
+    /* CONTROLES */
+
+    .contenedor-controles {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* PERSONAJE */
+
+    .personaje {
+        position: static;
+
+        width: 100%;
+        max-width: 500px;
+
+        margin: 35px auto;
+    }
+
+    .personaje img {
+        width: min(420px, 80vw);
+
+        max-width: 100%;
+    }
+
+
+    /* PASOS */
+
+    .pasos {
+        position: static;
+
+        width: 100%;
+        max-width: 650px;
+
+        margin: 40px auto 0;
+
+        gap: 18px;
+    }
+
+    .paso {
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+
+        min-height: 165px;
+
+        padding: 12px 15px;
+
+        border-radius: 32px;
+    }
+
+    .paso img {
+        width: 100px;
+        height: 130px;
+    }
+
+    .numero {
+        font-size: 24px;
+
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    .texto-paso h3 {
+        font-size: 20px;
+    }
+
+    .texto-paso p {
+        font-size: 15px;
+
+        margin-top: 9px;
+    }
+
+
+    /* TIP */
+
+    .tip {
+        position: relative;
+
+        width: min(650px, 90%);
+        max-width: 100%;
+
+        height: auto;
+
+        margin: 50px auto 20px;
+    }
+
+    .contenido-tip {
+        position: relative;
+
+        left: 0;
+        bottom: auto;
+
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 100px;
+
+        padding: 20px 25px 20px 90px;
+    }
+
+    .numa-tip {
+        left: -15px;
+        bottom: 0;
+
+        width: 95px;
+        max-width: 95px;
+    }
+
+}
+
+
+/* ==========================
+   CELULAR
+========================== */
+
+@media (max-width: 600px) {
+
+    /* BOTÓN VOLVER */
+
+    .btn-volver {
+        width: 55px;
+        height: 55px;
+
+        top: 15px;
+        left: 15px;
+
+        font-size: 40px;
+    }
+
+
+    /* MODO CALMA */
+
+    .btn-calma {
+        top: 20px;
+        right: 20px;
+
+        padding: 9px 14px;
+
+        border-radius: 22px;
+
+        font-size: 13px;
+    }
+
+
+    /* IDIOMA */
+
+    .language-dropdown {
+        top: 78px;
+        right: 15px;
+    }
+
+    .language-button {
+        height: 38px;
+
+        min-width: 80px;
+
+        padding: 4px 8px;
+
+        font-size: 13px;
+    }
+
+    .language-flag {
+        width: 22px;
+        height: 22px;
+    }
+
+    .arrow {
+        font-size: 16px;
+    }
+
+    .language-menu {
+        width: 80px;
+    }
+
+    .language-option {
+        height: 44px;
+
+        padding: 6px 10px;
+
+        font-size: 13px;
+    }
+
+
+    /* CONTENEDOR */
+
+    .ejercicio {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 145px 5% 45px;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .informacion {
+        width: 100%;
+        max-width: 100%;
+
+        margin-bottom: 30px;
+    }
+
+    .informacion h1 {
+        font-size: 40px;
+        line-height: 1.05;
+
+        margin-bottom: 15px;
+    }
+
+    .informacion > p {
+        font-size: 19px;
+        line-height: 1.35;
+    }
+
+
+    /* DURACIÓN */
+
+    .duracion {
+        width: 240px;
+        height: 78px;
+
+        gap: 10px;
+
+        margin-top: 28px;
+
+        padding: 10px 17px;
+    }
+
+    .icono-reloj {
+        font-size: 45px;
+    }
+
+    .duracion strong {
+        font-size: 18px;
+    }
+
+    .duracion p {
+        font-size: 19px;
+    }
+
+
+    /* BOTONES */
+
+    .contenedor-controles {
+        gap: 8px;
+
+        margin-top: 20px;
+    }
+
+    .btn-empezar {
+        padding: 12px 25px;
+
+        font-size: 16px;
+    }
+
+    .btn-control {
+        width: 42px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+
+    /* PERSONAJE */
+
+    .personaje {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 30px auto;
+    }
+
+    .personaje img {
+        width: min(320px, 82vw);
+
+        max-width: 100%;
+    }
+
+
+    /* PASOS */
+
+    .pasos {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 30px;
+
+        gap: 14px;
+    }
+
+    .paso {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 135px;
+
+        padding: 9px;
+
+        border-radius: 25px;
+
+        gap: 7px;
+    }
+
+    .paso.activo {
+        transform: scale(1);
+    }
+
+    .numero {
+        font-size: 19px;
+
+        margin-left: 3px;
+        margin-top: 4px;
+    }
+
+    .paso img {
+        width: 72px;
+        height: 100px;
+    }
+
+    .texto-paso {
+        padding-right: 4px;
+    }
+
+    .texto-paso h3 {
+        font-size: 15px;
+
+        line-height: 1.15;
+    }
+
+    .texto-paso p {
+        font-size: 12px;
+
+        line-height: 1.25;
+
+        margin-top: 7px;
+    }
+
+
+    /* TIP DE NUMA */
+
+    .tip {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+
+        margin: 35px auto 10px;
+
+        padding: 0;
+    }
+
+    .contenido-tip {
+        position: relative;
+
+        left: 0;
+        bottom: auto;
+
+        width: calc(100% - 10px);
+        max-width: calc(100% - 10px);
+
+        min-height: 100px;
+
+        margin-left: 10px;
+
+        padding: 18px 15px 18px 75px;
+
+        border-radius: 18px;
+    }
+
+    .numa-tip {
+        position: absolute;
+
+        width: 85px;
+        max-width: 85px;
+
+        left: -5px;
+        bottom: 0;
+    }
+
+    .contenido-tip p {
+        font-size: 13px;
+
+        line-height: 1.3;
+    }
+
+}
+
+
+/* ==========================
+   CELULARES MUY PEQUEÑOS
+========================== */
+
+@media (max-width: 400px) {
+
+    .ejercicio {
+        padding-left: 4%;
+        padding-right: 4%;
+
+        padding-top: 135px;
+    }
+
+
+    .btn-volver {
+        width: 50px;
+        height: 50px;
+
+        left: 10px;
+        top: 12px;
+
+        font-size: 36px;
+    }
+
+
+    .btn-calma {
+        right: 10px;
+        top: 15px;
+
+        padding: 8px 11px;
+
+        font-size: 12px;
+    }
+
+
+    .language-dropdown {
+        top: 70px;
+        right: 10px;
+    }
+
+
+    .informacion h1 {
+        font-size: 35px;
+    }
+
+    .informacion > p {
+        font-size: 17px;
+    }
+
+
+    .duracion {
+        width: 220px;
+        height: 72px;
+    }
+
+    .icono-reloj {
+        font-size: 40px;
+    }
+
+    .duracion strong {
+        font-size: 17px;
+    }
+
+    .duracion p {
+        font-size: 18px;
+    }
+
+
+    .personaje img {
+        width: 75vw;
+
+        max-width: 100%;
+    }
+
+
+    .paso {
+        min-height: 120px;
+
+        padding: 7px;
+
+        gap: 5px;
+    }
+
+    .paso.activo {
+        transform: scale(1);
+    }
+
+    .numero {
+        font-size: 17px;
+    }
+
+    .paso img {
+        width: 60px;
+        height: 85px;
+    }
+
+    .texto-paso h3 {
+        font-size: 14px;
+    }
+
+    .texto-paso p {
+        font-size: 11px;
+    }
+
+
+    .contenido-tip {
+        width: calc(100% - 5px);
+        max-width: calc(100% - 5px);
+
+        margin-left: 5px;
+
+        padding-left: 68px;
+        padding-right: 10px;
+    }
+
+    .numa-tip {
+        width: 75px;
+        max-width: 75px;
+
+        left: -3px;
+    }
+
+    .contenido-tip p {
+        font-size: 12px;
+    }
+
+}

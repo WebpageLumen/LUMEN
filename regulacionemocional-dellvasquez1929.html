@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen</title>
+    <link rel="stylesheet" href="regulacion.css">
+</head>
+<body>
+
+    <a href="" class="btn-volver">
+        ←
+    </a>
+
+    <div class="language-dropdown" id="languageDropdown">
+
+    <!-- BOTÓN PRINCIPAL -->
+    <button class="language-button" id="languageButton">
+
+        <img
+            id="banderaActual"
+            class="language-flag"
+            src="Imagenes/español.webp"
+            alt="Español"
+        >
+
+        <span id="codigoIdioma">ES</span>
+
+        <span class="arrow">⌄</span>
+
+    </button>
+
+
+    <!-- MENÚ -->
+    <div class="language-menu" id="languageMenu">
+
+        <!-- ESPAÑOL -->
+        <button
+            class="language-option active"
+            id="opcionES"
+            data-language="es"
+        >
+
+            <img
+                class="language-flag"
+                src="Imagenes/español.webp"
+                alt="Español"
+            >
+
+            <span>ES</span>
+
+        </button>
+
+
+        <!-- INGLÉS -->
+        <button
+            class="language-option"
+            id="opcionEN"
+            data-language="en"
+        >
+
+            <img
+                class="language-flag"
+                src="Imagenes/ingles.png"
+                alt="English"
+            >
+
+            <span>EN</span>
+
+        </button>
+
+    </div>
+
+</div>
+      <section class="hero">
+<img src="Imagenes/Banner.png" class="hero-img" alt="Regulación emocional" id="bannerPrincipal">
+<div class="hero-text">
+
+    <h1 id="textoRegulacion">
+        Regulación emocional
+    </h1>
+
+    <p id="descripcionRegulacion">
+        Aquí encontrarás actividades y recursos diseñados
+        para ayudarte a identificar, comprender y gestionar
+        tus emociones, promoviendo el bienestar y el
+        equilibrio emocional a tu propio ritmo.
+    </p>
+
+</div>
+    </section>
+    <section class="seccion-dos">
+       
+        <section class="seccion-emociones">
+            <div class="encabezado-emociones">
+                <h2 id="textoEmocionDia">
+    Emoción del día
+</h2>
+
+<button id="modoCalma" class="btn-calma">
+    ☀️
+</button>
+</div>
+<div class="contenedor-emociones">
+
+    <button class="tarjeta-emocion" data-emocion="feliz">
+        <img
+            class="imagen-emocion"
+            src="Imagenes/emociones/feliz.png"
+            alt="Feliz"
+        >
+    </button>
+
+    <button class="tarjeta-emocion" data-emocion="contento">
+        <img
+            class="imagen-emocion"
+            src="Imagenes/emociones/contento.png"
+            alt="Contento"
+        >
+    </button>
+
+    <button class="tarjeta-emocion" data-emocion="tranquilo">
+        <img
+            class="imagen-emocion"
+            src="Imagenes/emociones/tranquilo.png"
+            alt="Tranquilo"
+        >
+    </button>
+
+    <button class="tarjeta-emocion" data-emocion="triste">
+        <img
+            class="imagen-emocion"
+            src="Imagenes/emociones/triste.png"
+            alt="Triste"
+        >
+    </button>
+
+    <button class="tarjeta-emocion" data-emocion="enojado">
+        <img
+            class="imagen-emocion"
+            src="Imagenes/emociones/enojado.png"
+            alt="Enojado"
+        >
+    </button>
+
+</div>
+
+    </section>
+
+<section class="recursos">
+
+    <!-- FILA 1 -->
+    <div class="fila">
+
+        <!-- CO-REGULACIÓN -->
+        <div class="tarjeta coregulacion" onclick="window.location.href='coregulacion.html'">
+
+            <div class="texto-core">
+
+    <h3 class="titulo-core" id="textoCoregulacion">
+        Co-regulación
+    </h3>
+
+    <p id="textoCoregulacionDescripcion">
+        Aprende estrategias para acompañar y apoyar el manejo de las emociones.
+    </p>
+
+</div>
+
+            <img src="Imagenes/co-regulacion.png" class="img-core">
+
+        </div>
+
+        <!-- RESPIRACIÓN -->
+        <div class="tarjeta respiracion">
+
+           <h3 id="textoRespiracion">
+    Respiración guiada
+</h3>
+
+<button class="btn-empezar" onclick="window.location.href='resp-dellvasquez1929.html'">
+    Empezar
+</button>
+
+            <img src="Imagenes/respiracion.png" class="img-personaje">
+
+        </div>
+
+        <!-- ESTIRAMIENTOS -->
+        <div class="tarjeta estiramientos">
+
+            <h3 id="textoEstiramientos">
+    Estiramientos
+</h3>
+
+<button class="btn-empezar" onclick="window.location.href='estiramientos.html'">
+    Empezar
+</button>
+
+            <img src="Imagenes/estiramientos.png" class="img-personaje">
+
+        </div>
+
+    </div>
+
+    <!-- FILA 2 -->
+
+    <div class="fila fila-abajo">
+
+        <div 
+    class="tarjeta autoconciencia"
+    onclick="window.location.href='autoconciencia.html'"
+>
+
+    <img src="Imagenes/autoconciencia.png" class="icono-arriba">
+
+    <h3 id="textoAutoconciencia">
+        Autoconciencia
+    </h3>
+
+</div>
+
+</a>
+        <div class="tarjeta estrategias"
+        onclick="window.location.href='estrategias.html'"
+>
+
+            <img src="Imagenes/estrategias.png" class="icono-arriba">
+
+            <h3 id="textoEstrategias">
+    Estrategias
+</h3>
+
+        </div>
+
+    </div>
+
+</section>
+</section>
+<div id="modalNuma" class="modal">
+    <div class="mensaje-numa">
+        <button class="cerrar" onclick="cerrarModal()">x</button>
+        <img id="imagenNuma" src=" " alt="Numa">
+        <div class="burbuja">
+            <p id="textoNuma"></p>
+        </div>
+    </div>
+</div>
+<script src="regulacion.js"></script>
+</body>
+</html>

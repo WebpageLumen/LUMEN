@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autoconciencia</title>
+
+    <link rel="stylesheet" href="autoconciencia.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BOTÓN VOLVER
+    ========================================== -->
+
+    <a
+        href="regulacionemocional-dellvasquez1929.html"
+        class="btn-volver"
+        aria-label="Volver"
+    >
+        ←
+    </a>
+
+
+    <!-- =========================================
+     IDIOMA
+========================================== -->
+
+<div class="language-dropdown" id="languageDropdown">
+
+    <!-- BOTÓN PRINCIPAL -->
+    <button
+        class="language-button"
+        id="languageButton"
+        type="button"
+        aria-label="Seleccionar idioma">
+
+        <img
+            class="language-flag"
+            id="banderaIdioma"
+            src="Imagenes/español.webp"
+            alt="Español">
+
+        <span id="codigoIdioma">ES</span>
+
+        <span class="arrow">⌄</span>
+
+    </button>
+
+    <!-- MENÚ -->
+    <div
+        class="language-menu"
+        id="languageMenu">
+
+        <button
+            class="language-option"
+            id="opcionES"
+            type="button">
+
+            <img
+                class="language-flag"
+                src="Imagenes/español.webp"
+                alt="Español">
+
+            <span>ES</span>
+
+        </button>
+
+        <button
+            class="language-option"
+            id="opcionEN"
+            type="button">
+
+            <img
+                class="language-flag"
+                src="Imagenes/ingles.png"
+                alt="English">
+
+            <span>EN</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+    <section class="autoconciencia">
+
+
+        <!-- =========================================
+             TÍTULO
+        ========================================== -->
+
+        <div class="titulo-autoconciencia">
+
+            <h1
+                data-es="Autoconciencia"
+                data-en="Self-awareness">
+                Autoconciencia
+            </h1>
+
+            <img
+                src="Imagenes/Autoconciencia/autoconciencia.png"
+                alt="Autoconciencia"
+                data-alt-es="Autoconciencia"
+                data-alt-en="Self-awareness"
+            >
+
+        </div>
+
+
+        <!-- =========================================
+             DESCRIPCIÓN
+        ========================================== -->
+
+        <div class="descripcion-autoconciencia">
+
+            <p
+                data-es="Aprende a reconocer y comprender mejor tus emociones, pensamientos y necesidades. A través de actividades interactivas, podrás desarrollar una mayor conciencia de lo que sientes y de cómo reaccionas ante diferentes situaciones."
+                data-en="Learn to recognize and better understand your emotions, thoughts, and needs. Through interactive activities, you can develop greater awareness of what you feel and how you react to different situations.">
+                Aprende a reconocer y comprender mejor tus emociones,
+                pensamientos y necesidades. A través de actividades
+                interactivas, podrás desarrollar una mayor conciencia
+                de lo que sientes y de cómo reaccionas ante diferentes
+                situaciones.
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             TARJETAS
+        ========================================== -->
+
+        <div class="tarjetas-autoconciencia">
+
+
+            <!-- TARJETA 1 -->
+
+            <button
+                class="tarjeta-autoconciencia tarjeta-sientes"
+                data-seccion="sientes"
+                type="button">
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/Autoconciencia/icono-emocion-cuerpo.png"
+                        alt="¿Qué sientes?"
+                    >
+
+                </div>
+
+                <span
+                    data-es="¿Qué sientes?"
+                    data-en="What are you feeling?">
+                    ¿Qué sientes?
+                </span>
+
+            </button>
+
+
+            <!-- TARJETA 2 -->
+
+            <button
+                class="tarjeta-autoconciencia"
+                data-seccion="necesitas"
+                type="button">
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/Autoconciencia/icono-necesidad.png"
+                        alt="¿Qué necesitas ahora?"
+                    >
+
+                </div>
+
+                <span
+                    data-es="¿Qué necesitas<br>ahora?"
+                    data-en="What do you<br>need now?">
+                    ¿Qué necesitas<br>
+                    ahora?
+                </span>
+
+            </button>
+
+
+            <!-- TARJETA 3 -->
+
+            <button
+                class="tarjeta-autoconciencia"
+                data-seccion="control"
+                type="button">
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/Autoconciencia/icono-control.png"
+                        alt="Control"
+                    >
+
+                </div>
+
+                <span
+                    data-es="Control"
+                    data-en="Control">
+                    Control
+                </span>
+
+            </button>
+
+
+            <!-- TARJETA 4 -->
+
+            <button
+                class="tarjeta-autoconciencia"
+                data-seccion="rueda"
+                type="button">
+
+                <div class="imagen-tarjeta">
+
+                    <img
+                        src="Imagenes/Autoconciencia/icono-ruleta.png"
+                        alt="Rueda de emociones"
+                    >
+
+                </div>
+
+                <span
+                    data-es="Rueda de<br>emociones"
+                    data-en="Emotion<br>wheel">
+                    Rueda de<br>
+                    emociones
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             PANEL PRINCIPAL
+        ========================================== -->
+
+        <div
+            class="panel-autoconciencia"
+            id="panelAutoconciencia">
+
+
+            <button
+                class="cerrar-panel"
+                id="cerrarPanel"
+                type="button"
+                aria-label="Cerrar">
+                ×
+            </button>
+
+
+            <!-- =====================================
+                 ¿QUÉ SIENTES?
+            ====================================== -->
+
+            <div
+                class="panel-sientes"
+                id="panelSientes">
+
+                <div class="sientes-izquierda">
+
+                    <div class="titulo-cuerpo">
+
+                        <h2
+                            data-es="¿Cómo se siente<br>tu cuerpo?"
+                            data-en="How does your<br>body feel?">
+                            ¿Cómo se siente
+                            tu cuerpo?
+                        </h2>
+
+                    </div>
+
+
+                    <div class="silueta-wrapper">
+
+                        <img
+                            src="Imagenes/Autoconciencia/emocion-cuerpo/figura.png"
+                            alt="Silueta del cuerpo"
+                            class="silueta-nino"
+                        >
+
+
+                        <button
+                            class="punto-cuerpo punto-cabeza"
+                            data-zona="cabeza"
+                            type="button"
+                            aria-label="Cabeza">
+                        </button>
+
+
+                        <button
+                            class="punto-cuerpo punto-garganta"
+                            data-zona="garganta"
+                            type="button"
+                            aria-label="Garganta">
+                        </button>
+
+
+                        <button
+                            class="punto-cuerpo punto-pecho"
+                            data-zona="pecho"
+                            type="button"
+                            aria-label="Pecho">
+                        </button>
+
+
+                        <button
+                            class="punto-cuerpo punto-estomago"
+                            data-zona="estomago"
+                            type="button"
+                            aria-label="Estómago">
+                        </button>
+
+
+                        <button
+                            class="punto-cuerpo punto-mano"
+                            data-zona="mano"
+                            type="button"
+                            aria-label="Mano">
+                        </button>
+
+
+                        <button
+                            class="punto-cuerpo punto-pie"
+                            data-zona="pie"
+                            type="button"
+                            aria-label="Pie">
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sientes-derecha">
+
+                    <div
+                        class="sientes-inicial"
+                        id="sientesInicial">
+
+                        <div class="texto-sientes-inicial">
+
+                            <strong
+                                data-es="¿Dónde sientes<br>la sensación?"
+                                data-en="Where do you<br>feel the sensation?">
+                                ¿Dónde sientes
+                                la sensación?
+                            </strong>
+
+                            <span
+                                data-es="Toca en el cuerpo la parte donde la sientes."
+                                data-en="Touch the part of the body where you feel it.">
+                                Toca en el cuerpo
+                                la parte donde
+                                la sientes.
+                            </span>
+
+                        </div>
+
+
+                        <img
+                            src="Imagenes/Autoconciencia/emocion-cuerpo/numita.png"
+                            alt="Numita"
+                            class="lila-sientes"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="sientes-info"
+                        id="sientesInfo">
+
+                        <div class="info-cuerpo-superior">
+
+                            <div class="imagen-zona-wrapper">
+
+                                <img
+                                    id="imagenZona"
+                                    src=""
+                                    alt=""
+                                >
+
+                            </div>
+
+
+                            <div class="datos-zona">
+
+                                <h3 id="sientesTitulo"></h3>
+
+                                <div
+                                    class="sientes-etiquetas"
+                                    id="sientesEtiquetas">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-cuerpo-inferior">
+
+                            <div class="bloque-informacion">
+
+                                <strong
+                                    data-es="¿Esto puede pasar cuando?"
+                                    data-en="This can happen when?">
+                                    ¿Esto puede pasar cuando?
+                                </strong>
+
+                                <ul id="sientesTexto"></ul>
+
+                            </div>
+
+
+                            <div class="bloque-consejos">
+
+                                <strong
+                                    data-es="Puedes intentar:"
+                                    data-en="You can try:">
+                                    Puedes intentar:
+                                </strong>
+
+                                <ul id="sientesConsejos"></ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ¿QUÉ NECESITAS?
+            ====================================== -->
+
+            <div
+                class="panel-necesitas"
+                id="panelNecesitas">
+
+                <h2
+                    data-es="¿Qué necesitas ahora?"
+                    data-en="What do you need now?">
+                    ¿Qué necesitas ahora?
+                </h2>
+
+
+                <div
+                    class="necesitas-paso"
+                    id="necesitasPaso">
+
+                    <p
+                        class="pregunta-necesitas"
+                        data-es="¿Cómo te sientes en este momento?"
+                        data-en="How are you feeling right now?">
+                        ¿Cómo te sientes en este momento?
+                    </p>
+
+
+                    <div class="opciones-emociones">
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="Tranquilo"
+                            data-emocion-en="Calm"
+                            type="button">
+                            😊
+                            <span
+                                data-es="Tranquilo"
+                                data-en="Calm">
+                                Tranquilo
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="Preocupado"
+                            data-emocion-en="Worried"
+                            type="button">
+                            😟
+                            <span
+                                data-es="Preocupado"
+                                data-en="Worried">
+                                Preocupado
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="Molesto"
+                            data-emocion-en="Upset"
+                            type="button">
+                            😡
+                            <span
+                                data-es="Molesto"
+                                data-en="Upset">
+                                Molesto
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="Triste"
+                            data-emocion-en="Sad"
+                            type="button">
+                            😢
+                            <span
+                                data-es="Triste"
+                                data-en="Sad">
+                                Triste
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="Abrumado"
+                            data-emocion-en="Overwhelmed"
+                            type="button">
+                            😵
+                            <span
+                                data-es="Abrumado"
+                                data-en="Overwhelmed">
+                                Abrumado
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad-emocion"
+                            data-emocion-es="No estoy seguro"
+                            data-emocion-en="I'm not sure"
+                            type="button">
+                            ❓
+                            <span
+                                data-es="No estoy seguro"
+                                data-en="I'm not sure">
+                                No estoy seguro
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="necesidades-opciones"
+                    id="necesidadesOpciones">
+
+                    <p
+                        class="pregunta-necesitas"
+                        data-es="¿Qué crees que necesitas?"
+                        data-en="What do you think you need?">
+                        ¿Qué crees que necesitas?
+                    </p>
+
+
+                    <div class="grid-necesidades">
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Hablar"
+                            data-necesidad-en="Talk"
+                            type="button">
+                            🗣️
+                            <span
+                                data-es="Hablar"
+                                data-en="Talk">
+                                Hablar
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Calmarme"
+                            data-necesidad-en="Calm down"
+                            type="button">
+                            🌬️
+                            <span
+                                data-es="Calmarme"
+                                data-en="Calm down">
+                                Calmarme
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Algo que me ayude"
+                            data-necesidad-en="Something that helps me"
+                            type="button">
+                            🧸
+                            <span
+                                data-es="Algo que me ayude"
+                                data-en="Something that helps me">
+                                Algo que me ayude
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Tomar una pausa"
+                            data-necesidad-en="Take a break"
+                            type="button">
+                            ⏸️
+                            <span
+                                data-es="Tomar una pausa"
+                                data-en="Take a break">
+                                Tomar una pausa
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Pedir ayuda"
+                            data-necesidad-en="Ask for help"
+                            type="button">
+                            🤝
+                            <span
+                                data-es="Pedir ayuda"
+                                data-en="Ask for help">
+                                Pedir ayuda
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="opcion-necesidad"
+                            data-necesidad-es="Descansar un momento"
+                            data-necesidad-en="Rest for a moment"
+                            type="button">
+                            💧
+                            <span
+                                data-es="Descansar un momento"
+                                data-en="Rest for a moment">
+                                Descansar un momento
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="resultado-necesidad"
+                    id="resultadoNecesidad">
+
+                    <div class="resultado-contenido">
+
+                        <div class="resultado-mensaje">
+
+                            <h3
+                                data-es="¡Muy bien! ✨"
+                                data-en="Great job! ✨">
+                                ¡Muy bien! ✨
+                            </h3>
+
+                            <p
+                                data-es="Has identificado lo que sientes y lo que crees que necesitas."
+                                data-en="You identified how you feel and what you think you need.">
+                                Has identificado lo que sientes
+                                y lo que crees que necesitas.
+                            </p>
+
+
+                            <div class="eleccion-final">
+
+                                <p>
+                                    <span
+                                        data-es="Te sientes:"
+                                        data-en="You feel:">
+                                        Te sientes:
+                                    </span>
+
+                                    <strong id="emocionElegida"></strong>
+                                </p>
+
+
+                                <p>
+                                    <span
+                                        data-es="Necesitas:"
+                                        data-en="You need:">
+                                        Necesitas:
+                                    </span>
+
+                                    <strong id="necesidadElegida"></strong>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="estrategia-visual"
+                            id="estrategiaVisual">
+
+                            <div
+                                class="estrategia-icono"
+                                id="estrategiaIcono">
+                                🌟
+                            </div>
+
+
+                            <h3 id="estrategiaTitulo">
+                                Tu siguiente paso
+                            </h3>
+
+
+                            <p id="estrategiaDescripcion">
+                                Aquí aparecerá una estrategia
+                                relacionada con lo que elegiste.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="btn-nueva-eleccion"
+                        id="btnNuevaEleccion"
+                        type="button"
+                        data-es="Elegir nuevamente"
+                        data-en="Choose again">
+                        Elegir nuevamente
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 CONTROL
+            ====================================== -->
+
+            <div
+                class="panel-control"
+                id="panelControl">
+
+                <h2
+                    data-es="¿Qué puedo controlar?"
+                    data-en="What can I control?">
+                    ¿Qué puedo controlar?
+                </h2>
+
+                <p
+                    data-es="Hay cosas que podemos controlar y otras que no."
+                    data-en="There are things we can control and things we cannot.">
+                    Hay cosas que podemos controlar
+                    y otras que no.
+                </p>
+
+
+                <div
+                    class="control-pregunta"
+                    id="controlPregunta">
+                </div>
+
+
+                <div class="control-botones">
+
+                    <button
+                        class="respuesta-control"
+                        data-respuesta="si"
+                        type="button">
+                        🟢
+                        <span
+                            data-es="Sí puedo"
+                            data-en="Yes, I can">
+                            Sí puedo
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="respuesta-control"
+                        data-respuesta="no"
+                        type="button">
+                        🔴
+                        <span
+                            data-es="No puedo"
+                            data-en="No, I can't">
+                            No puedo
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="respuesta-control"
+                        data-respuesta="influir"
+                        type="button">
+                        🟡
+                        <span
+                            data-es="Puedo influir"
+                            data-en="I can influence">
+                            Puedo influir
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="resultado-control"
+                    id="resultadoControl">
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 RUEDA DE EMOCIONES
+            ====================================== -->
+
+            <div
+                class="panel-rueda"
+                id="panelRueda">
+
+                <h2
+                    data-es="Gira la ruleta de emociones"
+                    data-en="Spin the emotion wheel">
+                    Gira la ruleta de emociones
+                </h2>
+
+                <p
+                    class="rueda-instruccion"
+                    data-es="Gira la ruleta y descubre más sobre una emoción."
+                    data-en="Spin the wheel and learn more about an emotion.">
+                    Gira la ruleta y descubre más sobre una emoción.
+                </p>
+
+
+                <div class="rueda-contenedor">
+
+                    <div class="indicador-rueda">
+                        ▼
+                    </div>
+
+
+                    <div
+                        class="rueda-emociones"
+                        id="ruedaEmociones">
+
+                        <div class="segmento-emocion frustrado">
+                            <span
+                                data-es="Frustrado"
+                                data-en="Frustrated">
+                                Frustrado
+                            </span>
+                        </div>
+
+                        <div class="segmento-emocion feliz">
+                            <span
+                                data-es="Feliz"
+                                data-en="Happy">
+                                Feliz
+                            </span>
+                        </div>
+
+                        <div class="segmento-emocion triste">
+                            <span
+                                data-es="Triste"
+                                data-en="Sad">
+                                Triste
+                            </span>
+                        </div>
+
+                        <div class="segmento-emocion enojado">
+                            <span
+                                data-es="Enojado"
+                                data-en="Angry">
+                                Enojado
+                            </span>
+                        </div>
+
+                        <div class="segmento-emocion ansioso">
+                            <span
+                                data-es="Ansioso"
+                                data-en="Anxious">
+                                Ansioso
+                            </span>
+                        </div>
+
+                        <div class="segmento-emocion asustado">
+                            <span
+                                data-es="Asustado"
+                                data-en="Scared">
+                                Asustado
+                            </span>
+                        </div>
+
+
+                        <div class="centro-rueda">
+                            <span
+                                data-es="GIRA"
+                                data-en="SPIN">
+                                GIRA
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn-girar-rueda"
+                    id="btnGirarRueda"
+                    type="button"
+                    data-es="🎡 Girar la ruleta"
+                    data-en="🎡 Spin the wheel">
+                    🎡 Girar la ruleta
+                </button>
+
+
+                <div
+                    class="resultado-rueda"
+                    id="resultadoRueda">
+
+                    <div class="emocion-resultado">
+
+                        <span
+                            class="resultado-emoji"
+                            id="resultadoEmoji">
+                            😊
+                        </span>
+
+                        <div>
+
+                            <span
+                                class="resultado-label"
+                                data-es="¡Salió!"
+                                data-en="It landed on!">
+                                ¡Salió!
+                            </span>
+
+                            <h3 id="tituloEmocion">
+                                Feliz
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="informacion-rueda">
+
+
+                        <div class="info-rueda-card">
+
+                            <div class="info-rueda-icono">
+                                💭
+                            </div>
+
+                            <div>
+
+                                <h4
+                                    data-es="¿Por qué alguien podría sentirse así?"
+                                    data-en="Why might someone feel this way?">
+                                    ¿Por qué alguien podría sentirse así?
+                                </h4>
+
+                                <ul id="causasEmocion"></ul>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-rueda-card">
+
+                            <div class="info-rueda-icono">
+                                🫶
+                            </div>
+
+                            <div>
+
+                                <h4
+                                    data-es="¿Cómo podría sentirse en su cuerpo?"
+                                    data-en="How might they feel it in their body?">
+                                    ¿Cómo podría sentirse en su cuerpo?
+                                </h4>
+
+                                <ul id="cuerpoEmocion"></ul>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-rueda-card">
+
+                            <div class="info-rueda-icono">
+                                🌱
+                            </div>
+
+                            <div>
+
+                                <h4
+                                    data-es="¿Qué podría necesitar?"
+                                    data-en="What might they need?">
+                                    ¿Qué podría necesitar?
+                                </h4>
+
+                                <ul id="necesidadesEmocion"></ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <p
+                        class="mensaje-rueda"
+                        id="mensajeFinalRueda"
+                        data-es="Recuerda: cada persona puede experimentar una emoción de una manera diferente."
+                        data-en="Remember: each person can experience an emotion differently.">
+                        Recuerda: cada persona puede experimentar
+                        una emoción de una manera diferente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="autoconciencia.js"></script>
+
+</body>
+
+</html>
