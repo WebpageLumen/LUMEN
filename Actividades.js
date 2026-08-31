@@ -5,7 +5,7 @@
 
   const ACTIVITY_DESTINATIONS = {
     'historias-sociales': 'historias.html', // Asegúrate de que este sea el archivo correcto
-    'expresiones-faciales': 'expresiones-faciales.html',
+    'expresiones-faciales': 'Proyecto web lumen/Final.html',
     'mas-alla-palabras': 'mas-alla-palabras.html',
     'juego-turnos': 'juego-turnos.html'
   };
