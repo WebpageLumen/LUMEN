@@ -741,7 +741,7 @@ function actualizarImagenes() {
 
 
     const rutaBase =
-        "Imagenes/estiramientos/seleccion-estiramiento/" +
+        "Imagenes/+" +
         carpeta +
         "/";
 
@@ -767,7 +767,7 @@ function actualizarImagenes() {
 
 
     imagenNumaTip.src =
-        "Imagenes/estiramientos/seleccion-estiramiento/tip.png";
+        "Imagenes/tip.png";
 
 }
 
