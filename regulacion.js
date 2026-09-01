@@ -13,10 +13,10 @@ window.onload = function () {
             altES: "Feliz",
             altEN: "Happy",
 
-            imagenES: "Imagenes/emociones/feliz.png",
-            imagenEN: "Imagenes/emociones/happy.png",
+            imagenES: "Imagenes/feliz.png",
+            imagenEN: "Imagenes/happy.png",
 
-            numa: "Imagenes/numa/numa-alegre.png"
+            numa: "Imagenes/numa-alegre.png"
         },
 
         contento: {
@@ -26,10 +26,10 @@ window.onload = function () {
             altES: "Contento",
             altEN: "Feeling good",
 
-            imagenES: "Imagenes/emociones/contento.png",
-            imagenEN: "Imagenes/emociones/glad.png",
+            imagenES: "Imagenes/contento.png",
+            imagenEN: "Imagenes/glad.png",
 
-            numa: "Imagenes/numa/numa-contenta.png"
+            numa: "Imagenes/numa-contenta.png"
         },
 
         tranquilo: {
@@ -39,10 +39,10 @@ window.onload = function () {
             altES: "Tranquilo",
             altEN: "Calm",
 
-            imagenES: "Imagenes/emociones/tranquilo.png",
-            imagenEN: "Imagenes/emociones/calm.png",
+            imagenES: "Imagenes/tranquilo.png",
+            imagenEN: "Imagenes/calm.png",
 
-            numa: "Imagenes/numa/numa-tranquila.png"
+            numa: "Imagenes/numa-tranquila.png"
         },
 
         triste: {
@@ -52,10 +52,10 @@ window.onload = function () {
             altES: "Triste",
             altEN: "Sad",
 
-            imagenES: "Imagenes/emociones/triste.png",
-            imagenEN: "Imagenes/emociones/sad.png",
+            imagenES: "Imagenes/triste.png",
+            imagenEN: "Imagenes/sad.png",
 
-            numa: "Imagenes/numa/numa-triste.png"
+            numa: "Imagenes/numa-triste.png"
         },
 
         enojado: {
@@ -65,10 +65,10 @@ window.onload = function () {
             altES: "Enojado",
             altEN: "Angry",
 
-            imagenES: "Imagenes/emociones/enojado.png",
-            imagenEN: "Imagenes/emociones/angry.png",
+            imagenES: "Imagenes/enojado.png",
+            imagenEN: "Imagenes/angry.png",
 
-            numa: "Imagenes/numa/numa-enojada.png"
+            numa: "Imagenes/numa-enojada.png"
         }
 
     };
