@@ -740,9 +740,11 @@ function actualizarImagenes() {
         ejercicioActual.carpeta;
 
 
-    // RUTA CORREGIDA (Sin el signo + y buscando directo en la carpeta Imagenes)
+    // RUTA CORREGIDA (Sin el signo +)
     const rutaBase =
-        "Imagenes/" + carpeta + "-";
+        "Imagenes/" +
+        carpeta +
+        "/";
 
 
     imagenEjercicio.src =
