@@ -361,5 +361,93 @@
  
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
+  
+  <!-- SISTEMA DE IDIOMA PARA INDEX -->
+  <script>
+  var lang = localStorage.getItem('lumen_lang') || 'es';
+  document.documentElement.lang = lang;
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var langOptions = document.querySelectorAll('.lang-option');
+      var langBtn = document.getElementById('langBtn');
+      var langDropdown = document.getElementById('langDropdown');
+      var langFlag = document.getElementById('langFlag');
+      var langLabel = document.getElementById('langLabel');
+      
+      langOptions.forEach(function(opt) {
+          opt.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var nuevoLang = this.getAttribute('data-lang');
+              if (nuevoLang) {
+                  localStorage.setItem('lumen_lang', nuevoLang);
+                  if (nuevoLang === 'es') {
+                      if (langFlag) langFlag.src = 'https://flagcdn.com/w80/es.png';
+                      if (langLabel) langLabel.textContent = 'ES';
+                  } else if (nuevoLang === 'en') {
+                      if (langFlag) langFlag.src = 'https://flagcdn.com/w80/gb.png';
+                      if (langLabel) langLabel.textContent = 'EN';
+                  }
+                  langOptions.forEach(function(o) { o.classList.remove('selected'); });
+                  this.classList.add('selected');
+                  if (langDropdown) langDropdown.classList.remove('open');
+                  if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+                  location.reload();
+              }
+          });
+      });
+      
+      if (langBtn) {
+          langBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              if (langDropdown) {
+                  langDropdown.classList.toggle('open');
+                  this.setAttribute('aria-expanded', langDropdown.classList.contains('open'));
+              }
+          });
+      }
+      
+      document.addEventListener('click', function(e) {
+          var wrapper = document.getElementById('langWrapper');
+          if (wrapper && !wrapper.contains(e.target)) {
+              if (langDropdown) langDropdown.classList.remove('open');
+              if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+          }
+      });
+      
+      var currentLang = localStorage.getItem('lumen_lang') || 'es';
+      langOptions.forEach(function(o) {
+          if (o.getAttribute('data-lang') === currentLang) {
+              o.classList.add('selected');
+          } else {
+              o.classList.remove('selected');
+          }
+      });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var lang = localStorage.getItem('lumen_lang') || 'es';
+      document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
+          if (enlace.href.includes('?')) {
+              enlace.href = enlace.href + '&lang=' + lang;
+          } else {
+              enlace.href = enlace.href + '?lang=' + lang;
+          }
+      });
+      var shopBtn = document.querySelector('.shop-btn');
+      if (shopBtn && shopBtn.href && shopBtn.href.includes('Lumenshop.html')) {
+          if (shopBtn.href.includes('?')) {
+              shopBtn.href = shopBtn.href + '&lang=' + lang;
+          } else {
+              shopBtn.href = shopBtn.href + '?lang=' + lang;
+          }
+      }
+  });
+
+  console.log('🌐 index.html - Idioma:', lang);
+  </script>
+
+</body>
+</html>
+  
 </body>
 </html>
