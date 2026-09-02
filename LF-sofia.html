@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lenguaje Figurado | LUMEN</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="LF-sofia.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="Imagenes/Lg.png" alt="Logo Lumen" class="logo-img"/>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+      <div class="nav-item">
+        <a href="InfoGene1.html" class="nav-btn nav-link" data-i18n="nav_info">Información general</a>
+        <div class="nav-dropdown">
+          <a href="InfoGene1.html#sec-autism" class="nav-drop-link" data-i18n="drop_autism">¿Qué es el autismo?</a>
+          <a href="InfoGene1.html#sec-causes" class="nav-drop-link" data-i18n="drop_causes">Causas del autismo</a>
+          <a href="InfoGene1.html#sec-levels" class="nav-drop-link" data-i18n="drop_levels">Niveles de autismo</a>
+          <a href="InfoGene1.html#sec-signs" class="nav-drop-link" data-i18n="drop_signs">Señales de alerta</a>
+          <a href="InfoGene1.html#sec-girls" class="nav-drop-link" data-i18n="drop_girls">Autismo en niñas y...</a>
+          <a href="InfoGene1.html#sec-conditions" class="nav-drop-link" data-i18n="drop_conditions">Condiciones asociadas...</a>
+        </div>
+      </div>
+      <a href="Lumenshop.html" class="nav-btn" data-i18n="nav_shop">Lumen Shop</a>
+      <a href="Centros1.html" class="nav-btn" data-i18n="nav_centers">Centros</a>
+      <a href="Giras.html" class="nav-btn" data-i18n="nav_tours">Giras inclusivas</a>
+      <a href="profesionales.html" class="nav-btn" data-i18n="nav_pros">Profesionales</a>
+      <div class="nav-item">
+        <a href="about.html" class="nav-btn nav-link" data-i18n="nav_about">Sobre nosotros</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-drop-link" data-i18n="drop_who">¿Quiénes somos?</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_mission">Misión y visión</a>
+          <a href="#" class="nav-drop-link" data-i18n="drop_contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-controls">
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Seleccionar idioma">
+          <img src="https://flagcdn.com/w80/es.png" class="flag" id="langFlag" alt="Bandera"/>
+          <span id="langLabel">ES</span>
+          <span class="lang-chevron"></span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="listbox">
+          <div class="lang-option selected" role="option" data-lang="es" tabindex="0">
+            <img src="https://flagcdn.com/w80/es.png" class="flag" alt="Español"/>
+            <span>ES</span>
+          </div>
+          <div class="lang-option" role="option" data-lang="en" tabindex="0">
+            <img src="https://flagcdn.com/w80/gb.png" class="flag" alt="English"/>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="stage" id="stage">
+
+      <div class="stage-deco" aria-hidden="true">
+        <img class="deco-cloud deco-cloud-1" src="Imagenes/deco-nube-1.png" alt="">
+        <img class="deco-cloud deco-cloud-2" src="Imagenes/deco-nube-2.png" alt="">
+        <img class="deco-cloud deco-cloud-3" src="Imagenes/deco-nube-3.png" alt="">
+        <img class="deco-splash deco-splash-1" src="Imagenes/deco-mancha-1.png" alt="">
+        <img class="deco-splash deco-splash-2" src="Imagenes/deco-mancha-2.png" alt="">
+      </div>
+
+      <div class="stage-header">
+        <button class="back-btn" onclick="goToStep(0)">‹</button>
+        <div class="pill-label dark" id="pill-label" data-i18n="game_title">Lenguaje Figurado</div>
+      </div>
+
+      <!-- STEP 0: PORTADA -->
+      <section class="screen active screen-bg" id="step-0"></section>
+
+      <!-- STEP 1: ESCENAS -->
+      <section class="screen" id="step-1">
+        <div class="scenes-row">
+          <div class="scene-card">
+            <div class="scene-label" data-i18n="game_scene1">Sofía llega a un nuevo grupo</div>
+            <div class="scene-body">
+              <div class="img-slot">
+                <img src="Imagenes/Sofia-1.png" alt="Sofía llega a un nuevo grupo">
+              </div>
+            </div>
+          </div>
+          <div class="arrow-connector">›</div>
+          <div class="scene-card">
+            <div class="scene-label" data-i18n="game_scene2">Una compañera dice:</div>
+            <div class="scene-body">
+              <div class="img-slot">
+                <img src="Imagenes/Sofia-2.png" alt="Una compañera dice vamos a romper el hielo">
+              </div>
+            </div>
+          </div>
+          <div class="arrow-connector">›</div>
+          <div class="scene-card">
+            <div class="scene-label" data-i18n="game_scene3">Sofía se asusta un poco</div>
+            <div class="scene-body">
+              <div class="img-slot">
+                <img src="Imagenes/Sofia-3.png" alt="Sofía se asusta un poco">
+              </div>
+            </div>
+          </div>
+          <div class="arrow-connector">›</div>
+          <div class="scene-card">
+            <div class="scene-label" data-i18n="game_scene4">Sofía entiende: significa empezar a hablar</div>
+            <div class="scene-body">
+              <div class="img-slot">
+                <img src="Imagenes/Sofia-4.png" alt="Sofía entiende el significado">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: PREGUNTA 1 -->
+      <section class="screen" id="step-2">
+        <div class="q-title" data-i18n="game_q1">¿Qué significa "romper el hielo"?</div>
+        <div class="q1-layout">
+          <div class="q1-options" id="q1-options">
+            <button class="opt-card" onclick="answer('q1', this, false)"><span class="badge">A</span><span data-i18n="game_q1_opt1">Romper algo</span></button>
+            <button class="opt-card" onclick="answer('q1', this, false)"><span class="badge">B</span><span data-i18n="game_q1_opt2">Hacer que el hielo se derrita</span></button>
+            <button class="opt-card" onclick="answer('q1', this, true)"><span class="badge">C</span><span data-i18n="game_q1_opt3">Empezar a hablar para conocerse</span></button>
+          </div>
+          <div class="q1-image-card">
+            <div class="scene-label" data-i18n="game_scene2">Una compañera dice:</div>
+            <div class="q1-image-body">
+              <div class="img-slot">
+                <img src="Imagenes/Sofia-2.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="retry-box" id="q1-retry">
+          <div class="mini-mascot"><img src="Imagenes/mascota.png" alt="Mascota"></div>
+          <div class="retry-text" data-i18n="game_retry_text">Puedes intentarlo otra vez.</div>
+          <button class="retry-btn" onclick="resetQuestion('q1')" data-i18n="game_retry_btn">Intentar otra vez</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: PREGUNTA 2 -->
+      <section class="screen" id="step-3">
+        <div class="q-title" data-i18n="game_q2">¿Cómo crees que se sentía Sofía al principio?</div>
+        <div class="cards-3col" id="q2-options">
+          <button class="pick-card" onclick="answer('q2', this, false)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-feliz.png" alt=""></span>
+            <span class="label" data-i18n="game_q2_opt1">Feliz</span>
+          </button>
+          <button class="pick-card" onclick="answer('q2', this, false)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-tranquila.png" alt=""></span>
+            <span class="label" data-i18n="game_q2_opt2">Tranquila</span>
+          </button>
+          <button class="pick-card" onclick="answer('q2', this, true)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-asustada.png" alt=""></span>
+            <span class="label" data-i18n="game_q2_opt3">Asustada</span>
+          </button>
+        </div>
+        <div class="retry-box" id="q2-retry">
+          <div class="mini-mascot"><img src="Imagenes/mascota.png" alt="Mascota"></div>
+          <div class="retry-text" data-i18n="game_retry_text">Puedes intentarlo otra vez.</div>
+          <button class="retry-btn" onclick="resetQuestion('q2')" data-i18n="game_retry_btn">Intentar otra vez</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: PREGUNTA 3 -->
+      <section class="screen" id="step-4">
+        <div class="q-title" data-i18n="game_q3">¿Qué hizo Sofía al final?</div>
+        <div class="cards-3col" id="q3-options">
+          <button class="pick-card" onclick="answer('q3', this, false)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-callada.png" alt=""></span>
+            <span class="label" data-i18n="game_q3_opt1">Se quedó callada</span>
+          </button>
+          <button class="pick-card" onclick="answer('q3', this, false)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-se-fue.png" alt=""></span>
+            <span class="label" data-i18n="game_q3_opt2">Se fue del grupo</span>
+          </button>
+          <button class="pick-card" onclick="answer('q3', this, true)">
+            <span class="check-badge" style="display:none">✔</span>
+            <span class="img-slot img-slot-pick"><img src="Imagenes/Sofia-hola.png" alt=""></span>
+            <span class="label" data-i18n="game_q3_opt3">Dijo "Hola"</span>
+          </button>
+        </div>
+        <div class="retry-box" id="q3-retry">
+          <div class="mini-mascot"><img src="Imagenes/mascota.png" alt="Mascota"></div>
+          <div class="retry-text" data-i18n="game_retry_text">Puedes intentarlo otra vez.</div>
+          <button class="retry-btn" onclick="resetQuestion('q3')" data-i18n="game_retry_btn">Intentar otra vez</button>
+        </div>
+      </section>
+
+      <!-- STEP 5: FINAL -->
+      <section class="screen screen-bg" id="step-5"></section>
+    </div>
+  </div>
+
+  <footer class="progress-footer">
+    <div class="progress-pill" id="progress-pill"></div>
+  </footer>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="Imagenes/cloud.png" alt="Logo Lumen" class="footer-logo-img"/>
+      </div>
+      <p class="footer-copy">
+        <span class="copy-icon">‎ ‎ ‎ ‎ ‎ ‎ ‎ ©</span>
+        <span data-i18n="footer_copy">2026 Lumen. Todos los derechos reservados.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info">Información general</a></li>
+        <li><a href="shop.html" data-i18n="nav_shop">Lumen Shop</a></li>
+        <li><a href="centers.html" data-i18n="nav_centers">Centros</a></li>
+        <li><a href="tours.html" data-i18n="nav_tours">Giras inclusivas</a></li>
+        <li><a href="pros.html" data-i18n="nav_pros">Profesionales</a></li>
+        <li><a href="about.html" data-i18n="nav_about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a class="footer-social-line" data-i18n="footer_community" href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0NTMyMDI0MzIifQ" target="_blank">¡Visita nuestra comunidad!</a>
+      <p class="footer-social-line" data-i18n="footer_contact">Contáctanos</p>
+      <p class="footer-social-line" data-i18n="footer_email_label">Correo electrónico:</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10.5 9.2v5.6l4.8-2.8-4.8-2.8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" class="social-icon" aria-label="Instagram" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-mascot" aria-hidden="true">
+      <img src="Imagenes/numa2.0.png" alt="Mascota Lumen" class="mascot-img"/>
+    </div>
+  </footer>
+
+  <script src="LF-sofia.js"></script>
+
+</body>
+</html>
