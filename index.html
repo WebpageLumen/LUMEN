@@ -362,7 +362,117 @@
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
   
-    <!-- SISTEMA DE IDIOMA PARA INDEX -->
+      <!-- ========================================================== -->
+  <!-- SISTEMA DE IDIOMA PARA INDEX - VERSIÓN FINAL               -->
+  <!-- ========================================================== -->
+  <script>
+  // ==========================================================
+  // 1. CARGAR IDIOMA GUARDADO
+  // ==========================================================
+  var lang = localStorage.getItem('lumen_lang') || 'es';
+  document.documentElement.lang = lang;
+  console.log('🌐 index.html - Idioma:', lang);
+
+  // ==========================================================
+  // 2. FUNCIÓN PARA ACTUALIZAR LA BANDERA Y EL TEXTO
+  // ==========================================================
+  function actualizarBandera() {
+      var currentLang = localStorage.getItem('lumen_lang') || 'es';
+      var langFlag = document.getElementById('langFlag');
+      var langLabel = document.getElementById('langLabel');
+      var langOptions = document.querySelectorAll('.lang-option');
+      
+      if (langFlag) {
+          langFlag.src = currentLang === 'es' ? 'https://flagcdn.com/w80/es.png' : 'https://flagcdn.com/w80/gb.png';
+      }
+      if (langLabel) {
+          langLabel.textContent = currentLang.toUpperCase();
+      }
+      langOptions.forEach(function(o) {
+          o.classList.toggle('selected', o.getAttribute('data-lang') === currentLang);
+      });
+      
+      console.log('🔄 Bandera actualizada a:', currentLang.toUpperCase());
+  }
+
+  // ==========================================================
+  // 3. ACTUALIZAR ENLACES A LUMENSHOP
+  // ==========================================================
+  document.addEventListener('DOMContentLoaded', function() {
+      var lang = localStorage.getItem('lumen_lang') || 'es';
+      document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
+          var baseUrl = enlace.href.split('?')[0];
+          enlace.href = baseUrl + '?lang=' + lang;
+          console.log('✅ Enlace actualizado:', enlace.href);
+      });
+  });
+
+  // ==========================================================
+  // 4. CONFIGURAR SELECTOR DE IDIOMA
+  // ==========================================================
+  document.addEventListener('DOMContentLoaded', function() {
+      var langBtn = document.getElementById('langBtn');
+      var langDropdown = document.getElementById('langDropdown');
+      var langOptions = document.querySelectorAll('.lang-option');
+      
+      if (!langBtn || !langDropdown) {
+          console.log('⏳ Elementos del selector no encontrados');
+          return;
+      }
+      
+      console.log('✅ Elementos del selector encontrados');
+      
+      // RECONSTRUIR EL BOTÓN (eliminar eventos anteriores)
+      var newBtn = langBtn.cloneNode(true);
+      langBtn.parentNode.replaceChild(newBtn, langBtn);
+      langBtn = newBtn;
+      
+      // Evento para abrir/cerrar dropdown
+      langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          langDropdown.classList.toggle('open');
+          console.log('🔄 Selector:', langDropdown.classList.contains('open') ? 'ABIERTO' : 'CERRADO');
+      });
+      
+      // RECONSTRUIR LAS OPCIONES
+      langOptions.forEach(function(opt) {
+          var newOpt = opt.cloneNode(true);
+          opt.parentNode.replaceChild(newOpt, opt);
+          
+          newOpt.addEventListener('click', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              var nuevoLang = this.getAttribute('data-lang');
+              if (nuevoLang) {
+                  console.log('🌐 Cambiando a:', nuevoLang);
+                  localStorage.setItem('lumen_lang', nuevoLang);
+                  
+                  // ACTUALIZAR LA BANDERA ANTES DE RECARGAR
+                  actualizarBandera();
+                  
+                  // Recargar después de un breve retraso para que se vea el cambio
+                  setTimeout(function() {
+                      location.reload();
+                  }, 200);
+              }
+          });
+      });
+      
+      // Cerrar dropdown al hacer clic fuera
+      document.addEventListener('click', function(e) {
+          var wrapper = document.getElementById('langWrapper');
+          if (wrapper && !wrapper.contains(e.target)) {
+              langDropdown.classList.remove('open');
+          }
+      });
+      
+      // ACTUALIZAR LA BANDERA AL CARGAR
+      actualizarBandera();
+      
+      console.log('✅ Selector configurado correctamente');
+  });
+  </script><!-- SISTEMA DE IDIOMA PARA INDEX -->
   <script>
   // ==========================================================
   // 1. CARGAR IDIOMA GUARDADO
