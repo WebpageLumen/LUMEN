@@ -155,7 +155,6 @@
       opt.classList.toggle("selected", opt.dataset.lang === lang);
     });
     applyTranslations(lang);
-    applyImageTranslations(lang); // <- Se agregó esta línea
     closeLangDropdown();
   }
 
