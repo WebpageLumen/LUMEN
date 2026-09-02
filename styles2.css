@@ -113,7 +113,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1550;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1093,23 +1093,103 @@ body {
 }
 
 /* =========================================================
-   RESPONSIVE – TABLET
+   MENÚ HAMBURGUESA – ESTRUCTURA BASE
+   (oculto en escritorio/tablet, activado en móvil)
 ========================================================= */
-@media (max-width: 900px) {
-  .hero-content { padding: 36px 5vw 60px; }
-  .hero-text { max-width: 100%; }
-  .cards-grid { grid-template-columns: repeat(2, 1fr); }
-  .tours-section { flex-direction: column; }
-  .tours-left { flex: none; }
-  .shop-section { flex-direction: column; }
-  .shop-left { flex: none; }
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 1600;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--blue-brand);
+  transition: transform .28s ease, opacity .2s ease;
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Fondo oscuro tras el menú móvil */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 35, 55, .45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 1400;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Elementos exclusivos del panel móvil: ocultos por defecto */
+.mobile-menu-header,
+.mobile-menu-logo,
+.mobile-menu-close {
+  display: none;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 /* =========================================================
-   RESPONSIVE – MÓVIL
+   RESPONSIVE – TABLET (768px – 1024px)
 ========================================================= */
-/* ===== RESPONSIVE MÓVIL ===== */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .navbar { padding: 12px 24px; gap: 10px; }
+  .logo-img { width: 130px; height: 46px; }
+  .nav-btn { font-size: .78rem; padding: 7px 11px; }
+
+  .hero-content { padding: 32px 6vw 56px; }
+  .hero-text { max-width: 100%; }
+  .hero-title { font-size: clamp(1.6rem, 4.4vw, 2.3rem); }
+  .hero-description { max-width: 100%; }
+
+  .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .tours-section { flex-direction: column; align-items: flex-start; }
+  .tours-left { flex: none; width: 100%; }
+  .tours-cards { width: 100%; }
+
+  .shop-section { flex-direction: column; align-items: flex-start; }
+  .shop-left { flex: none; width: 100%; }
+  .shop-products { width: 100%; }
+
+  .site-footer { padding-right: 6vw; }
+}
+
+/* =========================================================
+   RESPONSIVE – MÓVIL (<768px)
+========================================================= */
+@media (max-width: 767px) {
 
   * {
     box-sizing: border-box;
@@ -1119,35 +1199,114 @@ body {
     overflow-x: hidden;
   }
 
+  /* NAVBAR */
   .navbar {
-    padding: 12px 16px;
+    padding: 10px 16px;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
+  .logo-img { width: 118px; height: 42px; }
+
+  .hamburger-btn { display: flex; }
+
+  .nav-controls { gap: 8px; }
+
+  /* PANEL DESLIZANTE DEL MENÚ */
   .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 6px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: min(82vw, 320px);
+    background: var(--bg-navbar);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 2px;
+    padding: 20px 20px 28px;
+    overflow-y: auto;
+    box-shadow: -12px 0 40px rgba(45,74,110,.22);
+    transform: translateX(100%);
+    transition: transform .32s cubic-bezier(.4,0,.2,1);
+    z-index: 1500;
   }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    margin-bottom: 8px;
+    border-bottom: 1.5px solid var(--nav-border);
+  }
+
+  .mobile-menu-logo {
+    display: block;
+    width: 108px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .mobile-menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(74,144,217,.25);
+    background: rgba(74,144,217,.08);
+    color: var(--text-main);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .nav-item { display: block; width: 100%; }
+
+  /* En móvil los submenús no se despliegan flotando: los links van directo */
+  .nav-dropdown { display: none !important; }
 
   .nav-btn {
-    font-size: 0.8rem;
-    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    text-align: left;
+    font-size: .95rem;
+    padding: 13px 12px;
+    border-bottom: 1px solid rgba(74,144,217,.1);
+    border-radius: 10px;
   }
 
-  .nav-btn.active {
-    padding: 6px 12px;
-  }
+  .nav-btn.active { padding: 13px 16px; }
 
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  /* HERO EN VERTICAL */
+  .hero { min-height: auto; background-size: cover; }
+  .hero-content {
+    padding: 96px 6vw 52px;
+    align-items: flex-start;
   }
+  .hero-text { max-width: 100%; text-align: left; }
+  .hero-title { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .hero-description { max-width: 100%; }
 
-  .sections-wrapper {
-    padding: 32px 16px 48px;
+  /* TARJETAS PRINCIPALES: 1 columna */
+  .sections-wrapper { padding: 32px 16px 48px; }
+  .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .card-img-area { min-height: 150px; padding: 22px 16px; }
+  .card-img-placeholder { width: 104px; height: 104px; }
+
+  /* GIRAS INCLUSIVAS Y LUMEN SHOP: reorganización vertical */
+  .tours-section,
+  .shop-section {
+    padding: 40px 6vw;
+    gap: 22px;
   }
 
   .tours-cards,
@@ -1161,20 +1320,35 @@ body {
     min-width: unset;
   }
 
+  /* FOOTER: una sola columna */
   .site-footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
     padding: 24px 16px;
+    padding-right: 16px;
+  }
+
+  .footer-links ul {
+    align-items: center;
   }
 
   .footer-social {
     min-width: auto;
+    align-items: center;
   }
 
   .footer-mascot {
     display: none;
+  }
+
+  /* BOTONES FÁCILES DE PULSAR */
+  .tours-btn,
+  .shop-btn,
+  .theme-btn,
+  .lang-btn {
+    min-height: 44px;
   }
 
   img {
