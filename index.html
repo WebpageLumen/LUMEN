@@ -30,10 +30,16 @@
       </div>
  
       <!-- Links centrados -->
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
+ 
+        <!-- Cabecera solo visible en el menu movil -->
+        <div class="mobile-menu-header">
+          <img src="Imagenes/Lg.png" alt="Logo Lumen" class="mobile-menu-logo"/>
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Cerrar menu" type="button">&#10005;</button>
+        </div>
  
         <!-- Inicio -->
-        <a href="index.html" class="nav-btn" data-i18n="nav_home">Inicio</a>
+        <a href="index.html" class="nav-btn" data-i18n="nav_home" target="_blank">Inicio</a>
  
         <!-- =====================================================
              INFORMACIÓN GENERAL – con dropdown
@@ -80,8 +86,16 @@
  
       </div>
  
-      <!-- Controles: solo idioma (el tema está en sections-header) -->
+      <!-- Controles: idioma + menu hamburguesa (el tema esta en sections-header) -->
       <div class="nav-controls">
+ 
+        <!-- Boton de menu hamburguesa (solo movil) -->
+        <button class="hamburger-btn" id="hamburgerBtn" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
  
         <!-- Selector de idioma -->
         <div class="lang-wrapper" id="langWrapper">
@@ -108,6 +122,9 @@
  
       </div>
     </nav>
+
+    <!-- Fondo oscuro tras el menu movil abierto -->
+    <div class="nav-overlay" id="navOverlay"></div>
  
     <!-- CONTENIDO HERO -->
     <div class="hero-content">
@@ -171,7 +188,7 @@
       </a>
  
       <!-- REGULACIÓN EMOCIONAL -->
-      <a class="section-card card-purple" href="regulacionemocional-dellvasquez1929.html" target="_blank">
+      <a class="section-card card-purple" href="#" target="_blank">
         <div class="card-img-area">
           <div class="card-img-placeholder">
             <img src="Imagenes/Re.E..png" alt="Regulación emocional"/>
@@ -250,7 +267,7 @@
       <p class="shop-icon-label">🛒 <span data-i18n="shop_label">Lumen Shop</span></p>
       <h2 class="shop-title" id="shopHeading" data-i18n="shop_title">Lumen Shop</h2>
       <p class="shop-desc" data-i18n="shop_desc">Productos pensados para acompañar el bienestar emocional, sensorial y reforzar conocimientos.</p>
-      <a href="Lumenshop.html" class="shop-btn" data-i18n="shop_btn" target="_blank">Ir a la tienda →</a>
+      <a href="#" class="shop-btn" data-i18n="shop_btn" target="_blank">Ir a la tienda →</a>
     </div>
  
     <div class="shop-products">
@@ -305,7 +322,7 @@
       <p class="footer-col-title" data-i18n="footer_access">Accesos rápidos</p>
       <ul>
         <li><a href="index.html" data-i18n="nav_home" target="_blank">Inicio</a></li>
-        <li><a href="InfoGene1.html" data-i18n="nav_info" target="_blank">Información general</a></li>
+        <li><a href="infogene1.html" data-i18n="nav_info" target="_blank">Información general</a></li>
         <li><a href="shop.html" data-i18n="nav_shop" target="_blank">Lumen Shop</a></li>
         <li><a href="Centros1.html" data-i18n="nav_centers" target="_blank">Centros</a></li>
         <li><a href="Giras.html" data-i18n="nav_tours" target="_blank">Giras inclusivas</a></li>
@@ -344,119 +361,5 @@
  
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
-
-<!-- ========================================================== -->
-<!-- SISTEMA DE IDIOMA PARA index.html (NO DAÑA NADA EXISTENTE) -->
-<!-- ========================================================== -->
-<script>
-// =========================================================
-// 1. CARGAR IDIOMA GUARDADO
-// =========================================================
-const lang = localStorage.getItem('lumen_lang') || 'es';
-document.documentElement.lang = lang;
-
-// =========================================================
-// 2. ACTUALIZAR ENLACES A LumenShop (SOLO AGREGA ?lang=)
-// =========================================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Buscar TODOS los enlaces que van a Lumenshop.html
-    document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
-        // Si ya tiene parámetros, agregar &lang=
-        if (enlace.href.includes('?')) {
-            enlace.href = enlace.href + '&lang=' + lang;
-        } else {
-            enlace.href = enlace.href + '?lang=' + lang;
-        }
-    });
-    
-    // Botón "Ir a la tienda" (si existe)
-    var shopBtn = document.querySelector('.shop-btn');
-    if (shopBtn && shopBtn.href && shopBtn.href.includes('Lumenshop.html')) {
-        if (shopBtn.href.includes('?')) {
-            shopBtn.href = shopBtn.href + '&lang=' + lang;
-        } else {
-            shopBtn.href = shopBtn.href + '?lang=' + lang;
-        }
-    }
-});
-
-// =========================================================
-// 3. CONECTAR EL SELECTOR DE IDIOMA EXISTENTE
-// =========================================================
-document.addEventListener('DOMContentLoaded', function() {
-    var langOptions = document.querySelectorAll('.lang-option');
-    var langBtn = document.getElementById('langBtn');
-    var langDropdown = document.getElementById('langDropdown');
-    var langFlag = document.getElementById('langFlag');
-    var langLabel = document.getElementById('langLabel');
-    
-    // Cuando se hace clic en una opción de idioma
-    langOptions.forEach(function(opt) {
-        opt.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var nuevoLang = this.getAttribute('data-lang');
-            if (nuevoLang) {
-                // Guardar en localStorage
-                localStorage.setItem('lumen_lang', nuevoLang);
-                
-                // Actualizar bandera y texto
-                if (nuevoLang === 'es') {
-                    if (langFlag) langFlag.src = 'https://flagcdn.com/w80/es.png';
-                    if (langLabel) langLabel.textContent = 'ES';
-                } else if (nuevoLang === 'en') {
-                    if (langFlag) langFlag.src = 'https://flagcdn.com/w80/gb.png';
-                    if (langLabel) langLabel.textContent = 'EN';
-                }
-                
-                // Marcar como seleccionado
-                langOptions.forEach(function(o) {
-                    o.classList.remove('selected');
-                });
-                this.classList.add('selected');
-                
-                // Cerrar dropdown
-                if (langDropdown) langDropdown.classList.remove('open');
-                if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
-                
-                // Recargar para aplicar cambios
-                location.reload();
-            }
-        });
-    });
-    
-    // Abrir/cerrar dropdown al hacer clic en el botón
-    if (langBtn) {
-        langBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (langDropdown) {
-                langDropdown.classList.toggle('open');
-                this.setAttribute('aria-expanded', langDropdown.classList.contains('open'));
-            }
-        });
-    }
-    
-    // Cerrar dropdown al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        var wrapper = document.getElementById('langWrapper');
-        if (wrapper && !wrapper.contains(e.target)) {
-            if (langDropdown) langDropdown.classList.remove('open');
-            if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-    
-    // Marcar la opción correcta al cargar la página
-    var currentLang = localStorage.getItem('lumen_lang') || 'es';
-    langOptions.forEach(function(o) {
-        if (o.getAttribute('data-lang') === currentLang) {
-            o.classList.add('selected');
-        } else {
-            o.classList.remove('selected');
-        }
-    });
-});
-
-console.log('🌐 index.html - Idioma cargado:', lang);
-</script>
-  
 </body>
 </html>
