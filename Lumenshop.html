@@ -9,6 +9,22 @@
 </head>
 <body>
 
+<script>
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var langFromUrl = params.get('lang');
+    if (langFromUrl && (langFromUrl === 'es' || langFromUrl === 'en')) {
+        localStorage.setItem('lumen_lang', langFromUrl);
+    }
+    var lang = localStorage.getItem('lumen_lang') || 'es';
+    document.documentElement.lang = lang;
+    if (window.history && window.history.replaceState) {
+        var newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, newUrl);
+    }
+})();
+</script>
+
 <div class="overlay-bg" id="overlayBg"></div>
 
 <aside class="side-menu" id="sideMenu">
