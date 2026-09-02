@@ -362,88 +362,111 @@
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
   
-  <!-- SISTEMA DE IDIOMA PARA INDEX -->
+    <!-- SISTEMA DE IDIOMA PARA INDEX -->
   <script>
+  // ==========================================================
+  // 1. CARGAR IDIOMA GUARDADO
+  // ==========================================================
   var lang = localStorage.getItem('lumen_lang') || 'es';
   document.documentElement.lang = lang;
+  console.log('🌐 index.html - Idioma:', lang);
 
-  document.addEventListener('DOMContentLoaded', function() {
-      var langOptions = document.querySelectorAll('.lang-option');
-      var langBtn = document.getElementById('langBtn');
-      var langDropdown = document.getElementById('langDropdown');
-      var langFlag = document.getElementById('langFlag');
-      var langLabel = document.getElementById('langLabel');
-      
-      langOptions.forEach(function(opt) {
-          opt.addEventListener('click', function(e) {
-              e.stopPropagation();
-              var nuevoLang = this.getAttribute('data-lang');
-              if (nuevoLang) {
-                  localStorage.setItem('lumen_lang', nuevoLang);
-                  if (nuevoLang === 'es') {
-                      if (langFlag) langFlag.src = 'https://flagcdn.com/w80/es.png';
-                      if (langLabel) langLabel.textContent = 'ES';
-                  } else if (nuevoLang === 'en') {
-                      if (langFlag) langFlag.src = 'https://flagcdn.com/w80/gb.png';
-                      if (langLabel) langLabel.textContent = 'EN';
-                  }
-                  langOptions.forEach(function(o) { o.classList.remove('selected'); });
-                  this.classList.add('selected');
-                  if (langDropdown) langDropdown.classList.remove('open');
-                  if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
-                  location.reload();
-              }
-          });
-      });
-      
-      if (langBtn) {
-          langBtn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              if (langDropdown) {
-                  langDropdown.classList.toggle('open');
-                  this.setAttribute('aria-expanded', langDropdown.classList.contains('open'));
-              }
-          });
-      }
-      
-      document.addEventListener('click', function(e) {
-          var wrapper = document.getElementById('langWrapper');
-          if (wrapper && !wrapper.contains(e.target)) {
-              if (langDropdown) langDropdown.classList.remove('open');
-              if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
-          }
-      });
-      
-      var currentLang = localStorage.getItem('lumen_lang') || 'es';
-      langOptions.forEach(function(o) {
-          if (o.getAttribute('data-lang') === currentLang) {
-              o.classList.add('selected');
-          } else {
-              o.classList.remove('selected');
-          }
-      });
-  });
-
+  // ==========================================================
+  // 2. ACTUALIZAR ENLACES A LUMENSHOP
+  // ==========================================================
   document.addEventListener('DOMContentLoaded', function() {
       var lang = localStorage.getItem('lumen_lang') || 'es';
       document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
-          if (enlace.href.includes('?')) {
-              enlace.href = enlace.href + '&lang=' + lang;
-          } else {
-              enlace.href = enlace.href + '?lang=' + lang;
-          }
+          var baseUrl = enlace.href.split('?')[0];
+          enlace.href = baseUrl + '?lang=' + lang;
+          console.log('✅ Enlace actualizado:', enlace.href);
       });
-      var shopBtn = document.querySelector('.shop-btn');
-      if (shopBtn && shopBtn.href && shopBtn.href.includes('Lumenshop.html')) {
-          if (shopBtn.href.includes('?')) {
-              shopBtn.href = shopBtn.href + '&lang=' + lang;
-          } else {
-              shopBtn.href = shopBtn.href + '?lang=' + lang;
-          }
-      }
   });
 
-  console.log('🌐 index.html - Idioma:', lang);
+  // ==========================================================
+  // 3. CONFIGURAR SELECTOR DE IDIOMA (FUERA DE DOMContentLoaded)
+  // ==========================================================
+  (function() {
+      // Esperar a que el DOM esté listo
+      function iniciarSelector() {
+          var langBtn = document.getElementById('langBtn');
+          var langDropdown = document.getElementById('langDropdown');
+          var langOptions = document.querySelectorAll('.lang-option');
+          var langFlag = document.getElementById('langFlag');
+          var langLabel = document.getElementById('langLabel');
+          
+          if (!langBtn || !langDropdown) {
+              console.log('⏳ Esperando elementos del selector...');
+              setTimeout(iniciarSelector, 100);
+              return;
+          }
+          
+          console.log('✅ Elementos del selector encontrados');
+          
+          // Actualizar bandera y texto
+          function actualizarUI() {
+              var currentLang = localStorage.getItem('lumen_lang') || 'es';
+              if (langFlag) {
+                  langFlag.src = currentLang === 'es' ? 'https://flagcdn.com/w80/es.png' : 'https://flagcdn.com/w80/gb.png';
+              }
+              if (langLabel) {
+                  langLabel.textContent = currentLang.toUpperCase();
+              }
+              langOptions.forEach(function(o) {
+                  o.classList.toggle('selected', o.getAttribute('data-lang') === currentLang);
+              });
+          }
+          
+          // RECONSTRUIR EL BOTÓN (eliminar eventos anteriores)
+          var newBtn = langBtn.cloneNode(true);
+          langBtn.parentNode.replaceChild(newBtn, langBtn);
+          langBtn = newBtn;
+          
+          // Evento para abrir/cerrar dropdown
+          langBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              langDropdown.classList.toggle('open');
+              console.log('🔄 Selector:', langDropdown.classList.contains('open') ? 'ABIERTO' : 'CERRADO');
+          });
+          
+          // RECONSTRUIR LAS OPCIONES
+          langOptions.forEach(function(opt) {
+              var newOpt = opt.cloneNode(true);
+              opt.parentNode.replaceChild(newOpt, opt);
+              
+              newOpt.addEventListener('click', function(e) {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  var nuevoLang = this.getAttribute('data-lang');
+                  if (nuevoLang) {
+                      console.log('🌐 Cambiando a:', nuevoLang);
+                      localStorage.setItem('lumen_lang', nuevoLang);
+                      location.reload();
+                  }
+              });
+          });
+          
+          // Cerrar dropdown al hacer clic fuera
+          document.addEventListener('click', function(e) {
+              var wrapper = document.getElementById('langWrapper');
+              if (wrapper && !wrapper.contains(e.target)) {
+                  langDropdown.classList.remove('open');
+              }
+          });
+          
+          // Actualizar UI
+          actualizarUI();
+          console.log('✅ Selector configurado correctamente');
+      }
+      
+      // Iniciar cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', iniciarSelector);
+      } else {
+          iniciarSelector();
+      }
+  })();
   </script>
 
 </body>
