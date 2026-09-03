@@ -512,6 +512,50 @@ document.addEventListener('click', function(e) {
 console.log('🚀 Sistema de idioma sincronizado correctamente');
 </script>
 
+<script>
+// ==========================================================
+// FORZAR TRADUCCIÓN USANDO EL SISTEMA EXISTENTE
+// ==========================================================
+document.addEventListener('DOMContentLoaded', function() {
+    var lang = localStorage.getItem('lumen_lang') || 'es';
+    
+    // 1. Si existe I18n, usarlo
+    if (window.I18n && typeof I18n.setLanguage === 'function') {
+        I18n.setLanguage(lang);
+        console.log('✅ Traducción aplicada con I18n a:', lang);
+    }
+    // 2. Si existe aplicarTraducciones, usarlo
+    else if (typeof aplicarTraducciones === 'function') {
+        aplicarTraducciones();
+        console.log('✅ Traducción aplicada con aplicarTraducciones() a:', lang);
+    }
+    // 3. Si existe traducirPagina, usarlo
+    else if (typeof traducirPagina === 'function') {
+        traducirPagina();
+        console.log('✅ Traducción aplicada con traducirPagina() a:', lang);
+    }
+    // 4. Buscar cualquier función que tenga "tradu" en el nombre
+    else {
+        var funciones = Object.keys(window).filter(function(key) {
+            return typeof window[key] === 'function' && 
+                   (key.toLowerCase().includes('tradu') || 
+                    key.toLowerCase().includes('i18n') ||
+                    key.toLowerCase().includes('idioma'));
+        });
+        if (funciones.length > 0) {
+            console.log('🔍 Funciones de traducción encontradas:', funciones);
+            // Intentar ejecutar la primera que parezca relevante
+            if (funciones[0] && typeof window[funciones[0]] === 'function') {
+                window[funciones[0]]();
+                console.log('✅ Ejecutada:', funciones[0]);
+            }
+        } else {
+            console.log('⚠️ No se encontró un sistema de traducción');
+        }
+    }
+});
+</script>
+
 </body>
 </html>
 
