@@ -677,5 +677,43 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+    <!-- ==========================================
+     SINCRONIZACIÓN DE IDIOMA
+========================================== -->
+<script>
+(function() {
+    // Leer idioma guardado
+    var lang = localStorage.getItem('lumen_lang') || 'es';
+    
+    // Aplicar al HTML
+    document.documentElement.lang = lang;
+    
+    // Función para actualizar el selector
+    function actualizarSelector() {
+        var flag = document.getElementById('langFlag');
+        var label = document.getElementById('langLabel');
+        
+        if (flag) {
+            flag.src = lang === 'es' ? 'https://flagcdn.com/w40/es.png' : 'https://flagcdn.com/w40/gb.png';
+        }
+        if (label) {
+            label.textContent = lang.toUpperCase();
+        }
+        
+        document.querySelectorAll('.lang-option').forEach(function(opt) {
+            var isSelected = opt.getAttribute('data-lang') === lang;
+            opt.classList.toggle('selected', isSelected);
+        });
+        
+        console.log('🌐 Lumenshop - Selector actualizado a:', lang);
+    }
+    
+    // Actualizar
+    actualizarSelector();
+    setTimeout(actualizarSelector, 100);
+    setTimeout(actualizarSelector, 300);
+})();
+</script>
+
 </body>
 </html>
