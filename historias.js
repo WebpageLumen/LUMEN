@@ -99,6 +99,7 @@ const TRANSLATIONS = {
     cat_transitions: "Changes and Transitions",
   }
 };
+
 /* =========================================================
    METADATOS DE IDIOMA
 ========================================================= */
@@ -107,6 +108,7 @@ const LANG_META = {
   en: { label: "EN", flagSrc: "https://flagcdn.com/w80/gb.png", htmlLang: "en" },
 };
 let currentLang = localStorage.getItem("lumen-lang") || "es";
+
 /* =========================================================
    APLICAR TRADUCCIONES
 ========================================================= */
@@ -119,6 +121,7 @@ function applyTranslations(lang) {
   });
   document.documentElement.lang = LANG_META[lang].htmlLang;
 }
+
 /* =========================================================
    CAMBIO DE IDIOMA
 ========================================================= */
@@ -133,6 +136,7 @@ function switchLanguage(lang) {
   applyTranslations(lang);
   closeLangDropdown();
 }
+
 /* =========================================================
    DROPDOWN DE IDIOMA
 ========================================================= */
@@ -162,6 +166,7 @@ document.querySelectorAll(".lang-option").forEach(opt => {
     }
   });
 });
+
 /* =========================================================
    DROPDOWN DE NAVEGACIÓN
 ========================================================= */
@@ -181,6 +186,7 @@ document.querySelectorAll(".nav-item").forEach(item => {
     }, 350);
   });
 });
+
 /* =========================================================
    CERRAR DROPDOWNS AL HACER CLIC FUERA
 ========================================================= */
@@ -189,6 +195,7 @@ document.addEventListener("click", () => {
   document.querySelectorAll(".nav-item.open").forEach(i => i.classList.remove("open"));
   document.querySelectorAll(".nav-dropdown.show").forEach(d => d.classList.remove("show"));
 });
+
 /* =========================================================
    SISTEMA DE MODO CALMA (NO TOCAR)
 ========================================================= */
@@ -210,6 +217,7 @@ themeBtn.addEventListener("click", () => {
   const temaActual = document.documentElement.getAttribute("data-theme") || "normal";
   applyTheme(temaActual === "normal" ? "calm" : "normal");
 });
+
 /* =========================================================
    FAVORITOS DE HISTORIAS
 ========================================================= */
@@ -249,6 +257,19 @@ categoryItems.forEach(item => {
   item.addEventListener("click", event => {
     event.preventDefault();
     event.stopPropagation();
+
+    // Verificamos si el botón presionado es "Lenguaje Figurado"
+    if (item.dataset.i18n === "cat_figurative") {
+      // Array con las páginas a elegir al azar
+      const paginasLF = ["LF-sofia.html", "LF-pedro.html", "LF-juan.html"];
+      // Seleccionar un elemento al azar del array
+      const paginaAleatoria = paginasLF[Math.floor(Math.random() * paginasLF.length)];
+      // Abrir la página elegida en una nueva pestaña
+      window.open(paginaAleatoria, '_blank');
+      return; // Detiene la ejecución para no marcar el botón como activo
+    }
+
+    // Comportamiento normal para las demás categorías
     categoryItems.forEach(other => {
       other.classList.remove("active");
       other.setAttribute("aria-pressed", "false");
