@@ -366,10 +366,150 @@
 <script src="transiciones.js"></script>
 
 <!-- ========================================================== -->
-<!-- SISTEMA DE IDIOMA PARA INDEX - VERSIÓN FINAL               -->
+<!-- SISTEMA DE IDIOMA PARA INDEX - VERSIÓN DEFINITIVA          -->
 <!-- ========================================================== -->
 <script>
-// ... TODO EL CÓDIGO DE ARRIBA (SOLO ESTE) ...
+// ==========================================================
+// 1. CARGAR IDIOMA GUARDADO
+// ==========================================================
+var lang = localStorage.getItem('lumen_lang') || 'es';
+document.documentElement.lang = lang;
+console.log('🌐 index.html - Idioma:', lang);
+
+// ==========================================================
+// 2. FUNCIÓN PARA ACTUALIZAR LA BANDERA
+// ==========================================================
+function actualizarBandera() {
+    var currentLang = localStorage.getItem('lumen_lang') || 'es';
+    var langFlag = document.getElementById('langFlag');
+    var langLabel = document.getElementById('langLabel');
+    var langOptions = document.querySelectorAll('.lang-option');
+    
+    if (langFlag) {
+        langFlag.src = currentLang === 'es' ? 'https://flagcdn.com/w80/es.png' : 'https://flagcdn.com/w80/gb.png';
+    }
+    if (langLabel) {
+        langLabel.textContent = currentLang.toUpperCase();
+    }
+    langOptions.forEach(function(o) {
+        o.classList.toggle('selected', o.getAttribute('data-lang') === currentLang);
+    });
+    
+    console.log('🔄 Bandera actualizada a:', currentLang.toUpperCase());
+}
+
+// ==========================================================
+// 3. ACTUALIZAR ENLACES A LUMENSHOP (con ?lang=)
+// ==========================================================
+document.addEventListener('DOMContentLoaded', function() {
+    var lang = localStorage.getItem('lumen_lang') || 'es';
+    
+    // Actualizar TODOS los enlaces que van a Lumenshop.html
+    document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
+        var baseUrl = enlace.href.split('?')[0];
+        enlace.href = baseUrl + '?lang=' + lang;
+        console.log('✅ Enlace actualizado:', enlace.href);
+    });
+    
+    // También actualizar enlaces a otras páginas de la tienda
+    document.querySelectorAll('a[href*="LumenshopJ.html"], a[href*="LumenshopA.html"], a[href*="LumenshopAr.html"]').forEach(function(enlace) {
+        // Estas páginas ya leen de localStorage, pero por si acaso
+        console.log('🔗 Enlace a tienda:', enlace.href);
+    });
+});
+
+// ==========================================================
+// 4. CONFIGURAR SELECTOR DE IDIOMA (CON SINCRONIZACIÓN)
+// ==========================================================
+document.addEventListener('DOMContentLoaded', function() {
+    var langBtn = document.getElementById('langBtn');
+    var langDropdown = document.getElementById('langDropdown');
+    var langOptions = document.querySelectorAll('.lang-option');
+    
+    if (!langBtn || !langDropdown) {
+        console.log('⏳ Elementos del selector no encontrados');
+        return;
+    }
+    
+    console.log('✅ Elementos del selector encontrados');
+    
+    // RECONSTRUIR EL BOTÓN
+    var newBtn = langBtn.cloneNode(true);
+    langBtn.parentNode.replaceChild(newBtn, langBtn);
+    langBtn = newBtn;
+    
+    langBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        langDropdown.classList.toggle('open');
+        console.log('🔄 Selector:', langDropdown.classList.contains('open') ? 'ABIERTO' : 'CERRADO');
+    });
+    
+    // RECONSTRUIR LAS OPCIONES
+    langOptions.forEach(function(opt) {
+        var newOpt = opt.cloneNode(true);
+        opt.parentNode.replaceChild(newOpt, opt);
+        
+        newOpt.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var nuevoLang = this.getAttribute('data-lang');
+            if (nuevoLang) {
+                console.log('🌐 Cambiando a:', nuevoLang);
+                
+                // GUARDAR EN LOCALSTORAGE (esto es lo que mantiene el idioma entre páginas)
+                localStorage.setItem('lumen_lang', nuevoLang);
+                
+                // Actualizar bandera
+                actualizarBandera();
+                
+                // Recargar la página para aplicar cambios
+                setTimeout(function() {
+                    location.reload();
+                }, 200);
+            }
+        });
+    });
+    
+    // Cerrar dropdown al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        var wrapper = document.getElementById('langWrapper');
+        if (wrapper && !wrapper.contains(e.target)) {
+            langDropdown.classList.remove('open');
+        }
+    });
+    
+    // Actualizar bandera al cargar
+    actualizarBandera();
+    
+    console.log('✅ Selector configurado correctamente');
+});
+
+// ==========================================================
+// 5. SINCRONIZAR IDIOMA CON OTRAS PÁGINAS (NAVEGACIÓN)
+// ==========================================================
+document.addEventListener('click', function(e) {
+    var enlace = e.target.closest('a[href]');
+    if (enlace) {
+        var href = enlace.getAttribute('href');
+        // Si el enlace es a una página de la tienda
+        if (href && (href.includes('Lumenshop.html') || 
+                     href.includes('LumenshopJ.html') || 
+                     href.includes('LumenshopA.html') || 
+                     href.includes('LumenshopAr.html'))) {
+            var lang = localStorage.getItem('lumen_lang') || 'es';
+            // Si el enlace ya tiene ? o &, agregar &lang=, si no, ?lang=
+            if (href.includes('?')) {
+                enlace.href = href + '&lang=' + lang;
+            } else {
+                enlace.href = href + '?lang=' + lang;
+            }
+            console.log('🔗 Navegando a:', enlace.href);
+        }
+    }
+});
+
+console.log('🚀 Sistema de idioma sincronizado correctamente');
 </script>
 
 </body>
