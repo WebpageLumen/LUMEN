@@ -494,15 +494,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeProductId = null;
 
   function renderModal(productId) {
-    const product = PRODUCTS[productId];
-    if (!product) return;
-    if (modalImg) {
-      modalImg.src = product.img;
-      modalImg.alt = t(product.titleKey);
-    }
-    if (modalTitle) modalTitle.textContent = t(product.titleKey);
-    if (modalDesc) modalDesc.textContent = t(product.descKey);
+  const product = PRODUCTS[productId];
+  if (!product) return;
+  if (modalImg) {
+    modalImg.src = product.img;
+    modalImg.alt = t(product.titleKey);
   }
+  if (modalTitle) modalTitle.textContent = t(product.titleKey);
+  if (modalDesc) modalDesc.textContent = t(product.descKey);
+  // 🔥 AGREGAR PRECIO
+  const modalPrice = document.getElementById('modalPrice');
+  if (modalPrice) {
+    modalPrice.textContent = '$' + (product.precio || 0).toFixed(2);
+  }
+}
 
   function openProductModal(productId) {
     if (!PRODUCTS[productId]) return;
