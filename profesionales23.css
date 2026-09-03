@@ -1,47 +1,92 @@
+/* =========================================================
+   VARIABLES DEL TEMA – MODO CLARO
+========================================================= */
 :root {
+  --gold:           #f7c94b;
+  --gold-dark:      #e8a800;
   --blue-brand:     #4a90d9;
   --blue-dark:      #2563ae;
+  --blue-figure:    #5ab0e8;
+  --purple-brand:   #9b7fe8;
+  --yellow-brand:   #f9c74f;
+  --green-brand:    #90be6d;
+
   --text-main:      #2d4a6e;
+  --text-soft:      #5a7da0;
+  --text-light:     #8aafc8;
+
+  --bg-body:        #f0f7fd;
+  --bg-hero:        #dff0fb;
   --bg-card:        #ffffff;
   --bg-sections:    #ffffff;
+  --bg-shop:        #ede7f6;
+  --bg-footer:      #b8ddf5;
+
   --bg-navbar:      #ffffff;
   --nav-link-color: #2d4a6e;
   --nav-border:     rgba(74,144,217,.15);
+
   --border-card:    rgba(74,144,217,.14);
   --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
+  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+
   --radius-pill:    999px;
+  --radius-card:    22px;
   --transition:     0.28s cubic-bezier(.4,0,.2,1);
 }
-/*=========================================================
-                PÁGINA PROFESIONALES
-=========================================================*/
 
-*,
-*::before,
-*::after {
+[data-theme="dark"] {
+  --bg-body:        #0f1923;
+  --bg-hero:        #111e2d;
+  --bg-card:        rgba(30,50,80,.6);
+  --bg-sections:    #12202e;
+  --bg-shop:        #1e1535;
+  --bg-footer:      #0d1b2a;
 
-    margin: 0;
-    padding: 0;
+  --bg-navbar:      rgba(15,25,35,.95);
+  --nav-link-color: #c8dff0;
+  --nav-border:     rgba(74,144,217,.2);
 
-    box-sizing: border-box;
+  --text-main:      #e0eaf4;
+  --text-soft:      #8aafc8;
+  --text-light:     #5a7da0;
 
+  --border-card:    rgba(74,144,217,.22);
+  --shadow-soft:    0 8px 32px rgba(0,0,0,.35);
+  --shadow-card:    0 6px 28px rgba(0,0,0,.3);
+  --shadow-hover:   0 18px 42px rgba(74,144,217,.18);
+
+  --blue-brand:     #5aa3e8;
+  --blue-dark:      #7bb8f0;
+}
+
+/* =========================================================
+   RESET BASE
+========================================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color .3s ease, color .3s ease;
 }
 
 body {
-
-    background: #f5f9ff;
-
-    overflow-x: hidden;
-
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color .3s ease, color .3s ease;
 }
 
-
-
-/*=========================================================
-                    NAVBAR
-=========================================================*/
-
-
+/* =========================================================
+   NAVBAR
+========================================================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -59,15 +104,15 @@ body {
   transition: background .3s ease, border-color .3s ease;
   flex-wrap: wrap;
 }
-
+ 
 .nav-logo {
   display: flex;
-  align-items: flex-start; /* CORREGIDO */
+  align-items: left;
   gap: 6px;
   flex-shrink: 0;
   text-decoration: none;
 }
-
+ 
 .logo-img {
   width: 170px;
   height: 60px;
@@ -76,13 +121,13 @@ body {
 
 .nav-links {
   display: flex;
-  align-items: flex-end; /* CORREGIDO */
+  align-items: right;
   gap: 4px;
   flex-wrap: wrap;
-  justify-content: flex-end; /* CORREGIDO */
+  justify-content: right;
   flex: 1;
 }
-
+ 
 .nav-btn {
   font-family: 'Nunito', sans-serif;
   font-size: .84rem;
@@ -102,37 +147,26 @@ body {
   background: rgba(74,144,217,.08);
   color: var(--blue-brand);
 }
-
+ 
 .nav-btn.active {
   background: var(--blue-brand);
   color: #ffffff;
   padding: 7px 20px;
 }
-
+ 
 .nav-btn.active:hover {
   background: var(--blue-dark);
   color: #ffffff;
 }
-
+ 
 .nav-controls {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
 }
-
-/* =========================================================
-   BOTÓN MODO CALMA
-========================================================= */
-.actividades-tarjetas {
-  position: relative;   
-}
-
+ 
 .theme-btn {
-  position: absolute;
-  right: 6vw;
-  top: 2vw;
-  z-index: 20;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -146,52 +180,26 @@ body {
   font-size: 1.05rem;
   transition: var(--transition);
 }
-
+ 
 .theme-btn:hover {
   background: rgba(255,255,255,.95);
   transform: scale(1.1) rotate(15deg);
   box-shadow: var(--shadow-soft);
 }
-
-.theme-btn:active {
-  transform: translateY(0);
+ 
+[data-theme="dark"] .theme-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.4);
 }
-
-.theme-icon {
-  font-size: 1.05rem;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  transition: transform .4s ease;
+ 
+[data-theme="dark"] .theme-btn:hover {
+  background: rgba(40,65,100,.9);
 }
-
-.theme-btn:hover .theme-icon {
-  transform: rotate(25deg) scale(1.1);
+ 
+.lang-wrapper {
+  position: relative;
 }
-
-.theme-label {
-  white-space: nowrap;
-}
-
-[data-theme="calm"] .theme-btn {
-  background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%);
-  border-color: rgba(247, 201, 75, .45);
-  color: var(--text-main);
-  box-shadow: 0 4px 18px rgba(247, 201, 75, .30);
-}
-
-[data-theme="calm"] .theme-btn:hover {
-  box-shadow: 0 8px 28px rgba(247, 201, 75, .42);
-}
-
-/* =========================================================
-   LENGUAJE
-========================================================= */
-.lang-wrapper { position: relative; }
-
+ 
 .lang-btn {
   display: flex;
   align-items: center;
@@ -208,18 +216,18 @@ body {
   color: var(--text-main);
   transition: var(--transition);
 }
-
+ 
 .lang-btn:hover {
   background: rgba(255,255,255,.95);
   box-shadow: var(--shadow-soft);
 }
-
-[data-theme="calm"] .lang-btn {
-  background: rgba(255,255,255,.6);
-  border: 1.5px solid rgba(74,144,217,.2);
+ 
+[data-theme="dark"] .lang-btn {
+  background: rgba(30,50,80,.7);
+  border-color: rgba(100,160,220,.3);
   color: var(--text-main);
 }
-
+ 
 .lang-chevron {
   display: inline-block;
   border-right: 2px solid var(--blue-brand);
@@ -230,12 +238,12 @@ body {
   transition: transform var(--transition);
   margin-top: -3px;
 }
-
+ 
 .lang-btn[aria-expanded="true"] .lang-chevron {
   transform: rotate(-135deg);
   margin-top: 2px;
 }
-
+ 
 .lang-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -252,13 +260,13 @@ body {
   transition: opacity .22s ease, transform .22s ease;
   z-index: 200;
 }
-
+ 
 .lang-dropdown.open {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
-
+ 
 .lang-option {
   display: flex;
   align-items: center;
@@ -270,10 +278,10 @@ body {
   color: var(--text-main);
   transition: background var(--transition);
 }
-
-.lang-option:hover { background: var(--bg-sections); }
+ 
+.lang-option:hover    { background: var(--bg-sections); }
 .lang-option.selected { background: rgba(74,144,217,.12); }
-
+ 
 .flag {
   width: 26px;
   height: 26px;
@@ -283,7 +291,7 @@ body {
 }
 
 /* =========================================================
-   DROPDOWN DE NAVEGACIÓN
+   NAV DROPDOWN
 ========================================================= */
 .nav-item {
   position: relative;
@@ -312,7 +320,6 @@ body {
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
-
 .nav-drop-link {
   display: block;
   padding: 10px 18px;
@@ -332,764 +339,430 @@ body {
   padding-left: 24px;
 }
 
-[data-theme="calm"] .nav-dropdown {
-  background: var(--blue-brand);
-  border: 1.5px solid rgba(255,255,255,.18);
-  box-shadow: 0 12px 36px #649dd3;
+[data-theme="dark"] .nav-dropdown {
+  background: #1a3050;
+  border-color: rgba(100,160,220,.3);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
 }
 
-
-/*=========================================================
-                    HERO
-=========================================================*/
-
-/*=========================================================
-                HERO PROFESIONALES
-=========================================================*/
-
-.hero-profesionales {
-
-    width: 100%;
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-
-    padding: 120px 8% 80px;
-
-    /* Imagen de fondo */
-    background-image: url("img/section.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-
-    overflow: hidden;
+/* =========================================================
+   VIDEO DE FONDO
+========================================================= */
+.hero-video {
+  width: 100%;
+  margin-top: 88px; /* espacio debajo del navbar fijo */
 }
 
-.hero-container {
-
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
+.hero-video video {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.hero-text {
-
-    max-width: 600px;
-    z-index: 2;
-
+/* =========================================================
+   TIPOGRAFÍA GLOBAL PARA LAS SECCIONES
+   Tamaños aumentados de forma consistente
+========================================================= */
+.texto h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.2;
 }
 
-.hero-text h1 {
-
-    font-size: 3.8rem;
-    color: #1f2b46;
-    margin-bottom: 25px;
-
+.texto h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 800;
+  margin: 22px 0 10px;
 }
 
-.hero-text p {
-
-    font-size: 1.3rem;
-    line-height: 1.9;
-    color: #5f6b85;
-    text-align: justify;
-
+.texto p,
+.texto li {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.75;
 }
 
-@keyframes fadeLeft {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateX(-60px);
-
-    }
-
-
-    to {
-
-        opacity: 1;
-
-        transform: translateX(0);
-
-    }
-
+.texto ul {
+  padding-left: 22px;
+  margin-top: 8px;
 }
 
-
-
-@keyframes fadeRight {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateX(60px);
-
-    }
-
-
-    to {
-
-        opacity: 1;
-
-        transform: translateX(0);
-
-    }
-
+.texto li {
+  margin-bottom: 6px;
 }
 
-/*=========================================================
-                TÍTULO DE SECCIÓN
-=========================================================*/
-
-
-.titulo-seccion {
-
-    text-align: center;
-
-    max-width: 800px;
-
-    margin: 90px auto 60px;
-
+/* =========================================================
+   CAJA DE TEXTO BASE
+========================================================= */
+.texto {
+  display: block;
+  color: #000000;
+  padding: 28px 32px;
+  background-color: transparent;
+  border-radius: 10px;
 }
 
-
-.titulo-seccion h2 {
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: 2.6rem;
-
-    font-weight: 800;
-
-    color: #3b5c8d;
-
-    margin-bottom: 15px;
-
+/* =========================================================
+   LAYOUT CON IMAGEN LATERAL – solo fondos 3 y 4
+========================================================= */
+.seccion-con-imagen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 4vw;
 }
 
-
-.titulo-seccion p {
-
-    font-family: 'Poppins', sans-serif;
-
-    color: #72829b;
-
-    font-size: 1.3rem;
-
-    line-height: 1.8;
-
+.seccion-con-imagen .texto {
+  flex: 1;
+  min-width: 0;
 }
 
-
-
-/*=========================================================
-            CONTENEDOR PROFESIONALES
-=========================================================*/
-
-
-.profesionales {
-
-    padding: 20px 8% 100px;
-
+/* Caja reservada para la imagen a la derecha */
+.imagen-lateral {
+  flex: 0 0 300px;
+  width: 300px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
-
-
-.container {
-
-    max-width: 1300px;
-
-    margin: auto;
-
+.img-lateral {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
 }
 
-
-
-/*=========================================================
-                TARJETAS PROFESIONALES
-=========================================================*/
-
-
-.card-profesional {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 45px;
-
-    background: #ffffff;
-
-    border-radius: 35px;
-
-    padding: 35px;
-
-    margin-bottom: 45px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(117, 160, 221, .15);
-
-    box-shadow:
-
-        0 18px 45px rgba(40, 70, 120, .08);
-
-    transition: .35s ease;
-
+/* =========================================================
+   FONDO 1 – ¿Qué es el autismo? + Causas
+   Pantalla completa, texto negro
+========================================================= */
+.seccion-1 {
+  min-height: 100vh;
+  background-image: url("Imagenes/fondo1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
 }
 
-
-
-.card-profesional::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 8px;
-
-    height: 100%;
-
-    background: #75a0dd;
-
+.seccion-1 .texto {
+  color: #000000;
+  width: 100%;
+  padding: 28px 0;
 }
 
+.seccion-1 .texto h2 { color: #000000; }
+.seccion-1 .texto p  { color: #000000; }
+.seccion-1 .texto li { color: #000000; }
 
-
-.card-profesional:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow:
-
-        0 25px 60px rgba(40, 70, 120, .15);
-
+/* =========================================================
+   FONDO 2 – Niveles de autismo
+   Pantalla completa, negro con títulos de nivel en azul
+========================================================= */
+.seccion-2 {
+  min-height: 100vh;
+  background-image: url("Imagenes/fondo2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
 }
 
-
-
-/*=========================================================
-                EFECTO TARJETAS PARES
-=========================================================*/
-
-
-.card-profesional:nth-child(even) {
-
-    flex-direction: row-reverse;
-
+.seccion-2 .texto {
+  color: #000000;
+  width: 100%;
+  padding: 28px 0;
 }
 
+.seccion-2 .texto h2 { color: #000000; }
+.seccion-2 .texto p  { color: #000000; }
 
-.card-profesional:nth-child(even)::before {
-
-    left: auto;
-
-    right: 0;
-
+/* Títulos Nivel 1 / 2 / 3 en azul – !important para no ser pisados por p negro */
+.nivel-titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: #4a90d9 !important;
+  margin-top: 22px;
+  margin-bottom: 4px;
 }
 
-
-
-/*=========================================================
-                    FOTO
-=========================================================*/
-
-
-.foto-profesional {
-
-    flex: 0 0 280px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
+/* =========================================================
+   FONDO 3 – Señales de alerta
+   Texto izquierda + espacio imagen derecha
+========================================================= */
+.seccion-3 {
+  min-height: 100vh;
+  background-image: url("Imagenes/fondo3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 4vw 60px;
+  box-sizing: border-box;
 }
 
-
-
-.foto-profesional img {
-
-    width: 260px;
-
-    height: 260px;
-
-    object-fit: cover;
-
-    border-radius: 30px;
-
-    border: 8px solid #edf5ff;
-
-    box-shadow:
-
-        0 15px 35px rgba(0, 0, 0, .12);
-
-    transition: .35s;
-
+.seccion-3 .texto {
+  color: #000000;
 }
 
+.seccion-3 .texto h2 { color: #000000; }
+.seccion-3 .texto p  { color: #000000; }
+.seccion-3 .texto li { color: #000000; }
 
+/* Colores de subtítulos fondo 3 */
+.sub-azul    { color: #4a90d9 !important; }
+.sub-amarillo{ color: #c9a200 !important; }
+.sub-morado  { color: #9b7fe8 !important; }
 
-.card-profesional:hover
-.foto-profesional img {
-
-    transform: scale(1.05);
-
+/* =========================================================
+   FONDO 4 – Autismo en niñas y mujeres
+   Texto izquierda + espacio imagen derecha
+========================================================= */
+.seccion-4 {
+  min-height: 100vh;
+  background-image: url("Imagenes/fondo4.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 4vw 60px;
+  box-sizing: border-box;
 }
 
-
-
-/*=========================================================
-                INFORMACIÓN PROFESIONAL
-=========================================================*/
-
-
-.info-profesional {
-
-    flex: 1;
-
+.seccion-4 .texto {
+  color: #000000;
 }
 
+.seccion-4 .texto p  { color: #000000; }
+.seccion-4 .texto li { color: #000000; }
 
+.titulo-morado { color: #9b7fe8 !important; }
 
-.info-profesional h2 {
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: 2rem;
-
-    font-weight: 800;
-
-    color: #3b5c8d;
-
-    margin-bottom: 5px;
-
+/* =========================================================
+   FONDO 5 – Condiciones asociadas
+   Pantalla completa, todo negro
+========================================================= */
+.seccion-5 {
+  min-height: 100vh;
+  background-image: url("Imagenes/fondo5.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
 }
 
-
-
-.info-profesional h3 {
-
-    font-family: 'Poppins', sans-serif;
-
-    color: #75a0dd;
-
-    font-size: 1.1rem;
-
-    font-weight: 700;
-
-    margin-bottom: 20px;
-
+.seccion-5 .texto {
+  width: 100%;
+  padding: 28px 0;
 }
 
+.titulo-negro  { color: #000000 !important; }
+.texto-negro   { color: #000000 !important; }
 
-
-.info-profesional>p {
-
-    font-family: 'Poppins', sans-serif;
-
-    color: #5f6f84;
-
-    line-height: 1.9;
-
-    margin-bottom: 25px;
-
+.cond-titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 800;
+  margin-top: 18px;
+  margin-bottom: 2px;
 }
 
-
-
-/*=========================================================
-                    DATOS
-=========================================================*/
-
-
-.datos {
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 15px;
-
-    margin-bottom: 30px;
-
+/* =========================================================
+   FONDO 6 – Conclusión
+   Pantalla completa, todo azul centrado
+========================================================= */
+.seccion-6 {
+  min-height: 5vh;
+  background-image: url("Imagenes/fondo6.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 110px 8vw 70px;
+  box-sizing: border-box;
 }
 
-
-
-.datos p {
-
-    background: #f6faff;
-
-    border-left: 5px solid #75a0dd;
-
-    padding: 15px 18px;
-
-    border-radius: 15px;
-
-    color: #55657c;
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: .92rem;
-
-    line-height: 1.6;
-
-    transition: .3s;
-
+.seccion-6 .texto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0;
 }
 
-
-
-.datos p:hover {
-
-    background: #eef5ff;
-
+.texto-azul {
+  color: #4a90d9 !important;
 }
 
-
-
-.datos strong {
-
-    display: block;
-
-    color: #3b5c8d;
-
-    font-weight: 700;
-
-    margin-bottom: 5px;
-
+.conclusion-texto {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 800px;
 }
 
-
-
-/*=========================================================
-                    BOTÓN CONTACTAR
-=========================================================*/
-
-
-.btn-contacto {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 14px 35px;
-
-    background: #75a0dd;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 40px;
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: .95rem;
-
-    font-weight: 700;
-
-    transition: .3s;
-
-    box-shadow:
-
-        0 10px 25px rgba(117, 160, 221, .35);
-
-}
-
-
-
-.btn-contacto:hover {
-
-    background: #5b8ed3;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-
-        0 18px 30px rgba(117, 160, 221, .45);
-
-}
-
-
-
-/*=========================================================
-                ANIMACIÓN TARJETAS
-=========================================================*/
-
-
-.card-profesional {
-
-    animation: subir .8s ease both;
-
-}
-
-
-
-@keyframes subir {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateY(50px);
-
-    }
-
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-
-}
-
-/*=========================================================
-                        FOOTER
-=========================================================*/
-
-
+/* =========================================================
+   FOOTER
+========================================================= */
 .site-footer {
-
-    position: relative;
-
-    background: #75a0dd;
-
-    padding: 45px 5vw 35px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-
-    flex-wrap: wrap;
-
-    overflow: hidden;
-
-}
-
-
-
-/*=========================================================
-                    FOOTER BRAND
-=========================================================*/
-
-
-.footer-brand {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    min-width: 220px;
-
-}
-
-
-
-.footer-logo-wrap {
-
-    display: flex;
-
-    align-items: center;
-
-}
-
-
-
-.footer-logo-img {
-
-    width: 280px;
-
-    height: auto;
-
-    object-fit: contain;
-
-}
-
-
-
-.footer-copy {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-
-    color: #ffffff;
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: .95rem;
-
-    font-weight: 600;
-
-}
-
-
-
-.copy-icon {
-
-    font-size: 1rem;
-
-}
-
-
-
-/*=========================================================
-                    LINKS FOOTER
-=========================================================*/
-
-.site-footer {
-    position: relative;
-    background: #75a0dd;
-    padding: 44px 5vw 32px;
-    padding-right: calc(5vw + 150px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-    transition: background .3s ease;
-    overflow: hidden;
+  position: relative;
+  background: #75a0dd;
+  padding: 44px 5vw 32px;
+  padding-right: calc(5vw + 150px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  transition: background .3s ease;
+  overflow: hidden;
 }
 
 .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
 }
 
 .footer-logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .footer-logo-img {
-    width: 400px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: -18px;
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: -18px;
 }
 
 .footer-copy {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: auto;
+  gap: 5px;
 }
-
+  
 .copy-icon {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .footer-links {
-    min-width: 140px;
+  min-width: 140px;
 }
 
 .footer-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .footer-links a {
-    font-family: 'Nunito', sans-serif;
-    font-size: .82rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
-    transition: opacity var(--transition);
+  font-size: .82rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity var(--transition);
 }
 
 .footer-links a:hover {
-    opacity: .75;
+  opacity: .75;
 }
 
 .footer-col-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: .9rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 4px;
+  font-size: .9rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
 .footer-social {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 200px;
 }
 
 .footer-social-line {
-    font-family: 'Nunito', sans-serif;
-    font-size: .92rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 0;
-    text-decoration: none;
+  font-size: .92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
 }
 
 .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
 }
 
 .social-icon {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background: transparent;
-    cursor: pointer;
-    transition: opacity var(--transition), transform var(--transition);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  color-scheme: dark;
+  background: transparent;
+  border-radius: contain;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
 }
 
 .social-icon svg {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .social-icon:hover {
-    opacity: .8;
-    transform: translateY(-2px);
+  opacity: .8;
+  transform: translateY(-2px);
 }
 
 .footer-mascot {
@@ -1116,355 +789,54 @@ body {
   50%      { transform: translateY(-10px); }
 }
 
-/*=========================================================
-                    RESPONSIVE TABLET
-=========================================================*/
-
-
-@media(max-width:1100px) {
-
-
-
-    .navbar {
-
-        padding: 14px 20px;
-
-    }
-
-
-
-    .nav-links {
-
-        gap: 0;
-
-    }
-
-
-
-    .nav-btn {
-
-        padding: 7px 9px;
-
-        font-size: .75rem;
-
-    }
-
-
-
-    .hero-container {
-
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 40px;
-
-    }
-
-
-
-    .hero-text h1 {
-
-        font-size: 2.8rem;
-
-    }
-
-
-
-    .hero-text p {
-
-        max-width: 700px;
-
-        margin: auto;
-
-    }
-
-
-
-    .card-profesional,
-
-    .card-profesional:nth-child(even) {
-
-        flex-direction: column;
-
-        text-align: center;
-
-    }
-
-
-
-    .card-profesional::before,
-
-    .card-profesional:nth-child(even)::before {
-
-        width: 100%;
-
-        height: 8px;
-
-        top: 0;
-
-        left: 0;
-
-        right: auto;
-
-    }
-
-
-
-    .datos {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-
-    .btn-contacto {
-
-        width: 100%;
-
-    }
-
-
-
+/* =========================================================
+   RESPONSIVE – TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .seccion-con-imagen {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .imagen-lateral {
+    flex: none;
+    width: 80%;
+    max-width: 340px;
+    min-height: 240px;
+  }
+
+  .seccion-3,
+  .seccion-4 {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 6vw 60px;
+  }
 }
 
-
-
-/*=========================================================
-                    RESPONSIVE MÓVIL
-=========================================================*/
-
-
-@media(max-width:768px) {
-
-
-
-    .navbar {
-
-        flex-direction: column;
-
-        padding: 10px;
-
-    }
-
-
-
-    .logo-img {
-
-        width: 140px;
-
-        height: 50px;
-
-    }
-
-
-
-    .nav-links {
-
-        width: 100%;
-
-        flex-direction: column;
-
-        display: none;
-
-    }
-
-
-
-    .nav-links.active {
-
-        display: flex;
-
-    }
-
-
-
-    .nav-btn {
-
-        width: 100%;
-
-        text-align: center;
-
-    }
-
-
-
-    .hero-profesionales {
-
-        padding: 60px 25px;
-
-    }
-
-
-
-    .hero-text h1 {
-
-        font-size: 2.2rem;
-
-    }
-
-
-
-    .hero-text p {
-
-        font-size: .95rem;
-
-    }
-
-
-
-    .hero-image img {
-
-        max-width: 330px;
-
-    }
-
-
-
-    .titulo-seccion {
-
-        margin: 60px auto 40px;
-
-    }
-
-
-
-    .titulo-seccion h2 {
-
-        font-size: 2rem;
-
-    }
-
-
-
-    .profesionales {
-
-        padding: 10px 20px 60px;
-
-    }
-
-
-
-    .card-profesional {
-
-        padding: 25px;
-
-        border-radius: 25px;
-
-    }
-
-
-
-    .foto-profesional img {
-
-        width: 210px;
-
-        height: 210px;
-
-    }
-
-
-
-    .info-profesional h2 {
-
-        font-size: 1.5rem;
-
-    }
-
-
-
-    .footer-logo-img {
-
-        width: 220px;
-
-    }
-
-
-
-    .site-footer {
-
-        flex-direction: column;
-
-        text-align: center;
-
-        padding: 40px 25px;
-
-    }
-
-
-
-    .footer-brand,
-    .footer-links,
-    .footer-social {
-
-        align-items: center;
-
-    }
-
-
-
-    .footer-mascot {
-
-        display: none;
-
-    }
-
-
-
-}
-
-
-
-/*=========================================================
-                    MÓVILES PEQUEÑOS
-=========================================================*/
-
-
-@media(max-width:480px) {
-
-
-
-    .hero-text h1 {
-
-        font-size: 1.9rem;
-
-    }
-
-
-
-    .card-profesional {
-
-        padding: 20px;
-
-    }
-
-
-
-    .foto-profesional img {
-
-        width: 180px;
-
-        height: 180px;
-
-    }
-
-
-
-    .datos p {
-
-        font-size: .85rem;
-
-    }
-
-
-
-    .btn-contacto {
-
-        padding: 12px 25px;
-
-    }
-
-
-
+/* =========================================================
+   RESPONSIVE – MÓVIL
+========================================================= */
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; gap: 8px; }
+  .nav-links { order: 3; width: 100%; gap: 5px; }
+  .nav-btn { font-size: .72rem; padding: 5px 11px; }
+  .nav-btn--active { padding: 5px 14px; }
+
+  .seccion-1, .seccion-2, .seccion-5, .seccion-6 {
+    padding: 90px 6vw 50px;
+  }
+
+  .seccion-3, .seccion-4 {
+    flex-direction: column;
+    padding: 90px 6vw 50px;
+  }
+
+  .imagen-lateral {
+    width: 90%;
+    max-width: 260px;
+    min-height: 200px;
+  }
+
+  .site-footer { gap: 28px; }
+  .footer-mascot { display: none; }
 }
