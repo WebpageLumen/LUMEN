@@ -362,43 +362,63 @@
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
 
-  <!-- ==========================================
-     SINCRONIZACIÓN DE IDIOMA
-========================================== -->
-<script>
-(function() {
-    // Leer idioma guardado
-    var lang = localStorage.getItem('lumen_lang') || 'es';
-    
-    // Aplicar al HTML
-    document.documentElement.lang = lang;
-    
-    // Función para actualizar el selector
-    function actualizarSelector() {
-        var flag = document.getElementById('langFlag');
-        var label = document.getElementById('langLabel');
-        
-        if (flag) {
-            flag.src = lang === 'es' ? 'https://flagcdn.com/w40/es.png' : 'https://flagcdn.com/w40/gb.png';
-        }
-        if (label) {
-            label.textContent = lang.toUpperCase();
-        }
-        
-        document.querySelectorAll('.lang-option').forEach(function(opt) {
-            var isSelected = opt.getAttribute('data-lang') === lang;
-            opt.classList.toggle('selected', isSelected);
-        });
-        
-        console.log('🌐 Lumenshop - Selector actualizado a:', lang);
-    }
-    
-    // Actualizar
-    actualizarSelector();
-    setTimeout(actualizarSelector, 100);
-    setTimeout(actualizarSelector, 300);
-})();
-</script>
+ <!-- ==========================================
+       SINCRONIZACIÓN DE IDIOMA ENTRE PÁGINAS
+  ========================================== -->
+  <script>
+  (function() {
+      // 1. Leer idioma guardado
+      var lang = localStorage.getItem('lumen_lang') || 'es';
+      
+      // 2. Aplicar al HTML
+      document.documentElement.lang = lang;
+      
+      // 3. Función para actualizar el selector visualmente
+      function actualizarSelector() {
+          var flag = document.getElementById('langFlag');
+          var label = document.getElementById('langLabel');
+          
+          if (flag) {
+              flag.src = lang === 'es' ? 'https://flagcdn.com/w40/es.png' : 'https://flagcdn.com/w40/gb.png';
+          }
+          if (label) {
+              label.textContent = lang.toUpperCase();
+          }
+          
+          document.querySelectorAll('.lang-option').forEach(function(opt) {
+              var isSelected = opt.getAttribute('data-lang') === lang;
+              opt.classList.toggle('selected', isSelected);
+          });
+          
+          console.log('🌐 Index - Selector actualizado a:', lang);
+      }
+      
+      // 4. Actualizar inmediatamente y después de que cargue todo
+      actualizarSelector();
+      
+      // 5. Forzar después de que script2.js termine
+      setTimeout(actualizarSelector, 100);
+      setTimeout(actualizarSelector, 300);
+      
+      // 6. Escuchar cambios en el selector de idioma
+      document.addEventListener('DOMContentLoaded', function() {
+          // Escuchar clics en las opciones de idioma
+          document.querySelectorAll('.lang-option').forEach(function(opt) {
+              opt.addEventListener('click', function() {
+                  var newLang = this.getAttribute('data-lang');
+                  if (newLang) {
+                      // Guardar en localStorage
+                      localStorage.setItem('lumen_lang', newLang);
+                      // Actualizar visualmente
+                      lang = newLang;
+                      actualizarSelector();
+                      console.log('🌐 Idioma cambiado a:', newLang, 'guardado en localStorage');
+                  }
+              });
+          });
+      });
+  })();
+  </script>
   
 </body>
 </html>
