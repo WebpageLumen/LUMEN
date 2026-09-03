@@ -741,7 +741,7 @@ function actualizarImagenes() {
 
 
     const rutaBase =
-        "Imagenes/estiramientos/seleccion-estiramiento/" +
+        "estiramientos/seleccion-estiramiento/" +
         carpeta +
         "/";
 
@@ -767,7 +767,7 @@ function actualizarImagenes() {
 
 
     imagenNumaTip.src =
-        "Imagenes/estiramientos/seleccion-estiramiento/tip.png";
+        "estiramientos/seleccion-estiramiento/tip.png";
 
 }
 
@@ -912,7 +912,7 @@ function actualizarSelector() {
     if (idiomaActual === "es") {
 
         banderaActual.src =
-            "Imagenes/español.webp";
+            "español.webp";
 
         banderaActual.alt =
             "Español";
@@ -934,7 +934,7 @@ function actualizarSelector() {
     else {
 
         banderaActual.src =
-            "Imagenes/ingles.png";
+            "ingles.png";
 
         banderaActual.alt =
             "English";

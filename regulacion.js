@@ -13,10 +13,10 @@ window.onload = function () {
             altES: "Feliz",
             altEN: "Happy",
 
-            imagenES: "Imagenes/emociones/feliz.png",
-            imagenEN: "Imagenes/emociones/happy.png",
+            imagenES: "emociones/feliz.png",
+            imagenEN: "emociones/happy.png",
 
-            numa: "Imagenes/numa/numa-alegre.png"
+            numa: "numa/numa-alegre.png"
         },
 
         contento: {
@@ -26,10 +26,10 @@ window.onload = function () {
             altES: "Contento",
             altEN: "Feeling good",
 
-            imagenES: "Imagenes/emociones/contento.png",
-            imagenEN: "Imagenes/emociones/glad.png",
+            imagenES: "emociones/contento.png",
+            imagenEN: "emociones/glad.png",
 
-            numa: "Imagenes/numa/numa-contenta.png"
+            numa: "numa/numa-contenta.png"
         },
 
         tranquilo: {
@@ -39,10 +39,10 @@ window.onload = function () {
             altES: "Tranquilo",
             altEN: "Calm",
 
-            imagenES: "Imagenes/emociones/tranquilo.png",
-            imagenEN: "Imagenes/emociones/calm.png",
+            imagenES: "emociones/tranquilo.png",
+            imagenEN: "emociones/calm.png",
 
-            numa: "Imagenes/numa/numa-tranquila.png"
+            numa: "numa/numa-tranquila.png"
         },
 
         triste: {
@@ -52,10 +52,10 @@ window.onload = function () {
             altES: "Triste",
             altEN: "Sad",
 
-            imagenES: "Imagenes/emociones/triste.png",
-            imagenEN: "Imagenes/emociones/sad.png",
+            imagenES: "emociones/triste.png",
+            imagenEN: "emociones/sad.png",
 
-            numa: "Imagenes/numa/numa-triste.png"
+            numa: "numa/numa-triste.png"
         },
 
         enojado: {
@@ -65,10 +65,10 @@ window.onload = function () {
             altES: "Enojado",
             altEN: "Angry",
 
-            imagenES: "Imagenes/emociones/enojado.png",
-            imagenEN: "Imagenes/emociones/angry.png",
+            imagenES: "emociones/enojado.png",
+            imagenEN: "emociones/angry.png",
 
-            numa: "Imagenes/numa/numa-enojada.png"
+            numa: "numa/numa-enojada.png"
         }
 
     };
@@ -254,7 +254,7 @@ window.onload = function () {
             if (banner) {
 
                 banner.src =
-                    "Imagenes/banner-calma.png";
+                    "banner-calma.png";
 
             }
 
@@ -267,7 +267,7 @@ window.onload = function () {
             if (banner) {
 
                 banner.src =
-                    "Imagenes/Banner.png";
+                    "Banner.png";
 
             }
 
@@ -386,7 +386,7 @@ window.onload = function () {
         if (idiomaActual === "es") {
 
             banderaActual.src =
-                "Imagenes/español.webp";
+                "español.webp";
 
             banderaActual.alt =
                 "Español";
@@ -401,7 +401,7 @@ window.onload = function () {
         } else {
 
             banderaActual.src =
-                "Imagenes/ingles.png";
+                "ingles.png";
 
             banderaActual.alt =
                 "English";

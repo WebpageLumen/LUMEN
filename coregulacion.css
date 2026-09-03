@@ -262,7 +262,7 @@ body {
         20px
         clamp(65px, 7vw, 100px);
 
-    background-image: url("Imagenes/coregulacion/fondo1.png");
+    background-image: url("coregulacion/fondo1.png");
 
     background-size: cover;
     background-position: center top;
@@ -390,7 +390,7 @@ padding:
     clamp(30px, 7vw, 100px)
     65px;
 
-    background-image: url("Imagenes/coregulacion/fondo2.png");
+    background-image: url("coregulacion/fondo2.png");
 
     background-size: 100% auto;
     background-position: center top;

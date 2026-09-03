@@ -206,7 +206,7 @@ const estrategias = {
                     <div class="grounding-personaje">
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/niño-grounding.png"
+                            src="estrategias/seleccion-estrategias/niño-grounding.png"
                             alt="Niño realizando grounding"
                         >
 
@@ -364,7 +364,7 @@ const estrategias = {
                     <div class="grounding-personaje">
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/niño-grounding.png"
+                            src="estrategias/seleccion-estrategias/niño-grounding.png"
                             alt="Child doing grounding"
                         >
 
@@ -418,7 +418,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pelota-antiestres.png"
+                            src="estrategias/seleccion-estrategias/pelota-antiestres.png"
                             alt="Pelota antiestrés"
                         >
 
@@ -439,7 +439,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pop-it.png"
+                            src="estrategias/seleccion-estrategias/pop-it.png"
                             alt="Pop-it"
                         >
 
@@ -460,7 +460,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/manta-con-peso.png"
+                            src="estrategias/seleccion-estrategias/manta-con-peso.png"
                             alt="Manta con peso"
                         >
 
@@ -481,7 +481,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/peluche-favorito.png"
+                            src="estrategias/seleccion-estrategias/peluche-favorito.png"
                             alt="Peluche favorito"
                         >
 
@@ -526,7 +526,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pelota-antiestres.png"
+                            src="estrategias/seleccion-estrategias/pelota-antiestres.png"
                             alt="Stress ball"
                         >
 
@@ -547,7 +547,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pop-it.png"
+                            src="estrategias/seleccion-estrategias/pop-it.png"
                             alt="Pop-it"
                         >
 
@@ -568,7 +568,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/manta-con-peso.png"
+                            src="estrategias/seleccion-estrategias/manta-con-peso.png"
                             alt="Weighted blanket"
                         >
 
@@ -589,7 +589,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/peluche-favorito.png"
+                            src="estrategias/seleccion-estrategias/peluche-favorito.png"
                             alt="Favorite stuffed animal"
                         >
 
@@ -644,7 +644,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/dibujar.png"
+                            src="estrategias/seleccion-estrategias/dibujar.png"
                             alt="Dibujar"
                         >
 
@@ -665,7 +665,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pintar.png"
+                            src="estrategias/seleccion-estrategias/pintar.png"
                             alt="Pintar"
                         >
 
@@ -687,7 +687,7 @@ const estrategias = {
 
                         <img
                             id="imagenEscribir"
-                            src="Imagenes/estrategias/seleccion-estrategias/escribir.png"
+                            src="estrategias/seleccion-estrategias/escribir.png"
                             alt="Escribir"
                         >
 
@@ -709,7 +709,7 @@ const estrategias = {
 
                         <img
                             id="imagenPalabras"
-                            src="Imagenes/estrategias/seleccion-estrategias/palabras.png"
+                            src="estrategias/seleccion-estrategias/palabras.png"
                             alt="Escribir palabras"
                         >
 
@@ -754,7 +754,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/dibujar.png"
+                            src="estrategias/seleccion-estrategias/dibujar.png"
                             alt="Drawing"
                         >
 
@@ -775,7 +775,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/pintar.png"
+                            src="estrategias/seleccion-estrategias/pintar.png"
                             alt="Painting"
                         >
 
@@ -797,7 +797,7 @@ const estrategias = {
 
                         <img
                             id="imagenEscribir"
-                            src="Imagenes/estrategias/seleccion-estrategias/write.png"
+                            src="estrategias/seleccion-estrategias/write.png"
                             alt="Write"
                         >
 
@@ -819,7 +819,7 @@ const estrategias = {
 
                         <img
                             id="imagenPalabras"
-                            src="Imagenes/estrategias/seleccion-estrategias/words.png"
+                            src="estrategias/seleccion-estrategias/words.png"
                             alt="Words"
                         >
 
@@ -875,7 +875,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/brillo.png"
+                            src="estrategias/seleccion-estrategias/brillo.png"
                             alt="Bajar el brillo de la pantalla"
                         >
 
@@ -897,7 +897,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/audifonos.png"
+                            src="estrategias/seleccion-estrategias/audifonos.png"
                             alt="Audífonos con cancelación de ruido"
                         >
 
@@ -919,7 +919,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/alejarse.png"
+                            src="estrategias/seleccion-estrategias/alejarse.png"
                             alt="Alejarse de lugares concurridos"
                         >
 
@@ -941,7 +941,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/habitacion.png"
+                            src="estrategias/seleccion-estrategias/habitacion.png"
                             alt="Habitación tranquila"
                         >
 
@@ -988,7 +988,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/brillo.png"
+                            src="estrategias/seleccion-estrategias/brillo.png"
                             alt="Lower the screen brightness"
                         >
 
@@ -1010,7 +1010,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/audifonos.png"
+                            src="estrategias/seleccion-estrategias/audifonos.png"
                             alt="Noise-canceling headphones"
                         >
 
@@ -1032,7 +1032,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/alejarse.png"
+                            src="estrategias/seleccion-estrategias/alejarse.png"
                             alt="Moving away from crowded places"
                         >
 
@@ -1054,7 +1054,7 @@ const estrategias = {
                         </p>
 
                         <img
-                            src="Imagenes/estrategias/seleccion-estrategias/habitacion.png"
+                            src="estrategias/seleccion-estrategias/habitacion.png"
                             alt="Quiet room"
                         >
 
@@ -1178,7 +1178,7 @@ function actualizarSelectorIdioma() {
             "EN";
 
         banderaActual.src =
-            "Imagenes/ingles.png";
+            "ingles.png";
 
         banderaActual.alt =
             "English";
@@ -1193,7 +1193,7 @@ function actualizarSelectorIdioma() {
             "ES";
 
         banderaActual.src =
-            "Imagenes/español.webp";
+            "español.webp";
 
         banderaActual.alt =
             "Español";

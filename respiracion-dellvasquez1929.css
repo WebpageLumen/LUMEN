@@ -285,7 +285,7 @@ body{
 
     min-height:420px;
 
-    background-image:url("Imagenes/respiracion/fondo-arriba.png");
+    background-image:url("respiracion/fondo-arriba.png");
 
     background-size:cover;
     background-position:center;
@@ -302,7 +302,7 @@ body{
 body.modo-calma .seleccion-respiracion{
 
     background-image:
-        url("Imagenes/respiracion/fondo-arriba-calma.png");
+        url("respiracion/fondo-arriba-calma.png");
 }
 
 
@@ -434,7 +434,7 @@ body.modo-calma .seleccion-respiracion{
 
     min-height:900px;
 
-    background-image:url("Imagenes/respiracion/fondo-abajo.png");
+    background-image:url("respiracion/fondo-abajo.png");
 
     background-size:cover;
     background-position:center;
@@ -449,7 +449,7 @@ body.modo-calma .seleccion-respiracion{
 body.modo-calma .ejercicio-respiracion{
 
     background-image:
-        url("Imagenes/respiracion/fondo-abajo-calma.png");
+        url("respiracion/fondo-abajo-calma.png");
 }
 
 

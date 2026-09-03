@@ -51,7 +51,7 @@ body {
         clamp(60px, 8vw, 100px);
 
     background-image:
-        url("Imagenes/Estrategias/fondo.png");
+        url("Estrategias/fondo.png");
 
     background-position:
         center top;
