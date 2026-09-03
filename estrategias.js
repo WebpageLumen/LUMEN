@@ -33,7 +33,7 @@ const textos = {
 
         codigo: "ES",
 
-        bandera: "Imagenes/español.webp",
+        bandera: "img/español.webp",
 
         titulo: "Estrategias",
 
@@ -54,7 +54,7 @@ const textos = {
 
         codigo: "EN",
 
-        bandera: "Imagenes/ingles.png",
+        bandera: "img/ingles.png",
 
         titulo: "Strategies",
 

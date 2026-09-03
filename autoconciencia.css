@@ -1,306 +1,2666 @@
 /* =====================================================
    CONFIGURACIÓN GENERAL
 ===================================================== */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
     padding: 0;
-    /* Se añade padding-top para que el contenido no se esconda tras el navbar fijo */
-    padding-top: 90px; 
     font-family: Arial, Helvetica, sans-serif;
     background: #a9d4f7;
     overflow-x: hidden;
 }
 
+
 /* =====================================================
-   SELECTOR DE IDIOMA (Original)
+   SELECTOR DE IDIOMA
 ===================================================== */
+
 .language-dropdown {
     position: absolute;
-    top: 110px; /* Ajustado para que no choque con el navbar */
+    top: 18px;
     right: 25px;
     z-index: 2000;
 }
 
 .language-button {
-    height: 43px; min-width: 88px;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
+    height: 43px;
+    min-width: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
     padding: 5px 10px;
-    background: white; border: 2px solid transparent; border-radius: 25px;
+
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 25px;
+
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 500;
-    color: black; transition: border-color 0.2s ease;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: black;
+
+    transition: border-color 0.2s ease;
 }
-.language-button:hover { border-color: #222; }
-.language-flag { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
-#codigoIdioma { min-width: 17px; text-align: left; }
-.arrow { font-size: 18px; color: #2878c8; line-height: 1; margin-left: 1px; transition: transform 0.25s ease; }
-.language-dropdown.active .arrow { transform: rotate(180deg); }
+
+.language-button:hover {
+    border-color: #222;
+}
+
+.language-flag {
+    width: 25px;
+    height: 25px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+#codigoIdioma {
+    min-width: 17px;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 18px;
+    color: #2878c8;
+    line-height: 1;
+    margin-left: 1px;
+
+    transition: transform 0.25s ease;
+}
+
+.language-dropdown.active .arrow {
+    transform: rotate(180deg);
+}
 
 .language-menu {
-    position: absolute; top: calc(100% + 7px); right: 0;
-    width: 88px; padding: 0;
-    background: white; border-radius: 0 0 15px 15px; overflow: hidden;
+    position: absolute;
+
+    top: calc(100% + 7px);
+    right: 0;
+
+    width: 88px;
+    padding: 0;
+
+    background: white;
+    border-radius: 0 0 15px 15px;
+
+    overflow: hidden;
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    opacity: 0; visibility: hidden; transform: translateY(-5px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
 }
-.language-dropdown.active .language-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.language-dropdown.active .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
 .language-option {
-    width: 100%; height: 49px;
-    display: flex; align-items: center; gap: 8px;
-    padding: 7px 13px; border: none; background: white;
-    color: #294b75; font-family: Arial, Helvetica, sans-serif; font-size: 15px;
-    cursor: pointer; text-align: left;
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: none;
+    background: white;
+
+    color: #294b75;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+
+    cursor: pointer;
+    text-align: left;
 }
-.language-option.active, .language-option:hover { background: #e9f4fc; }
+
+.language-option.active,
+.language-option:hover {
+    background: #e9f4fc;
+}
+
 
 /* =====================================================
    BOTÓN VOLVER
 ===================================================== */
+
 .btn-volver {
     position: fixed;
-    top: 110px; /* Ajustado para que no choque con el navbar */
+
+    top: 20px;
     left: 30px;
-    width: 70px; height: 70px;
+
+    width: 70px;
+    height: 70px;
+
     border-radius: 50%;
-    background: white; color: #74a1de;
-    display: flex; justify-content: center; align-items: center;
+
+    background: white;
+    color: #74a1de;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     padding-bottom: 8px;
+
     text-decoration: none;
-    font-size: 45px; line-height: 1;
+
+    font-size: 45px;
+    line-height: 1;
+
     z-index: 1000;
+
     transition: 0.25s;
 }
-.btn-volver:hover { transform: scale(1.08); }
+
+.btn-volver:hover {
+    transform: scale(1.08);
+}
+
 
 /* =====================================================
    SECCIÓN AUTOCONCIENCIA
 ===================================================== */
+
 .autoconciencia {
     position: relative;
-    width: 100%; min-height: 100vh;
+
+    width: 100%;
+    min-height: 100vh;
+
     padding: 55px 5% 70px;
-    background-image: url("Imagenes/Autoconciencia/fondo.png");
+
+    background-image: url("img/Autoconciencia/fondo.png");
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
+
     overflow: hidden;
 }
 
-/* =====================================================
-   TÍTULO Y DESCRIPCIÓN (Resumido por espacio, queda igual que tu original)
-===================================================== */
-.titulo-autoconciencia { position: relative; width: min(610px, 80%); min-height: 115px; margin: 0 auto 28px; padding: 15px 35px; display: flex; align-items: center; background: #82b8eb; border-radius: 12px; }
-.titulo-autoconciencia h1 { margin: 0; color: #000; font-size: clamp(35px, 5vw, 62px); font-weight: 800; line-height: 1; white-space: nowrap; }
-.titulo-autoconciencia img { position: absolute; right: -18%; top: 50%; width: 29%; max-width: 190px; transform: translateY(-45%); object-fit: contain; pointer-events: none; }
-
-.descripcion-autoconciencia { width: min(650px, 80%); margin: 0 auto 25px; padding: 14px 25px; background: #a8d0f2; border-radius: 12px; text-align: center; }
-.descripcion-autoconciencia p { margin: 0; color: #111; font-size: clamp(11px, 1.3vw, 15px); line-height: 1.25; }
 
 /* =====================================================
-   TARJETAS, PANELES, ETC. (Se mantiene exactamente igual tu CSS original)
+   TÍTULO
 ===================================================== */
-/* [Se omite en este bloque por brevedad, pero DEBES MANTENER TODO TU CSS ORIGINAL DESDE AQUÍ HASTA EL FINAL DE TUS MEDIA QUERIES] */
-.tarjetas-autoconciencia { width: min(900px, 90%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 5; }
-.tarjeta-autoconciencia { position: relative; width: 100%; height: 180px; padding: 8px; border: none; border-radius: 12px; background: #86bcef; display: flex; flex-direction: column; align-items: center; justify-content: space-between; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; overflow: hidden; }
-.tarjeta-autoconciencia:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); }
-.tarjeta-autoconciencia.activa { background: #cdaff0; border: 3px solid #9c75d4; box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55), 0 8px 20px rgba(92, 59, 134, 0.22); }
-.imagen-tarjeta { width: 100%; height: 125px; display: flex; align-items: center; justify-content: center; }
-.imagen-tarjeta img { width: 90%; height: 100%; object-fit: contain; }
-.tarjeta-autoconciencia span { width: 100%; min-height: 42px; display: flex; align-items: center; justify-content: center; padding: 0 4px; color: #263c68; font-size: clamp(13px, 1.5vw, 21px); font-weight: 800; line-height: 1; text-align: center; }
 
-.panel-autoconciencia { position: relative; width: min(1100px, 94%); min-height: 560px; margin: 28px auto 0; padding: 35px 45px; border-radius: 24px; border: 4px solid #9c75d4; background: #eee5fb; display: none; z-index: 10; animation: aparecerPanel 0.3s ease; }
-.panel-autoconciencia.visible { display: block; }
-@keyframes aparecerPanel { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-.cerrar-panel { position: absolute; top: 12px; right: 16px; width: 40px; height: 40px; padding: 0; border: none; background: transparent; color: #70449d; font-size: 36px; line-height: 1; cursor: pointer; z-index: 200; }
-.panel-sientes, .panel-necesitas, .panel-control, .panel-rueda { display: none; }
-.panel-sientes.activo, .panel-necesitas.activo, .panel-control.activo, .panel-rueda.activo { display: block; }
+.titulo-autoconciencia {
+    position: relative;
 
-/* ... AQUÍ VAN TODOS TUS ESTILOS RESTANTES ORIGINALES HASTA LLEGAR A LAS MEDIA QUERIES DE MÓVIL ... */
-/* NOTA: En la media query de móvil (max-width: 650px), añade esto para ajustar el botón volver: */
+    width: min(610px, 80%);
+    min-height: 115px;
+
+    margin: 0 auto 28px;
+    padding: 15px 35px;
+
+    display: flex;
+    align-items: center;
+
+    background: #82b8eb;
+    border-radius: 12px;
+}
+
+.titulo-autoconciencia h1 {
+    margin: 0;
+
+    color: #000;
+
+    font-size: clamp(35px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+.titulo-autoconciencia img {
+    position: absolute;
+
+    right: -18%;
+    top: 50%;
+
+    width: 29%;
+    max-width: 190px;
+
+    transform: translateY(-45%);
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   DESCRIPCIÓN
+===================================================== */
+
+.descripcion-autoconciencia {
+    width: min(650px, 80%);
+
+    margin: 0 auto 25px;
+    padding: 14px 25px;
+
+    background: #a8d0f2;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.descripcion-autoconciencia p {
+    margin: 0;
+
+    color: #111;
+
+    font-size: clamp(11px, 1.3vw, 15px);
+    line-height: 1.25;
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.tarjetas-autoconciencia {
+    width: min(900px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    position: relative;
+    z-index: 5;
+}
+
+.tarjeta-autoconciencia {
+    position: relative;
+
+    width: 100%;
+    height: 180px;
+
+    padding: 8px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #86bcef;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+    overflow: hidden;
+}
+
+.tarjeta-autoconciencia:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-autoconciencia.activa {
+    background: #cdaff0;
+
+    border: 3px solid #9c75d4;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.55),
+        0 8px 20px rgba(92, 59, 134, 0.22);
+}
+
+.imagen-tarjeta {
+    width: 100%;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-tarjeta img {
+    width: 90%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.tarjeta-autoconciencia span {
+    width: 100%;
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 4px;
+
+    color: #263c68;
+
+    font-size: clamp(13px, 1.5vw, 21px);
+    font-weight: 800;
+
+    line-height: 1;
+    text-align: center;
+}
+
+
+/* =====================================================
+   PANEL PRINCIPAL
+===================================================== */
+
+.panel-autoconciencia {
+    position: relative;
+
+    width: min(1100px, 94%);
+    min-height: 560px;
+
+    margin: 28px auto 0;
+    padding: 35px 45px;
+
+    border-radius: 24px;
+    border: 4px solid #9c75d4;
+
+    background: #eee5fb;
+
+    display: none;
+
+    z-index: 10;
+
+    animation: aparecerPanel 0.3s ease;
+}
+
+.panel-autoconciencia.visible {
+    display: block;
+}
+
+@keyframes aparecerPanel {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   CERRAR PANEL
+===================================================== */
+
+.cerrar-panel {
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #70449d;
+
+    font-size: 36px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 200;
+}
+
+
+/* =====================================================
+   PANELES INTERNOS
+===================================================== */
+
+.panel-sientes,
+.panel-necesitas,
+.panel-control,
+.panel-rueda {
+    display: none;
+}
+
+.panel-sientes.activo,
+.panel-necesitas.activo,
+.panel-control.activo,
+.panel-rueda.activo {
+    display: block;
+}
+
+
+/* =====================================================
+   ¿QUÉ SIENTES?
+===================================================== */
+
+.panel-sientes {
+    width: 100%;
+    min-height: 490px;
+}
+
+.panel-sientes.activo {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 1fr)
+        minmax(360px, 1.15fr);
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   LADO IZQUIERDO
+===================================================== */
+
+.sientes-izquierda {
+    width: 100%;
+    min-height: 470px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-cuerpo {
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.titulo-cuerpo h2 {
+    margin: 0;
+
+    color: #3654b5;
+
+    font-size: clamp(30px, 3vw, 46px);
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   SILUETA
+===================================================== */
+
+.silueta-wrapper {
+    position: relative;
+
+    width: min(290px, 75%);
+    aspect-ratio: 2 / 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.silueta-nino {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   PUNTOS DEL CUERPO
+===================================================== */
+
+.punto-cuerpo {
+    position: absolute;
+
+    width: clamp(26px, 2.5vw, 38px);
+    aspect-ratio: 1;
+
+    padding: 0;
+
+    border-radius: 50%;
+    border: 3px solid white;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.punto-cuerpo:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.65);
+}
+
+.punto-cuerpo.activo {
+    box-shadow:
+        0 0 0 5px rgba(255, 255, 255, 0.85);
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   POSICIÓN DE LOS PUNTOS
+===================================================== */
+
+.punto-cabeza {
+    background: #f4d64d;
+
+    top: 14%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.punto-garganta {
+    background: #f0a5c3;
+
+    top: 37%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.punto-pecho {
+    background: #d9ef62;
+
+    top: 46%;
+    left: 55%;
+
+    transform: translateX(-10%);
+}
+
+.punto-estomago {
+    background: #b9ddff;
+
+    top: 60%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.punto-mano {
+    background: #f3a8c4;
+
+    top: 64%;
+    right: 8%;
+}
+
+.punto-pie {
+    background: #f5b66b;
+
+    bottom: 6%;
+    left: 30%;
+}
+
+
+/* =====================================================
+   LADO DERECHO
+===================================================== */
+
+.sientes-derecha {
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   MENSAJE INICIAL
+===================================================== */
+
+.sientes-inicial {
+    width: min(440px, 100%);
+    min-height: 360px;
+
+    padding: 30px 25px 15px;
+
+    border-radius: 28px;
+
+    background: #c6e3f8;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+.texto-sientes-inicial {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.texto-sientes-inicial strong {
+    color: #3654b5;
+
+    font-size: clamp(24px, 2.5vw, 34px);
+
+    line-height: 1;
+}
+
+.texto-sientes-inicial span {
+    color: #3654b5;
+
+    font-size: clamp(16px, 1.7vw, 21px);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+.lila-sientes {
+    width: min(190px, 60%);
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   INFORMACIÓN DE LA ZONA
+===================================================== */
+
+.sientes-info {
+    width: 100%;
+    min-height: 400px;
+
+    padding: 25px;
+
+    border-radius: 28px;
+
+    display: none;
+
+    animation: aparecerSientes 0.25s ease;
+}
+
+.sientes-info.visible {
+    display: block;
+}
+
+@keyframes aparecerSientes {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   PARTE SUPERIOR INFORMACIÓN
+===================================================== */
+
+.info-cuerpo-superior {
+    display: grid;
+
+    grid-template-columns: 150px 1fr;
+
+    gap: 20px;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.imagen-zona-wrapper {
+    width: 150px;
+    aspect-ratio: 1;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.imagen-zona-wrapper img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.datos-zona h3 {
+    margin: 0 0 15px;
+
+    color: #3654b5;
+
+    font-size: clamp(30px, 3vw, 42px);
+
+    font-weight: 900;
+}
+
+.sientes-etiquetas {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.sientes-etiqueta {
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #3654b5;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   PARTE INFERIOR INFORMACIÓN
+===================================================== */
+
+.info-cuerpo-inferior {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.bloque-informacion,
+.bloque-consejos {
+    min-height: 170px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.bloque-informacion strong,
+.bloque-consejos strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #3654b5;
+
+    font-size: 17px;
+}
+
+.bloque-informacion ul,
+.bloque-consejos ul {
+    margin: 0;
+
+    padding-left: 20px;
+
+    color: #3654b5;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+
+/* =====================================================
+   COLORES SEGÚN LA ZONA
+===================================================== */
+
+.sientes-info.cabeza {
+    background: #fff0b3;
+}
+
+.sientes-info.garganta {
+    background: #f7c6da;
+}
+
+.sientes-info.pecho {
+    background: #e5f5a9;
+}
+
+.sientes-info.estomago {
+    background: #c6e7ff;
+}
+
+.sientes-info.mano {
+    background: #f5c6d8;
+}
+
+.sientes-info.pie {
+    background: #ffd49e;
+}
+
+
+/* =====================================================
+   ¿QUÉ NECESITAS AHORA?
+===================================================== */
+
+.panel-necesitas {
+    width: 100%;
+
+    text-align: center;
+}
+
+.panel-necesitas h2 {
+    margin: 0 0 25px;
+
+    color: #3654b5;
+
+    font-size: clamp(30px, 4vw, 48px);
+
+    line-height: 1.15;
+}
+
+.pregunta-necesitas {
+    margin: 0 0 20px;
+
+    color: #263c68;
+
+    font-size: clamp(20px, 2.5vw, 30px);
+
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   OPCIONES DE EMOCIONES
+===================================================== */
+
+.opciones-emociones {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.opcion-necesidad-emocion {
+    min-height: 120px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 40px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.opcion-necesidad-emocion span {
+    color: #3654b5;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.opcion-necesidad-emocion:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 18px rgba(54, 84, 181, 0.12);
+}
+
+.opcion-necesidad-emocion:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   PASO DE NECESIDADES
+===================================================== */
+
+.necesidades-opciones {
+    display: none;
+
+    width: 100%;
+
+    animation: aparecerPanel 0.3s ease;
+}
+
+
+/* =====================================================
+   GRID DE NECESIDADES
+===================================================== */
+
+.grid-necesidades {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.opcion-necesidad {
+    min-height: 125px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #d7c1f1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 38px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opcion-necesidad span {
+    color: #4d3275;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.opcion-necesidad:hover {
+    transform: translateY(-4px);
+
+    background: #c5a5eb;
+
+    box-shadow:
+        0 8px 18px rgba(77, 50, 117, 0.15);
+}
+
+.opcion-necesidad:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   RESULTADO NECESIDAD
+===================================================== */
+
+.resultado-necesidad {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    animation: aparecerPanel 0.35s ease;
+}
+
+.resultado-contenido {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    width: 100%;
+
+    align-items: stretch;
+}
+
+.resultado-mensaje {
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    min-height: 240px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 20px rgba(54, 84, 181, 0.10);
+}
+
+.resultado-mensaje h3 {
+    margin: 0 0 12px;
+
+    color: #3654b5;
+
+    font-size: clamp(26px, 3vw, 38px);
+
+    line-height: 1.2;
+}
+
+.resultado-mensaje > p {
+    margin: 0 auto 20px;
+
+    max-width: 450px;
+
+    color: #263c68;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+}
+
+.eleccion-final {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    width: 100%;
+}
+
+.eleccion-final p {
+    margin: 0;
+
+    color: #263c68;
+
+    font-size: 17px;
+
+    line-height: 1.4;
+}
+
+.eleccion-final strong {
+    color: #3654b5;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   TARJETA DE ESTRATEGIA
+===================================================== */
+
+.estrategia-visual {
+    background: #d7c1f1;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    min-height: 240px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.estrategia-icono {
+    width: 90px;
+    height: 90px;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+
+    flex-shrink: 0;
+}
+
+.estrategia-visual h3 {
+    margin: 0 0 10px;
+
+    color: #4d3275;
+
+    font-size: clamp(22px, 2.5vw, 30px);
+
+    line-height: 1.2;
+}
+
+.estrategia-visual p {
+    margin: 0;
+
+    max-width: 430px;
+
+    color: #4d3275;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+}
+
+.btn-nueva-eleccion {
+    margin-top: 20px;
+
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #3654b5;
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.btn-nueva-eleccion:hover {
+    transform: translateY(-3px);
+
+    background: #29449b;
+}
+
+.btn-nueva-eleccion:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   CONTROL
+===================================================== */
+
+.panel-control {
+    width: 100%;
+
+    text-align: center;
+}
+
+.panel-control h2 {
+    margin: 0 0 5px;
+
+    color: #263c68;
+
+    font-size: clamp(30px, 4vw, 48px);
+}
+
+.panel-control > p {
+    margin: 0 0 25px;
+
+    color: #56647c;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.control-pregunta {
+    width: min(650px, 100%);
+
+    min-height: 140px;
+
+    margin: 0 auto 25px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: #fff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #3654b5;
+
+    font-size: clamp(24px, 3vw, 38px);
+
+    font-weight: 900;
+}
+
+.control-botones {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.respuesta-control {
+    min-width: 180px;
+    min-height: 65px;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 20px;
+
+    color: #263c68;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.respuesta-control:hover {
+    transform: scale(1.04);
+}
+
+.resultado-control {
+    min-height: 35px;
+
+    margin-top: 25px;
+
+    color: #4d3275;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   RULETA DE EMOCIONES
+===================================================== */
+
+.panel-rueda {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 5px 0 20px;
+}
+
+.panel-rueda h2 {
+    margin: 0 0 8px;
+
+    color: #263c68;
+
+    font-size: clamp(28px, 3.5vw, 44px);
+
+    font-weight: 900;
+
+    line-height: 1.15;
+}
+
+.rueda-instruccion {
+    margin: 0 0 25px;
+
+    color: #56647c;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.rueda-contenedor {
+    position: relative;
+
+    width: min(430px, 82vw);
+
+    aspect-ratio: 1;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.indicador-rueda {
+    position: absolute;
+
+    top: -15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 42px solid #263c68;
+
+    z-index: 20;
+
+    filter:
+        drop-shadow(
+            0 4px 4px rgba(0, 0, 0, 0.15)
+        );
+}
+
+.rueda-emociones {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border: 12px solid #263c68;
+
+    overflow: hidden;
+
+    background:
+        conic-gradient(
+            #b7a1dd 0deg 60deg,
+            #fff0a6 60deg 120deg,
+            #f4b6c8 120deg 180deg,
+            #c3b1e0 180deg 240deg,
+            #f8df83 240deg 300deg,
+            #8fb0d8 300deg 360deg
+        );
+
+    transition:
+        transform 4s cubic-bezier(
+            0.17,
+            0.67,
+            0.12,
+            0.99
+        );
+
+    box-shadow:
+        0 10px 25px rgba(38, 60, 104, 0.18);
+}
+
+.segmento-emocion {
+    position: absolute;
+
+    width: 50%;
+    height: 50%;
+
+    left: 25%;
+    top: 25%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+.segmento-emocion span {
+    color: #263c68;
+
+    font-size: clamp(14px, 1.8vw, 21px);
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+
+/* =====================================================
+   POSICIÓN DE NOMBRES
+===================================================== */
+
+.segmento-emocion.frustrado {
+    transform:
+        rotate(30deg)
+        translateY(-115px);
+}
+
+.segmento-emocion.feliz {
+    transform:
+        rotate(90deg)
+        translateY(-115px);
+}
+
+.segmento-emocion.triste {
+    transform:
+        rotate(150deg)
+        translateY(-115px);
+}
+
+.segmento-emocion.enojado {
+    transform:
+        rotate(210deg)
+        translateY(-115px);
+}
+
+.segmento-emocion.ansioso {
+    transform:
+        rotate(270deg)
+        translateY(-115px);
+}
+
+.segmento-emocion.asustado {
+    transform:
+        rotate(330deg)
+        translateY(-115px);
+}
+
+
+/* =====================================================
+   CENTRO RULETA
+===================================================== */
+
+.centro-rueda {
+    position: absolute;
+
+    width: 23%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: #263c68;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.centro-rueda span {
+    color: white;
+
+    font-size: clamp(12px, 1.5vw, 17px);
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   BOTÓN GIRAR
+===================================================== */
+
+.btn-girar-rueda {
+    border: none;
+    border-radius: 18px;
+
+    padding: 15px 30px;
+
+    background: #3654b5;
+    color: white;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(54, 84, 181, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.btn-girar-rueda:hover {
+    transform: translateY(-3px);
+
+    background: #29449b;
+}
+
+.btn-girar-rueda:active {
+    transform: scale(0.97);
+}
+
+.btn-girar-rueda:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   RESULTADO RULETA
+===================================================== */
+
+.resultado-rueda {
+    display: none;
+
+    width: min(900px, 100%);
+
+    margin: 30px auto 0;
+
+    animation:
+        aparecerPanel 0.4s ease;
+}
+
+.resultado-rueda.visible {
+    display: block;
+}
+
+.emocion-resultado {
+    width: 100%;
+
+    padding: 20px 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    box-shadow:
+        0 6px 18px rgba(54, 84, 181, 0.10);
+}
+
+.resultado-emoji {
+    font-size: 58px;
+
+    line-height: 1;
+}
+
+.resultado-label {
+    display: block;
+
+    color: #56647c;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+.emocion-resultado h3 {
+    margin: 0;
+
+    color: #3654b5;
+
+    font-size: clamp(30px, 4vw, 45px);
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   INFORMACIÓN RULETA
+===================================================== */
+
+.informacion-rueda {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    text-align: left;
+}
+
+.info-rueda-card {
+    min-height: 230px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 18px rgba(54, 84, 181, 0.08);
+}
+
+.info-rueda-icono {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    margin-bottom: 12px;
+
+    border-radius: 50%;
+
+    background: #d7c1f1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.info-rueda-card h4 {
+    margin: 0 0 12px;
+
+    color: #3654b5;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    line-height: 1.25;
+}
+
+.info-rueda-card ul {
+    margin: 0;
+
+    padding-left: 18px;
+
+    color: #4d5d78;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+.info-rueda-card li {
+    margin-bottom: 6px;
+}
+
+.mensaje-rueda {
+    margin: 20px auto 0;
+
+    padding: 15px 20px;
+
+    width: min(700px, 100%);
+
+    border-radius: 15px;
+
+    background: #d7c1f1;
+
+    color: #4d3275;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .autoconciencia {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    /* TARJETAS */
+
+    .tarjetas-autoconciencia {
+        width: 95%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 16px;
+    }
+
+
+    /* PANEL */
+
+    .panel-autoconciencia {
+        width: 96%;
+
+        padding: 30px 25px;
+    }
+
+
+    /* SIENTES */
+
+    .panel-sientes.activo {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .sientes-izquierda {
+        min-height: auto;
+    }
+
+    .sientes-derecha {
+        min-height: auto;
+    }
+
+    .silueta-wrapper {
+        width: min(280px, 65vw);
+    }
+
+
+    /* INFORMACIÓN */
+
+    .info-cuerpo-superior {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .imagen-zona-wrapper {
+        width: 120px;
+    }
+
+
+    /* RESULTADO */
+
+    .resultado-contenido {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* RULETA */
+
+    .informacion-rueda {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
 @media (max-width: 650px) {
+
+    /* -------------------------
+       GENERAL
+    ------------------------- */
+
+    .autoconciencia {
+        padding:
+            65px 12px 40px;
+
+        background-size: auto 100%;
+    }
+
+
+    /* -------------------------
+       VOLVER
+    ------------------------- */
+
     .btn-volver {
-        top: 80px; /* Ajustado en móvil para que no choque con el navbar */
+        top: 12px;
         left: 12px;
-        width: 48px; height: 48px;
+
+        width: 48px;
+        height: 48px;
+
         font-size: 32px;
+
         padding-bottom: 5px;
     }
+
+
+    /* -------------------------
+       IDIOMA
+    ------------------------- */
+
     .language-dropdown {
-        top: 85px; /* Ajustado en móvil */
+        top: 12px;
         right: 12px;
     }
-    /* ... resto de tus reglas móviles ... */
+
+    .language-button {
+        height: 40px;
+
+        min-width: 82px;
+
+        padding: 5px 8px;
+
+        font-size: 14px;
+    }
+
+    .language-flag {
+        width: 23px;
+        height: 23px;
+    }
+
+    .arrow {
+        font-size: 17px;
+    }
+
+    .language-menu {
+        width: 82px;
+    }
+
+    .language-option {
+        height: 46px;
+
+        font-size: 14px;
+
+        padding: 7px 11px;
+    }
+
+
+    /* -------------------------
+       TÍTULO
+    ------------------------- */
+
+    .titulo-autoconciencia {
+        width: calc(100% - 20px);
+
+        min-height: 82px;
+
+        margin-bottom: 18px;
+
+        padding: 12px 18px;
+    }
+
+    .titulo-autoconciencia h1 {
+        font-size: clamp(27px, 8vw, 42px);
+
+        white-space: normal;
+
+        line-height: 1.05;
+    }
+
+    .titulo-autoconciencia img {
+        width: 25%;
+
+        right: -7%;
+
+        max-width: 100px;
+    }
+
+
+    /* -------------------------
+       DESCRIPCIÓN
+    ------------------------- */
+
+    .descripcion-autoconciencia {
+        width: 95%;
+
+        padding: 12px 15px;
+
+        margin-bottom: 20px;
+    }
+
+    .descripcion-autoconciencia p {
+        font-size: 13px;
+
+        line-height: 1.35;
+    }
+
+
+    /* -------------------------
+       TARJETAS
+    ------------------------- */
+
+    .tarjetas-autoconciencia {
+        width: 100%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .tarjeta-autoconciencia {
+        height: 150px;
+
+        padding: 6px;
+    }
+
+    .imagen-tarjeta {
+        height: 100px;
+    }
+
+    .tarjeta-autoconciencia span {
+        min-height: 34px;
+
+        font-size: 14px;
+    }
+
+
+    /* -------------------------
+       PANEL PRINCIPAL
+    ------------------------- */
+
+    .panel-autoconciencia {
+        width: 100%;
+
+        min-height: auto;
+
+        margin-top: 20px;
+
+        padding:
+            45px 12px 25px;
+
+        border-width: 3px;
+
+        border-radius: 20px;
+    }
+
+    .cerrar-panel {
+        top: 8px;
+        right: 10px;
+
+        width: 35px;
+        height: 35px;
+
+        font-size: 31px;
+    }
+
+
+    /* -------------------------
+       ¿QUÉ SIENTES?
+    ------------------------- */
+
+    .panel-sientes.activo {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .sientes-izquierda {
+        width: 100%;
+
+        min-height: auto;
+    }
+
+    .titulo-cuerpo {
+        margin-bottom: 5px;
+    }
+
+    .titulo-cuerpo h2 {
+        font-size: 30px;
+    }
+
+    .silueta-wrapper {
+        width: min(250px, 70vw);
+    }
+
+    .sientes-derecha {
+        width: 100%;
+
+        min-height: auto;
+    }
+
+    .sientes-inicial {
+        width: 100%;
+
+        min-height: 280px;
+
+        padding: 25px 18px 15px;
+
+        border-radius: 22px;
+    }
+
+    .texto-sientes-inicial strong {
+        font-size: 25px;
+    }
+
+    .texto-sientes-inicial span {
+        font-size: 17px;
+    }
+
+    .lila-sientes {
+        width: 145px;
+    }
+
+
+    /* -------------------------
+       INFORMACIÓN ZONA
+    ------------------------- */
+
+    .sientes-info {
+        min-height: auto;
+
+        padding: 18px;
+
+        border-radius: 20px;
+    }
+
+    .info-cuerpo-superior {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+    .imagen-zona-wrapper {
+        width: 110px;
+
+        margin: 0 auto;
+    }
+
+    .datos-zona h3 {
+        margin-bottom: 10px;
+
+        font-size: 30px;
+    }
+
+    .sientes-etiquetas {
+        justify-content: center;
+    }
+
+    .sientes-etiqueta {
+        font-size: 13px;
+
+        padding: 7px 11px;
+    }
+
+    .info-cuerpo-inferior {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .bloque-informacion,
+    .bloque-consejos {
+        min-height: auto;
+
+        padding: 15px;
+    }
+
+
+    /* -------------------------
+       NECESIDADES
+    ------------------------- */
+
+    .panel-necesitas h2 {
+        font-size: 29px;
+
+        margin-bottom: 18px;
+    }
+
+    .pregunta-necesitas {
+        font-size: 20px;
+
+        margin-bottom: 18px;
+    }
+
+    .opciones-emociones {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .opcion-necesidad-emocion {
+        min-height: 105px;
+
+        padding: 10px;
+
+        font-size: 32px;
+    }
+
+    .opcion-necesidad-emocion span {
+        font-size: 14px;
+    }
+
+    .grid-necesidades {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .opcion-necesidad {
+        min-height: 110px;
+
+        padding: 10px;
+
+        font-size: 30px;
+    }
+
+    .opcion-necesidad span {
+        font-size: 14px;
+    }
+
+
+    /* -------------------------
+       RESULTADO NECESIDAD
+    ------------------------- */
+
+    .resultado-contenido {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .resultado-mensaje,
+    .estrategia-visual {
+        min-height: auto;
+
+        padding: 22px 16px;
+    }
+
+    .resultado-mensaje h3 {
+        font-size: 27px;
+    }
+
+    .resultado-mensaje > p {
+        font-size: 16px;
+    }
+
+    .eleccion-final p {
+        font-size: 15px;
+    }
+
+    .estrategia-icono {
+        width: 75px;
+        height: 75px;
+
+        font-size: 40px;
+    }
+
+    .estrategia-visual h3 {
+        font-size: 23px;
+    }
+
+    .estrategia-visual p {
+        font-size: 15px;
+    }
+
+    .btn-nueva-eleccion {
+        width: 100%;
+
+        padding: 13px 18px;
+
+        font-size: 16px;
+    }
+
+
+    /* -------------------------
+       CONTROL
+    ------------------------- */
+
+    .panel-control h2 {
+        font-size: 30px;
+    }
+
+    .panel-control > p {
+        font-size: 14px;
+    }
+
+    .control-pregunta {
+        min-height: 120px;
+
+        padding: 20px 15px;
+
+        font-size: 25px;
+    }
+
+    .control-botones {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .respuesta-control {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 58px;
+
+        font-size: 16px;
+    }
+
+
+    /* -------------------------
+       RULETA
+    ------------------------- */
+
+    .panel-rueda {
+        padding-bottom: 10px;
+    }
+
+    .panel-rueda h2 {
+        font-size: 28px;
+    }
+
+    .rueda-instruccion {
+        font-size: 15px;
+
+        padding: 0 8px;
+
+        line-height: 1.35;
+    }
+
+    .rueda-contenedor {
+        width: min(350px, 88vw);
+    }
+
+    .rueda-emociones {
+        border-width: 8px;
+    }
+
+    .indicador-rueda {
+        top: -12px;
+
+        border-left-width: 18px;
+        border-right-width: 18px;
+        border-top-width: 32px;
+    }
+
+
+    /* NOMBRES */
+
+    .segmento-emocion.frustrado {
+        transform:
+            rotate(30deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion.feliz {
+        transform:
+            rotate(90deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion.triste {
+        transform:
+            rotate(150deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion.enojado {
+        transform:
+            rotate(210deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion.ansioso {
+        transform:
+            rotate(270deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion.asustado {
+        transform:
+            rotate(330deg)
+            translateY(-88px);
+    }
+
+    .segmento-emocion span {
+        font-size: 14px;
+    }
+
+    .btn-girar-rueda {
+        width: 90%;
+
+        font-size: 17px;
+
+        padding: 14px 20px;
+    }
+
+
+    /* -------------------------
+       RESULTADO RULETA
+    ------------------------- */
+
+    .emocion-resultado {
+        padding: 18px;
+
+        gap: 12px;
+
+        flex-direction: column;
+    }
+
+    .resultado-emoji {
+        font-size: 48px;
+    }
+
+    .emocion-resultado h3 {
+        font-size: 30px;
+    }
+
+    .resultado-label {
+        font-size: 14px;
+    }
+
+    .informacion-rueda {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .info-rueda-card {
+        min-height: auto;
+
+        padding: 18px;
+    }
+
+    .mensaje-rueda {
+        font-size: 14px;
+
+        padding: 14px 15px;
+    }
 }
 
-/* =========================================================
-   VARIABLES DEL TEMA – MODO CLARO Y NAVBAR / FOOTER
-========================================================= */
-:root {
-  --gold:           #f7c94b;
-  --gold-dark:      #e8a800;
-  --blue-brand:     #4a90d9;
-  --blue-dark:      #2563ae;
-  --blue-figure:    #5ab0e8;
-  --purple-brand:   #9b7fe8;
-  --yellow-brand:   #f9c74f;
-  --green-brand:    #90be6d;
 
-  --text-main:      #2d4a6e;
-  --text-soft:      #5a7da0;
-  --text-light:     #8aafc8;
+/* =====================================================
+   CELULAR PEQUEÑO
+===================================================== */
 
-  --bg-body:        #f0f7fd;
-  --bg-card:        #ffffff;
-  --bg-sections:    #ffffff;
-  
-  --bg-navbar:      #ffffff;
-  --nav-link-color: #2d4a6e;
-  --nav-border:     rgba(74,144,217,.15);
+@media (max-width: 400px) {
 
-  --border-card:    rgba(74,144,217,.14);
-  --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
-  --shadow-card:    0 6px 28px rgba(74,144,217,.10);
-  --shadow-hover:   0 18px 42px rgba(74,144,217,.22);
+    .autoconciencia {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 
-  --radius-pill:    999px;
-  --radius-card:    22px;
-  --transition:     0.28s cubic-bezier(.4,0,.2,1);
+    .titulo-autoconciencia {
+        width: 100%;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .titulo-autoconciencia h1 {
+        font-size: 28px;
+    }
+
+    .tarjeta-autoconciencia {
+        height: 140px;
+    }
+
+    .imagen-tarjeta {
+        height: 92px;
+    }
+
+    .tarjeta-autoconciencia span {
+        font-size: 13px;
+    }
+
+    .panel-autoconciencia {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+
+    /* SILUETA */
+
+    .silueta-wrapper {
+        width: min(225px, 68vw);
+    }
+
+
+    /* RULETA */
+
+    .rueda-contenedor {
+        width: 82vw;
+    }
+
+    .segmento-emocion span {
+        font-size: 11px;
+    }
+
+    .segmento-emocion.frustrado {
+        transform:
+            rotate(30deg)
+            translateY(-75px);
+    }
+
+    .segmento-emocion.feliz {
+        transform:
+            rotate(90deg)
+            translateY(-75px);
+    }
+
+    .segmento-emocion.triste {
+        transform:
+            rotate(150deg)
+            translateY(-75px);
+    }
+
+    .segmento-emocion.enojado {
+        transform:
+            rotate(210deg)
+            translateY(-75px);
+    }
+
+    .segmento-emocion.ansioso {
+        transform:
+            rotate(270deg)
+            translateY(-75px);
+    }
+
+    .segmento-emocion.asustado {
+        transform:
+            rotate(330deg)
+            translateY(-75px);
+    }
+
+    .centro-rueda span {
+        font-size: 10px;
+    }
+
+
+    /* EMOCIONES */
+
+    .opciones-emociones,
+    .grid-necesidades {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .opcion-necesidad-emocion {
+        min-height: 95px;
+
+        font-size: 28px;
+    }
+
+    .opcion-necesidad {
+        min-height: 100px;
+
+        font-size: 27px;
+    }
+
+    .opcion-necesidad-emocion span,
+    .opcion-necesidad span {
+        font-size: 13px;
+    }
 }
 
-[data-theme="calm"] {
-  --bg-body:        #f0f7fd;
-  --bg-card:        #ffffff;
-  --bg-navbar:      #ffffff;
-  --nav-link-color: #2d4a6e;
-  --nav-border:     rgba(74,144,217,.15);
-  --text-main:      #2d4a6e;
-  --text-soft:      #5a7da0;
-  --border-card:    rgba(74,144,217,.14);
-  --blue-brand:     #4a90d9;
-  --purple-brand:   #9b7fe8;
-}
 
-/* =========================================================
-   NAVBAR
-========================================================= */
-.navbar {
-  position: fixed; top: 0; left: 0; width: 100%; z-index: 1500;
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 12px; padding: 14px 32px;
-  background: var(--bg-navbar);
-  border-bottom: 1.5px solid var(--nav-border);
-  backdrop-filter: blur(12px);
-  transition: background .3s ease, border-color .3s ease;
-  flex-wrap: wrap;
-}
-.nav-logo { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-.logo-img { width: 170px; height: 60px; object-fit: contain; }
-.nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; flex: 1; }
-.nav-btn {
-  font-family: 'Nunito', sans-serif; font-size: .84rem; font-weight: 700;
-  color: var(--nav-link-color); background: transparent; border: none;
-  border-radius: var(--radius-pill); padding: 7px 14px;
-  cursor: pointer; white-space: nowrap; text-decoration: none; transition: var(--transition);
-}
-.nav-btn:hover { background: rgba(74,144,217,.08); color: var(--blue-brand); }
-.nav-btn.active { background: var(--blue-brand); color: #ffffff; padding: 7px 20px; }
-.nav-btn.active:hover { background: var(--blue-dark); color: #ffffff; }
-.nav-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.theme-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(74,144,217,.25); background: rgba(255,255,255,.7);
-  backdrop-filter: blur(6px); cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.05rem; transition: var(--transition);
-}
-.theme-btn:hover { background: rgba(255,255,255,.95); transform: scale(1.1) rotate(15deg); box-shadow: var(--shadow-soft); }
-[data-theme="calm"] .theme-btn { background: rgba(255,251,255,.8); border-color: rgba(155,127,232,.25); }
-[data-theme="calm"] .theme-btn:hover { background: rgba(255,255,255,.98); }
-.lang-wrapper { position: relative; }
-.lang-btn {
-  display: flex; align-items: center; gap: 6px; padding: 6px 12px;
-  border: 1.5px solid rgba(74,144,217,.2); border-radius: var(--radius-pill);
-  background: rgba(255,255,255,.6); backdrop-filter: blur(8px); cursor: pointer;
-  font-family: 'Nunito', sans-serif; font-size: .82rem; font-weight: 700;
-  color: var(--text-main); transition: var(--transition);
-}
-.lang-btn:hover { background: rgba(255,255,255,.95); box-shadow: var(--shadow-soft); }
-.lang-chevron {
-  display: inline-block; border-right: 2px solid var(--blue-brand);
-  border-bottom: 2px solid var(--blue-brand); width: 6px; height: 6px;
-  transform: rotate(45deg); transition: transform var(--transition); margin-top: -3px;
-}
-.lang-btn[aria-expanded="true"] .lang-chevron { transform: rotate(-135deg); margin-top: 2px; }
-.lang-dropdown {
-  position: absolute; top: calc(100% + 8px); right: 0; min-width: 100px;
-  background: var(--bg-card); border: 1.5px solid var(--border-card);
-  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-soft);
-  opacity: 0; transform: translateY(-6px) scale(.96); pointer-events: none;
-  transition: opacity .22s ease, transform .22s ease; z-index: 200;
-}
-.lang-dropdown.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
-.lang-option {
-  display: flex; align-items: center; gap: 8px; padding: 10px 16px;
-  cursor: pointer; font-size: .85rem; font-weight: 700; color: var(--text-main);
-  transition: background var(--transition);
-}
-.lang-option:hover { background: var(--bg-sections); }
-.lang-option.selected { background: rgba(74,144,217,.12); }
-.flag { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-.nav-item { position: relative; display: inline-flex; }
-.nav-dropdown {
-  position: absolute; top: calc(100% + 2px); left: 0; min-width: 210px;
-  background: var(--blue-brand); border-radius: 14px; overflow: hidden;
-  box-shadow: 0 12px 36px #649dd3; border: 1.5px solid rgba(255,255,255,.18);
-  opacity: 0; transform: translateY(-8px) scale(.97); pointer-events: none;
-  transition: opacity .22s ease, transform .22s ease; z-index: 300;
-}
-.nav-dropdown.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
-.nav-drop-link {
-  display: block; padding: 10px 18px; font-family: 'Nunito', sans-serif;
-  font-size: .84rem; font-weight: 700; color: #ffffff; text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-  transition: background var(--transition), padding-left var(--transition);
-}
-.nav-drop-link:last-child { border-bottom: none; }
-.nav-drop-link:hover { background: rgba(255,255,255,.18); padding-left: 24px; }
+/* =====================================================
+   PANTALLAS MUY ESTRECHAS
+===================================================== */
 
-/* =========================================================
-   FOOTER
-========================================================= */
-.site-footer {
-  position: relative; background: #75a0dd; padding: 44px 5vw 32px;
-  padding-right: calc(5vw + 150px);
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 40px; flex-wrap: wrap; transition: background .3s ease; overflow: hidden;
+@media (max-width: 330px) {
+
+    .btn-volver {
+        width: 42px;
+        height: 42px;
+
+        font-size: 28px;
+    }
+
+    .language-button {
+        min-width: 74px;
+
+        font-size: 12px;
+    }
+
+    .language-flag {
+        width: 20px;
+        height: 20px;
+    }
+
+    .language-menu {
+        width: 74px;
+    }
+
+    .language-option {
+        font-size: 12px;
+
+        padding-left: 8px;
+    }
+
+    .tarjetas-autoconciencia {
+        gap: 8px;
+    }
+
+    .tarjeta-autoconciencia {
+        height: 130px;
+    }
+
+    .imagen-tarjeta {
+        height: 82px;
+    }
+
+    .tarjeta-autoconciencia span {
+        font-size: 12px;
+    }
+
+    .silueta-wrapper {
+        width: 205px;
+    }
+
+    .rueda-contenedor {
+        width: 80vw;
+    }
 }
-.footer-brand { display: flex; flex-direction: column; gap: 10px; min-width: 180px; }
-.footer-logo-wrap { display: flex; align-items: center; gap: 8px; }
-.footer-logo-img { width: 400px; height: auto; object-fit: contain; margin-bottom: -18px; }
-.footer-copy { font-size: 1rem; font-weight: 600; color: #ffffff; display: flex; align-items: center; gap: 5px; }
-.copy-icon { font-size: 1rem; }
-.footer-links { min-width: 140px; }
-.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
-.footer-links a { font-size: .82rem; font-weight: 600; color: #ffffff; text-decoration: none; transition: opacity var(--transition); }
-.footer-links a:hover { opacity: .75; }
-.footer-col-title { font-size: .9rem; font-weight: 800; color: #ffffff; margin-bottom: 4px; }
-.footer-social { display: flex; flex-direction: column; gap: 14px; min-width: 200px; }
-.footer-social-line { font-size: .92rem; font-weight: 800; color: #ffffff; margin: 0; text-decoration: none; }
-.social-icons { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
-.social-icon {
-  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
-  color: white; background: transparent; cursor: pointer;
-  transition: opacity var(--transition), transform var(--transition);
-}
-.social-icon svg { width: 50px; height: 50px; }
-.social-icon:hover { opacity: .8; transform: translateY(-2px); }
-.footer-mascot {
-  position: absolute; right: 0; top: 0; bottom: 0;
-  display: flex; align-items: flex-end; justify-content: flex-end; height: 210px;
-}
-.mascot-img { height: 210px; width: auto; max-width: none; object-fit: contain; object-position: bottom right; }

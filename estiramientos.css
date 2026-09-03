@@ -285,7 +285,7 @@ body {
         clamp(20px, 7vw, 100px)
         70px;
 
-    background-image: url("Imagenes/estiramientos/fondo.png");
+    background-image: url("img/estiramientos/fondo.png");
 
     background-size: cover;
     background-position: center;
@@ -293,7 +293,7 @@ body {
 }
 
 body.modo-calma .seccion-estiramientos {
-    background-image: url("Imagenes/estiramientos/fondo-calma.png");
+    background-image: url("img/estiramientos/fondo-calma.png");
 }
 
 
