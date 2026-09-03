@@ -285,6 +285,7 @@ function renderModal(productId) {
     modalPrice.textContent = '$' + (product.precio || 0).toFixed(2);
   }
 }
+  
 
   function openProductModal(productId) {
     if (!PRODUCTS[productId]) return;
