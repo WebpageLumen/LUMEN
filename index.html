@@ -362,78 +362,134 @@
   <script src="script2.js"></script>
   <script src="transiciones.js"></script>
   
-      <script src="script2.js"></script>
-<script src="transiciones.js"></script>
-
-<!-- ========================================================== -->
-<!-- SISTEMA DE IDIOMA PARA INDEX - VERSIÓN DEFINITIVA          -->
-<!-- ========================================================== -->
 <script>
 // ==========================================================
-// 1. CARGAR IDIOMA GUARDADO
+// SISTEMA DE IDIOMA Y TRADUCCIONES - VERSIÓN INTEGRADA
 // ==========================================================
-var lang = localStorage.getItem('lumen_lang') || 'es';
-document.documentElement.lang = lang;
-console.log('🌐 index.html - Idioma:', lang);
 
 // ==========================================================
-// 2. FUNCIÓN PARA ACTUALIZAR LA BANDERA
+// 1. REFERENCIAR EL SISTEMA EXISTENTE
 // ==========================================================
-function actualizarBandera() {
-    var currentLang = localStorage.getItem('lumen_lang') || 'es';
+// Usamos TRANSLATIONS que ya está en script2.js
+// Usamos switchLanguage que ya está en script2.js
+
+// ==========================================================
+// 2. FUNCIÓN PARA APLICAR TRADUCCIONES USANDO TRANSLATIONS
+// ==========================================================
+function aplicarTraduccionesConTranslations() {
+    var lang = localStorage.getItem('lumen_lang') || 'es';
+    
+    // Usar TRANSLATIONS de script2.js
+    if (typeof window.TRANSLATIONS === 'undefined') {
+        console.warn('⚠️ TRANSLATIONS no está definido. Asegúrate de que script2.js se cargue primero.');
+        return;
+    }
+    
+    var dict = window.TRANSLATIONS[lang];
+    if (!dict) {
+        console.warn('⚠️ No hay traducciones para:', lang);
+        return;
+    }
+    
+    console.log('📝 Aplicando traducciones desde TRANSLATIONS para:', lang.toUpperCase());
+    var count = 0;
+    
+    // Buscar todos los elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        var translation = dict[key];
+        
+        if (translation !== undefined) {
+            el.innerHTML = translation; // Permite <br>
+            count++;
+        } else {
+            console.warn('  ⚠️ Clave no encontrada:', key);
+        }
+    });
+    
+    console.log('✅ ' + count + ' elementos traducidos correctamente');
+}
+
+// ==========================================================
+// 3. FUNCIÓN PARA ACTUALIZAR BANDERA (SINCRONIZADA)
+// ==========================================================
+function actualizarBanderaSincronizada() {
+    var lang = localStorage.getItem('lumen_lang') || 'es';
     var langFlag = document.getElementById('langFlag');
     var langLabel = document.getElementById('langLabel');
     var langOptions = document.querySelectorAll('.lang-option');
     
     if (langFlag) {
-        langFlag.src = currentLang === 'es' ? 'https://flagcdn.com/w80/es.png' : 'https://flagcdn.com/w80/gb.png';
+        langFlag.src = lang === 'es' ? 'https://flagcdn.com/w80/es.png' : 'https://flagcdn.com/w80/gb.png';
     }
     if (langLabel) {
-        langLabel.textContent = currentLang.toUpperCase();
+        langLabel.textContent = lang.toUpperCase();
     }
     langOptions.forEach(function(o) {
-        o.classList.toggle('selected', o.getAttribute('data-lang') === currentLang);
+        o.classList.toggle('selected', o.getAttribute('data-lang') === lang);
     });
-    
-    console.log('🔄 Bandera actualizada a:', currentLang.toUpperCase());
 }
 
 // ==========================================================
-// 3. ACTUALIZAR ENLACES A LUMENSHOP (con ?lang=)
+// 4. SOBRESCRIBIR EL switchLanguage EXISTENTE
 // ==========================================================
-document.addEventListener('DOMContentLoaded', function() {
+// Guardamos referencia al original por si acaso
+var switchLanguageOriginal = window.switchLanguage;
+
+// Sobrescribimos con versión mejorada
+window.switchLanguage = function(lang) {
+    console.log('🌐 Cambiando idioma a:', lang.toUpperCase());
+    
+    // Guardar en ambos localStorage para compatibilidad
+    localStorage.setItem('lumen_lang', lang);
+    localStorage.setItem('lumen-lang', lang);
+    
+    // Actualizar variable global
+    window.currentLang = lang;
+    
+    // Actualizar bandera
+    actualizarBanderaSincronizada();
+    
+    // ACTUALIZAR TRADUCCIONES - ESTO ES LO QUE FALTABA
+    aplicarTraduccionesConTranslations();
+    
+    // Actualizar enlaces
+    actualizarEnlacesTienda();
+    
+    // Cerrar dropdown
+    if (typeof closeLangDropdown === 'function') {
+        closeLangDropdown();
+    }
+    
+    // Opcional: notificar al usuario
+    mostrarNotificacion('Idioma cambiado a ' + (lang === 'es' ? 'Español' : 'English'));
+};
+
+// ==========================================================
+// 5. ACTUALIZAR ENLACES A LA TIENDA
+// ==========================================================
+function actualizarEnlacesTienda() {
     var lang = localStorage.getItem('lumen_lang') || 'es';
     
-    // Actualizar TODOS los enlaces que van a Lumenshop.html
     document.querySelectorAll('a[href*="Lumenshop.html"]').forEach(function(enlace) {
         var baseUrl = enlace.href.split('?')[0];
         enlace.href = baseUrl + '?lang=' + lang;
-        console.log('✅ Enlace actualizado:', enlace.href);
     });
-    
-    // También actualizar enlaces a otras páginas de la tienda
-    document.querySelectorAll('a[href*="LumenshopJ.html"], a[href*="LumenshopA.html"], a[href*="LumenshopAr.html"]').forEach(function(enlace) {
-        // Estas páginas ya leen de localStorage, pero por si acaso
-        console.log('🔗 Enlace a tienda:', enlace.href);
-    });
-});
+}
 
 // ==========================================================
-// 4. CONFIGURAR SELECTOR DE IDIOMA (CON SINCRONIZACIÓN)
+// 6. CONFIGURAR SELECTOR DE IDIOMA
 // ==========================================================
-document.addEventListener('DOMContentLoaded', function() {
+function configurarSelectorIdioma() {
     var langBtn = document.getElementById('langBtn');
     var langDropdown = document.getElementById('langDropdown');
-    var langOptions = document.querySelectorAll('.lang-option');
     
     if (!langBtn || !langDropdown) {
-        console.log('⏳ Elementos del selector no encontrados');
+        console.log('⏳ Selector no encontrado');
         return;
     }
     
-    console.log('✅ Elementos del selector encontrados');
-    
-    // RECONSTRUIR EL BOTÓN
+    // Limpiar eventos anteriores (clonar)
     var newBtn = langBtn.cloneNode(true);
     langBtn.parentNode.replaceChild(newBtn, langBtn);
     langBtn = newBtn;
@@ -441,126 +497,105 @@ document.addEventListener('DOMContentLoaded', function() {
     langBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        langDropdown.classList.toggle('open');
-        console.log('🔄 Selector:', langDropdown.classList.contains('open') ? 'ABIERTO' : 'CERRADO');
+        if (typeof toggleLangDropdown === 'function') {
+            toggleLangDropdown();
+        } else {
+            langDropdown.classList.toggle('open');
+        }
     });
     
-    // RECONSTRUIR LAS OPCIONES
-    langOptions.forEach(function(opt) {
+    // Reconstruir opciones
+    document.querySelectorAll('.lang-option').forEach(function(opt) {
         var newOpt = opt.cloneNode(true);
         opt.parentNode.replaceChild(newOpt, opt);
         
         newOpt.addEventListener('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
-            var nuevoLang = this.getAttribute('data-lang');
-            if (nuevoLang) {
-                console.log('🌐 Cambiando a:', nuevoLang);
-                
-                // GUARDAR EN LOCALSTORAGE (esto es lo que mantiene el idioma entre páginas)
-                localStorage.setItem('lumen_lang', nuevoLang);
-                
-                // Actualizar bandera
-                actualizarBandera();
-                
-                // Recargar la página para aplicar cambios
-                setTimeout(function() {
-                    location.reload();
-                }, 200);
+            var lang = this.getAttribute('data-lang');
+            if (lang) {
+                window.switchLanguage(lang);
             }
         });
     });
     
-    // Cerrar dropdown al hacer clic fuera
+    // Cerrar al hacer clic fuera
     document.addEventListener('click', function(e) {
         var wrapper = document.getElementById('langWrapper');
         if (wrapper && !wrapper.contains(e.target)) {
-            langDropdown.classList.remove('open');
+            if (typeof closeLangDropdown === 'function') {
+                closeLangDropdown();
+            } else if (langDropdown) {
+                langDropdown.classList.remove('open');
+            }
         }
     });
+}
+
+// ==========================================================
+// 7. NOTIFICACIÓN DE CAMBIO DE IDIOMA
+// ==========================================================
+function mostrarNotificacion(mensaje) {
+    var existing = document.querySelector('.lang-notification');
+    if (existing) existing.remove();
     
-    // Actualizar bandera al cargar
-    actualizarBandera();
+    var notif = document.createElement('div');
+    notif.className = 'lang-notification';
+    notif.textContent = mensaje;
+    notif.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: slideIn 0.3s ease-out;
+        opacity: 1;
+    `;
+    document.body.appendChild(notif);
     
-    console.log('✅ Selector configurado correctamente');
-});
+    setTimeout(function() {
+        notif.style.opacity = '0';
+        notif.style.transition = 'opacity 0.3s';
+        setTimeout(function() {
+            if (notif.parentNode) notif.remove();
+        }, 300);
+    }, 2500);
+}
 
 // ==========================================================
-// 5. SINCRONIZAR IDIOMA CON OTRAS PÁGINAS (NAVEGACIÓN)
-// ==========================================================
-document.addEventListener('click', function(e) {
-    var enlace = e.target.closest('a[href]');
-    if (enlace) {
-        var href = enlace.getAttribute('href');
-        // Si el enlace es a una página de la tienda
-        if (href && (href.includes('Lumenshop.html') || 
-                     href.includes('LumenshopJ.html') || 
-                     href.includes('LumenshopA.html') || 
-                     href.includes('LumenshopAr.html'))) {
-            var lang = localStorage.getItem('lumen_lang') || 'es';
-            // Si el enlace ya tiene ? o &, agregar &lang=, si no, ?lang=
-            if (href.includes('?')) {
-                enlace.href = href + '&lang=' + lang;
-            } else {
-                enlace.href = href + '?lang=' + lang;
-            }
-            console.log('🔗 Navegando a:', enlace.href);
-        }
-    }
-});
-
-console.log('🚀 Sistema de idioma sincronizado correctamente');
-</script>
-
-<script>
-// ==========================================================
-// FORZAR TRADUCCIÓN USANDO EL SISTEMA EXISTENTE
+// 8. INICIALIZAR TODO AL CARGAR LA PÁGINA
 // ==========================================================
 document.addEventListener('DOMContentLoaded', function() {
+    // Sincronizar ambos localStorage
     var lang = localStorage.getItem('lumen_lang') || 'es';
+    localStorage.setItem('lumen-lang', lang);
+    window.currentLang = lang;
     
-    // 1. Si existe I18n, usarlo
-    if (window.I18n && typeof I18n.setLanguage === 'function') {
-        I18n.setLanguage(lang);
-        console.log('✅ Traducción aplicada con I18n a:', lang);
-    }
-    // 2. Si existe aplicarTraducciones, usarlo
-    else if (typeof aplicarTraducciones === 'function') {
-        aplicarTraducciones();
-        console.log('✅ Traducción aplicada con aplicarTraducciones() a:', lang);
-    }
-    // 3. Si existe traducirPagina, usarlo
-    else if (typeof traducirPagina === 'function') {
-        traducirPagina();
-        console.log('✅ Traducción aplicada con traducirPagina() a:', lang);
-    }
-    // 4. Buscar cualquier función que tenga "tradu" en el nombre
-    else {
-        var funciones = Object.keys(window).filter(function(key) {
-            return typeof window[key] === 'function' && 
-                   (key.toLowerCase().includes('tradu') || 
-                    key.toLowerCase().includes('i18n') ||
-                    key.toLowerCase().includes('idioma'));
-        });
-        if (funciones.length > 0) {
-            console.log('🔍 Funciones de traducción encontradas:', funciones);
-            // Intentar ejecutar la primera que parezca relevante
-            if (funciones[0] && typeof window[funciones[0]] === 'function') {
-                window[funciones[0]]();
-                console.log('✅ Ejecutada:', funciones[0]);
-            }
-        } else {
-            console.log('⚠️ No se encontró un sistema de traducción');
-        }
-    }
+    // Aplicar traducciones
+    setTimeout(function() {
+        aplicarTraduccionesConTranslations();
+    }, 100); // Pequeño delay para asegurar que todo esté cargado
+    
+    // Actualizar bandera
+    actualizarBanderaSincronizada();
+    
+    // Actualizar enlaces
+    actualizarEnlacesTienda();
+    
+    // Configurar selector
+    configurarSelectorIdioma();
+    
+    console.log('🚀 Sistema de idioma y traducciones integrado correctamente');
+    console.log('🌐 Idioma actual:', lang.toUpperCase());
 });
+
+console.log('✅ Script de traducciones integrado correctamente');
 </script>
-
-</body>
-</html>
-
-</body>
-</html>
   
 </body>
 </html>
