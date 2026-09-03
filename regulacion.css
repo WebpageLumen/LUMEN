@@ -254,7 +254,7 @@ body {
     width: 100%;
     max-width: 100%;
 
-    background-image: url("img/Fondo.png");
+    background-image: url("Imagenes/Fondo.png");
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -271,7 +271,7 @@ body {
 }
 
 body.modo-calma .seccion-dos {
-    background-image: url("img/fondo-calma.png");
+    background-image: url("Imagenes/fondo-calma.png");
 }
 
 

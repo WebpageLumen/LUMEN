@@ -68,7 +68,7 @@ function cambiarIdioma(idioma) {
         if (banderaIdioma) {
 
             banderaIdioma.src =
-                "img/ingles.png";
+                "Imagenes/ingles.png";
 
             banderaIdioma.alt =
                 "English";
@@ -87,7 +87,7 @@ function cambiarIdioma(idioma) {
         if (banderaIdioma) {
 
             banderaIdioma.src =
-                "img/español.webp";
+                "Imagenes/español.webp";
 
             banderaIdioma.alt =
                 "Español";
@@ -364,7 +364,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/cabeza.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/cabeza.png",
 
         etiquetas: {
 
@@ -425,7 +425,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/garganta.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/garganta.png",
 
         etiquetas: {
 
@@ -486,7 +486,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/pecho.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/pecho.png",
 
         etiquetas: {
 
@@ -547,7 +547,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/estomago.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/estomago.png",
 
         etiquetas: {
 
@@ -608,7 +608,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/manos.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/manos.png",
 
         etiquetas: {
 
@@ -669,7 +669,7 @@ const informacionSientes = {
         },
 
         imagen:
-            "img/Autoconciencia/emocion-cuerpo/pie.png",
+            "Imagenes/Autoconciencia/emocion-cuerpo/pie.png",
 
         etiquetas: {
 
