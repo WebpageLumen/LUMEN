@@ -358,7 +358,7 @@ body {
     padding: 120px 8% 80px;
 
     /* Imagen de fondo */
-    background-image: url("Imagenes/section.png");
+    background-image: url("img/section.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
