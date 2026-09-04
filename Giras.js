@@ -102,6 +102,18 @@ const traducciones = {
 
 const banderas = { es: "https://flagcdn.com/w80/es.png", en: "https://flagcdn.com/w80/gb.png" };
 
+// ===== MAPA DE IMÁGENES POR IDIOMA =====
+const imagenesIlustrativas = {
+  es: {
+    p1: "Imagenes/p1.png",
+    p2: "Imagenes/p2.png"
+  },
+  en: {
+    p1: "Imagenes/p1e.png",
+    p2: "Imagenes/p2e.png"
+  }
+};
+
 function aplicarIdioma(idioma) {
   const dic = traducciones[idioma];
   if (!dic) return;
@@ -110,6 +122,21 @@ function aplicarIdioma(idioma) {
     const clave = el.getAttribute('data-i18n');
     if (dic[clave] !== undefined) el.textContent = dic[clave];
   });
+
+  // Imágenes ilustrativas (p1 y p2)
+const imagenesMap = imagenesIlustrativas[idioma] || imagenesIlustrativas.es;
+
+// Actualizar imagen p1 (primera imagen ilustrativa)
+const imgP1 = document.querySelector('.intro-imagen img[src*="p1"]');
+if (imgP1 && imagenesMap.p1) {
+  imgP1.src = imagenesMap.p1;
+}
+
+// Actualizar imagen p2 (segunda imagen ilustrativa)
+const imgP2 = document.querySelector('.intro-imagen img[src*="p2"]');
+if (imgP2 && imagenesMap.p2) {
+  imgP2.src = imagenesMap.p2;
+}
 
   document.documentElement.setAttribute('lang', idioma);
 
