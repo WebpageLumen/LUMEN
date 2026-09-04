@@ -122,7 +122,7 @@ function aplicarIdioma(idioma) {
     op.classList.toggle('selected', op.getAttribute('data-lang') === idioma);
   });
 
-  try { localStorage.setItem('lumen_idioma', idioma); } catch (e) {}
+  try { localStorage.setItem('lumen-lang', idioma); } catch (e) {}
 }
 
 // Se envuelve en DOMContentLoaded para asegurar que los elementos [data-i18n]
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Aplica el idioma guardado (o español por defecto) al cargar la página
   let guardado = 'es';
-  try { guardado = localStorage.getItem('lumen_idioma') || 'es'; } catch (e) {}
+  try { guardado = localStorage.getItem('lumen-lang') || 'es'; } catch (e) {}
   aplicarIdioma(guardado);
 });
 
