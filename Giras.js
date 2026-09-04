@@ -125,40 +125,37 @@ function aplicarIdioma(idioma) {
   try { localStorage.setItem('lumen-lang', idioma); } catch (e) {}
 }
 
-// Se envuelve en DOMContentLoaded para asegurar que los elementos [data-i18n]
-// y el selector de idioma ya existan en el DOM al llegar desde otra página
-// (evita que la traducción se "pierda" al navegar por el sitio).
-document.addEventListener('DOMContentLoaded', () => {
-  const langBtn = document.getElementById('langBtn');
-  const langDropdown = document.getElementById('langDropdown');
+const langBtn = document.getElementById('langBtn');
+const langDropdown = document.getElementById('langDropdown');
 
-  if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const abierto = langDropdown.classList.toggle('open');
-      langBtn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    });
+if (langBtn && langDropdown) {
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const abierto = langDropdown.classList.toggle('open');
+    langBtn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  });
 
-    document.querySelectorAll('.lang-option').forEach((opcion) => {
-      opcion.addEventListener('click', () => {
-        const idioma = opcion.getAttribute('data-lang');
-        aplicarIdioma(idioma);
-        langDropdown.classList.remove('open');
-        langBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', () => {
+  document.querySelectorAll('.lang-option').forEach((opcion) => {
+    opcion.addEventListener('click', () => {
+      const idioma = opcion.getAttribute('data-lang');
+      aplicarIdioma(idioma);
       langDropdown.classList.remove('open');
       langBtn.setAttribute('aria-expanded', 'false');
     });
-  }
+  });
 
-  // Aplica el idioma guardado (o español por defecto) al cargar la página
+  document.addEventListener('click', () => {
+    langDropdown.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+// Aplica el idioma guardado (o español por defecto) al cargar la página
+(function iniciarIdioma() {
   let guardado = 'es';
   try { guardado = localStorage.getItem('lumen-lang') || 'es'; } catch (e) {}
   aplicarIdioma(guardado);
-});
+})();
 
 // ===== Menú móvil =====
 const navBurger = document.getElementById('navBurger');
