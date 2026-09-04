@@ -222,8 +222,7 @@ function applyLanguage(lang) {
   // Actualiza <html lang="">
   document.documentElement.setAttribute("lang", lang);
 
-  // Guarda preferencia (misma clave que usa el script principal del sitio,
-  // para que el idioma se mantenga al viajar entre páginas)
+  // Guarda preferencia
   localStorage.setItem("lumen-lang", lang);
 }
 
@@ -261,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const langDropdown  = document.getElementById("langDropdown");
   const langWrapper   = document.getElementById("langWrapper");
 
-  // Idioma guardado o español por defecto (misma clave que el script principal)
+  // Idioma guardado o español por defecto
   const savedLang = localStorage.getItem("lumen-lang") || "es";
   setLanguage(savedLang);
 
