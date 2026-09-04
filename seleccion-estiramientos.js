@@ -934,7 +934,7 @@ function actualizarSelector() {
     else {
 
         banderaActual.src =
-            "ingles.png";
+            "Imagenes/ingles.png";
 
         banderaActual.alt =
             "English";
