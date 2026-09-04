@@ -222,8 +222,9 @@ function applyLanguage(lang) {
   // Actualiza <html lang="">
   document.documentElement.setAttribute("lang", lang);
 
-  // Guarda preferencia
-  localStorage.setItem("lumen_lang", lang);
+  // Guarda preferencia (misma clave que Giras.js, para que el idioma
+  // se mantenga al viajar entre páginas que usan uno u otro script)
+  localStorage.setItem("lumen_idioma", lang);
 }
 
 /* -----------------------------------------------------
@@ -260,8 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const langDropdown  = document.getElementById("langDropdown");
   const langWrapper   = document.getElementById("langWrapper");
 
-  // Idioma guardado o español por defecto
-  const savedLang = localStorage.getItem("lumen_lang") || "es";
+  // Idioma guardado o español por defecto (misma clave que Giras.js)
+  const savedLang = localStorage.getItem("lumen_idioma") || "es";
   setLanguage(savedLang);
 
   // Abrir/cerrar el dropdown de idioma
