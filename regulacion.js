@@ -254,7 +254,7 @@ window.onload = function () {
             if (banner) {
 
                 banner.src =
-                    "banner-calma.png";
+                    "Imagenes/banner-calma.png";
 
             }
 
@@ -267,7 +267,7 @@ window.onload = function () {
             if (banner) {
 
                 banner.src =
-                    "Banner.png";
+                    "Imagenes/Banner.png";
 
             }
 
@@ -386,7 +386,7 @@ window.onload = function () {
         if (idiomaActual === "es") {
 
             banderaActual.src =
-                "español.webp";
+                "Imagenes/español.webp";
 
             banderaActual.alt =
                 "Español";
@@ -401,7 +401,7 @@ window.onload = function () {
         } else {
 
             banderaActual.src =
-                "ingles.png";
+                "Imagenes/ingles.png";
 
             banderaActual.alt =
                 "English";
