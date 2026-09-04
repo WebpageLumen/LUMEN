@@ -315,7 +315,7 @@ function actualizarSelectorIdioma() {
         if (banderaActual) {
 
             banderaActual.src =
-                "español.webp";
+                "Imagenes/español.webp";
 
             banderaActual.alt =
                 "Español";
