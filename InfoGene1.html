@@ -304,5 +304,71 @@
   <script src="InfoGene1.js"></script>
   <script src="transiciones.js"></script>
 
+  <!-- ==========================================
+     SINCRONIZACIÓN DE IDIOMA ENTRE PÁGINAS
+========================================== -->
+<script>
+(function() {
+    // Función de sincronización robusta
+    function syncLanguage() {
+        var lang = localStorage.getItem('lumen_lang') || 'es';
+        document.documentElement.lang = lang;
+        
+        // Actualizar bandera
+        var flag = document.getElementById('langFlag');
+        if (flag) {
+            flag.src = lang === 'es' ? 'https://flagcdn.com/w40/es.png' : 'https://flagcdn.com/w40/gb.png';
+        }
+        
+        // Actualizar label
+        var label = document.getElementById('langLabel');
+        if (label) {
+            label.textContent = lang.toUpperCase();
+        }
+        
+        // Actualizar opciones
+        document.querySelectorAll('.lang-option').forEach(function(opt) {
+            var isSelected = opt.getAttribute('data-lang') === lang;
+            opt.classList.toggle('selected', isSelected);
+        });
+        
+        console.log('🌐 Sincronizado a:', lang);
+        return lang;
+    }
+    
+    // Ejecutar inmediatamente y en cada evento relevante
+    var currentLang = syncLanguage();
+    
+    // Cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncLanguage);
+    }
+    
+    // Después de que todo cargue
+    window.addEventListener('load', function() {
+        syncLanguage();
+        // Forzar otra vez después de 100ms
+        setTimeout(syncLanguage, 100);
+        // Y después de 500ms por si script2.js tarda
+        setTimeout(syncLanguage, 500);
+    });
+    
+    // Escuchar cambios manuales
+    document.addEventListener('click', function(e) {
+        var option = e.target.closest('.lang-option');
+        if (option) {
+            var newLang = option.getAttribute('data-lang');
+            if (newLang) {
+                localStorage.setItem('lumen_lang', newLang);
+                syncLanguage();
+            }
+        }
+    });
+    
+    // Exponer función para depuración
+    window.syncLumenLang = syncLanguage;
+})();
+</script>
+
 </body>
 </html>
