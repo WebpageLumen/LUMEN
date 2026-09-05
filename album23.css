@@ -11,6 +11,7 @@
   --shadow-soft:    0 8px 32px rgba(74,144,217,.13);
   --radius-pill:    999px;
   --transition:     0.28s cubic-bezier(.4,0,.2,1);
+  --navbar-height:  140px; /* valor de respaldo; se recalcula en JS según el alto real */
 }
 /*=========================================================
                 PÁGINA ÁLBUM DE FOTOS
@@ -286,14 +287,16 @@ body {
 .hero-album {
 
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(90vh - var(--navbar-height));
+    margin-top: var(--navbar-height);
 
     display: flex;
     align-items: center;
 
-    padding: 120px 8% 80px;
+    padding: 40px 8% 80px;
+    scroll-margin-top: var(--navbar-height);
 
-    background-image: url("img/album.png");
+    background-image: url("img album/section album2.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1042,7 +1045,8 @@ body {
 
     .hero-album {
 
-        padding: 60px 25px;
+        margin-top: var(--navbar-height);
+        padding: 20px 25px 60px;
 
     }
 

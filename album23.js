@@ -229,6 +229,60 @@ function applyTranslations(lang) {
   });
 
   document.documentElement.lang = LANG_META[lang].htmlLang;
+
+  applyImageTranslations(lang);
+}
+
+/* =========================
+   TRADUCCIÓN DE IMÁGENES
+   Solo cambia la imagen si existe
+   una versión en inglés (data-img-en).
+   Si no la tiene, se queda con la
+   imagen original en español.
+========================= */
+function applyImageTranslations(lang) {
+  document.querySelectorAll("img[data-img-es]").forEach(img => {
+    const esSrc = img.dataset.imgEs;
+    const enSrc = img.dataset.imgEn;
+
+    if (lang === "en" && enSrc) {
+      img.src = enSrc;
+    } else if (esSrc) {
+      img.src = esSrc;
+    }
+  });
+}
+
+/* =========================
+   AJUSTE DINÁMICO DEL NAVBAR
+   Mide el alto real del navbar
+   (puede variar si el texto envuelve
+   en varias líneas, en móvil, o al
+   cambiar de idioma) y lo guarda en
+   una variable CSS para que el hero
+   nunca quede tapado.
+========================= */
+function updateNavbarHeight() {
+  const navbar = document.querySelector(".navbar");
+  if (!navbar) return;
+
+  const height = navbar.offsetHeight;
+  document.documentElement.style.setProperty("--navbar-height", `${height}px`);
+}
+
+window.addEventListener("load", updateNavbarHeight);
+window.addEventListener("resize", updateNavbarHeight);
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(updateNavbarHeight);
+}
+
+// ResizeObserver: detecta CUALQUIER cambio de altura del navbar
+// (idioma, envolvido de texto, zoom, etc.) al instante, sin
+// depender de que se disparen los eventos load/resize.
+const navbarEl = document.querySelector(".navbar");
+if (navbarEl && window.ResizeObserver) {
+  new ResizeObserver(updateNavbarHeight).observe(navbarEl);
 }
 
 /* =========================
@@ -259,6 +313,10 @@ function switchLanguage(lang) {
 
   applyTranslations(lang);
   closeLangDropdown();
+
+  // El texto en otro idioma puede tener otro ancho y hacer
+  // que el navbar envuelva distinto, así que recalculamos.
+  updateNavbarHeight();
 }
 
 /* =========================
@@ -432,6 +490,7 @@ document.querySelector('.btn-cargar')?.addEventListener('click', function() {
    INICIALIZACIÓN
 ========================= */
 applyTranslations(currentLang);
+updateNavbarHeight();
 
 const savedLang = currentLang || "es";
 
@@ -455,9 +514,11 @@ closeLangDropdown();
 // Forzar re-aplicación después de que la página esté completamente cargada
 document.addEventListener('DOMContentLoaded', function() {
   applyTranslations(currentLang);
+  updateNavbarHeight();
 });
 
 // También forzar después de un pequeño delay para asegurar que todo esté renderizado
 setTimeout(() => {
   applyTranslations(currentLang);
+  updateNavbarHeight();
 }, 100);
