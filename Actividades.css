@@ -468,7 +468,7 @@ body {
 
 .cards-grid-actividades {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
   max-width: 1100px;
   position: relative;
@@ -1097,3 +1097,4 @@ body {
     display: none;
   }
 }
+
