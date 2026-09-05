@@ -68,7 +68,7 @@ function cambiarIdioma(idioma) {
         if (banderaIdioma) {
 
             banderaIdioma.src =
-                "ingles.png";
+                "Imagenes/ingles.png";
 
             banderaIdioma.alt =
                 "English";
@@ -87,7 +87,7 @@ function cambiarIdioma(idioma) {
         if (banderaIdioma) {
 
             banderaIdioma.src =
-                "español.webp";
+                "Imagenes/español.webp";
 
             banderaIdioma.alt =
                 "Español";
