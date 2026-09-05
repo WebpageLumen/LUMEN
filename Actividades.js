@@ -210,7 +210,7 @@
   const IMAGES_EN = {
     // Agrega aquí las imágenes de actividades traducidas si las tienes
     // Ejemplo: 'Imagenes/niñoos.png': 'Imagenes/en/niñoos.png',
-    'Imagenes/numa2.0.png': 'Imagenes/en/numa2.0.png'
+    'Imagenes/numa2.0.png': 'Imagenes/numa2.0.png'
   };
 
   function applyImageTranslations(lang) {
