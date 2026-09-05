@@ -509,3 +509,14 @@ setTimeout(() => {
   switchLanguage(currentLang);
   updateNavbarHeight();
 }, 100);
+applyTheme(getInitialTheme());
+switchLanguage(currentLang);
+ 
+document.addEventListener("DOMContentLoaded", () => {
+  applyTheme(getInitialTheme());
+  switchLanguage(currentLang);
+});
+ 
+setTimeout(() => {
+  switchLanguage(currentLang);
+}, 100);
