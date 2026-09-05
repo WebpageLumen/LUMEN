@@ -1178,7 +1178,7 @@ function actualizarSelectorIdioma() {
             "EN";
 
         banderaActual.src =
-            "ingles.png";
+            "Imagenes/ingles.png";
 
         banderaActual.alt =
             "English";
@@ -1193,7 +1193,7 @@ function actualizarSelectorIdioma() {
             "ES";
 
         banderaActual.src =
-            "español.webp";
+            "Imagenes/español.webp";
 
         banderaActual.alt =
             "Español";
