@@ -488,37 +488,24 @@ document.querySelector('.btn-cargar')?.addEventListener('click', function() {
 
 /* =========================
    INICIALIZACIÓN
+   Usa switchLanguage() (no solo applyTranslations)
+   para que se apliquen también la bandera, la etiqueta
+   y la opción seleccionada del selector de idioma.
+   Como currentLang viene de localStorage("lumen-lang"),
+   el idioma elegido en cualquier página del sitio se
+   mantiene al navegar a esta página, y viceversa.
 ========================= */
-applyTranslations(currentLang);
+switchLanguage(currentLang);
 updateNavbarHeight();
-
-const savedLang = currentLang || "es";
-
-const label = document.getElementById("langLabel");
-const flag = document.getElementById("langFlag");
-
-if (label && flag) {
-  label.textContent = LANG_META[savedLang].label;
-  flag.src = LANG_META[savedLang].flagSrc;
-}
-
-document.querySelectorAll(".lang-option").forEach(opt => {
-  opt.classList.toggle(
-    "selected",
-    opt.dataset.lang === savedLang
-  );
-});
-
-closeLangDropdown();
 
 // Forzar re-aplicación después de que la página esté completamente cargada
 document.addEventListener('DOMContentLoaded', function() {
-  applyTranslations(currentLang);
+  switchLanguage(currentLang);
   updateNavbarHeight();
 });
 
 // También forzar después de un pequeño delay para asegurar que todo esté renderizado
 setTimeout(() => {
-  applyTranslations(currentLang);
+  switchLanguage(currentLang);
   updateNavbarHeight();
 }, 100);
