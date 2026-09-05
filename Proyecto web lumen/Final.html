@@ -1,48 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ============================================================
-         CONFIGURACIÓN BÁSICA DEL DOCUMENTO
-    ============================================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#c6e0fb">
 
     <title>Exploradores de emociones · Actividades LUMEN</title>
 
-    <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Hoja de estilos propia -->
     <link rel="stylesheet" href="Final.css">
 
-    <!--
-        FAVICON
-        - Se usa ruta relativa a la carpeta actual: "./Imagenes/Lg.png"
-          Si el HTML no está en la raíz del sitio, ajusta esta ruta
-          según dónde quede la carpeta "Imagenes" respecto al HTML.
-        - Se agrega "?v=1" para evitar que el navegador use una versión
-          vieja guardada en caché. Si cambias la imagen más adelante,
-          sube ese número (v=2, v=3, etc.) para forzar la recarga.
-        - Se agrega también "shortcut icon" como respaldo para
-          navegadores más antiguos.
-    -->
-    <link rel="icon" type="image/png" href="./Imagenes/Lg.png?v=1">
-    <link rel="shortcut icon" type="image/png" href="./Imagenes/Lg.png?v=1">
+    <!-- Favicon: se agregan variantes rel="icon" y rel="shortcut icon" para asegurar
+         compatibilidad con todos los navegadores (algunos solo reconocen "shortcut icon") -->
+    <link rel="icon" href="Imagenes/Lg.png" type="image/png">
+    <link rel="shortcut icon" href="Imagenes/Lg.png" type="image/png">
 </head>
 
 <body>
 
     <!-- =====================================================
          ACTIVIDADES 1 A 4
-         (Comparten una misma pantalla / sección de HTML;
-         el JS decide cuál de los 3 bloques de contenido mostrar)
     ====================================================== -->
+
     <section id="pantalla-1-a-4" class="activity-screen">
 
-        <!-- ---------- Encabezado con botón de regreso y progreso ---------- -->
         <header class="game-header">
 
             <button
@@ -76,8 +59,8 @@
                     Elige la situación que podría estar provocando esta emoción.
                 </p>
 
-                <!-- ---------- Contenido para ACTIVIDADES 1 y 2 ----------
-                     Se muestra/oculta desde JS con style="display: none/flex" -->
+                <!-- ACTIVIDADES 1 Y 2 -->
+
                 <div id="normalContent" class="normal-content" style="display: none;">
 
                     <div class="child-area">
@@ -87,88 +70,197 @@
                             alt="Imagen de la actividad">
                     </div>
 
-                    <!-- Las opciones de respuesta se generan dinámicamente por JS -->
-                    <div id="choiceAnswers" class="choice-answers"></div>
+                    <div
+                        id="choiceAnswers"
+                        class="choice-answers">
+                    </div>
 
                 </div>
 
-                <!-- ---------- Contenido para ACTIVIDAD 3 (pareo / drag & drop) ---------- -->
+                <!-- ACTIVIDAD 3 -->
+
                 <div id="pareoContent" class="pareo-content">
 
                     <div class="pareo-board">
 
-                        <!-- Columna izquierda: situaciones que se arrastran -->
                         <div class="pareo-column">
 
-                            <h3 class="column-title">Situaciones</h3>
+                            <h3 class="column-title">
+                                Situaciones
+                            </h3>
 
-                            <div id="situationsList" class="situations-list">
+                            <div
+                                id="situationsList"
+                                class="situations-list">
 
-                                <div class="situation-card" data-match="feliz" data-id="s1" draggable="true">
+                                <div
+                                    class="situation-card"
+                                    data-match="feliz"
+                                    data-id="s1"
+                                    draggable="true">
+
                                     <div class="situation-image-slot">
-                                        <img src="Imagenes/49.png" alt="Recibió una buena noticia" draggable="false">
+                                        <img
+                                            src="Imagenes/49.png"
+                                            alt="Recibió una buena noticia"
+                                            draggable="false">
                                     </div>
-                                    <div class="situation-text">Recibió una buena noticia.</div>
+
+                                    <div class="situation-text">
+                                        Recibió una buena noticia.
+                                    </div>
+
                                 </div>
 
-                                <div class="situation-card" data-match="triste" data-id="s2" draggable="true">
+                                <div
+                                    class="situation-card"
+                                    data-match="triste"
+                                    data-id="s2"
+                                    draggable="true">
+
                                     <div class="situation-image-slot">
-                                        <img src="Imagenes/53.png" alt="Su amiga no quiso jugar con él" draggable="false">
+                                        <img
+                                            src="Imagenes/53.png"
+                                            alt="Su amiga no quiso jugar con él"
+                                            draggable="false">
                                     </div>
-                                    <div class="situation-text">Su amiga no quiso jugar con él.</div>
+
+                                    <div class="situation-text">
+                                        Su amiga no quiso jugar con él.
+                                    </div>
+
                                 </div>
 
-                                <div class="situation-card" data-match="asustado" data-id="s3" draggable="true">
+                                <div
+                                    class="situation-card"
+                                    data-match="asustado"
+                                    data-id="s3"
+                                    draggable="true">
+
                                     <div class="situation-image-slot">
-                                        <img src="Imagenes/50.png" alt="Se perdió en el supermercado" draggable="false">
+                                        <img
+                                            src="Imagenes/50.png"
+                                            alt="Se perdió en el supermercado"
+                                            draggable="false">
                                     </div>
-                                    <div class="situation-text">Se perdió en el supermercado.</div>
+
+                                    <div class="situation-text">
+                                        Se perdió en el supermercado.
+                                    </div>
+
                                 </div>
 
-                                <div class="situation-card" data-match="enojado" data-id="s4" draggable="true">
+                                <div
+                                    class="situation-card"
+                                    data-match="enojado"
+                                    data-id="s4"
+                                    draggable="true">
+
                                     <div class="situation-image-slot">
-                                        <img src="Imagenes/51.png" alt="Le quitaron su juguete" draggable="false">
+                                        <img
+                                            src="Imagenes/51.png"
+                                            alt="Le quitaron su juguete"
+                                            draggable="false">
                                     </div>
-                                    <div class="situation-text">Le quitaron su juguete.</div>
+
+                                    <div class="situation-text">
+                                        Le quitaron su juguete.
+                                    </div>
+
                                 </div>
 
                             </div>
 
                         </div>
 
-                        <!-- Columna derecha: emociones donde se sueltan las tarjetas -->
                         <div class="pareo-column">
 
-                            <h3 class="column-title">Emociones</h3>
+                            <h3 class="column-title">
+                                Emociones
+                            </h3>
 
-                            <div id="emotionsList" class="emotions-list">
+                            <div
+                                id="emotionsList"
+                                class="emotions-list">
 
-                                <div class="emotion-card" data-emotion="feliz">
-                                    <div class="emotion-name">Feliz</div>
-                                    <div class="image-drop-zone" data-drop="feliz">
-                                        <span class="drop-placeholder">Coloca aquí</span>
+                                <div
+                                    class="emotion-card"
+                                    data-emotion="feliz">
+
+                                    <div class="emotion-name">
+                                        Feliz
                                     </div>
+
+                                    <div
+                                        class="image-drop-zone"
+                                        data-drop="feliz">
+
+                                        <span class="drop-placeholder">
+                                            Coloca aquí
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="emotion-card" data-emotion="enojado">
-                                    <div class="emotion-name">Enojado</div>
-                                    <div class="image-drop-zone" data-drop="enojado">
-                                        <span class="drop-placeholder">Coloca aquí</span>
+                                <div
+                                    class="emotion-card"
+                                    data-emotion="enojado">
+
+                                    <div class="emotion-name">
+                                        Enojado
                                     </div>
+
+                                    <div
+                                        class="image-drop-zone"
+                                        data-drop="enojado">
+
+                                        <span class="drop-placeholder">
+                                            Coloca aquí
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="emotion-card" data-emotion="asustado">
-                                    <div class="emotion-name">Asustado</div>
-                                    <div class="image-drop-zone" data-drop="asustado">
-                                        <span class="drop-placeholder">Coloca aquí</span>
+                                <div
+                                    class="emotion-card"
+                                    data-emotion="asustado">
+
+                                    <div class="emotion-name">
+                                        Asustado
                                     </div>
+
+                                    <div
+                                        class="image-drop-zone"
+                                        data-drop="asustado">
+
+                                        <span class="drop-placeholder">
+                                            Coloca aquí
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="emotion-card" data-emotion="triste">
-                                    <div class="emotion-name">Triste</div>
-                                    <div class="image-drop-zone" data-drop="triste">
-                                        <span class="drop-placeholder">Coloca aquí</span>
+                                <div
+                                    class="emotion-card"
+                                    data-emotion="triste">
+
+                                    <div class="emotion-name">
+                                        Triste
                                     </div>
+
+                                    <div
+                                        class="image-drop-zone"
+                                        data-drop="triste">
+
+                                        <span class="drop-placeholder">
+                                            Coloca aquí
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -179,24 +271,36 @@
 
                 </div>
 
-                <!-- ---------- Contenido para ACTIVIDAD 4 ---------- -->
-                <div id="activity4Content" class="activity4-content">
+                <!-- ACTIVIDAD 4 -->
+
+                <div
+                    id="activity4Content"
+                    class="activity4-content">
 
                     <div class="activity4-image-slot">
-                        <img id="activity4Image" src="Imagenes/q.png" alt="Situación">
+
+                        <img
+                            id="activity4Image"
+                            src="Imagenes/q.png"
+                            alt="Situación">
+
                     </div>
 
-                    <!-- Las opciones de respuesta se generan dinámicamente por JS -->
-                    <div id="activity4Answers" class="activity4-answers"></div>
+                    <div
+                        id="activity4Answers"
+                        class="activity4-answers">
+                    </div>
 
                 </div>
 
             </section>
 
-            <!-- ---------- Panel lateral derecho: feedback / mensaje de éxito ---------- -->
-            <aside id="sidePanel" class="side-panel">
+            <!-- PANEL DERECHO -->
 
-                <!-- Usado por actividades 1, 2 y 3 -->
+            <aside
+                id="sidePanel"
+                class="side-panel">
+
                 <div
                     id="feedbackContent"
                     class="feedback-content"
@@ -204,7 +308,6 @@
                     aria-atomic="true">
                 </div>
 
-                <!-- Usado por la actividad 4 -->
                 <div
                     id="activity4Panel"
                     class="activity4-panel"
@@ -212,22 +315,46 @@
                     aria-atomic="true">
 
                     <div class="success-image-slot top">
-                        <img id="helpImageTop" src="Imagenes/aa.png" alt="Imagen de apoyo">
+
+                        <img
+                            id="helpImageTop"
+                            src="Imagenes/aa.png"
+                            alt="Imagen de apoyo">
+
                     </div>
 
                     <div class="success-content">
-                        <h3 id="helpMessage">✨ Buena elección</h3>
+
+                        <h3 id="helpMessage">
+                            ✨ Buena elección
+                        </h3>
+
                     </div>
 
                     <div class="success-image-slot bottom">
-                        <img id="helpImageBottom" src="Imagenes/aa.png" alt="Imagen de apoyo">
+
+                        <img
+                            id="helpImageBottom"
+                            src="Imagenes/aa.png"
+                            alt="Imagen de apoyo">
+
                     </div>
 
                 </div>
 
-                <button id="continueBtn" class="next-btn hidden" type="button">
-                    <span id="continueText">Siguiente</span>
-                    <span class="arrow">→</span>
+                <button
+                    id="continueBtn"
+                    class="next-btn hidden"
+                    type="button">
+
+                    <span id="continueText">
+                        Siguiente
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </button>
 
             </aside>
@@ -237,24 +364,40 @@
     </section>
 
     <!-- =====================================================
-         ACTIVIDAD 5 — Pregunta de opción múltiple con imagen
+         ACTIVIDAD 5
     ====================================================== -->
-    <section id="actividad-5" class="activity-screen hidden-activity">
+
+    <section
+        id="actividad-5"
+        class="activity-screen hidden-activity">
 
         <header class="game-header">
 
-            <button id="backBtn5" class="back-btn" type="button" aria-label="Regresar">←</button>
+            <button
+                id="backBtn5"
+                class="back-btn"
+                type="button"
+                aria-label="Regresar">
+                ←
+            </button>
 
-            <h1>Escoger la respuesta correcta</h1>
+            <h1>
+                Escoger la respuesta correcta
+            </h1>
 
             <div class="progress-container">
-                <div class="progress">5/8</div>
+
+                <div class="progress">
+                    5/8
+                </div>
+
                 <div class="progress-dots">
                     <span class="active"></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
+
             </div>
 
         </header>
@@ -263,55 +406,131 @@
 
             <section class="activity-card">
 
-                <h2 id="questionTitle5">Emociones más complejas</h2>
+                <h2 id="questionTitle5">
+                    Emociones más complejas
+                </h2>
 
-                <p id="questionText5" class="question-text">
+                <p
+                    id="questionText5"
+                    class="question-text">
                     ¿Cómo crees que se siente esta persona?
                 </p>
 
                 <div class="question-image-slot">
-                    <img id="questionImage5" src="Imagenes/71.png" alt="Situación">
+
+                    <img
+                        id="questionImage5"
+                        src="Imagenes/71.png"
+                        alt="Situación">
+
                 </div>
 
-                <div id="answers5" class="answers">
+                <div
+                    id="answers5"
+                    class="answers">
 
-                    <button type="button" class="answer" data-correct="true">
-                        <span class="answer-image"><img src="Imagenes/72.png" alt=""></span>
-                        <span class="answer-text">Nerviosa</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="true">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/72.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            Nerviosa
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/73.png" alt=""></span>
-                        <span class="answer-text">Feliz</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/73.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            Feliz
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/74.png" alt=""></span>
-                        <span class="answer-text">Enojada</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/74.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            Enojada
+                        </span>
+
                     </button>
 
                 </div>
 
             </section>
 
-            <!-- Panel de retroalimentación (se muestra tras responder) -->
-            <aside id="helpPanel5" class="help-panel hidden" aria-live="polite" aria-atomic="true">
+            <aside
+                id="helpPanel5"
+                class="help-panel hidden"
+                aria-live="polite"
+                aria-atomic="true">
 
                 <div class="success-image-slot top">
-                    <img id="helpImageTop5" src="" alt="Imagen de apoyo">
+
+                    <img
+                        id="helpImageTop5"
+                        src=""
+                        alt="Imagen de apoyo">
+
                 </div>
 
                 <div class="success-content">
-                    <h3 id="helpMessage5">💭 Pensemos</h3>
+
+                    <h3 id="helpMessage5">
+                        💭 Pensemos
+                    </h3>
+
                 </div>
 
-                <div id="helpBottomSlot5" class="success-image-slot bottom">
-                    <img id="helpImageBottom5" src="" alt="Imagen de apoyo">
+                <div
+                    id="helpBottomSlot5"
+                    class="success-image-slot bottom">
+
+                    <img
+                        id="helpImageBottom5"
+                        src=""
+                        alt="Imagen de apoyo">
+
                 </div>
 
-                <button id="nextButton5" class="next-btn" type="button">
-                    <span>Continuar</span>
-                    <span class="arrow">→</span>
+                <button
+                    id="nextButton5"
+                    class="next-btn"
+                    type="button">
+
+                    <span>
+                        Continuar
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </button>
 
             </aside>
@@ -321,24 +540,40 @@
     </section>
 
     <!-- =====================================================
-         ACTIVIDAD 6 — Pregunta de opción múltiple con imagen
+         ACTIVIDAD 6
     ====================================================== -->
-    <section id="actividad-6" class="activity-screen hidden-activity">
+
+    <section
+        id="actividad-6"
+        class="activity-screen hidden-activity">
 
         <header class="game-header">
 
-            <button id="backBtn6" class="back-btn" type="button" aria-label="Regresar">←</button>
+            <button
+                id="backBtn6"
+                class="back-btn"
+                type="button"
+                aria-label="Regresar">
+                ←
+            </button>
 
-            <h1>Escoger la respuesta correcta</h1>
+            <h1>
+                Escoger la respuesta correcta
+            </h1>
 
             <div class="progress-container">
-                <div class="progress">6/8</div>
+
+                <div class="progress">
+                    6/8
+                </div>
+
                 <div class="progress-dots">
                     <span></span>
                     <span class="active"></span>
                     <span></span>
                     <span></span>
                 </div>
+
             </div>
 
         </header>
@@ -347,54 +582,131 @@
 
             <section class="activity-card">
 
-                <h2 id="questionTitle6">Emociones más complejas</h2>
+                <h2 id="questionTitle6">
+                    Emociones más complejas
+                </h2>
 
-                <p id="questionText6" class="question-text">
+                <p
+                    id="questionText6"
+                    class="question-text">
                     ¿Qué estará pensando?
                 </p>
 
                 <div class="question-image-slot">
-                    <img id="questionImage6" src="Imagenes/80.png" alt="Situación">
+
+                    <img
+                        id="questionImage6"
+                        src="Imagenes/80.png"
+                        alt="Situación">
+
                 </div>
 
-                <div id="answers6" class="answers">
+                <div
+                    id="answers6"
+                    class="answers">
 
-                    <button type="button" class="answer" data-correct="true">
-                        <span class="answer-image"><img src="Imagenes/81.png" alt=""></span>
-                        <span class="answer-text">Espero que sea para mí.</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="true">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/81.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            Espero que sea para mí.
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/82.png" alt=""></span>
-                        <span class="answer-text">Ojalá no me regañen.</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/82.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            Ojalá no me regañen.
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/83.png" alt=""></span>
-                        <span class="answer-text">No quiero ir a la fiesta.</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+                            <img
+                                src="Imagenes/83.png"
+                                alt="">
+                        </span>
+
+                        <span class="answer-text">
+                            No quiero ir a la fiesta.
+                        </span>
+
                     </button>
 
                 </div>
 
             </section>
 
-            <aside id="helpPanel6" class="help-panel hidden" aria-live="polite" aria-atomic="true">
+            <aside
+                id="helpPanel6"
+                class="help-panel hidden"
+                aria-live="polite"
+                aria-atomic="true">
 
                 <div class="success-image-slot top">
-                    <img id="helpImageTop6" src="" alt="Imagen de apoyo">
+
+                    <img
+                        id="helpImageTop6"
+                        src=""
+                        alt="Imagen de apoyo">
+
                 </div>
 
                 <div class="success-content">
-                    <h3 id="helpMessage6">💭 Pensemos</h3>
+
+                    <h3 id="helpMessage6">
+                        💭 Pensemos
+                    </h3>
+
                 </div>
 
-                <div id="helpBottomSlot6" class="success-image-slot bottom">
-                    <img id="helpImageBottom6" src="" alt="Imagen de apoyo">
+                <div
+                    id="helpBottomSlot6"
+                    class="success-image-slot bottom">
+
+                    <img
+                        id="helpImageBottom6"
+                        src=""
+                        alt="Imagen de apoyo">
+
                 </div>
 
-                <button id="nextButton6" class="next-btn" type="button">
-                    <span>Continuar</span>
-                    <span class="arrow">→</span>
+                <button
+                    id="nextButton6"
+                    class="next-btn"
+                    type="button">
+
+                    <span>
+                        Continuar
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </button>
 
             </aside>
@@ -404,24 +716,40 @@
     </section>
 
     <!-- =====================================================
-         ACTIVIDAD 7 — Pregunta de opción múltiple con imagen
+         ACTIVIDAD 7
     ====================================================== -->
-    <section id="activity7" class="activity-screen hidden-activity">
+
+    <section
+        id="activity7"
+        class="activity-screen hidden-activity">
 
         <header class="game-header">
 
-            <button id="btnBack7" class="back-btn" type="button" aria-label="Volver">←</button>
+            <button
+                id="btnBack7"
+                class="back-btn"
+                type="button"
+                aria-label="Volver">
+                ←
+            </button>
 
-            <h1 id="activityTitle7">Escoger la respuesta correcta</h1>
+            <h1 id="activityTitle7">
+                Escoger la respuesta correcta
+            </h1>
 
             <div class="progress-container">
-                <div class="progress">7/8</div>
+
+                <div class="progress">
+                    7/8
+                </div>
+
                 <div class="progress-dots">
                     <span></span>
                     <span></span>
                     <span class="active"></span>
                     <span></span>
                 </div>
+
             </div>
 
         </header>
@@ -431,54 +759,139 @@
             <section class="activity-card">
 
                 <h2 class="question-heading">
-                    <span class="question-number">7.</span>
+
+                    <span class="question-number">
+                        7.
+                    </span>
+
                     Emociones más complejas
+
                 </h2>
 
-                <p class="question-text">¿Qué estará pensando?</p>
+                <p class="question-text">
+                    ¿Qué estará pensando?
+                </p>
 
                 <div class="question-image-slot">
-                    <img src="Imagenes/90.png" alt="Situación">
+
+                    <img
+                        src="Imagenes/90.png"
+                        alt="Situación">
+
                 </div>
 
-                <div id="answers7" class="answers">
+                <div
+                    id="answers7"
+                    class="answers">
 
-                    <button type="button" class="answer" data-correct="true">
-                        <span class="answer-image"><img src="Imagenes/91.png" alt=""></span>
-                        <span class="answer-text">Escucharla y acompañarla.</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="true">
+
+                        <span class="answer-image">
+
+                            <img
+                                src="Imagenes/91.png"
+                                alt="">
+
+                        </span>
+
+                        <span class="answer-text">
+                            Escucharla y acompañarla.
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/92.png" alt=""></span>
-                        <span class="answer-text">Decirle que no es para tanto.</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+
+                            <img
+                                src="Imagenes/92.png"
+                                alt="">
+
+                        </span>
+
+                        <span class="answer-text">
+                            Decirle que no es para tanto.
+                        </span>
+
                     </button>
 
-                    <button type="button" class="answer" data-correct="false">
-                        <span class="answer-image"><img src="Imagenes/93.png" alt=""></span>
-                        <span class="answer-text">Ignorarla</span>
+                    <button
+                        type="button"
+                        class="answer"
+                        data-correct="false">
+
+                        <span class="answer-image">
+
+                            <img
+                                src="Imagenes/93.png"
+                                alt="">
+
+                        </span>
+
+                        <span class="answer-text">
+                            Ignorarla
+                        </span>
+
                     </button>
 
                 </div>
 
             </section>
 
-            <aside id="helpPanel7" class="help-panel hidden" aria-live="polite" aria-atomic="true">
+            <aside
+                id="helpPanel7"
+                class="help-panel hidden"
+                aria-live="polite"
+                aria-atomic="true">
 
                 <div class="success-image-slot top">
-                    <img id="helpImage7" src="" alt="">
+
+                    <img
+                        id="helpImage7"
+                        src=""
+                        alt="">
+
                 </div>
 
                 <div class="success-content">
-                    <h3 id="helpMessage7">✨ ¡Muy bien!</h3>
+
+                    <h3 id="helpMessage7">
+                        ✨ ¡Muy bien!
+                    </h3>
+
                 </div>
 
-                <div id="helpBottom7" class="success-image-slot bottom">
-                    <img id="helpBottomImage7" src="" alt="">
+                <div
+                    id="helpBottom7"
+                    class="success-image-slot bottom">
+
+                    <img
+                        id="helpBottomImage7"
+                        src=""
+                        alt="">
+
                 </div>
 
-                <button id="continue7" class="next-btn" type="button">
-                    <span>Continuar</span>
-                    <span class="arrow">→</span>
+                <button
+                    id="continue7"
+                    class="next-btn"
+                    type="button">
+
+                    <span>
+                        Continuar
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </button>
 
             </aside>
@@ -488,24 +901,40 @@
     </section>
 
     <!-- =====================================================
-         ACTIVIDAD 8 — Emparejar cómo cambia una emoción (final)
+         ACTIVIDAD 8
     ====================================================== -->
-    <section id="activity8" class="activity-screen hidden-activity">
+
+    <section
+        id="activity8"
+        class="activity-screen hidden-activity">
 
         <header class="game-header">
 
-            <button id="btnBack8" class="back-btn" type="button" aria-label="Volver">←</button>
+            <button
+                id="btnBack8"
+                class="back-btn"
+                type="button"
+                aria-label="Volver">
+                ←
+            </button>
 
-            <h1 id="activityTitle8">Reconocer expresiones faciales</h1>
+            <h1 id="activityTitle8">
+                Reconocer expresiones faciales
+            </h1>
 
             <div class="progress-container">
-                <div class="progress">8/8</div>
+
+                <div class="progress">
+                    8/8
+                </div>
+
                 <div class="progress-dots">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span class="active"></span>
                 </div>
+
             </div>
 
         </header>
@@ -514,24 +943,45 @@
 
             <section class="activity-card activity-card-8">
 
-                <!-- Capa donde el JS dibuja el confeti al acertar -->
-                <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+                <div
+                    id="confettiLayer"
+                    class="confetti-layer"
+                    aria-hidden="true">
+                </div>
 
                 <h2 class="question-heading">
-                    <span class="question-number">8.</span>
+
+                    <span class="question-number">
+                        8.
+                    </span>
+
                     ¿Cómo cambia la emoción?
+
                 </h2>
 
-                <!-- Personajes de ejemplo (ilustrativos, no interactivos) -->
                 <div class="character-row">
 
                     <div class="character-block">
-                        <img class="character-img character-img--sad" src="Imagenes/107.png" alt="Niño triste pensando">
-                        <img class="thought-bubble-img" src="Imagenes/108.png" alt="Burbuja de pensamiento">
+
+                        <img
+                            class="character-img character-img--sad"
+                            src="Imagenes/107.png"
+                            alt="Niño triste pensando">
+
+                        <img
+                            class="thought-bubble-img"
+                            src="Imagenes/108.png"
+                            alt="Burbuja de pensamiento">
+
                     </div>
 
                     <div class="character-block">
-                        <img class="character-img character-img--happy" src="Imagenes/109.png" alt="Niño feliz con un coche de juguete">
+
+                        <img
+                            class="character-img character-img--happy"
+                            src="Imagenes/109.png"
+                            alt="Niño feliz con un coche de juguete">
+
                     </div>
 
                 </div>
@@ -540,64 +990,187 @@
                     Observa cómo una situación puede transformar una emoción en otra.
                 </p>
 
-                <!-- Filas de emparejamiento: emoción inicial → emoción final -->
                 <div class="match-rows">
 
-                    <div class="match-row" data-pair="1">
-                        <button class="pill pill--left" type="button" data-side="left" data-pair="1">
-                            <img class="pill-icon" src="Imagenes/100.png" alt="">
-                            <span>Triste</span>
+                    <div
+                        class="match-row"
+                        data-pair="1">
+
+                        <button
+                            class="pill pill--left"
+                            type="button"
+                            data-side="left"
+                            data-pair="1">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/100.png"
+                                alt="">
+
+                            <span>
+                                Triste
+                            </span>
+
                         </button>
-                        <span class="row-arrow">➔</span>
-                        <button class="pill pill--right" type="button" data-side="right" data-pair="1">
-                            <img class="pill-icon" src="Imagenes/101.png" alt="">
-                            <span>Feliz</span>
+
+                        <span class="row-arrow">
+                            ➔
+                        </span>
+
+                        <button
+                            class="pill pill--right"
+                            type="button"
+                            data-side="right"
+                            data-pair="1">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/101.png"
+                                alt="">
+
+                            <span>
+                                Feliz
+                            </span>
+
                         </button>
+
                     </div>
 
-                    <div class="match-row" data-pair="2">
-                        <button class="pill pill--left" type="button" data-side="left" data-pair="2">
-                            <img class="pill-icon" src="Imagenes/102.png" alt="">
-                            <span>Enojado</span>
+                    <div
+                        class="match-row"
+                        data-pair="2">
+
+                        <button
+                            class="pill pill--left"
+                            type="button"
+                            data-side="left"
+                            data-pair="2">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/102.png"
+                                alt="">
+
+                            <span>
+                                Enojado
+                            </span>
+
                         </button>
-                        <span class="row-arrow">➔</span>
-                        <button class="pill pill--right" type="button" data-side="right" data-pair="2">
-                            <img class="pill-icon" src="Imagenes/103.png" alt="">
-                            <span>Normal</span>
+
+                        <span class="row-arrow">
+                            ➔
+                        </span>
+
+                        <button
+                            class="pill pill--right"
+                            type="button"
+                            data-side="right"
+                            data-pair="2">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/103.png"
+                                alt="">
+
+                            <span>
+                                Normal
+                            </span>
+
                         </button>
+
                     </div>
 
-                    <div class="match-row" data-pair="3">
-                        <button class="pill pill--left" type="button" data-side="left" data-pair="3">
-                            <img class="pill-icon" src="Imagenes/104.png" alt="">
-                            <span>Asustado</span>
+                    <div
+                        class="match-row"
+                        data-pair="3">
+
+                        <button
+                            class="pill pill--left"
+                            type="button"
+                            data-side="left"
+                            data-pair="3">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/104.png"
+                                alt="">
+
+                            <span>
+                                Asustado
+                            </span>
+
                         </button>
-                        <span class="row-arrow">➔</span>
-                        <button class="pill pill--right" type="button" data-side="right" data-pair="3">
-                            <img class="pill-icon" src="Imagenes/105.png" alt="">
-                            <span>Seguro</span>
+
+                        <span class="row-arrow">
+                            ➔
+                        </span>
+
+                        <button
+                            class="pill pill--right"
+                            type="button"
+                            data-side="right"
+                            data-pair="3">
+
+                            <img
+                                class="pill-icon"
+                                src="Imagenes/105.png"
+                                alt="">
+
+                            <span>
+                                Seguro
+                            </span>
+
                         </button>
+
                     </div>
 
                 </div>
 
             </section>
 
-            <!-- Panel de retroalimentación final: correcto / incorrecto -->
-            <aside id="feedbackPanel8" class="help-panel hidden" aria-live="polite" aria-atomic="true">
+            <aside
+                id="feedbackPanel8"
+                class="help-panel hidden"
+                aria-live="polite"
+                aria-atomic="true">
 
-                <div id="incorrectState8" class="feedback-state hidden">
-                    <img class="feedback-mascot" src="Imagenes/115.png" alt="Cerebro con lupa">
-                    <h3 class="feedback-title feedback-title--incorrect">💡 ¡Casi lo logras!</h3>
+                <div
+                    id="incorrectState8"
+                    class="feedback-state hidden">
+
+                    <img
+                        class="feedback-mascot"
+                        src="Imagenes/115.png"
+                        alt="Cerebro con lupa">
+
+                    <h3 class="feedback-title feedback-title--incorrect">
+                        💡 ¡Casi lo logras!
+                    </h3>
+
                     <p class="feedback-text">
                         Las emociones pueden cambiar cuando sucede algo bueno o cuando alguien nos ayuda.
                     </p>
+
                 </div>
 
-                <div id="correctState8" class="feedback-state hidden">
-                    <img class="feedback-star" src="Imagenes/113.png" alt="Estrella">
-                    <h3 class="feedback-title feedback-title--correct">🏆 ¡Felicidades!</h3>
-                    <img class="feedback-mascot feedback-mascot--trophy" src="Imagenes/114.png" alt="Muñeco lila sosteniendo un trofeo">
+                <div
+                    id="correctState8"
+                    class="feedback-state hidden">
+
+                    <img
+                        class="feedback-star"
+                        src="Imagenes/113.png"
+                        alt="Estrella">
+
+                    <h3 class="feedback-title feedback-title--correct">
+                        🏆 ¡Felicidades!
+                    </h3>
+
+                    <img
+                        class="feedback-mascot feedback-mascot--trophy"
+                        src="Imagenes/114.png"
+                        alt="Muñeco lila sosteniendo un trofeo">
+
                 </div>
 
             </aside>
@@ -606,9 +1179,6 @@
 
     </section>
 
-    <!-- ============================================================
-         LÓGICA DE LA APLICACIÓN
-    ============================================================= -->
     <script src="Final.js"></script>
 
 </body>
